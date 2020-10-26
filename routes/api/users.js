@@ -3,35 +3,22 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
-// const keys = require('../../config/keys');
-// const passport = require('passport');
-// const validateRegisterInput = require('../../validation/register');
-// const validateLoginInput = require('../../validation/login');
+const keys = require('../../config/keys_dev');
+const passport = require('passport');
+const validateRegisterInput = require('../../validation/register');
+const validateLoginInput = require('../../validation/login');
 
-
-// router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
-//     res.json({
-//       id: req.user.id,
-//       handle: req.user.handle,
-//       email: req.user.email
-//     });
-//   })
-
-router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.post("/register", (req, res) => {
-    // const { errors, isValid } = validateRegisterInput(req.body);
+    const { errors, isValid } = validateRegisterInput(req.body);
 
-    // if (!isValid) {
-    // return res.status(400).json(errors);
-    // }
-
-
-
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
     User.findOne({ username: req.body.username }).then(user => {
         if (user) {
-        errors.handle = "User already exists";
-        return res.status(400).json(errors);
+          errors = "User already exists";
+          return res.status(400).json(errors);
         } else {
         const newUser = new User({
             username: req.body.username,
@@ -66,18 +53,18 @@ router.post("/register", (req, res) => {
 
 
 router.post("/login", (req, res) => {
-    // const { errors, isValid } = validateLoginInput(req.body);
+    const { errors, isValid } = validateLoginInput(req.body);
   
-    // if (!isValid) {
-    //   return res.status(400).json(errors);
-    // }
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
   
     const email = req.body.email;
     const password = req.body.password;
   
     User.findOne({ email: email }).then(user => {
       if (!user) {
-        errors.handle = "This user does not exist";
+        errors = "This user does not exist";
         return res.status(400).json(errors);
       }
   
