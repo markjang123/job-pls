@@ -6,7 +6,7 @@ const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const postings = require("./routes/api/postings");
 const bodyParser = require('body-parser');
-// const passport = require('passport');
+const passport = require('passport');
 // const path = require('path');
 
 app.get("/", (req, res) => res.send("Hello World"));
@@ -26,8 +26,8 @@ mongoose
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
-// app.use(passport.initialize());
-// require('./config/passport')(passport);
+app.use(passport.initialize());
+require('./config/passport')(passport);
 
 
 

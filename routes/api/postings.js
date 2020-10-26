@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-// const passport = require('passport');
+const passport = require('passport');
 
 const Posting = require('../../models/Posting');
-// const validatePostingInput = require('../../validation/postings');
+const validatePostingInput = require('../../validation/postings');
 
 router.get('/', (req, res) => {
     Posting.find()
@@ -32,18 +32,18 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/',
-    // passport.authenticate('jwt', { session: false }),
+    passport.authenticate('jwt', { session: false }),
     (req, res) => {
-      // const { errors, isValid } = validatePostingInput(req.body);
+      const { errors, isValid } = validatePostingInput(req.body);
   
-      // if (!isValid) {
-      //   return res.status(400).json(errors);
-      // }
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
   
       const newPosting = new Posting({
-        user: req.user.id,
+        user: req.body.user.id,
         posting_url: req.body.posting_url,
-        status: '',
+        status: 'none',
         company: req.body.company,
         salary: req.body.salary,
         description: req.body.description,

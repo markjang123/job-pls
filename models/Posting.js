@@ -19,12 +19,10 @@ const PostingSchema = new Schema({
     required: true
   },
   salary: {
-    type: Number,
-    required: true
+    type: Number
   },
   description: {
-    type: String,
-    required: true
+    type: String
   },
   public: {
     type: Boolean,
