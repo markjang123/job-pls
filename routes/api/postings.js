@@ -41,8 +41,13 @@ router.post('/',
       // }
   
       const newPosting = new Posting({
-        text: req.body.text,
-        user: req.user.id
+        user: req.user.id,
+        posting_url: req.body.posting_url,
+        status: '',
+        company: req.body.company,
+        salary: req.body.salary,
+        description: req.body.description,
+        public: true
       });
   
       newPosting.save().then(posting => res.json(posting));
