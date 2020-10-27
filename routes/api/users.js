@@ -9,9 +9,9 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
 
+
 router.post("/register", (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
-
     if (!isValid) {
       return res.status(400).json(errors);
     }
@@ -85,6 +85,14 @@ router.post("/login", (req, res) => {
       });
     });
   });
+
+  router.get('/:id', (req, res) => {
+    User.findById(req.params.id)
+        .then(user => res.json(user))
+        .catch(err =>
+            res.status(404).json({ nouserfound: 'No user found with that ID' })
+        );
+});
 
 
 module.exports = router;
