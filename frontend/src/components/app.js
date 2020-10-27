@@ -1,10 +1,12 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import SessionForm from './session/session_form'
+import LoginFormContainer from './session/login_form_container'
+import SignupFormContainer from './session/signup_form_container'
 const App = () => {
     return (
-        <div> APP COMPONENT
-            {/* <Route path="/" component={SessionForm}/> */}
+        <div> 
+            <Route path="/login" component={LoginFormContainer}/>
+            <Route path="/signup" component={SignupFormContainer}/>
         </div>
     )
 }
