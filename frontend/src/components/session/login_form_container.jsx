@@ -1,22 +1,20 @@
 import {connect} from 'react-redux';
-// import {login} from '../../actions/session_actions'
+import {login} from '../../actions/session_actions'
 import SessionForm from './session_form'
-// import {requestUser} from '../../actions/user_actions'
 
 const mapStateToProps = state => {
     return {
         user: {
-            username_or_email: "",
+            email: "",
             password: ""
         },
-        currentUserId: state.session.currentUserId,
         formType: "Log in"
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        null: "null"
+        submitAction: user => dispatch(login(user))
     }
 }
 const LoginFormContainer = connect(mapStateToProps, mapDispatchToProps)(SessionForm)
