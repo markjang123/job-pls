@@ -1,7 +1,10 @@
 import React from 'react'
+
 class SessionForm extends React.Component {
-    render(){
-        return <div className="session-form"></div>
+    render() {
+        return <div className="session-form">
+
+        </div>
     }
 }
 
