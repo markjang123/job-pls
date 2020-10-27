@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node app.js",
     "server": "nodemon app.js",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "frontend-install": "npm install --prefix frontend",
+    "frontend": "npm start --prefix frontend"
   },
   "repository": {
     "type": "git",

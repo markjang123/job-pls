@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import SessionForm from '../components/session_form'
+import SessionForm from './session/session_form'
 const App = () => {
     return (
         <div> APP COMPONENT
