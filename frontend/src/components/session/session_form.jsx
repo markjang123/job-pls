@@ -3,19 +3,14 @@ import './session_form.css'
 class SessionForm extends React.Component {
     constructor(props){
         super(props)
-        this.state = {
-            email: "",
-            password: ""
-        }
+        this.state = this.props.user
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     handleSubmit(e){
         e.preventDefault()
-        let user = {
-            email: this.state.email,
-            password: this.state.password
-        }
-        this.props.login(user)
+        debugger
+        let user = this.state
+        this.props.submitAction(user)
     }
     update(field){
         return e => {
@@ -28,9 +23,10 @@ class SessionForm extends React.Component {
             <h3>{this.props.formType}</h3>
             <form onSubmit={this.handleSubmit}>
                 <input type="text" onChange={this.update("email")} value={this.state.email} placeholder="email" />
+                {this.props.formType === "Sign up" && <input type="text" placeholder="username" onChange={this.update("username")} value={this.state.username}/ >}
                 <input type="password" onChange={this.update("password")} value={this.state.password} placeholder="password" />
-                {this.props.user.username && <input type="username" placeholder="username"></input>}
-                <input type="submit" value="sign in" />
+                {this.props.formType === "Sign up" && <input type="password" placeholder="confirm password" onChange={this.update("password2")} value={this.state.password2}/ >}
+                <input type="submit" value={this.props.formType} />
             </form>
         </div>
     }
