@@ -1,7 +1,6 @@
 import {connect} from 'react-redux';
-// import {signup} from '../../actions/session_actions'
+import {signup} from '../../actions/session_actions'
 import SessionForm from './session_form'
-// import {requestUser} from '../../actions/user_actions'
 
 
 const mapStateToProps = state => {
@@ -10,15 +9,15 @@ const mapStateToProps = state => {
             username: "",
             email: "",
             password: "",
+            password2: ""
         },
-        currentUserId: state.session.currentUserId,
         formType: "Sign up"
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        null: "null"
+        submitAction: user => dispatch(signup(user))
     }
 }
 const SignupFormContainer = connect(mapStateToProps, mapDispatchToProps)(SessionForm)
