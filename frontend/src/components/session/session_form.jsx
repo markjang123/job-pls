@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {login} from '../../actions/session_actions'
 import './session_form.css'
 
 class SessionForm extends React.Component {
@@ -13,10 +13,15 @@ class SessionForm extends React.Component {
         this.props.clearSessionErrors()
     }
     handleSubmit(e){
+        debugger
         e.preventDefault()
         let user = this.state
         this.props.submitAction(user)
-            .then(this.props.history.push("/jobs"))
+            .then(() => {
+                if (this.props.isAuthenticated) {
+                    this.props.history.push("/jobs")
+                }
+            })
     }
     update(field){
         return e => {

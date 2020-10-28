@@ -1,5 +1,6 @@
 .session-form {
-    height: 1000px;
-    width: 1000px;
-    background-color: gray;
+    height: 650px;
+    width: 500px;
+    background-color: aqua;
+    border-radius: 10px;
 }
