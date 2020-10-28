@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-
 import PostShow from './post_show';
 
 const mSTP = ({ entities: { posts, users }, session }, ownProps) => {
@@ -20,3 +19,6 @@ const mDTP = dispatch => {
         // need function to save job to db
     }
 }
+
+export default connect(mSTP,mDTP)(PostShow)
+

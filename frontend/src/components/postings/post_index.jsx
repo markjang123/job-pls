@@ -21,9 +21,16 @@ class PostIndex extends React.Component{
     render(){
         // {check}
         const { posts } = this.props;
+        // if (pin === undefined) return null;
+        if (posts === undefined) return null;
+        // debugger
         
         return(
-            <div clasName='index-container'>
+            <div className='index-container'>
+                <div>
+                    <h1>HELLO</h1>
+                </div>
+
                 {posts.map(post => (
                     <PostIndexItem
                         post={post}
