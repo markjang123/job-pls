@@ -36,9 +36,9 @@ router.post('/',
     (req, res) => {
       const { errors, isValid } = validatePostingInput(req.body);
   
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
+      // if (!isValid) {
+      //   return res.status(400).json(errors);
+      // }
   
       const newPosting = new Posting({
         job_title: req.body.job_title,

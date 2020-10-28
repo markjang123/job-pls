@@ -7,7 +7,7 @@ const users = require("./routes/api/users");
 const postings = require("./routes/api/postings");
 const bodyParser = require('body-parser');
 const passport = require('passport');
-// const path = require('path');
+const path = require('path');
 
 app.get("/", (req, res) => res.send("Howdy World"));
 

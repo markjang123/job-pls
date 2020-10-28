@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const getPostings = () => {
+    debugger
     return axios.get('/api/postings')
 };
 
