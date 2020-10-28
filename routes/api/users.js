@@ -8,6 +8,7 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const mongoose = require('mongoose');
+const { query } = require("express");
 
 
 
@@ -85,7 +86,10 @@ router.post("/login", (req, res) => {
   });
 
   router.get('/follows', (req, res) => {
-    const userIdArray = req.body.followedUsersArray.split(",")
+    const userIdArray = req.body.followedUsersArray.split(",");
+    User.find({_id: {$in : userIdArray}})
+    .then(folUser => res.json(folUser))
+    .catch(errors => res.json(errors))
   });
 
   router.get('/:id', (req, res) => {
