@@ -16,6 +16,7 @@ class SessionForm extends React.Component {
         e.preventDefault()
         let user = this.state
         this.props.submitAction(user)
+            .then(this.props.history.push("/jobs"))
     }
     update(field){
         return e => {
