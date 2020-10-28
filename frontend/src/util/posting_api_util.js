@@ -12,3 +12,7 @@ export const getUserPostings = id => {
 export const writePosting = data => {
     return axios.post('/api/postings/', data)
 };
+
+export const searchAPIPosting = data => {
+    return axios.post('/api/postings/search', data)
+};
