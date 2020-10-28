@@ -32,6 +32,7 @@ class PostIndex extends React.Component{
                 <div>
                     <h1>HELLO</h1>
                 </div>
+
                 {posts.map(post => (
                     <PostIndexItem
                         post={post}

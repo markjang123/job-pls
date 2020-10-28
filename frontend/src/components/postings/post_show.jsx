@@ -11,9 +11,8 @@ class PostShow extends React.Component{
 
     addJob(e){
         e.preventDefault();
-        // this.props.addPost(this.props.post.id).then(
-            this.props.post.status = 'interested'
-        // )
+        this.props.addPost(this.props.post.id)
+        .then(this.props.post.status = 'interested')
     }
 
     render(){
