@@ -15,7 +15,8 @@ const mSTP = ({ entities: { posts, users }, session }, ownProps) => {
 
 const mDTP = dispatch => {
     return{
-        addPost = postId => dispatch(addPost(postId)), // our list of job apps
+        // addPost: postId => dispatch(addPost(postId)), // our list of job apps
+        addPost: postId => console.log("this"), // our list of job apps
         // need function to save job to db
     }
 }

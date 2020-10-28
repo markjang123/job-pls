@@ -7,6 +7,7 @@ const App = () => {
         <div> 
             <Route path="/login" component={LoginFormContainer}/>
             <Route path="/signup" component={SignupFormContainer}/>
+            <Route path="/" component={SignupFormContainer}/>
         </div>
     )
 }
