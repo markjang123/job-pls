@@ -18,6 +18,10 @@ const UserSchema = new Schema({
     followed_user: [{
       type: Schema.Types.ObjectId,
       ref: 'users'
+    }],
+    followed_posting: [{
+      type: Schema.Types.ObjectId,
+      ref: 'postings'
     }]
   },
    {
