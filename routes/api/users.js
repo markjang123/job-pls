@@ -7,6 +7,7 @@ const keys = require('../../config/keys_dev');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const mongoose = require('mongoose');
 
 
 
@@ -83,13 +84,18 @@ router.post("/login", (req, res) => {
     });
   });
 
+  router.get('/follows', (req, res) => {
+    const userIdArray = req.body.followedUsersArray.split(",")
+  });
+
   router.get('/:id', (req, res) => {
     User.findById(req.params.id)
-        .then(user => res.json(user))
-        .catch(err =>
-            res.status(404).json({ nouserfound: 'No user found with that ID' })
-        );
-});
+    .then(user => res.json(user))
+    .catch(err => res.status(404)
+    .json({ nouserfound: 'No user found with that ID' }));
+  }); 
+
+
 
 
 module.exports = router;
