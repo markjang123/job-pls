@@ -15,10 +15,12 @@ export const receiveUserSignIn = () => ({
     type: RECEIVE_USER_SIGN_IN
 });
   
-export const receiveErrors = errors => ({
-    type: RECEIVE_SESSION_ERRORS,
-    errors
-});
+export const receiveErrors = errors => {
+    return {
+        type: RECEIVE_SESSION_ERRORS,
+        errors
+    }
+};
 
 export const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT
@@ -44,6 +46,11 @@ export const login = user => dispatch => {
     )
 };
 
+export const clearSessionErrors = () => {
+    return dispatch => {
+        dispatch(receiveErrors({}))
+    }
+}
 export const logout = () => dispatch => {
     localStorage.removeItem('jwtToken')
     APIUtil.setAuthToken(false)
