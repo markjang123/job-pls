@@ -8,10 +8,13 @@ export const RECEIVE_POSTINGS = "RECEIVE_POSTINGS";
 export const RECEIVE_USER_POSTINGS = "RECEIVE_USER_POSTINGS";
 export const RECEIVE_NEW_POSTING = "RECEIVE_NEW_POSTING";
 
-export const receivePostings = postings => ({
-    type: RECEIVE_POSTINGS,
-    postings
-});
+export const receivePostings = postings => {
+    debugger
+    return{
+        type: RECEIVE_POSTINGS,
+        postings
+    }
+};
 
 export const receiveUserPostings = postings => ({
     type: RECEIVE_USER_POSTINGS,

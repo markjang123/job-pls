@@ -32,15 +32,16 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/',
-    passport.authenticate('jwt', { session: false }),
+    // passport.authenticate('jwt', { session: false }),
     (req, res) => {
       const { errors, isValid } = validatePostingInput(req.body);
   
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
+      // if (!isValid) {
+      //   return res.status(400).json(errors);
+      // }
   
       const newPosting = new Posting({
+        job_title: req.body.job_title,
         user: req.body.user.id,
         posting_url: req.body.posting_url,
         status: 'none',
@@ -50,7 +51,7 @@ router.post('/',
         public: true
       });
   
-      newPosting.save().then(posting => res.json(posting));
+      newPosting.save().then(posting => res.json(posting)).catch(errors => res.json(errors));
     }
   );
 

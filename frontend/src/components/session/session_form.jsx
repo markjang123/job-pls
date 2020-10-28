@@ -1,5 +1,7 @@
 import React from 'react'
+
 import './session_form.css'
+
 class SessionForm extends React.Component {
     constructor(props){
         super(props)
@@ -47,4 +49,4 @@ class SessionForm extends React.Component {
     }
 }
 
-export default SessionForm
+export default SessionForm;

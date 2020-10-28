@@ -14,8 +14,17 @@ const UserSchema = new Schema({
     password: {
       type: String,
       required: true
-    }
-  }, {
+    },
+    followed_user: [{
+      type: Schema.Types.ObjectId,
+      ref: 'users'
+    }],
+    followed_posting: [{
+      type: Schema.Types.ObjectId,
+      ref: 'postings'
+    }]
+  },
+   {
     timestamps: true
   })
 
