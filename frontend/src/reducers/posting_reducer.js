@@ -5,19 +5,21 @@ import {
 } from '../actions/posting_actions';
 
 const initialState =  {
-    all: {}, 
-    user: {}, 
-    new: undefined 
+    all: {},  // 
+    user: {}, // 
+    new: undefined // 
 };
   
-const PostingsReducer = (state = initialState, action) => {
+// const PostingsReducer = (state = initialState, action) => {
+const PostingsReducer = (state = {}, action) => {
   
-    Object.freeze(state);
+  Object.freeze(state);
   let newState = Object.assign({}, state);
-
+  
   switch(action.type) {
     case RECEIVE_POSTINGS:
-      newState.all = action.posting.data;
+      debugger
+      newState = action.postings.data;
       return newState;
     case RECEIVE_USER_POSTINGS:
       newState.user = action.postings.data;
