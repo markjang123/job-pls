@@ -1,0 +1,27 @@
+.users-index {
+    /* display: inline-block; */
+    height: 550px;
+    width: 500px;
+    background-color: red;
+    overflow: scroll;
+}
+.users-index-item {
+    height: 80px;
+    border: 2px solid black;
+    margin: 10px;
+    border-radius: 4px;
+    position: relative;
+}
+.follow-button {
+    border: none;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    position: absolute;
+    right: 20px;
+    height: 80%;
+    width: 25%;
+    cursor: pointer;
+    margin: 5px;
+}
