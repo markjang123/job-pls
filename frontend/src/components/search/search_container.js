@@ -1,7 +1,6 @@
 import {connect} from 'react-redux';
 import {searchPosting} from '../../actions/posting_actions'
 import Search from './search'
-import {clearSessionErrors} from '../../actions/session_actions'
 
 const mapStateToProps = state => {
     return {

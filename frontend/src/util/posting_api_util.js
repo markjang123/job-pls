@@ -19,7 +19,3 @@ export const writePosting = data => {
 export const searchAPIPosting = data => {
     return axios.post('/api/postings/search', data)
 };
-
-export const githubSearchAPIPosting = data => {
-    return axios.post('/api/postings/git_search', data)
-};

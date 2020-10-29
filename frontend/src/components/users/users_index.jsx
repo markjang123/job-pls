@@ -11,18 +11,13 @@ class UsersIndex extends React.Component {
     }
 
     render(){
-        console.log('printing props of user index')
-        console.log(this.props)
-        return(
-            <ul className="users-index">
-                {this.props.users.map(user => (
-                    <UsersIndexItem 
-                    user={user}
-                    key={user.id} 
-                    />
-                ))}
-            </ul>   
-        )
+        debugger
+        return <ul className="users-index">
+            {this.props.users.map(user => {
+                return <UsersIndexItem key={user.id} updateAUser={this.props.updateAUser} currentUser={this.props.currentUser} user={user}/>
+            })
+        }
+        </ul>
     }
 }
 
