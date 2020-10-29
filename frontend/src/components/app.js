@@ -15,8 +15,7 @@ const App = () => {
             <ProtectedRoute path="/jobs" component={PostIndexContainer}/>
             <ProtectedRoute path="/search" component={SearchContainer}/>
             <ProtectedRoute path="/git_search" component={GitSearchContainer}/>
-            <Route path="/" component={SignupFormContainer}/>
-
+            <Route exact path="/" component={SignupFormContainer}/>
         </div>
     )
 }

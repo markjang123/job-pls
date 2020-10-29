@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import {login} from '../../actions/session_actions'
+import {signup} from '../../actions/session_actions'
 import SessionForm from './session_form'
 import {clearSessionErrors} from '../../actions/session_actions'
 const mapStateToProps = state => {
@@ -9,14 +10,15 @@ const mapStateToProps = state => {
             password: ""
         },
         formType: "Log in",
-        errors: state.errors.session
+        errors: state.errors.session,
+        isAuthenticated: state.session.isAuthenticated
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         submitAction: user => dispatch(login(user)),
-        clearSessionErrors: () => dispatch(clearSessionErrors())
+        clearSessionErrors: () => dispatch(clearSessionErrors()),
     }
 }
 const LoginFormContainer = connect(mapStateToProps, mapDispatchToProps)(SessionForm)
