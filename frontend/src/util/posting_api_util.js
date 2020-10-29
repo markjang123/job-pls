@@ -1,8 +1,11 @@
 import axios from 'axios';
 
 export const getPostings = () => {
-    debugger
     return axios.get('/api/postings')
+};
+
+export const getPosting = id => {
+    return axios.get(`/api/postings/${id}`)
 };
 
 export const getUserPostings = id => {
@@ -15,4 +18,8 @@ export const writePosting = data => {
 
 export const searchAPIPosting = data => {
     return axios.post('/api/postings/search', data)
+};
+
+export const githubSearchAPIPosting = data => {
+    return axios.post('/api/postings/git_search', data)
 };

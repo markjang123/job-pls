@@ -6,7 +6,11 @@ class UsersIndexItem extends React.Component {
     }
     render(){
         return <div className="users-index-item">
-            <div className="username">{this.props.username}</div>
+            <div className="username-container">
+                <p className="username">
+                    {this.props.username}
+                </p>
+                </div>
             <button className="follow-button">follow</button>
         </div>
         

@@ -1,24 +1,35 @@
 import { connect } from 'react-redux';
 import PostShow from './post_show';
+import { fetchPosting, fetchPostings } from '../../actions/posting_actions';
+// import { fetchPostings } from '../../actions/posting_actions';
+import { withRouter } from 'react-router-dom';
 
-const mSTP = ({ entities: { posts, users }, session }, ownProps) => {
+const mSTP = ({ entities: { posts, users }, session }) => {
 
-    let post = posts[ownProps.match.params.postId];
 
     return{
         currentUser: users[session.id],
-        post
+        posts
     }
-
 }
+
+// const mSTP = (proc) => {
+
+
+//     return {
+//         proc
+//     }
+// }
 
 const mDTP = dispatch => {
     return{
-        // addPost: postId => dispatch(addPost(postId)), // our list of job apps
-        addPost: postId => console.log("this"), // our list of job apps
+
+        fetchPosting: postId => dispatch(fetchPosting(postId)),
+        fetchPostings: () => dispatch(fetchPostings())
+        // addPost: postId => dispatch(addPost(postId)) // our list of job apps
+
         // need function to save job to db
     }
 }
 
-export default connect(mSTP,mDTP)(PostShow)
-
+export default withRouter(connect(mSTP,mDTP)(PostShow))

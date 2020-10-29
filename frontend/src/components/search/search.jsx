@@ -58,30 +58,21 @@ const React = require('react');
 class Search extends React.Component{
     constructor(props){
         super(props)
-        this.state = {
-            keywords: '',
-            location: 'remote',
-            radius: '25',
-            salary: '',
-            page: '1'
-        }
-        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.forceUpdate = this.forceUpdate.bind(this)
     }
 
-    handleChange(type){
-        return e => {
-            this.setState({ [type]: e.currentTarget.value})
-        }
-    }
-
+    
     handleSubmit(e){
         e.preventDefault();
-        let returningState = Object.assign( {}, this.state);
-        returningState['location'] = e.currentTarget[1].value
+        let returningState = {};
+        returningState['keywords'] = e.currentTarget[0].value;
+        returningState['location'] = e.currentTarget[1].value;
+        returningState['radius'] = e.currentTarget[2].value;
+        returningState['salary'] = e.currentTarget[3].value;
+        returningState['page'] = '1';
         this.props.searchPosting(returningState);
     }
+
 
 
     render(){
@@ -94,13 +85,11 @@ class Search extends React.Component{
                 <form onSubmit={this.handleSubmit}>
 
                     <label>Enter keywords for Search
-                        <input type="text" onChange={this.handleChange('keywords')}/>
-                    </label>
-                    
+                        <input type="text"/>
+                    </label>                  
                     
                     <label>Location
                         <select type="dropdown">
-                            {/* <option value='Remote' defaultValue >Remote</option> */}
                             {JOOBLE_LOCATIONS.map((loc, idx) => {
                                 return(
                                     <option key={idx} value={loc}>{`${loc}`}</option>
@@ -108,18 +97,17 @@ class Search extends React.Component{
                             })}
                         </select>
                     </label>
-                    
-                    
+
                     <label>Radius
-                        <input type="text" onChange={this.handleChange('radius')}/>
+                        <input type="text"/>
                     </label>
 
-                    
                     <label>Enter desired Salary
-                        <input type="text" onChange={this.handleChange('salary')}/>
+                        <input type="text"/>
                     </label>
 
-                            <button>Find your dream job</button>
+                    <button>Find your dream job</button>
+                
                 </form>
 
                 {searchedPostings.length === 0 ? <></> :

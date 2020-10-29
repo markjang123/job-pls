@@ -6,8 +6,8 @@ import {signup} from './util/session_api_util'
 import {clearSessionErrors} from '../src/actions/session_actions'
 import {fetchAllUsers} from '../src/actions/user_actions'
 
-  let store = configureStore()
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+    let store = configureStore()
     window.getState = store.getState
     window.signup = signup
     window.dispatch = store.dispatch
