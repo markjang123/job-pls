@@ -1,4 +1,5 @@
 const express = require("express");
+const methodOverride = require("method-override")
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
@@ -8,6 +9,15 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
 
+router.put("/:id", (req, res) => {
+  User.findByIdAndUpdate(req.params.id, req.body)
+  .then(user => res.json(user))
+  .catch(err => {
+    console.log(err.message)
+  })
+
+
+})
 
 router.post("/register", (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);

@@ -12,7 +12,7 @@ class UsersIndex extends React.Component {
         debugger
         return <ul className="users-index">
             {this.props.users.map(user => {
-                return <UsersIndexItem username={user.username}/>
+                return <UsersIndexItem key={user.id} updateAUser={this.props.updateAUser} currentUser={this.props.currentUser} user={user}/>
             })
         }
         </ul>

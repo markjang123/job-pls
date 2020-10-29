@@ -5,6 +5,7 @@ import Root from './components/root'
 import {signup} from './util/session_api_util'
 import {clearSessionErrors} from '../src/actions/session_actions'
 import {fetchAllUsers} from '../src/actions/user_actions'
+import {updateAUser} from '../src/actions/user_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
     let store = configureStore()
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.dispatch = store.dispatch
     window.clearSessionErrors = clearSessionErrors
     window.fetchAllUsers = fetchAllUsers
+    window.updateAUser = updateAUser
     ReactDOM.render(
       <Root store={store} />,
       document.getElementById('root')

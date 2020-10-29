@@ -1,6 +1,6 @@
 .users-index {
     /* display: inline-block; */
-    height: 550px;
+    height: 100vh;
     width: 500px;
     overflow: scroll;
     margin: auto;
