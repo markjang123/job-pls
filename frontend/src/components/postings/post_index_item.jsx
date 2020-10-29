@@ -23,15 +23,28 @@ class PostIndexItem extends React.Component{
         )
     }
 
-    modeFunc(post){
+    // modeFunc(post){
+    //     const modalObject = ({
+    //         type: 'post',
+    //         modal: 'post',
+    //         proc: post
+    //     })
+    //     console.log('logging the modal Object below:')
+    //     console.log(modalObject)
+    //     console.log('logging the modal Object above:')
+    //     this.props.openModal(modalObject);
+    // }
+
+    modeFunc(props) {
         const modalObject = ({
             type: 'post',
             modal: 'post',
-            proc: post
+            proc: props
         })
         console.log('logging the modal Object below:')
         console.log(modalObject)
         console.log('logging the modal Object above:')
+        // this.props.openModal(modalObject);
         this.props.openModal(modalObject);
     }
 
@@ -54,10 +67,7 @@ class PostIndexItem extends React.Component{
                 <ul>
                     <li>{post.status}</li>
                 </ul>
-                {console.log('Logging props from PostIndexItem below:')}
-                {console.log(this.props)}
-                {console.log('Logging props from PostIndexItem above:')}
-                <button onClick={() => this.modeFunc(post) }>Modal Time</button>
+                <button onClick={() => this.modeFunc(this.props) }>Modal Time</button>
             </div>
         )
         // return (

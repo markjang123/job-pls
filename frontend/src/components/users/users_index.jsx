@@ -1,6 +1,7 @@
 import React from 'react'
 import './users_index.css'
 import UsersIndexItem from './user_index_item'
+
 class UsersIndex extends React.Component {
     constructor(props){
         super(props)
@@ -8,15 +9,20 @@ class UsersIndex extends React.Component {
     componentWillMount(){
         this.props.fetchAllUsers()
     }
+
     render(){
-        debugger
-        return <ul className="users-index">
-            {this.props.users.map(user => {
-                return <UsersIndexItem username={user.username}/>
-            })
-        }
-        </ul>
-        
+        console.log('printing props of user index')
+        console.log(this.props)
+        return(
+            <ul className="users-index">
+                {this.props.users.map(user => (
+                    <UsersIndexItem 
+                    user={user}
+                    key={user.id} 
+                    />
+                ))}
+            </ul>   
+        )
     }
 }
 

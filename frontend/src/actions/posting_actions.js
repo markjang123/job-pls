@@ -82,7 +82,6 @@ export const searchPosting = data => dispatch => (
 export const githubSearchPosting = data => dispatch => (
     githubSearchAPIPosting(data)
         .then(postings => {
-            debugger
             dispatch(receiveSearchedGitPosting(postings))})
         .catch(err => console.log(err))
 );
