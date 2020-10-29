@@ -99,6 +99,11 @@ router.post("/login", (req, res) => {
     .json({ nouserfound: 'No user found with that ID' }));
   }); 
 
+  router.get('/', (req, res) => {
+    User.find()
+        .then(users => res.json(users))
+        .catch(err => res.status(404).json({ nousersfound: 'No users found' }));
+});
 
 
 

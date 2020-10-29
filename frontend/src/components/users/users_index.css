@@ -4,6 +4,7 @@
     width: 500px;
     background-color: red;
     overflow: scroll;
+    margin: auto;
 }
 .users-index-item {
     height: 80px;
@@ -11,17 +12,37 @@
     margin: 10px;
     border-radius: 4px;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 .follow-button {
+    color: white;
+    background-color: mediumslateblue;
     border: none;
     border-radius: 30px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     position: absolute;
     right: 20px;
     height: 80%;
     width: 25%;
     cursor: pointer;
+    margin: 5px;
+}
+/* .follow-button:focus {
+    opacity: 50%;
+} */
+.username {
+    padding-top: auto;
+    padding-bottom: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    border: 2px solid black;
     margin: 5px;
 }
