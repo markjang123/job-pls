@@ -1,0 +1,67 @@
+.users-index {
+    /* display: inline-block; */
+    height: 550px;
+    width: 500px;
+    overflow: scroll;
+    margin: auto;
+}
+.users-index-item {
+    height: 80px;
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 4px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+.follow-button {
+    color: white;
+    background-color: mediumslateblue;
+    border: none;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    position: absolute;
+    right: 20px;
+    height: 80%;
+    width: 25%;
+    cursor: pointer;
+    margin: 5px;
+    top: 3px;
+}
+/* .follow-button:focus {
+    opacity: 50%;
+} */
+.username {
+    padding-top: auto;
+    padding-bottom: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    height: 1.25em;
+    width: 100%;
+    /* border: 2px solid black; */
+    margin-top: auto;
+    margin-bottom: auto;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    top: 25%;
+    bottom: 25%;
+    left: 25%;
+    vertical-align: bottom;
+}
+.username-container {
+    height: 100%;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+    /* height: 100%; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+}

@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
-import { fetchUsers } from '../../actions/session_actions';
+
+import { fetchAllUsers } from '../../actions/user_actions'
+
 import Users from './users.jsx';
 import { openModal } from '../../actions/modal_actions';
 import { closeModal } from '../../actions/modal_actions';
@@ -16,7 +18,8 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
-        banana: () => dispatch(fetchUsers()),
+        banana: () => dispatch(fetchAllUsers()),
+
         openModal: type => dispatch(openModal(type)),
         closeModal: () => dispatch(closeModal())
         //open modal goes here
