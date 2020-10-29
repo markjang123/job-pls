@@ -1,8 +1,11 @@
 import axios from 'axios';
 
 export const getPostings = () => {
-    // debugger
     return axios.get('/api/postings')
+};
+
+export const getPosting = id => {
+    return axios.get(`/api/postings/${id}`)
 };
 
 export const getUserPostings = id => {

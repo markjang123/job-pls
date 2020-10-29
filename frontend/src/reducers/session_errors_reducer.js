@@ -10,7 +10,7 @@ const SessionErrorsReducer = (state = _nullErrors, action) => {
     let nextState = Object.assign({}, state)
     switch(action.type) {
         case RECEIVE_SESSION_ERRORS:
-            debugger
+            // debugger
             // if (Object.keys(nextState).length > Object.keys(action.errors).length){
             //     return nextState
             // } else {

@@ -13,7 +13,7 @@ class SessionForm extends React.Component {
         this.props.clearSessionErrors()
     }
     handleSubmit(e){
-        debugger
+        // debugger
         e.preventDefault()
         let user = this.state
         this.props.submitAction(user)
