@@ -28,7 +28,7 @@ class PostShow extends React.Component{
                 <h3>{company}</h3>
                 <h3>{salary}</h3>
                 <p>{description}</p>
-                {console.log("the current user's data will go here. we will use it to append jobs to the user's list of fav jobs")}
+                <button onClick={console.log(this.props)} >Add To List</button>
                 {/* <button onClick={() => console.log('add to your list')}>Add to Your List</button> */}
               
 

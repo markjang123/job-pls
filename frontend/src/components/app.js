@@ -20,7 +20,8 @@ const App = () => {
             <Route path="/jobs/:jobId" component={PostShowContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer}/>
             <AuthRoute path="/login" component={LoginFormContainer}/>
-            <ProtectedRoute path="/jobs" component={PostIndexContainer}/>
+            {/* <ProtectedRoute path="/jobs" component={PostIndexContainer}/> */}
+            <Route path="/jobs" component={PostIndexContainer}/>
             <ProtectedRoute path="/search" component={SearchContainer}/>
             <ProtectedRoute path="/git_search" component={GitSearchContainer}/>
             <Route exact path="/" component={SignupFormContainer}/>
