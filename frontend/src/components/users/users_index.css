@@ -28,6 +28,7 @@
     width: 25%;
     cursor: pointer;
     margin: 5px;
+    top: 3px;
 }
 /* .follow-button:focus {
     opacity: 50%;
