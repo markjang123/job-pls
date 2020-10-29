@@ -15,7 +15,7 @@ class FollowButton extends React.Component {
     }
     render(){
         debugger
-        return <button onClick={this.followUser} className="follow-button">follow</button>
+    return <button onClick={this.followUser} id={this.props.is_following() ? "following" : "follow"} className="follow-button">{this.props.is_following() ? "following" : "follow"}</button>
     }
 }
 

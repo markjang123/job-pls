@@ -12,6 +12,7 @@ class UsersIndex extends React.Component {
         debugger
         return <ul className="users-index">
             {this.props.users.map(user => {
+                debugger
                 return <UsersIndexItem key={user.id} updateAUser={this.props.updateAUser} currentUser={this.props.currentUser} user={user}/>
             })
         }
