@@ -4,11 +4,8 @@ const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
-const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
-const mongoose = require('mongoose');
-const { query } = require("express");
 
 
 
@@ -35,9 +32,11 @@ router.post("/register", (req, res) => {
             newUser
                 .save()
                 .then(user => {
-                const payload = { id: user.id, username: user.username };
-
-                jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                  const payload = { id: user.id, username: user.username };
+                  
+                  jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                    console.log(res.json({ success: true, token: "Bearer " + token }))
+                    
                     res.json({
                     success: true,
                     token: "Bearer " + token
@@ -52,52 +51,51 @@ router.post("/register", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-    const { errors, isValid } = validateLoginInput(req.body);
-  
-    if (!isValid) {
+  const { errors, isValid } = validateLoginInput(req.body);
+
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  const email = req.body.email;
+  const password = req.body.password;
+  User.findOne({ email: email }).then(user => {
+    if (!user) {
+      const errors = "This user does not exist";
       return res.status(400).json(errors);
     }
   
-    const email = req.body.email;
-    const password = req.body.password;
-  
-    User.findOne({ email: email }).then(user => {
-      if (!user) {
-        errors = "This user does not exist";
+
+    bcrypt.compare(password, user.password).then(isMatch => {
+      if (isMatch) {
+        const payload = { id: user.id, username: user.username };
+        jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+          res.json({
+            success: true,
+            token: "Bearer " + token
+          });
+        });
+      } else {
+        errors.password = "Incorrect password";
         return res.status(400).json(errors);
       }
-  
-      bcrypt.compare(password, user.password).then(isMatch => {
-        if (isMatch) {
-          const payload = { id: user.id, handle: user.handle };
-  
-          jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
-            res.json({
-              success: true,
-              token: "Bearer " + token
-            });
-          });
-        } else {
-          errors.password = "Incorrect password";
-          return res.status(400).json(errors);
-        }
-      });
     });
   });
+});
 
-  router.get('/follows', (req, res) => {
-    const userIdArray = req.body.followedUsersArray.split(",");
-    User.find({_id: {$in : userIdArray}})
-    .then(folUser => res.json(folUser))
-    .catch(errors => res.json(errors))
-  });
+router.get('/follows', (req, res) => {
+  const userIdArray = req.body.followedUsersArray.split(",");
+  User.find({_id: {$in : userIdArray}})
+  .then(folUser => res.json(folUser))
+  .catch(errors => res.json(errors))
+});
 
-  router.get('/:id', (req, res) => {
-    User.findById(req.params.id)
-    .then(user => res.json(user))
-    .catch(err => res.status(404)
-    .json({ nouserfound: 'No user found with that ID' }));
-  }); 
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id)
+  .then(user => res.json(user))
+  .catch(err => res.status(404)
+  .json({ nouserfound: 'No user found with that ID' }));
+}); 
 
 
 

@@ -2,13 +2,16 @@ import {
     getPostings, 
     getUserPostings, 
     writePosting,
-    searchAPIPosting
+    searchAPIPosting,
+    githubSearchAPIPosting
 } from '../util/posting_api_util';
 
 export const RECEIVE_POSTINGS = "RECEIVE_POSTINGS";
 export const RECEIVE_USER_POSTINGS = "RECEIVE_USER_POSTINGS";
 export const RECEIVE_NEW_POSTING = "RECEIVE_NEW_POSTING";
-export const RECEIVE_SEARCHED_POSTING = 'RECEIVE_SEARCHED_POSTING'
+export const RECEIVE_SEARCHED_POSTING = 'RECEIVE_SEARCHED_POSTING';
+export const RECEIVE_SEARCHED_GIT_POSTING = 'RECEIVE_SEARCHED_GIT_POSTING';
+
 
 
 const receivePostings = postings => ({
@@ -29,7 +32,12 @@ const receiveNewPosting = posting => ({
 const receiveSearchedPosting = postings => ({
     type: RECEIVE_SEARCHED_POSTING,
     postings
-})
+});
+
+const receiveSearchedGitPosting = postings => ({
+    type: RECEIVE_SEARCHED_GIT_POSTING,
+    postings
+});
 
 export const fetchPostings = () => dispatch => (
     getPostings()
@@ -52,5 +60,13 @@ export const composePosting = data => dispatch => (
 export const searchPosting = data => dispatch => (
     searchAPIPosting(data)
         .then(postings => dispatch(receiveSearchedPosting(postings)))
+        .catch(err => console.log(err))
+);
+
+export const githubSearchPosting = data => dispatch => (
+    githubSearchAPIPosting(data)
+        .then(postings => {
+            debugger
+            dispatch(receiveSearchedGitPosting(postings))})
         .catch(err => console.log(err))
 );
