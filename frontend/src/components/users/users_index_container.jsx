@@ -1,16 +1,16 @@
-import React from 'react'
-import UsersIndex from './users_index'
-import {connect} from 'react-redux'
-
+import React from 'react';
+import UsersIndex from './users_index';
+import {connect} from 'react-redux';
+import {fetchAllUsers} from '../../actions/user_actions'
 const mapStateToProps = state => {
     return {
-        test: "test"
+        users: Object.values(state.entities.users)
     }
 } 
 
 const mapDispatchToProps = dispatch => {
     return {
-        test: "test"
+        fetchAllUsers: () => dispatch(fetchAllUsers())
     }
 }
 
