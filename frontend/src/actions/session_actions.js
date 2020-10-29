@@ -1,13 +1,24 @@
 import * as APIUtil from '../util/session_api_util';
+import * as UserUtil from '../util/user_api_util';
 import jwt_decode from 'jwt-decode';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
+export const RECEIVE_USERS = "RECEIVE_USERS";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 
 export const receiveCurrentUser = currentUser => ({
     type: RECEIVE_CURRENT_USER,
     currentUser
+});
+
+export const receiveUsers = users => ({
+    type: RECEIVE_USERS,
+    users
+});
+
+export const receiveUserSignIn = () => ({
+    type: RECEIVE_USER_SIGN_IN
 });
 
   
@@ -22,8 +33,15 @@ export const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT
 });
 
+export const fetchUsers = () => dispatch => {
+    return UserUtil.fetchUsers()
+        .then((users => dispatch(receiveUsers(users)))
+        , err => dispatch(receiveErrors(err.response.data)))
+}
+
+
 export const signup = user => dispatch => {
-    debugger
+    // debugger
     return APIUtil.signup(user)
         .then(res => {const { token } = res.data;
             debugger
@@ -40,7 +58,7 @@ export const signup = user => dispatch => {
 };
 
 export const login = user => dispatch => {
-    debugger
+    // debugger
     return APIUtil.login(user)
         .then(res => {const { token } = res.data;
             debugger

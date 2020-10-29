@@ -20,20 +20,25 @@ class PostIndex extends React.Component{
 
     render(){
         // {check}
-        const { posts } = this.props;
+        const { posts, openModal, closeModal, modal, currentUser } = this.props;
         // if (pin === undefined) return null;
         if (posts === undefined) return null;
+        console.log('currentUser is')
+        console.log(this.props.currentUser)
         
         return(
             <div className='index-container'>
                 <div>
-                    <h1>HELLO</h1>
+                    <h1 onClick={() => console.log('click')} >HELLO</h1>
                 </div>
-
                 {posts.map(post => (
                     <PostIndexItem
                         post={post}
-                        key={post.id}
+                        key={post._id}
+                        currentUser={currentUser}
+                        modal={modal}
+                        openModal={openModal}
+                        closeModal={closeModal}
                     />
                 ))}
             </div>

@@ -90,12 +90,21 @@ router.get('/follows', (req, res) => {
   .catch(errors => res.json(errors))
 });
 
+  router.get('/', (req, res) => {
+    User.find()
+      .then(users => res.json(users))
+      .catch(err => res.status(404));
+  })
+
 router.get('/:id', (req, res) => {
   User.findById(req.params.id)
   .then(user => res.json(user))
   .catch(err => res.status(404)
   .json({ nouserfound: 'No user found with that ID' }));
 }); 
+
+
+
 
 
 

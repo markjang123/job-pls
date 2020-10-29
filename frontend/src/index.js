@@ -5,8 +5,8 @@ import Root from './components/root'
 import {signup} from './util/session_api_util'
 import {clearSessionErrors} from '../src/actions/session_actions'
 
-  let store = configureStore()
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+    let store = configureStore()
     window.getState = store.getState
     window.signup = signup
     window.dispatch = store.dispatch
