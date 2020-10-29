@@ -9,7 +9,9 @@ import UsersContainer from './users/users_container';
 import SearchContainer from './search/search_container';
 import GitSearchContainer from './search/git_search_container';
 import { AuthRoute, ProtectedRoute} from '../util/route_util'
+
 import UsersIndexContainer from './users/users_index_container'
+
 const App = () => {
 
     

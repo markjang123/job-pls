@@ -1,5 +1,7 @@
+
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import {RECEIVE_USERS} from '../actions/user_actions'
+
 
 
 const usersReducer = (state = {}, action) => {
@@ -14,6 +16,7 @@ const usersReducer = (state = {}, action) => {
                 nextState[user._id] = user
             }
             return nextState
+
         default:
             return state;
     }
