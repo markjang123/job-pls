@@ -3,9 +3,7 @@ import {
     getPosting, 
     getUserPostings, 
     writePosting,
-    searchAPIPosting,
-    githubSearchAPIPosting,
-    USASearchAPIPosting
+    searchAPIPosting
 } from '../util/posting_api_util';
 
 export const RECEIVE_POSTINGS = "RECEIVE_POSTINGS";
@@ -13,8 +11,6 @@ export const RECEIVE_POSTING = "RECEIVE_POSTING";
 export const RECEIVE_USER_POSTINGS = "RECEIVE_USER_POSTINGS";
 export const RECEIVE_NEW_POSTING = "RECEIVE_NEW_POSTING";
 export const RECEIVE_SEARCHED_POSTING = 'RECEIVE_SEARCHED_POSTING';
-export const RECEIVE_SEARCHED_GIT_POSTING = 'RECEIVE_SEARCHED_GIT_POSTING';
-export const RECEIVE_SEARCHED_USA_POSTING = 'RECEIVE_SEARCHED_USA_POSTING';
 
 
 export const receivePostings = postings => {
