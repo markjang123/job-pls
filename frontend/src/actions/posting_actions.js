@@ -71,3 +71,4 @@ export const searchPosting = data => dispatch => (
         .then(postings => dispatch(receiveSearchedPosting(postings)))
         .catch(err => console.log(err))
 );
+

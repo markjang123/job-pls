@@ -9,6 +9,7 @@ import SearchContainer from './search/search_container';
 import { AuthRoute, ProtectedRoute} from '../util/route_util'
 
 import UsersIndexContainer from './users/users_index_container'
+import UserShowContainer from './users/user_show_container'
 
 const App = () => {
 
@@ -22,7 +23,8 @@ const App = () => {
             <ProtectedRoute path="/jobs" component={PostIndexContainer}/>
             <Route path="/search" component={SearchContainer}/>
             <Route exact path="/" component={SignupFormContainer}/>
-            <Route path="/users" component={UsersIndexContainer} />
+            <Route exact path="/users" component={UsersIndexContainer} />
+            <Route exact path="/users/:userId" component={UserShowContainer} />
 
         </div>
     )

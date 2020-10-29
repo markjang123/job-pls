@@ -1,6 +1,7 @@
 import React from 'react'
 import './users_index.css'
 import UsersIndexItem from './user_index_item'
+
 class UsersIndex extends React.Component {
     constructor(props){
         super(props)
@@ -8,6 +9,7 @@ class UsersIndex extends React.Component {
     componentWillMount(){
         this.props.fetchAllUsers()
     }
+
     render(){
         debugger
         return <ul className="users-index">
@@ -16,7 +18,6 @@ class UsersIndex extends React.Component {
             })
         }
         </ul>
-        
     }
 }
 
