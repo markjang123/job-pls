@@ -12,7 +12,7 @@ const App = () => {
             <Route path="/signup" component={SignupFormContainer}/>
             <Route path="/jobs" component={PostIndexContainer}/>
             <Route path="/search" component={SearchContainer}/>
-            <Route path="/" component={SignupFormContainer}/>
+            <Route exact path="/" component={SignupFormContainer}/>
 
         </div>
     )
