@@ -15,7 +15,11 @@ const UserSchema = new Schema({
       type: String,
       required: true
     },
-    followed_user: [{
+    followed_users: [{
+      type: Schema.Types.ObjectId,
+      ref: 'users'
+    }],
+    following_users: [{
       type: Schema.Types.ObjectId,
       ref: 'users'
     }],
