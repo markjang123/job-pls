@@ -1,6 +1,6 @@
 .session-form {
     position: relative;
-    height: 650px;
+    height: 550px;
     width: 500px;
     background-color: #00ffff;
     border-radius: 10px;
@@ -13,7 +13,7 @@
     margin-top: auto;
 }
 .form-header {
-    font-size: 16px;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     margin: 30px auto 30px;
 }
