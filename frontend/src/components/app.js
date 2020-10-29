@@ -10,6 +10,8 @@ import SearchContainer from './search/search_container';
 import GitSearchContainer from './search/git_search_container';
 import { AuthRoute, ProtectedRoute} from '../util/route_util'
 
+import UsersIndexContainer from './users/users_index_container'
+
 const App = () => {
 
     
@@ -24,6 +26,8 @@ const App = () => {
             <ProtectedRoute path="/search" component={SearchContainer}/>
             <ProtectedRoute path="/git_search" component={GitSearchContainer}/>
             <Route exact path="/" component={SignupFormContainer}/>
+            <Route path="/users" component={UsersIndexContainer} />
+
         </div>
     )
     

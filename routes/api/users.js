@@ -83,6 +83,7 @@ router.post("/login", (req, res) => {
   });
 });
 
+
 router.get('/follows', (req, res) => {
   const userIdArray = req.body.followedUsersArray.split(",");
   User.find({_id: {$in : userIdArray}})
@@ -106,6 +107,13 @@ router.get('/:id', (req, res) => {
 
 
 
+
+
+  router.get('/', (req, res) => {
+    User.find()
+        .then(users => res.json(users))
+        .catch(err => res.status(404).json({ nousersfound: 'No users found' }));
+});
 
 
 
