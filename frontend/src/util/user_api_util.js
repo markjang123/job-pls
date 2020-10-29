@@ -7,3 +7,4 @@ export const fetchUser = id => {
 export const fetchAllUsers = () => {
     return axios.get(`/api/users`)
 };
+
