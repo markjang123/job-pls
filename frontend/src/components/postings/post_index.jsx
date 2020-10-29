@@ -23,7 +23,6 @@ class PostIndex extends React.Component{
         const { posts } = this.props;
         // if (pin === undefined) return null;
         if (posts === undefined) return null;
-        // debugger
         
         return(
             <div className='index-container'>

@@ -18,7 +18,7 @@ const PostingsReducer = (state = {}, action) => {
   
   switch(action.type) {
     case RECEIVE_POSTINGS:
-      debugger
+      // debugger
       newState = action.postings.data;
       return newState;
     case RECEIVE_USER_POSTINGS:
