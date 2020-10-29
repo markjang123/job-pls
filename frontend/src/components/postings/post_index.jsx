@@ -4,8 +4,6 @@ import PostIndexItem from './post_index_item';
 class PostIndex extends React.Component{
     constructor(props){
         super(props);
-        // this.props.fetchPostings();
-        // this
     }
 
     componentDidMount(){
@@ -33,9 +31,6 @@ class PostIndex extends React.Component{
                 <div>
                     <h1 onClick={() => console.log('click')} >HELLO</h1>
                 </div>
-                <ul>
-                
-                </ul>
                 {posts.map(post => (
                     <PostIndexItem
                         post={post}

@@ -3,12 +3,11 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
-const keys = require('../../config/keys_dev');
-const passport = require('passport');
+const keys = require('../../config/keys');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
-const mongoose = require('mongoose');
-const register = require("../../validation/register");
+
+
 
 
 
@@ -86,7 +85,10 @@ router.post("/login", (req, res) => {
   });
 
   router.get('/follows', (req, res) => {
-    const userIdArray = req.body.followedUsersArray.split(",")
+    const userIdArray = req.body.followedUsersArray.split(",");
+    User.find({_id: {$in : userIdArray}})
+    .then(folUser => res.json(folUser))
+    .catch(errors => res.json(errors))
   });
 
   router.get('/', (req, res) => {

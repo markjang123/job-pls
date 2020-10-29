@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const keys = require('../../config/keys');
+
 
 const Posting = require('../../models/Posting');
 const validatePostingInput = require('../../validation/postings');
@@ -54,5 +57,49 @@ router.post('/',
       newPosting.save().then(posting => res.json(posting)).catch(errors => res.json(errors));
     }
   );
+
+  router.post('/search',
+    (req, res) => {
+        // console.log(req.body)
+        // // const { keywords, location, radius, body, salary, page } = req.body.joobleRequest
+        // const joobleRequest = ({
+        //     keywords: req.body.keywords,
+        //     location: req.body.location,
+        //     radius: req.body.radius,
+        //     salary: req.body.salary,
+        //     page: req.body.page
+        // })
+        // joobleResponse = new XMLHttpRequest();
+        // joobleResponse.open("POST", `https://jooble.org/api/${keys.joobleAPI}`, true);
+        // joobleResponse.setRequestHeader('Content-Type', 'application/json');
+        // joobleResponse.send(JSON.stringify(joobleRequest))
+        // .then(response => res.json(response))
+        // .catch(error => res.json(error))
+
+        const joobleRequest = ({
+            keywords: req.body.keywords,
+            location: req.body.location,
+            radius: req.body.radius,
+            salary: req.body.salary,
+            page: req.body.page
+        })
+        const url = "https://jooble.org/api/";
+        const key = keys.joobleAPI;
+
+        joobleResponse = new XMLHttpRequest();
+        joobleResponse.open("POST", url + key, true);
+        joobleResponse.setRequestHeader('Content-type', 'application/json');
+        
+        joobleResponse.onreadystatechange = () => {
+            if(joobleResponse.readyState == 4 && joobleResponse.status == 200) {
+                return res.json(JSON.parse(joobleResponse.responseText));
+            }
+        }
+
+        joobleResponse.send(JSON.stringify(joobleRequest))
+        // .then(response => res.json(response))
+        // .catch(error => res.json(error))
+    }
+  )
 
   module.exports = router;

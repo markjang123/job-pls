@@ -23,9 +23,11 @@ const mSTP = ({ entities: { posts, users }, session }) => {
 
 const mDTP = dispatch => {
     return{
+
         fetchPosting: postId => dispatch(fetchPosting(postId)),
         fetchPostings: () => dispatch(fetchPostings())
         // addPost: postId => dispatch(addPost(postId)) // our list of job apps
+
         // need function to save job to db
     }
 }
