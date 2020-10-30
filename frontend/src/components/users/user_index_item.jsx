@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './users_index.css'
-import FollowButton from './follow_button'
-import UserShowContainer from './user_show_container';
-
+import FollowButtonContainer from './follow_button_container'
 class UsersIndexItem extends React.Component {
     constructor(props){
         super(props)
@@ -15,18 +13,19 @@ class UsersIndexItem extends React.Component {
         const {user, currentUser} = this.props
         return user.following_users.includes(currentUser._id)
     }
-
+    componentDidUpdate(){
+        console.log("Updated")
+    }
     render(){
         // debugger
         if (this.props.user === undefined) return null;
 
         let { _id, username } = this.props.user
-        console.log(this.props.user)
         return(
         <div className="users-index-item">
             <div className="username-container">
                 <p className="username" >
-                    <Link to={`/users/${_id}`}>{username}</Link>
+                    <Link className="username-link" to={`/users/${_id}`}>{username}</Link>
                 </p>
             </div>
             <FollowButton updateAUser={this.props.updateAUser} 
@@ -34,6 +33,7 @@ class UsersIndexItem extends React.Component {
                 forceUpdate={() => this.forceUpdate()} 
                 currentUser={this.props.currentUser} 
                 user={this.props.user}/>
+
         </div>
         ) 
     }

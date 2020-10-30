@@ -11,9 +11,9 @@ export const receiveUsers = users => {
     }
 }
 
-export const receiveUser = _id => ({
+export const receiveUser = user => ({
     type: RECEIVE_USER,
-    _id
+    user
 });
 
 export const updateUser = user => {
@@ -35,14 +35,14 @@ export const fetchAllUsers = () => {
 
 export const fetchUser = userId => dispatch => {
     return APIUserUtil.fetchUser(userId)
-        .then(user => dispatch(receiveUser(user)))
+        .then(user => dispatch(receiveUser(user.data)))
 };
 
 export const updateAUser = (userId, userData) => {
-  return dispatch => {
-      return APIUserUtil.updateUser(userId, userData)
-              .then(user => {
-                  dispatch(updateUser(user.data))
-              })
-  }
+    return dispatch => {
+        return APIUserUtil.updateUser(userId, userData)
+                .then(() => APIUserUtil.fetchUser(userId))
+                .then(user => dispatch(updateUser(user.data)))
+                .catch(err => console.log(err))
+    }
 }

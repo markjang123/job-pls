@@ -1,0 +1,39 @@
+.user-show-container {
+    height: 100vh;
+    width: 75%;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5%;
+}
+#user-show-username {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    height: 1.25em;
+    width: 100%;
+    position: relative;
+}
+.user-follows-index {
+    background-color: red;
+}
+.user-follow-list {
+    position: absolute;
+    display: inline-block;
+}
+.user-followers-list {
+    position: absolute;
+    display: inline-block;
+    left: 25%;
+}
+.user-jobs-index {
+    height: 300px;
+    width: 75%;
+    border: 1px solid black;
+    position: absolute;
+    top: 400px;
+}
+.user-follows {
+    position: relative;
+}

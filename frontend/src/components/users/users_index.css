@@ -1,22 +1,57 @@
 .users-index {
-    /* display: inline-block; */
     height: 100vh;
     width: 500px;
-    overflow: scroll;
+    overflow-x: scroll;
     margin: auto;
 }
 .users-index-item {
     height: 80px;
+    width: 95%;
     border: 1px solid black;
     margin: 10px;
     border-radius: 4px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    transition: all 0.2s ease-out;
+}
+.users-index-item:hover {
+    background-color: mintcream;
+    box-shadow: 2px 2px 2px 2px rgba(66, 57, 57, 0.25);
+    transform: scale(1.03);
+}
+.username {
+    padding-top: auto;
+    padding-bottom: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    height: 1.25em;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    top: 25%;
+    bottom: 25%;
+    left: 25%;
+    vertical-align: bottom;
+}
+.username-link {
+    text-decoration: none;
+    color: black;
+}
+.username-container {
+    height: 100%;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: relative;
 }
 .follow-button {
-    color: mediumslateblue;
-    background-color: white;
     border: 1px solid mediumslateblue;
     border-radius: 30px;
     font-family: Arial, Helvetica, sans-serif;
@@ -33,39 +68,11 @@
 .follow-button:focus {
     outline-style: none;
 }
-.username {
-    padding-top: auto;
-    padding-bottom: auto;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    font-weight: bold;
-    position: absolute;
-    height: 1.25em;
-    width: 100%;
-    /* border: 2px solid black; */
-    margin-top: auto;
-    margin-bottom: auto;
-    overflow:hidden;
-    text-overflow: ellipsis;
-    top: 25%;
-    bottom: 25%;
-    left: 25%;
-    vertical-align: bottom;
-}
-.username-container {
-    height: 100%;
-    width: 50%;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    position: relative;
-    /* height: 100%; */
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
-}
 #following {
     background-color: mediumslateblue;;
     color: white;
+}
+#follow {
+    color: mediumslateblue;
+    background-color: white;
 }

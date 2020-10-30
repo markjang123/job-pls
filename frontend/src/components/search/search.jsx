@@ -1,11 +1,17 @@
-import { CITY_STATE_LIST } from './search_terms'
+import { CITY_STATE_LIST } from './search_terms';
+import PostingItemContainer from './posting_item_container';
 
 const React = require('react');
 
 class Search extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            searched: false,
+            selectedPost: {id: undefined}
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.selectPost = this.selectPost.bind(this);
     }
 
     
@@ -13,12 +19,20 @@ class Search extends React.Component{
         e.preventDefault();
         let returningState = {};
         returningState['keywords'] = e.currentTarget[0].value;
-        returningState['location'] = e.currentTarget[1].value;
-        returningState['radius'] = e.currentTarget[2].value;
-        returningState['salary'] = e.currentTarget[3].value;
-        returningState['company'] = e.currentTarget[4].value;
+        returningState['company'] = e.currentTarget[1].value;
+        returningState['location'] = e.currentTarget[3].value;
+        returningState['radius'] = e.currentTarget[4].value;
+        returningState['salary'] = e.currentTarget[5].value;
         returningState['page'] = '1';
-        this.props.searchPosting(returningState);
+        this.props.searchPosting(returningState)
+        .then((postings) => this.setState({searched: true}));
+    }
+
+
+
+    selectPost(idx){
+        debugger
+        this.setState({ selectedPost: this.props.searchedPostings[idx]});
     }
 
     niceDescription(text){
@@ -27,8 +41,6 @@ class Search extends React.Component{
         .replace(/<[^>]+>/gm, '')
         .replace(/([\r\n]+ +)+/gm, '');
     }
-
-
 
     render(){
 
@@ -39,61 +51,76 @@ class Search extends React.Component{
             <div>
                 <form onSubmit={this.handleSubmit}>
 
-                    <label>Enter keywords for Search
-                        <input type="text"/>
-                    </label>                  
-                    
-                    <label>Location
+                    <div>
+                        <input type="text" placeholder='Enter keywords for Search'/>            
+                        <input type="text" placeholder='Have a company in mind? See if they are hiring.'/>
+                        <button>Find your dream job</button>
+                    </div>
+
+                    <div>
+                        <label>Location
+                            <select type="dropdown" required>
+                                {CITY_STATE_LIST.map((loc, idx) => {
+                                    return(
+                                        <option 
+                                            key={idx} 
+                                            value={loc}>
+                                                {`${loc}`}
+                                        </option>
+                                    )
+                                })}
+                            </select>
+                        </label>
+
                         <select type="dropdown">
-                            {CITY_STATE_LIST.map((loc, idx) => {
+                        <option value="25" disabled selected hidden>How far do you want to drive?</option> 
+                            {['5','10','25','50','75','100'].map((radi, idx) => {
                                 return(
-                                    <option key={idx} value={loc}>{`${loc}`}</option>
+                                    <option 
+                                        key={idx} 
+                                        value={radi}>
+                                            {`${radi} miles`}
+                                    </option>
                                 )
                             })}
                         </select>
-                    </label>
 
-                    <label>Radius
-                        <input type="text"/>
-                    </label>
-
-                    <label>Enter desired Salary
-                        <input type="text"/>
-                    </label>
-
-                    <label>Specify a company?
-                        <input type="text"/>
-                    </label>
-
-                    <button>Find your dream job</button>
+                        <select type="dropdown" placeholder='salary'>
+                        <option value="1" disabled selected hidden>Salary</option> 
+                            {['20000','40000','60000','80000','100000','120000'].map((salaryNum, idx) => {
+                                return(
+                                    <option key={idx} value={salaryNum}>{`${salaryNum}`}</option>
+                                )
+                            })}
+                        </select>
+                    </div>
                 
                 </form>
 
-                {searchedPostings.length === 0 ? <></> :
-                    <ul>
-                        {searchedPostings.map(posting => {
+                {!this.state.searched ? <></> :
+                    <ul className='posting-list'>
+                        {searchedPostings.map((posting, idx) => {
                             return(
-                                <li>
-                                    <div>{posting.title ? posting.title : ''}</div>
-                                    <div>{posting.location ? posting.location : ''}</div>
-                                    <div>{posting.snippet ? posting.snippet : ''}</div>
-                                    <div>{posting.salary ? posting.salary : ''}</div>
-                                    <div>{posting.source ? posting.source : ''}</div>
-                                    <div>{posting.type ? posting.type : ''}</div>
-                                    <div>{posting.link ? posting.link : ''}</div>
-                                    <div>{posting.company ? posting.company : ''}</div>
-                                    <div>{posting.id ? posting.id : ''}</div>
-                                    <div>{posting.updated ? posting.updated : ''}</div>
-                                    <div>{posting.url ? posting.url : ''}</div>
-                                    <div>{posting.description? this.niceDescription(posting.description) : ''}</div>
-                                    <div>{posting.created_at ? posting.created_at : ''}</div>
-                                    <div>{posting.how_to_apply ? posting.how_to_apply : ''}</div>
-
+                                <li 
+                                    onClick={() => this.selectPost(idx)}
+                                    key={posting.id} 
+                                    id={posting === this.state.selectedPost 
+                                    ? 'selected-posting' 
+                                    : null}>
+                                        <div>{posting.title ? this.niceDescription(posting.title) : ''}</div>
+                                        <div>{posting.location ? this.niceDescription(posting.location) : ''}</div>
+                                        <div>{posting.company ? this.niceDescription(posting.company) : ''}</div>
                                 </li>
                             )
                         })}
                     </ul>
                 }
+
+                {!this.state.searched ? <></> : 
+                    <PostingItemContainer posting={this.state.selectedPost} />
+                }
+
+
             </div>
         )
     }
