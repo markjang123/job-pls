@@ -8,7 +8,6 @@ export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN"
 
 export const receiveCurrentUser = currentUser => {
-    debugger
     return {
         type: RECEIVE_CURRENT_USER,
         currentUser
@@ -39,7 +38,10 @@ export const signup = user => dispatch => {
         .then(res => {const { token } = res.data;
             localStorage.setItem('jwtToken', token);
             APIUtil.setAuthToken(token);
-            const decoded = jwt_decode(token);
+            let decoded = jwt_decode(token);
+            decoded.followed_users = res.data.followed_users;
+            decoded.following_users = res.data.following_users;
+            decoded.followed_posting = res.data.followed_posting;
             dispatch(receiveCurrentUser(decoded))})
         .catch(err => {
             dispatch(receiveErrors(err.response.data));
@@ -53,7 +55,10 @@ export const login = user => dispatch => {
         .then(res => {const { token } = res.data;
             localStorage.setItem('jwtToken', token);
             APIUtil.setAuthToken(token);
-            const decoded = jwt_decode(token);
+            let decoded = jwt_decode(token);
+            decoded.followed_users = res.data.followed_users;
+            decoded.following_users = res.data.following_users;
+            decoded.followed_posting = res.data.followed_posting;
             dispatch(receiveCurrentUser(decoded))})
         .catch(err => {
             dispatch(receiveErrors(err.response.data));

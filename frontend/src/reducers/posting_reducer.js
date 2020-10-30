@@ -2,20 +2,21 @@ import {
     RECEIVE_POSTINGS,
     RECEIVE_POSTING,
     RECEIVE_USER_POSTINGS, 
-    RECEIVE_NEW_POSTING 
+    RECEIVE_NEW_POSTING,
+    DESTROY_POSTING 
 } from '../actions/posting_actions';
 
 const initialState =  {
     all: {},  // 
-    user: {}, // 
+    user: [], // 
     new: undefined // 
 };
   
 // const PostingsReducer = (state = initialState, action) => {
-const PostingsReducer = (state = {}, action) => {
+const PostingsReducer = (state = initialState, action) => {
   
-  Object.freeze(state);
-  let newState = Object.assign({}, state);
+    Object.freeze(state);
+    let newState = Object.assign({}, state);
   
   // switch(action.type) {
   //   case RECEIVE_POSTINGS:
@@ -41,18 +42,25 @@ const PostingsReducer = (state = {}, action) => {
     //   }
     //   return newState;
     case RECEIVE_POSTINGS:
-      return Object.assign({}, state, action.postings.data)
+        return Object.assign({}, state, action.postings.data)
     case RECEIVE_POSTING:
-      return action.posting.data;
+        return action.posting.data;
     case RECEIVE_USER_POSTINGS:
-      newState.user = action.postings.data;
-      return newState;
+        debugger
+        newState.user = action.postings.data;
+        return newState;
     case RECEIVE_NEW_POSTING:
-      newState.new = action.posting.data
-      return newState;
+        debugger
+        newState.new = action.posting.data
+        newState.user.push(action.posting.data)
+        return newState;
+    case DESTROY_POSTING:
+        debugger
+        newState.user[action.postingId] = undefined;
+        return newState;
     default:
-      return state;
-  }
+        return state;
+    }
 };
 
 export default PostingsReducer;
