@@ -8,16 +8,13 @@ class UsersIndexItem extends React.Component {
     constructor(props){
         super(props)
         this.forceUpdate = this.forceUpdate.bind(this)
-
+        this.is_following = this.is_following.bind(this)
     }
-
-    // showUser(props){
-    //     return(
-    //         <div>
-    //             <UserShowContainer props={props}/>
-    //         </div>
-    //     )
-    // }
+    is_following(){
+        debugger
+        const {user, currentUser} = this.props
+        return user.following_users.includes(currentUser._id)
+    }
 
     render(){
 
@@ -30,7 +27,7 @@ class UsersIndexItem extends React.Component {
                     <Link to={`/users/${_id}`}>{username}</Link>
                 </p>
             </div>
-            <FollowButton updateAUser={this.props.updateAUser} forceUpdate={() => this.forceUpdate()} currentUser={this.props.currentUser} user={this.props.user}/>
+            <FollowButton updateAUser={this.props.updateAUser} is_following={this.is_following} forceUpdate={() => this.forceUpdate()} currentUser={this.props.currentUser} user={this.props.user}/>
         </div>
         ) 
     }

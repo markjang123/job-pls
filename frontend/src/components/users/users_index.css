@@ -15,9 +15,9 @@
     margin-right: auto;
 }
 .follow-button {
-    color: white;
-    background-color: mediumslateblue;
-    border: none;
+    color: mediumslateblue;
+    background-color: white;
+    border: 1px solid mediumslateblue;
     border-radius: 30px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -30,9 +30,9 @@
     margin: 5px;
     top: 3px;
 }
-/* .follow-button:focus {
-    opacity: 50%;
-} */
+.follow-button:focus {
+    outline-style: none;
+}
 .username {
     padding-top: auto;
     padding-bottom: auto;
@@ -64,4 +64,8 @@
     /* display: flex;
     flex-direction: column;
     justify-content: center; */
+}
+#following {
+    background-color: mediumslateblue;;
+    color: white;
 }

@@ -8,10 +8,13 @@ export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN"
 
-export const receiveCurrentUser = currentUser => ({
-    type: RECEIVE_CURRENT_USER,
-    currentUser
-});
+export const receiveCurrentUser = currentUser => {
+    debugger
+    return {
+        type: RECEIVE_CURRENT_USER,
+        currentUser
+    }
+};
 
 export const receiveUsers = users => ({
     type: RECEIVE_USERS,
