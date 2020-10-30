@@ -5,6 +5,7 @@ class UsersIndexItem extends React.Component {
         super(props)
     }
     render(){
+        debugger
         return <div className="users-index-item">
             <div className="username-container">
                 <p className="username">
