@@ -6,8 +6,9 @@ class PostingItem extends React.Component{
     constructor(props){
         super(props)
         debugger
+        let savedPostId = this.props.posting.id
         this.state = {
-            saved: this.props.userPostings.includes(this.props.posting.id)
+            saved: false
         }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -27,13 +28,16 @@ class PostingItem extends React.Component{
     handleClick(){
         if(this.state.saved){
             debugger
-            this.props.deletePosting(this.props.post.id)
+            this.props.deletePosting(this.props.posting.id)
+            .then(this.setState({saved: false}));
         } else {
             debugger
-            this.props.composePosting({
-                posting_url: this.props.posting.url,
+            let newPosting = ({
+                user_id: this.props.userId,
+                posting_id: this.props.posting.id.toString(),
+                posting_url: this.props.posting.url || this.props.posting.link,
                 job_title: this.props.posting.title,
-                status: this.props.posting.status,
+                status: 'interested',
                 company: this.props.posting.company,
                 salary: this.props.posting.salary,
                 description: this.props.posting.description,
@@ -43,8 +47,10 @@ class PostingItem extends React.Component{
                 type: this.props.posting.type,
                 link: this.props.posting.link,
                 created_at: this.props.posting.created_at,
-                public:  true
+                public:  true,
             })
+            this.props.composePosting(newPosting)
+            .then(this.setState({saved: true}));
         }
 
     }

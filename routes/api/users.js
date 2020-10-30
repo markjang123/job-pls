@@ -11,10 +11,9 @@ const validateLoginInput = require('../../validation/login');
 
 router.put("/:id", (req, res) => {
   User.findByIdAndUpdate(req.params.id, req.body)
-  .then(user => res.json(user))
-  .catch(err => {
-    console.log(err.message)
-  })
+  .then(user => res.send(user)
+  .catch(err => res.status(404)
+  .json({ updateError: 'Could not update' })))
 
 
 })
@@ -98,11 +97,11 @@ router.get('/follows', (req, res) => {
   .catch(errors => res.json(errors))
 });
 
-  router.get('/', (req, res) => {
-    User.find()
-      .then(users => res.json(users))
-      .catch(err => res.status(404));
-  })
+router.get('/', (req, res) => {
+User.find()
+    .then(users => res.json(users))
+    .catch(err => res.status(404));
+})
 
 router.get('/:id', (req, res) => {
   User.findById(req.params.id)
@@ -116,7 +115,7 @@ router.get('/:id', (req, res) => {
 
 
 
-  router.get('/', (req, res) => {
+router.get('/', (req, res) => {
     User.find()
         .then(users => res.json(users))
         .catch(err => res.status(404).json({ nousersfound: 'No users found' }));

@@ -14,25 +14,6 @@
     margin-left: auto;
     margin-right: auto;
 }
-.follow-button {
-    color: mediumslateblue;
-    background-color: white;
-    border: 1px solid mediumslateblue;
-    border-radius: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 18px;
-    position: absolute;
-    right: 20px;
-    height: 80%;
-    width: 25%;
-    cursor: pointer;
-    margin: 5px;
-    top: 3px;
-}
-.follow-button:focus {
-    outline-style: none;
-}
 .username {
     padding-top: auto;
     padding-bottom: auto;
@@ -60,12 +41,29 @@
     padding: 0;
     display: inline-block;
     position: relative;
-    /* height: 100%; */
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
+}
+.follow-button {
+    border: 1px solid mediumslateblue;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    position: absolute;
+    right: 20px;
+    height: 80%;
+    width: 25%;
+    cursor: pointer;
+    margin: 5px;
+    top: 3px;
+}
+.follow-button:focus {
+    outline-style: none;
 }
 #following {
     background-color: mediumslateblue;;
     color: white;
+}
+#follow {
+    color: mediumslateblue;
+    background-color: white;
 }

@@ -55,6 +55,7 @@ const PostingsReducer = (state = initialState, action) => {
         newState.user.push(action.posting.data)
         return newState;
     case DESTROY_POSTING:
+        debugger
         newState.user[action.postingId] = undefined;
         return newState;
     default:

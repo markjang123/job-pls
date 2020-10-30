@@ -8,7 +8,7 @@ class Search extends React.Component{
         super(props)
         this.state = {
             searched: false,
-            selectedPost: this.props.searchedPostings.length === 0 ? false : this.props.searchedPostings[0]
+            selectedPost: {id: undefined}
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.selectPost = this.selectPost.bind(this);

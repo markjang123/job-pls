@@ -1,4 +1,3 @@
-
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import {RECEIVE_USER} from '../actions/user_actions'
 import {RECEIVE_USERS, UPDATE_USER} from '../actions/user_actions'
@@ -12,7 +11,6 @@ const usersReducer = (state = {}, action) => {
         // case RECEIVE_CURRENT_USER:
         //     return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
         case RECEIVE_USERS:
-            nextState = Object.assign({}, state)
             for (const user of action.users){
                 nextState[user._id] = user
             }
@@ -25,7 +23,8 @@ const usersReducer = (state = {}, action) => {
             debugger
             return action._id.data
         case UPDATE_USER:
-            nextState[action.user.id] = action.user
+            debugger
+            nextState[action.user._id] = action.user
             return nextState
         default:
             return state;

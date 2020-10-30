@@ -221,14 +221,20 @@ router.post('/',
       // }
   
         const newPosting = new Posting({
-            job_title: req.body.job_title,
-            user: req.body.user.id,
+            posting_id: req.body.posting_id,
             posting_url: req.body.posting_url,
-            status: 'none',
+            job_title: req.body.job_title,
+            status: req.body.status,
             company: req.body.company,
             salary: req.body.salary,
             description: req.body.description,
-            public: true
+            location: req.body.location,
+            snippet: req.body.snippet,
+            source: req.body.source,
+            type: req.body.type,
+            link: req.body.link,
+            created_at: req.body.created_at,
+            public:  true,
         });
   
         newPosting.save().then(posting => res.json(posting)).catch(errors => res.json(errors));
@@ -251,8 +257,10 @@ router.get('/', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    Posting.findById(req.params.id)
-        .then(posting => posting.delete())
+    console.log(Posting.findById(req.params.id));
+    console.log(req.params.id);
+    Posting.findByIdAndDelete(req.params.id)
+        .then(() => res.status(200).json({postingdeleted: 'posting deleted sucessfully'}))
         .catch(err => res.status(404).json({nopostingfound: 'No posting found :D'}))
 })
   module.exports = router;
