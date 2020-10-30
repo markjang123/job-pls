@@ -2,17 +2,25 @@
     /* display: inline-block; */
     height: 100vh;
     width: 500px;
-    overflow: scroll;
+    overflow-x: scroll;
+    /* overflow-x: show; */
     margin: auto;
 }
 .users-index-item {
     height: 80px;
+    width: 95%;
     border: 1px solid black;
     margin: 10px;
     border-radius: 4px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    transition: all 0.2s ease-out;
+}
+.users-index-item:hover {
+    background-color: mintcream;
+    box-shadow: 2px 2px 2px 2px rgba(66, 57, 57, 0.25);
+    transform: scale(1.03);
 }
 .username {
     padding-top: auto;
@@ -33,6 +41,10 @@
     bottom: 25%;
     left: 25%;
     vertical-align: bottom;
+}
+.username-link {
+    text-decoration: none;
+    color: black;
 }
 .username-container {
     height: 100%;
