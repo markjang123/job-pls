@@ -11,7 +11,7 @@ const validateLoginInput = require('../../validation/login');
 
 router.put("/:id", (req, res) => {
   User.findByIdAndUpdate(req.params.id, req.body)
-  .then(user => res.send(user)
+  .then(user => res.json(user)
   .catch(err => res.status(404)
   .json({ updateError: 'Could not update' })))
 

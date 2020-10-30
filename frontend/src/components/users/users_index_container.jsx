@@ -5,7 +5,8 @@ import {fetchAllUsers, updateAUser} from '../../actions/user_actions'
 const mapStateToProps = state => {
     debugger
     return {
-        users: Object.values(state.entities.users),
+        allUsers: Object.values(state.entities.users),
+        someUsers: null,
         currentUser: state.entities.users[state.session.user.id]
     }
 } 
