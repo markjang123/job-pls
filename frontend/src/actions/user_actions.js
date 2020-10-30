@@ -30,8 +30,8 @@ export const updateAUser = (userId, userData) => {
     debugger
     return dispatch => {
         return APIUserUtil.updateUser(userId, userData)
-                .then(user => {
-                    dispatch(updateUser(user.data))
-                })
+                .then(() => APIUserUtil.fetchUser(userId))
+                .then(user => dispatch(updateUser(user.data)))
+                .catch(err => console.log(err))
     }
 }

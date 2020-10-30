@@ -1,6 +1,6 @@
 import React from 'react'
 import './users_index.css'
-import FollowButton from './follow_button'
+import FollowButtonContainer from './follow_button_container'
 class UsersIndexItem extends React.Component {
     constructor(props){
         super(props)
@@ -12,6 +12,9 @@ class UsersIndexItem extends React.Component {
         const {user, currentUser} = this.props
         return user.following_users.includes(currentUser._id)
     }
+    componentDidUpdate(){
+        console.log("Updated")
+    }
     render(){
         debugger
         return <div className="users-index-item">
@@ -20,7 +23,7 @@ class UsersIndexItem extends React.Component {
                     {this.props.user.username}
                 </p>
             </div>
-            <FollowButton updateAUser={this.props.updateAUser} is_following={this.is_following} forceUpdate={() => this.forceUpdate()} currentUser={this.props.currentUser} user={this.props.user}/>
+            <FollowButtonContainer is_following={this.is_following} forceUpdate={() => this.forceUpdate()} user={this.props.user}/>
         </div>
         
     }
