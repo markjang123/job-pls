@@ -1,6 +1,6 @@
 import React from 'react'
 import './users_index.css'
-import UsersIndexItem from './user_index_item'
+import UsersIndexItemContainer from './users_index_item_container'
 class UsersIndex extends React.Component {
     constructor(props){
         super(props)
@@ -8,15 +8,17 @@ class UsersIndex extends React.Component {
     componentWillMount(){
         this.props.fetchAllUsers()
     }
+
     render(){
         debugger
         return <ul className="users-index">
             {this.props.users.map(user => {
-                return <UsersIndexItem username={user.username}/>
+                debugger
+                if (user._id === this.props.currentUser._id) return null
+                return <UsersIndexItemContainer key={user.id} user={user}/>
             })
         }
         </ul>
-        
     }
 }
 

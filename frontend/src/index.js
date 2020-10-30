@@ -2,24 +2,37 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store'
 import Root from './components/root'
-import {signup} from './util/session_api_util'
-import {clearSessionErrors} from '../src/actions/session_actions'
+import jwt_decode from 'jwt-decode';
+import { setAuthToken } from './util/session_api_util';
+import { logout } from './actions/session_actions';
 import {fetchAllUsers} from '../src/actions/user_actions'
+import {updateAUser} from '../src/actions/user_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
-    let store = configureStore()
-    window.getState = store.getState
-    window.signup = signup
-    window.dispatch = store.dispatch
-    window.clearSessionErrors = clearSessionErrors
-    window.fetchAllUsers = fetchAllUsers
-    ReactDOM.render(
-      <Root store={store} />,
-      document.getElementById('root')
-    ) 
-  }
-  )
+    let store;
 
+    if (localStorage.jwtToken) {
+        setAuthToken(localStorage.jwtToken);
+        const decodedUser = jwt_decode(localStorage.jwtToken);
+        const preloadedState = { session: { isAuthenticated: true, user: decodedUser } };
+        store = configureStore(preloadedState);
+        const currentTime = Date.now() / 1000;
+        if (decodedUser.exp < currentTime) {
+            store.dispatch(logout());
+            window.location.href = '/login';
+        }
+    } else {
+        store = configureStore({});
+    }
+    window.getState = store.getState
+    window.dispatch = store.dispatch
+    window.fetchAllUsers = fetchAllUsers
+    window.updateAUser = updateAUser
+    ReactDOM.render(
+        <Root store={store} />,
+        document.getElementById('root')
+    )
+});
 
 
 
