@@ -1,8 +1,18 @@
+
+.session-form-liner{
+    /* outer shadow */
+    -webkit-box-shadow: 0px 0px 12px 8px rgba(99,45,75,0.5);
+    -moz-box-shadow: 0px 0px 12px 8px rgba(99,45,75,0.5);
+    box-shadow: 0px 0px 12px 8px rgba(99,45,75,0.5);
+    height: 100%;
+    border-radius: inherit;
+}
 .session-form {
     position: relative;
     height: 550px;
     width: 500px;
-    background-color: #00ffff;
+    background-color: #f67e7d;
+    /* background-color: #000A14; */
     border-radius: 10px;
     text-align: center;
     display: flex;
@@ -10,11 +20,15 @@
     /* margin: auto; */
     margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
+    /* margin-top: 15px; */
+    padding-top: 25px;
+    /* inner shadow */
+    -webkit-box-shadow: inset 0px 0px 53px 3px rgba(148,75,75,0.81);
+    -moz-box-shadow: inset 0px 0px 53px 3px rgba(148,75,75,0.81);
+    box-shadow: inset 0px 0px 53px 3px rgba(148,75,75,0.81);
 }
 .form-header {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
     margin: 30px auto 30px;
 }
 .session-errors {
@@ -22,24 +36,21 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5px;
     height: 10px;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
 .form-element {
-    /* background-color: lightgray; */
     border-radius: 3px;
     border: none;
     padding: 5px 5px 5px 5px;
     font-size: 18px;
     width: 200px;
     height: 25px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
 }
 .bottom-message {
     font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
     margin-top: 30px;
 }
 .form-link {
@@ -47,8 +58,9 @@
 }
 #submit-button {
     color: white;
-   background-color: darkorchid;
-   padding: 15px auto 15px;
-   height: 35px;
+    background-color: #7badee;
+    padding: 15px auto 15px;
+    height: 35px;
+    width: 210px;
 
 }

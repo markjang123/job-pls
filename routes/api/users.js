@@ -114,11 +114,6 @@ router.get('/:id', (req, res) => {
   .json({ nouserfound: 'No user found with that ID' }));
 }); 
 
-
-
-
-
-
   router.get('/', (req, res) => {
     User.find()
         .then(users => res.json(users))

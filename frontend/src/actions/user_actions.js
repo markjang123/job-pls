@@ -17,7 +17,6 @@ export const receiveUser = _id => ({
 });
 
 export const updateUser = user => {
-    debugger
     return {
         type: UPDATE_USER,
         user
@@ -45,4 +44,5 @@ export const updateAUser = (userId, userData) => {
               .then(user => {
                   dispatch(updateUser(user.data))
               })
+  }
 }

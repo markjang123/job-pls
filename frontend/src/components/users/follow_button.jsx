@@ -7,7 +7,7 @@ class FollowButton extends React.Component {
         this.unfollowUser = this.unfollowUser.bind(this)
     }
     followUser(){
-        debugger
+        // debugger
         const {currentUser, user} = this.props
         user.following_users.push(currentUser._id)
         this.props.updateAUser(user._id, {following_users: user.following_users})
@@ -16,7 +16,7 @@ class FollowButton extends React.Component {
     }
     
     unfollowUser(){
-        debugger
+        // debugger
         const {currentUser, user} = this.props
         const followIdx = user.following_users.findIndex(ele => ele === currentUser._id)
         user.following_users.splice(followIdx, 1)
@@ -27,7 +27,7 @@ class FollowButton extends React.Component {
 
     }
     render(){
-        debugger
+        // debugger
     return <button onClick={this.props.is_following() ? this.unfollowUser : this.followUser} id={this.props.is_following() ? "following" : "follow"} className="follow-button">{this.props.is_following() ? "following" : "follow"}</button>
     }
 }

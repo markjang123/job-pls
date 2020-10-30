@@ -2,6 +2,7 @@ import React from 'react';
 import PostShowContainer from './post_show_container';
 import { Link } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
+import './post.css'
 
 
 class PostIndexItem extends React.Component{
@@ -23,17 +24,6 @@ class PostIndexItem extends React.Component{
         )
     }
 
-    // modeFunc(post){
-    //     const modalObject = ({
-    //         type: 'post',
-    //         modal: 'post',
-    //         proc: post
-    //     })
-    //     console.log('logging the modal Object below:')
-    //     console.log(modalObject)
-    //     console.log('logging the modal Object above:')
-    //     this.props.openModal(modalObject);
-    // }
 
     modeFunc(props) {
         const modalObject = ({
@@ -41,12 +31,10 @@ class PostIndexItem extends React.Component{
             modal: 'post',
             proc: props
         })
-        console.log('logging the modal Object below:')
-        console.log(modalObject)
-        console.log('logging the modal Object above:')
-        // this.props.openModal(modalObject);
         this.props.openModal(modalObject);
+        document.body.style.position = 'fixed';
     }
+
 
 
 
@@ -54,20 +42,17 @@ class PostIndexItem extends React.Component{
 
     render(){
         const { post } = this.props;
-        // console.log(!!openModal);
 
         return(
-            <div>
-                {/* <Link to={`/jobs/${post._id}`}> */}
+            <div className='job' onClick={() => this.modeFunc(this.props)}>
                 <ul>
-                    <li>{post.job_title}</li> 
-                    <li>{post.company}</li>
-                    <li>{post.salary}</li>
-                </ul>
-                <ul>
+                    <li id='job-title'>{post.job_title}</li> 
+                    <li id='company'>{post.company}</li>
                     <li>{post.status}</li>
                 </ul>
-                <button onClick={() => this.modeFunc(this.props) }>Modal Time</button>
+                    <p id='salary'>{post.salary}</p>
+                
+    
             </div>
         )
         // return (

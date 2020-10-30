@@ -6,16 +6,21 @@ class UsersIndex extends React.Component {
     constructor(props){
         super(props)
     }
-    componentWillMount(){
+    // componentWillMount(){
+    //     this.props.fetchAllUsers()
+    // }
+    componentDidMount(){
         this.props.fetchAllUsers()
     }
 
     render(){
-        debugger
+        // if (this.props.user === null) return null
         return <ul className="users-index">
             {this.props.users.map(user => {
-                debugger
-                return <UsersIndexItem key={user.id} updateAUser={this.props.updateAUser} currentUser={this.props.currentUser} user={user}/>
+                return <UsersIndexItem key={user.id} 
+                updateAUser={this.props.updateAUser} 
+                currentUser={this.props.currentUser} 
+                user={user}/>
             })
         }
         </ul>

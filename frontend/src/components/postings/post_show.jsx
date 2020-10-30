@@ -17,10 +17,10 @@ class PostShow extends React.Component{
         // if (!posts) return null;
 
         return(
-            <div>
-                <h1>{post.job_title}</h1>
-                <h3>{post.company}</h3>
-                <h3>{post.salary}</h3>
+            <div className='post-show'>
+                <p id='show-title'>{post.job_title}</p>
+                <p id='show-company'>{post.company}</p>
+                <p id='show-salary'>{post.salary}</p>
                 <p>{post.description}</p>
                 <button onClick={() => console.log(currentUser)}>Add To List</button>  
             </div>
