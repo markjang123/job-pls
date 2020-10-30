@@ -15,13 +15,30 @@ const PostingSchema = new Schema({
     required: true
   },
   company: {
-    type: String,
-    required: true
+    type: String  
   },
   salary: {
-    type: Number
+    type: String
   },
   description: {
+    type: String
+  },
+  location: {
+    type: String
+  },
+  snippet: {
+    type: String
+  },
+  source: {
+    type: String
+  },
+  type: {
+    type: String
+  },
+  link: {
+    type: String
+  },
+  created_at: {
     type: String
   },
   public: {

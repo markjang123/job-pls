@@ -12,7 +12,7 @@ const usersReducer = (state = {}, action) => {
         // case RECEIVE_CURRENT_USER:
         //     return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
         case RECEIVE_USERS:
-            let nextState = Object.assign({}, state)
+            nextState = Object.assign({}, state)
             for (const user of action.users){
                 nextState[user._id] = user
             }
@@ -25,7 +25,6 @@ const usersReducer = (state = {}, action) => {
             debugger
             return action._id.data
         case UPDATE_USER:
-            debugger
             nextState[action.user.id] = action.user
             return nextState
         default:

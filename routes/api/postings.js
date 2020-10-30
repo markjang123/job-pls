@@ -13,7 +13,9 @@ const validatePostingInput = require('../../validation/postings');
 
 router.get('/user/:user_id', (req, res) => {
     Posting.find({user: req.params.user_id})
-        .then(postings => res.json(postings))
+        .then(postings => {
+            console.log(postings);
+            res.json(postings)})
         .catch(err =>
             res.status(404).json({ nopostingsfound: 'No postings found from that user' }
         )
@@ -247,4 +249,10 @@ router.get('/', (req, res) => {
         .then(postings => res.json(postings))
         .catch(err => res.status(404).json({ nopostingsfound: 'No postings found' }));
 });
+
+router.delete('/:id', (req, res) => {
+    Posting.findById(req.params.id)
+        .then(posting => posting.delete())
+        .catch(err => res.status(404).json({nopostingfound: 'No posting found :D'}))
+})
   module.exports = router;
