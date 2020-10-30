@@ -31,7 +31,7 @@
     top: 3px;
 }
 .follow-button:focus {
-    border: none;
+    outline-style: none;
 }
 .username {
     padding-top: auto;
