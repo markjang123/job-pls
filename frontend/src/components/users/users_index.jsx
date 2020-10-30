@@ -8,6 +8,7 @@ class UsersIndex extends React.Component {
     componentWillMount(){
         this.props.fetchAllUsers()
     }
+
     render(){
         debugger
         return <ul className="users-index">
@@ -18,7 +19,6 @@ class UsersIndex extends React.Component {
             })
         }
         </ul>
-        
     }
 }
 
