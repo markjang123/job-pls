@@ -28,6 +28,9 @@ class Nav extends React.Component {
                         <div id='tab'>
                             <Link to='/users'>users</Link>
                         </div>
+                        <div id='tab'>
+                            <Link to='/search'>search</Link>
+                        </div>
                     </div>
                 </div>
             </div>
