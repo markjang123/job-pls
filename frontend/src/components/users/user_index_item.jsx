@@ -19,12 +19,11 @@ class UsersIndexItem extends React.Component {
     render(){
 
         let { _id, username } = this.props.user
-        console.log(this.props.user)
         return(
         <div className="users-index-item">
             <div className="username-container">
                 <p className="username" >
-                    <Link to={`/users/${_id}`}>{username}</Link>
+                    <Link className="username-link" to={`/users/${_id}`}>{username}</Link>
                 </p>
             </div>
             <FollowButtonContainer is_following={this.is_following} forceUpdate={() => this.forceUpdate()} user={this.props.user}/>

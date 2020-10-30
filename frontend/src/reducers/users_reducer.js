@@ -21,7 +21,7 @@ const usersReducer = (state = {}, action) => {
             // return nextState[user_id] = user
             // return Object.assign({}, state, {[action.user]: action._id.data})
             debugger
-            return action._id.data
+            nextState[action.user._id] = action.user
         case UPDATE_USER:
             debugger
             nextState[action.user._id] = action.user
