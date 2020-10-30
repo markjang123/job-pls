@@ -23,6 +23,7 @@ class PostingItem extends React.Component{
         return text.replace(/<style[^>]*>.*<\/style>/gm, '')
         .replace(/<script[^>]*>.*<\/script>/gm, '')
         .replace(/<[^>]+>/gm, '')
+        .replace(/&nbsp/gm, '')
         .replace(/([\r\n]+ +)+/gm, '');
     }
 
@@ -74,26 +75,23 @@ class PostingItem extends React.Component{
     render(){
         const { title, location, snippet, salary, source, type, link, company, id, updated, url, description, created_at, how_to_apply} = this.props.posting
         return(
-            <li className='posting-listing'>
-                <button onClick={this.handleClick}>{this.state.saved ? 'Delete Job Posting from Collection' : 'Save Job Posting for Collection'}</button>
-                <div>{title ? title : ''}</div>
-                <div>{location ? location : ''}</div>
-                <div>{snippet ? snippet : ''}</div>
-                <div>{salary ? salary : ''}</div>
-                <div>{source ? source : ''}</div>
-                <div>{type ? type : ''}</div>
-                <div>{link ? link : ''}</div>
-                <div>{company ? company : ''}</div>
-                <div>{id ? id : ''}</div>
-                <div>{updated ? updated : ''}</div>
-                <div>{url ? url : ''}</div>
-                <div>{description? this.niceDescription(description) : ''}</div>
-                <div>{created_at ? created_at : ''}</div>
-                <div>{how_to_apply ? how_to_apply : ''}</div>
-            </li>       
+            <div className='posting-listing'>
+                <button className='posting-listing-add-button' onClick={this.handleClick}>{this.state.saved ? 'Delete Job Posting from Collection' : 'Save Job Posting for Collection'}</button>
+                <div className='posting-listing-title'>{title ? title : ''}</div>
+                <div className='posting-listing-company'>{company ? company : ''}</div>
+                <div className='posting-listing-location'>Location: {location ? location : ''}</div>
+                <div className='posting-listing-snippet'>{snippet ? 'Snippet from the website: ' + this.niceDescription(snippet).slice(1,snippet.length-1) : ''}</div>
+                <div className='posting-listing-description'>{description? `${this.niceDescription(description).slice(0,1500)}...` : ''}</div>
+                <div className='posting-listing-type'>{type ? `Schedule: ${type}` : ''}</div>
+                <div className='posting-listing-salary'>{salary ? `Salary: ${salary}` : ''}</div>
+                <div className='posting-listing-url'>{url ? <a href={url}>Click here to apply.</a> : ''}</div>
+                <div className='posting-listing-link'>{link ? <a href={this.niceDescription(link)}>Click here to apply.</a> : ''}</div>
+                <div className='posting-listing-created_at'>{created_at ? created_at : ''}</div>
+            </div>       
         ) 
     }
 
 };
 
 export default PostingItem;
+
