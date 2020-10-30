@@ -40,9 +40,11 @@ export const fetchUser = userId => dispatch => {
 };
 
 export const updateAUser = (userId, userData) => {
-  return dispatch => {
-      return APIUserUtil.updateUser(userId, userData)
-              .then(user => {
-                  dispatch(updateUser(user.data))
-              })
+    debugger
+    return dispatch => {
+        return APIUserUtil.updateUser(userId, userData)
+                .then(() => APIUserUtil.fetchUser(userId))
+                .then(user => dispatch(updateUser(user.data)))
+                .catch(err => console.log(err))
+    }
 }
