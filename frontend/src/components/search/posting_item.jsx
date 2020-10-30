@@ -11,6 +11,7 @@ class PostingItem extends React.Component{
             saved: false
         }
         this.handleClick = this.handleClick.bind(this);
+        this.updatingUser = this.updatingUser.bind(this);
     }
 
     componentDidMount(){
@@ -29,7 +30,7 @@ class PostingItem extends React.Component{
         if(this.state.saved){
             debugger
             this.props.deletePosting(this.props.posting.id)
-            .then(this.setState({saved: false}));
+            .then(this.updatingUser(this.props.userPostings, true));
         } else {
             debugger
             let newPosting = ({
@@ -50,9 +51,24 @@ class PostingItem extends React.Component{
                 public:  true,
             })
             this.props.composePosting(newPosting)
-            .then(this.setState({saved: true}));
+            .then(this.updatingUser(this.props.userPostings, false));
         }
+    }
 
+    updatingUser(userArray,status){
+        let newUserArray = userArray;
+
+        if(status){
+            debugger
+            newUserArray = newUserArray.filter(postIDX => postIDX !== this.props.posting.id);
+            this.setState({saved: false});
+        } else {
+            debugger
+            newUserArray.push(this.props.posting.id.toString());
+            this.setState({saved: true});
+        }
+        this.props.updateAUser(this.props.userId,{followed_posting: newUserArray})
+        .then(this.forceUpdate());
     }
 
     render(){

@@ -45,7 +45,10 @@ router.post("/register", (req, res) => {
                   jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                     res.json({
                     success: true,
-                    token: "Bearer " + token
+                    token: "Bearer " + token,
+                    followed_users: user.followed_users,
+                    following_users: user.following_users,
+                    followed_posting: user.followed_posting
                     });
                 });
                 })
@@ -78,7 +81,10 @@ router.post("/login", (req, res) => {
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           res.json({
             success: true,
-            token: "Bearer " + token
+            token: "Bearer " + token,
+            followed_users: user.followed_users,
+            following_users: user.following_users,
+            followed_posting: user.followed_posting
           });
         });
       } else {
