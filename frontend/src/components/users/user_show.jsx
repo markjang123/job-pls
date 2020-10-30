@@ -6,7 +6,7 @@ class UserShow extends React.Component{
     }
 
     componentDidMount(){
-        // this.props.fetchAllUsers();
+        this.props.fetchAllUsers();
         this.props.fetchUser(this.props.match.params.userId)
     }
 
@@ -23,6 +23,18 @@ class UserShow extends React.Component{
                     <h1>Show Page:{username}</h1>
                     {username}
                 </div>
+                <ul> 
+                    <h3>Followers ({this.props.user.following_users.length})</h3>
+                    {this.props.user.following_users.map(userId => {
+                        debugger   
+                        return <li key={userId}>{this.props.users[userId].username}</li>})}
+                </ul>
+                <ul> 
+                    <h3>Following ({this.props.user.followed_users.length})</h3>
+                    {this.props.user.followed_users.map(userId => {
+                        debugger   
+                        return <li key={userId}>{this.props.users[userId].username}</li>})}
+                </ul>
                 <Link to="/users">users</Link>
             </div>
         )
