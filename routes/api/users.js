@@ -42,13 +42,13 @@ router.post("/register", (req, res) => {
                 .save()
                 .then(user => {
                   const payload = { id: user.id, username: user.username };
-                  
                   jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
-                    console.log(res.json({ success: true, token: "Bearer " + token }))
-                    
                     res.json({
                     success: true,
-                    token: "Bearer " + token
+                    token: "Bearer " + token,
+                    followed_users: user.followed_users,
+                    following_users: user.following_users,
+                    followed_posting: user.followed_posting
                     });
                 });
                 })
@@ -81,7 +81,10 @@ router.post("/login", (req, res) => {
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           res.json({
             success: true,
-            token: "Bearer " + token
+            token: "Bearer " + token,
+            followed_users: user.followed_users,
+            following_users: user.following_users,
+            followed_posting: user.followed_posting
           });
         });
       } else {
@@ -100,11 +103,11 @@ router.get('/follows', (req, res) => {
   .catch(errors => res.json(errors))
 });
 
-  router.get('/', (req, res) => {
-    User.find()
-      .then(users => res.json(users))
-      .catch(err => res.status(404));
-  })
+router.get('/', (req, res) => {
+User.find()
+    .then(users => res.json(users))
+    .catch(err => res.status(404));
+})
 
 router.get('/:id', (req, res) => {
   User.findById(req.params.id)
@@ -118,7 +121,7 @@ router.get('/:id', (req, res) => {
 
 
 
-  router.get('/', (req, res) => {
+router.get('/', (req, res) => {
     User.find()
         .then(users => res.json(users))
         .catch(err => res.status(404).json({ nousersfound: 'No users found' }));
