@@ -19,17 +19,32 @@ class PostIndexItem extends React.Component{
     showPost(post){
         console.log(post.job_title)
         return(
-            // console.log(post._id),
             <PostShowContainer post={post}/>
         )
     }
 
-    modeFunc(post){
+    // modeFunc(post){
+    //     const modalObject = ({
+    //         type: 'post',
+    //         modal: 'post',
+    //         proc: post
+    //     })
+    //     console.log('logging the modal Object below:')
+    //     console.log(modalObject)
+    //     console.log('logging the modal Object above:')
+    //     this.props.openModal(modalObject);
+    // }
+
+    modeFunc(props) {
         const modalObject = ({
             type: 'post',
             modal: 'post',
-            proc: post
+            proc: props
         })
+        console.log('logging the modal Object below:')
+        console.log(modalObject)
+        console.log('logging the modal Object above:')
+        // this.props.openModal(modalObject);
         this.props.openModal(modalObject);
     }
 
@@ -51,13 +66,29 @@ class PostIndexItem extends React.Component{
                 </ul>
                 <ul>
                     <li>{post.status}</li>
-                    <li>{console.log(post.currentUser)}</li>
                 </ul>
-                {/* </Link> */}
-                {/* <button onClick={() => openModal(post)}>Modal Time</button> */}
-                <button onClick={() => this.modeFunc(post) }>Modal Time</button>
+                <button onClick={() => this.modeFunc(this.props) }>Modal Time</button>
             </div>
         )
+        // return (
+        //     <div>
+        //         {/* <Link to={`/jobs/${post._id}`}> */}
+        //         <ul>
+        //             <li>{this.props.post.job_title}</li>
+        //             <li>{this.props.post.company}</li>
+        //             <li>{this.props.post.salary}</li>
+        //         </ul>
+        //         <ul>
+        //             <li>{this.props.post.status}</li>
+        //         </ul>
+        //         {/* </Link> */}
+        //         {/* <button onClick={() => openModal(post)}>Modal Time</button> */}
+        //         {console.log('Logging props from PostIndexItem below:')}
+        //         {console.log(this.props)}
+        //         {console.log('Logging props from PostIndexItem above:')}
+        //         <button onClick={() => this.modeFunc(post)}>Modal Time</button>
+        //     </div>
+        // )
     }
 }
 

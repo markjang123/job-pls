@@ -20,71 +20,194 @@ router.get('/user/:user_id', (req, res) => {
     );
 });
 
-router.post('/git_search',
-    (req, res) => {
 
-        const { keywords, location, company } = req.body
-        const url = "https://jobs.github.com/positions.json?";
-        let keywordURL = `description=`;
-        let companyURL = ''
-        let locationURL = `&location=`;
-        keywords.split(" ").forEach(word => {
-            keywordURL = keywordURL + `${word}+`
-        });
-        keywordURL = keywordURL.slice(0, keywordURL.length-1);
+// router.post('/usa_search',
+//     (req, res) => {
 
-        company.split(" ").forEach(word => {
-            companyURL = companyURL + `${word}+`
-        });
-        companyURL = companyURL.slice(0, companyURL.length-1);
+//         const { keywords, location, radius, salary } = req.body
+//         let url = "https://data.usajobs.gov/api/search?";
+//         if(keywords){
+//             let keyword = 'Keyword=';
+//             let keywordArr = keywords.split(" ");
+//             keywordArr.forEach(word => {
+//                 keyword = keyword + `${word}%20`
+//             });
+//             keyword = keyword.slice(0,keyword.length-3) + '&';
+//             url = url + keyword;
+//         };
+//         if(location){
+//             let locationName = 'LocationName=';
+//             let locationNameArr = location.split(" ");
+//             let radiusString = `Radius=${radius}&`;
+//             locationNameArr.forEach(word => {
+//                 locationName = locationName + `${word}%20`;
+//             });
+//             locationName = locationName.slice(0,locationName.length-3) + '&';
+//             url = url + locationName + radiusString;           
+//         };
+//         if(salary){
+//             let RemunerationMinimumAmount = `RemunerationMinimumAmount=${salary}&`;
+//             url = url + RemunerationMinimumAmount;
+//         };
 
-        location.split(" ").forEach(word => {
-            locationURL = locationURL + `${word}+`
-        });
-        locationURL = locationURL.slice(0, locationURL.length-1);
+//         let resultsFromPage = 'ResultsPerPage=50&';
+//         let fields = 'Fields=full';
 
-        githubRequest = new XMLHttpRequest();
-        githubRequest.open("GET", url + keywordURL + locationURL, true);
-        // githubRequest.setRequestHeader('Content-type', 'application/json');
+//         url = url + resultsFromPage + fields;
+//         console.log(url);
         
-        githubRequest.onreadystatechange = () => {
-            if(githubRequest.readyState == 4 && githubRequest.status == 200) {
-                return res.json(JSON.parse(githubRequest.responseText));
-            }
-        }
+//         usaRequest = new XMLHttpRequest();
+//         usaRequest.open("GET", (url), true);
+        
+//         usaRequest.setRequestHeader('User-Agent', 'sethbarrie@gmail.com');
+//         usaRequest.setRequestHeader('Authorization-Key', `${keys.usajobsAPI}`);
+//         usaRequest.setRequestHeader('Host', 'data.usajobs.gov');
 
-        githubRequest.send(JSON.stringify(githubRequest))
-        // .then(response => res.json(response))
-        // .catch(error => res.json(error))
-    }
+//         usaRequest.onreadystatechange = () => {
+//             if(usaRequest.readyState == 4 && usaRequest.status == 200) {
+//                 return res.json(JSON.parse(usaRequest.responseText));
+//             }
+//         }
 
-)
+//         usaRequest.send(JSON.stringify(usaRequest))
+//     }
+
+// )
+
+// router.post('/git_search',
+//     (req, res) => {
+
+//         const { keywords, location, company } = req.body
+//         const url = "https://jobs.github.com/positions.json?";
+//         let keywordURL = `description=`;
+//         let companyURL = ''
+//         let locationURL = `&location=`;
+//         keywords.split(" ").forEach(word => {
+//             keywordURL = keywordURL + `${word}+`
+//         });
+//         keywordURL = keywordURL.slice(0, keywordURL.length-1);
+
+//         company.split(" ").forEach(word => {
+//             companyURL = companyURL + `${word}+`
+//         });
+//         companyURL = companyURL.slice(0, companyURL.length-1);
+
+//         location.split(" ").forEach(word => {
+//             locationURL = locationURL + `${word}+`
+//         });
+//         locationURL = locationURL.slice(0, locationURL.length-1);
+
+//         githubRequest = new XMLHttpRequest();
+//         githubRequest.open("GET", url + keywordURL + locationURL, true);
+        
+//         githubRequest.onreadystatechange = () => {
+//             if(githubRequest.readyState == 4 && githubRequest.status == 200) {
+//                 return res.json(JSON.parse(githubRequest.responseText));
+//             }
+//         }
+
+//         githubRequest.send(JSON.stringify(githubRequest))
+//     }
+
+// )
+
+// router.post('/search',
+//     (req, res) => {
+
+//         const { keywords, location, company, radius, salary, page } = req.body;
+// ///////////////////////////////////////////////////////////////////////
+//         const joobleRequest = ({
+//             keywords: keywords,
+//             location: location,
+//             radius: radius,
+//             salary: salary,
+//             page: page
+//         });
+//         const joobleURL = "https://jooble.org/api/";
+//         const key = keys.joobleAPI;
+
+//         joobleResponse = new XMLHttpRequest();
+//         joobleResponse.open("POST", joobleURL + key, true);
+//         joobleResponse.setRequestHeader('Content-type', 'application/json');
+        
+//         joobleResponse.onreadystatechange = () => {
+//             if(joobleResponse.readyState == 4 && joobleResponse.status == 200) {
+//                 return res.json(JSON.parse(joobleResponse.responseText));
+//             }
+//         };
+
+//         joobleResponse.send(JSON.stringify(joobleRequest));
+
+//     }
+// );
 
 router.post('/search',
     (req, res) => {
-        const joobleRequest = ({
-            keywords: req.body.keywords,
-            location: req.body.location,
-            radius: req.body.radius,
-            salary: req.body.salary,
-            page: req.body.page
-        })
-        const url = "https://jooble.org/api/";
-        const key = keys.joobleAPI;
 
-        joobleResponse = new XMLHttpRequest();
-        joobleResponse.open("POST", url + key, true);
-        joobleResponse.setRequestHeader('Content-type', 'application/json');
+        let data = {}
+        const { keywords, location, company, radius, salary, page } = req.body;
+        let joobleURL = "https://jooble.org/api/";
+        let key = keys.joobleAPI;
+        let gitURL = "https://jobs.github.com/positions.json?";
+        const joobleRequest = ({
+            keywords: `${keywords} ${company}`.trim(),
+            location: location,
+            radius: radius.trim(),
+            salary: salary.trim(),
+            page: page
+        });
+
+        if(keywords){
+            let keywordURL = `description=`;
+            keywords.split(" ").forEach(word => {
+                keywordURL = keywordURL + `${word}+`;
+            });
+            keywordURL = keywordURL.slice(0, keywordURL.length-1);
+            gitURL = gitURL + keywordURL;
+        };
         
-        joobleResponse.onreadystatechange = () => {
-            if(joobleResponse.readyState == 4 && joobleResponse.status == 200) {
-                return res.json(JSON.parse(joobleResponse.responseText));
-            }
+        if(location){
+            let locationURL = `&location=`;
+            let radiusString = `Radius=${radius}&`;
+            location.split(" ").forEach(word => {
+                locationURL = locationURL + `${word}+`;
+            });
+            locationURL = locationURL.slice(0, locationURL.length-1);
+            gitURL = gitURL + locationURL + radiusString;           
+        };
+
+        if(company){
+            let companyURL = '';
+
+            company.split(" ").forEach(word => {
+                companyURL = companyURL + `${word}+`;
+            });
+        } else {
+            companyURL = '';
         }
 
-        joobleResponse.send(JSON.stringify(joobleRequest))
+
+        gitURL = gitURL + companyURL;
+        joobleURL = joobleURL + key;
+
+        let testXMLArr = [joobleURL, gitURL];
+        for(let i = 0; i < 2; i++ ){
+            responseJSON = new XMLHttpRequest();
+            methodRequest = i === 0 ? 'POST' : 'GET';
+            
+            responseJSON.open(methodRequest, testXMLArr[i], false);
+            responseJSON.onreadystatechange = () => {
+                if(responseJSON.readyState == 4 && responseJSON.status == 200) {
+                    data[i] = (JSON.parse(responseJSON.responseText));
+                }
+            };
+            i === 0 ? responseJSON.send(JSON.stringify(joobleRequest)) 
+            : responseJSON.send();
+        }
+        return res.json(data);
     }
 );
+
 
 router.post('/',
     // passport.authenticate('jwt', { session: false }),
