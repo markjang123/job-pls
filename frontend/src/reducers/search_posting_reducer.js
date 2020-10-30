@@ -8,6 +8,7 @@ const PostingsReducer = (state = [], action) => {
   
   switch(action.type) {
     case RECEIVE_SEARCHED_POSTING:
+        debugger
         const concattedPostings = action.postings.data[0].jobs.concat(action.postings.data[1]);
         return [...new Set(concattedPostings)];
     default:

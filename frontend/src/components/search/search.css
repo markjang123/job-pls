@@ -3,18 +3,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: coral;
 }
 
 .search-form{
+    position: fixed;
+    top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    border-bottom: 1px solid lightgray;
+    background-color: #ffb997;
 }
 
 
 .search-input-div{
+    z-index: 15;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,6 +54,7 @@
 }
 
 .search-dropdown-div{
+    z-index: 15;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,9 +91,11 @@
 }
 
 .posting-list{
+    height: 100%;
     width: 30vw;
     padding-right: 30vw;
     border-right: gray solid 1px;
+    overflow-y: auto;
 }
 
 .posting-list li{
@@ -126,7 +133,7 @@
 
 .posting-listing{
     width: 30vw;
-    height: 84vh;
+    height: 71vh;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -150,7 +157,7 @@
 }
 
 .posting-listing-title{
-    color: brown;
+    color: black;
     font-size: 30px;
     padding-left: 6px;
 }
