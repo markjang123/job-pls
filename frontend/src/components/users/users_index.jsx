@@ -4,13 +4,15 @@ import UsersIndexItemContainer from './users_index_item_container'
 class UsersIndex extends React.Component {
     constructor(props){
         super(props)
-    }
-    componentWillMount(){
         this.props.fetchAllUsers()
     }
+    // componentDidMount(){
+    //     this.props.fetchAllUsers()
+    // }
 
     render(){
         debugger
+        if (this.props.currentUser === undefined) return null
         return <ul className="users-index">
             {this.props.users.map(user => {
                 debugger

@@ -5,7 +5,7 @@ import { fetchUser , fetchAllUsers } from '../../actions/user_actions';
 import { withRouter } from 'react-router-dom';
 
 const mSTP = ({ entities: { posts , users }, session }, ownProps) => {
-
+debugger
     let user = users[ownProps.match.params.userId]
     // let post = 'hello'
 
