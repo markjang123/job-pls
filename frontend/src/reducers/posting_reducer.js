@@ -8,9 +8,9 @@ import {
 
 
 const initialState =  {
-    all: {},  // 
+    all: [],  // 
     user: [], // 
-    new: undefined // 
+    new: [] // 
 };
   
 // const PostingsReducer = (state = initialState, action) => {
@@ -21,7 +21,8 @@ const PostingsReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case RECEIVE_POSTINGS:
-        return Object.assign({}, state, action.postings.data)
+        debugger
+        return action.postings
     case RECEIVE_POSTING:
         return action.posting.data;
     case RECEIVE_USER_POSTINGS:

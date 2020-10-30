@@ -6,9 +6,9 @@ class UsersIndex extends React.Component {
         super(props)
     }
 
-    // componentDidMount(){
-    //     this.props.fetchAllUsers()
-    // }
+    componentDidMount(){
+        this.props.fetchAllUsers()
+    }
 
     render(){
         let users = this.props.someUsers ? this.props.someUsers : this.props.allUsers

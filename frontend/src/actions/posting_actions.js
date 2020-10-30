@@ -51,7 +51,9 @@ const receiveSearchedPosting = postings => ({
 
 export const fetchPostings = () => dispatch => (
     getPostings()
-        .then(postings => dispatch(receivePostings(postings)))
+        .then(postings => {
+            debugger
+            dispatch(receivePostings(postings.data))})
         .catch(err => console.log(err))
 );
 
