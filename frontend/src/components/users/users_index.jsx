@@ -4,14 +4,13 @@ import UsersIndexItemContainer from './users_index_item_container'
 class UsersIndex extends React.Component {
     constructor(props){
         super(props)
-        this.props.fetchAllUsers()
     }
+
     // componentDidMount(){
     //     this.props.fetchAllUsers()
     // }
 
     render(){
-        debugger
         let users = this.props.someUsers ? this.props.someUsers : this.props.allUsers
         if (this.props.currentUser === undefined) return null
         return <ul className="users-index">
@@ -19,6 +18,7 @@ class UsersIndex extends React.Component {
                 debugger
                 if (user._id === this.props.currentUser._id) return null
                 return <UsersIndexItemContainer key={user.id} user={user}/>
+
             })
         }
         </ul>

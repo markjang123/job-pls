@@ -36,21 +36,35 @@ class SessionForm extends React.Component {
         }
     }
     render() {
-        return <div className="session-form">
-            <h3 className="form-header">{this.props.formType}</h3>
-            <form onSubmit={this.handleSubmit}>
-                    <input className="email-input form-element" type="text" onChange={this.update("email")} value={this.state.email} placeholder="email" />
-                    <p className="session-errors">{this.props.errors.email && this.props.errors.email}</p>
-                    {this.props.formType === "Sign up" && <input className="username-input form-element" type="text" placeholder="username" onChange={this.update("username")} value={this.state.username}/ >}
-                    <p className="session-errors">{this.props.errors.username && this.props.errors.username}</p>
-                    <input className="password-input form-element" type="password" onChange={this.update("password")} value={this.state.password} placeholder="password" />
-                    <p className="session-errors">{this.props.errors.password && this.props.errors.password}</p>
-                    {this.props.formType === "Sign up" && <input className="password2-input form-element" type="password" placeholder="confirm password" onChange={this.update("password2")} value={this.state.password2}/ >}
-                    <p className="session-errors">{this.props.errors.password2 && this.props.errors.password2}</p>
-                <input className="form-element" id="submit-button" type="submit" value={this.props.formType} />
-                {this.renderLinks()}
-            </form>
-        </div>
+        return(
+            <div className="session-form">
+                <div className='session-form-liner'>
+                <h3 className="form-header">{this.props.formType}</h3>
+                <form onSubmit={this.handleSubmit}>
+                        
+                        <p className="session-errors">{this.props.errors.email && this.props.errors.email}</p>
+                        <input className="email-input form-element" type="text" onChange={this.update("email")} value={this.state.email} placeholder="email" />
+
+                        
+                        <p className="session-errors">{this.props.errors.username && this.props.errors.username}</p>
+                        {this.props.formType === "Sign up" && <input className="username-input form-element" type="text" placeholder="username" onChange={this.update("username")} value={this.state.username}/ >}
+                        
+                        
+                        <p className="session-errors">{this.props.errors.password && this.props.errors.password}</p>
+                        <input className="password-input form-element" type="password" onChange={this.update("password")} value={this.state.password} placeholder="password" />
+                       
+                        
+                        <p className="session-errors">{this.props.errors.password2 && this.props.errors.password2}</p>
+                        {this.props.formType === "Sign up" && <input className="password2-input form-element" type="password" placeholder="confirm password" onChange={this.update("password2")} value={this.state.password2}/ >}
+                        <br/>
+                        <br/>
+                    
+                        <input className="form-element" id="submit-button" type="submit" value={this.props.formType} />
+                    {this.renderLinks()}
+                </form>
+            </div>
+            </div>
+        )
     }
 }
 
