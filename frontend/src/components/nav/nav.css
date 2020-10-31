@@ -11,7 +11,8 @@
     
 }
 
-#tab{
+#tab,
+#tab button{
     flex: 0 0 auto;
     margin: 1px;
     background-color: #74546a;
