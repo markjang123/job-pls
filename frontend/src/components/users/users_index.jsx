@@ -15,7 +15,7 @@ class UsersIndex extends React.Component {
         if (this.props.currentUser === undefined) return null
         return <ul className="users-index">
             {users.map(user => {
-                debugger
+                // debugger
                 if (user._id === this.props.currentUser._id) return null
                 return <UsersIndexItemContainer key={user.id} user={user}/>
 

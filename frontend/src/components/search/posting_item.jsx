@@ -5,7 +5,7 @@ class PostingItem extends React.Component{
 
     constructor(props){
         super(props)
-        debugger
+        // debugger
         let savedPostId = this.props.posting.id
         this.state = {
             saved: false
@@ -29,11 +29,11 @@ class PostingItem extends React.Component{
 
     handleClick(){
         if(this.state.saved){
-            debugger
+            // debugger
             this.props.deletePosting(this.props.posting.id)
             .then(this.updatingUser(this.props.userPostings, true));
         } else {
-            debugger
+            // debugger
             let newPosting = ({
                 user_id: this.props.userId,
                 posting_id: this.props.posting.id.toString(),
@@ -60,11 +60,11 @@ class PostingItem extends React.Component{
         let newUserArray = userArray;
 
         if(status){
-            debugger
+            // debugger
             newUserArray = newUserArray.filter(postIDX => postIDX !== this.props.posting.id);
             this.setState({saved: false});
         } else {
-            debugger
+            // debugger
             newUserArray.push(this.props.posting.id.toString());
             this.setState({saved: true});
         }

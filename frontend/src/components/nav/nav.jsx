@@ -1,11 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import PostIndexContainer from '../postings/post_index_container';
 import './nav.css'
 
 class Nav extends React.Component {
     constructor(props) {
         super(props);
+        this.openUsers = this.openUsers.bind(this);
     }
+
+    openUsers(){
+        debugger
+        console.log('click');
+        <PostIndexContainer openUsers={true}/>
+
+    }
+
+
 
   
 
@@ -18,15 +29,15 @@ class Nav extends React.Component {
         return (
             <div className='nav-container'>
                 <div>
-                    {/* <h1 onClick={() => console.log('click')} >HELLO</h1>
-                    <button onClick={this.props.logout}>LOG OUT</button>
-                    <Link to='/users'>All Users</Link> */}
                     <div id='flex-tabs'>
                         <div id='tab'>
                             <Link to='/jobs'>job pls</Link>
                         </div>
-                        <div id='tab'>
+                        {/* <div id='tab'>
                             <Link to='/users'>users</Link>
+                        </div> */}
+                        <div id='tab'>
+                            <p onClick={() => this.openUsers()}>users</p>
                         </div>
                         <div id='tab'>
                             <Link to='/search'>search</Link>

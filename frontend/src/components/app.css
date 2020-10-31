@@ -1,8 +1,9 @@
 .app{
    /* margin: auto; */
-   position: relative;
+   /* position: relative; */
   /* width: 50%; */
   /* padding: 10px; */
+  /* height: 100vh; */
   width: 100vw;
   z-index: 1;
 }

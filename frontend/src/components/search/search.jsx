@@ -33,7 +33,7 @@ class Search extends React.Component{
 
 
     selectPost(idx){
-        debugger
+        // debugger
         this.setState({ selectedPost: this.props.searchedPostings[idx]});
     }
 

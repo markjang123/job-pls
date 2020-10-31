@@ -4,7 +4,7 @@ import {updateAUser} from '../../actions/user_actions'
 import PostingItem from './posting_item';
 
 const mapStateToProps = state => {
-    debugger
+    // debugger
     let userPostingsId = state.entities.posts.user.map(obj => obj.posting_id) 
     return {
         userPostings: userPostingsId,

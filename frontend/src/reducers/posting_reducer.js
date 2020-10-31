@@ -21,21 +21,21 @@ const PostingsReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case RECEIVE_POSTINGS:
-        debugger
+        // debugger
         return action.postings
     case RECEIVE_POSTING:
         return action.posting.data;
     case RECEIVE_USER_POSTINGS:
-        debugger
+        // debugger
         newState.user = action.postings.data;
         return newState;
     case RECEIVE_NEW_POSTING:
-        debugger
+        // debugger
         newState.new = action.posting.data
         newState.user.push(action.posting.data)
         return newState;
     case DESTROY_POSTING:
-        debugger
+        // debugger
         newState.user[action.postingId] = undefined;
         return newState;
     default:

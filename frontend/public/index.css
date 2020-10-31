@@ -1,15 +1,57 @@
 html{
-    background: #74546a;
 
-    
+        background-image: linear-gradient(
+        45deg, 
+        #606dbc 25%,
+        #465298 25%,
+        #465298 50%, 
+        #606dbc 50%, 
+        #606dbc 75%, 
+        #465298 75%, 
+        #465298 100%
+    );
 
+    background-size: 56.57px 56.57px;
+ 
+  
+}
+
+body{
+}
+
+/* #job-pls{
+    font-size: 50px;
+    color: chartreuse;
+    animation: neon .08s ease-in-out infinite alternate;
+} */
+
+
+#job-pls{
+    /* transform: translate(50%,-50%); */
+    /* text-transform: uppercase; */
+
+    font-family: verdana;
+    font-size: 50px;
+    font-weight: 700;
+    background: -webkit-linear-gradient(#ffb997, #dd4c4c,#221717);
+    -webkit-background-clip: text;
+    color: #ffb997;
+    text-shadow: 1px 1px 1px #f67e7d,
+    1px 2px 1px #f67e7d,
+    1px 3px 1px #f67e7d,
+    1px 4px 1px #f67e7d,
+    1px 5px 1px #f67e7d,
+    1px 6px 1px #f67e7d,
+    1px 7px 1px #f67e7d,
+    1px 8px 1px #f67e7d,
+    1px 9px 1px #f67e7d,
+    1px 10px 1px #f67e7d,
+    1px 18px 6px rgba(99,45,75,0.5),
+    1px 22px 10px rgba(99,45,75,0.2),
+    1px 25px 35px rgba(99,45,75,0.2),
+    1px 30px 60px rgba(99,45,75,0.5);
+    /* animation: neon .08s ease-in-out infinite alternate; */
 }
 #root{
-    margin: auto;
-    /* align-content: center; */
-    /* height: 100vh; */
-    /* width: 100vw; */
-    /* padding: 10px; */
-
+    
 }
-

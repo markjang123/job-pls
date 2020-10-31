@@ -37,6 +37,8 @@ class SessionForm extends React.Component {
     }
     render() {
         return(
+            <div className='session-form-container'>
+            
             <div className="session-form">
                 <div className='session-form-liner'>
                 <h3 className="form-header">{this.props.formType}</h3>
@@ -63,6 +65,10 @@ class SessionForm extends React.Component {
                     {this.renderLinks()}
                 </form>
             </div>
+            </div>
+            <br/>
+            <br/>
+            <p id='job-pls'>job pls</p>
             </div>
         )
     }
