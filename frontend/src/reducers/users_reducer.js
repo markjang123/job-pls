@@ -23,7 +23,7 @@ const usersReducer = (state = {}, action) => {
             nextState[action.user._id] = action.user
             return nextState
         case UPDATE_USER:
-            debugger
+            // debugger
             nextState[action.user._id] = action.user
             return nextState
         default:
