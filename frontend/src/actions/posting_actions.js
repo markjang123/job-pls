@@ -4,7 +4,8 @@ import {
     getUserPostings, 
     writePosting,
     searchAPIPosting,
-    destroy1Posting
+    destroy1Posting,
+    updatePosting
 } from '../util/posting_api_util';
 
 export const RECEIVE_POSTINGS = "RECEIVE_POSTINGS";
@@ -13,13 +14,14 @@ export const RECEIVE_USER_POSTINGS = "RECEIVE_USER_POSTINGS";
 export const RECEIVE_NEW_POSTING = "RECEIVE_NEW_POSTING";
 export const RECEIVE_SEARCHED_POSTING = 'RECEIVE_SEARCHED_POSTING';
 export const DESTROY_POSTING = 'DESTROY_POSTING';
+export const UPDATE_POSTING = 'UPDATE_POSTING';
 
 
 export const receivePostings = postings => {
     return{
         type: RECEIVE_POSTINGS,
         postings
-}
+    }
 };
 
 export const receivePosting = posting => {
@@ -47,6 +49,11 @@ const receiveNewPosting = posting => ({
 const receiveSearchedPosting = postings => ({
     type: RECEIVE_SEARCHED_POSTING,
     postings
+});
+
+const updatedPosting = posting => ({
+    type: UPDATE_POSTING,
+    posting
 });
 
 export const fetchPostings = () => dispatch => (
@@ -89,3 +96,12 @@ export const deletePosting = postingId => dispatch => (
         .then(() => dispatch(destroyPosting(postingId)))
         .catch(err => console.log(err))
 );
+
+export const updateAPosting = (postingId, postingData) => {
+    return dispatch => {
+        return updatePosting(postingId, postingData)
+                .then(() => getPosting(postingId))
+                .then(posting => dispatch(updatedPosting(posting.data)))
+                .catch(err => console.log(err))
+    }
+}
