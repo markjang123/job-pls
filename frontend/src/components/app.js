@@ -49,14 +49,15 @@ class App extends React.Component{
             <NavShowContainer/>
             <Modal />
             <Switch id='content-container'>
-                <Route path="/jobs/:jobId" component={PostShowContainer} />
+                <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
                 <AuthRoute path="/signup" component={SignupFormContainer} />
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <ProtectedRoute path="/jobs" component={PostIndexContainer} />
-                <Route path="/search" component={SearchContainer} />
-                <Route exact path="/" component={SignupFormContainer} />
-                <Route exact path="/users" component={UsersIndexContainer} />
-                <Route exact path="/users/:userId" component={UserShowContainer} />
+                <ProtectedRoute path="/search" component={SearchContainer} />
+                <ProtectedRoute exact path="/users" component={UsersIndexContainer} />
+                <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
+                <AuthRoute exact path="/" component={SignupFormContainer} />
+                <ProtectedRoute path="*" component={PostIndexContainer} />
             </Switch>
 
         </div>

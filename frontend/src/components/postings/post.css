@@ -32,7 +32,7 @@
     border-width: 5px;
     border-color: #ffb997;
     overflow-wrap: break-word;
-    padding: 8px 5px 8px 5px;
+    padding: 8px 5px 8px 8px;
     box-sizing: border-box;
     transition: all 0.2s ease-out;
 }
@@ -73,6 +73,7 @@
 }
 
 #company{
+    margin: 5px 0px;
     font-size:13px;
     text-decoration: underline;
 }

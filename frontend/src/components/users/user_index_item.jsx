@@ -28,7 +28,7 @@ class UsersIndexItem extends React.Component {
                     <Link className="username-link" to={`/users/${_id}`}>{username}</Link>
                 </p>
             </div>
-            <FollowButton updateAUser={this.props.updateAUser} 
+            <FollowButtonContainer updateAUser={this.props.updateAUser} 
                 is_following={this.is_following} 
                 forceUpdate={() => this.forceUpdate()} 
                 currentUser={this.props.currentUser} 

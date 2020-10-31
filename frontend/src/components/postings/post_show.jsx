@@ -11,6 +11,14 @@ class PostShow extends React.Component{
         // console.log(this.props.post)
     // }
 
+
+    niceDescription(text){
+        return text.replace(/<style[^>]*>.*<\/style>/gm, '')
+        .replace(/<script[^>]*>.*<\/script>/gm, '')
+        .replace(/<[^>]+>/gm, '')
+        .replace(/([\r\n]+ +)+/gm, '');
+    }
+
     render(){
         let { post, currentUser } = this.props.post
         // let { posts } = this.props;
@@ -21,7 +29,7 @@ class PostShow extends React.Component{
                 <p id='show-title'>{post.job_title}</p>
                 <p id='show-company'>{post.company}</p>
                 <p id='show-salary'>{post.salary}</p>
-                <p>{post.description}</p>
+                <p>{this.niceDescription(post.description)}</p>
                 <button onClick={() => console.log(currentUser)}>Add To List</button>  
             </div>
         )

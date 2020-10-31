@@ -36,7 +36,7 @@
     text-overflow: ellipsis;
     top: 25%;
     bottom: 25%;
-    left: 25%;
+    left: 5%;
     vertical-align: bottom;
 }
 .username-link {
@@ -45,7 +45,7 @@
 }
 .username-container {
     height: 100%;
-    width: 50%;
+    width: 65%;
     margin: 0;
     padding: 0;
     display: inline-block;

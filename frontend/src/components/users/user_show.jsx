@@ -48,7 +48,6 @@ class UserShow extends React.Component{
                 <div className="user-jobs-index">
                         JOBS
                 </div>
-                <Link to="/users">users</Link>
             </div>
         )
     }
