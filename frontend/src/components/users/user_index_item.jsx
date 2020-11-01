@@ -33,7 +33,6 @@ class UsersIndexItem extends React.Component {
                 forceUpdate={() => this.forceUpdate()} 
                 currentUser={this.props.currentUser} 
                 user={this.props.user}/>
-
         </div>
         ) 
     }

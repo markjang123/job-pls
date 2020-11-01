@@ -10,7 +10,7 @@ class Nav extends React.Component {
     }
 
     openUsers(){
-        debugger
+        // debugger
         console.log('click');
         <PostIndexContainer openUsers={true}/>
 
