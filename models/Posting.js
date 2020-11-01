@@ -39,9 +39,6 @@ const PostingSchema = new Schema({
     type: {
         type: String
     },
-    link: {
-        type: String
-    },
     created_at: {
         type: String
     },

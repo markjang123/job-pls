@@ -111,8 +111,8 @@ export const updateAPosting = (postingId, postingData) => {
                 .then(posting => dispatch(updatedPosting(posting.data)))
                 .catch(err => console.log(err))
     }
-}
+};
 
 export const setCurrentPosting = (posting) => dispatch => (
     dispatch(currentPosting(posting))
-)
+);

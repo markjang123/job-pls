@@ -5,7 +5,7 @@ class SearchPostingItem extends React.Component{
 
     constructor(props){
         super(props)
-        // debugger
+        debugger
         this.state = {
             saved: false
         }
@@ -13,9 +13,11 @@ class SearchPostingItem extends React.Component{
         this.updatingUser = this.updatingUser.bind(this);
     }
 
-    // componentDidMount(){
-    //     this.props.setCurrentPosting(this.props.currentPosting);
-    // }
+    componentDidMount(){
+        this.setState({
+            saved: this.props.currentUser.followed_posting.includes(this.props.currentPosting.id)
+        });
+    }
 
 
     niceDescription(text){
@@ -46,7 +48,6 @@ class SearchPostingItem extends React.Component{
                 snippet: this.props.currentPosting.snippet,
                 source: this.props.currentPosting.source,
                 type: this.props.currentPosting.type,
-                link: this.props.currentPosting.link,
                 created_at: this.props.currentPosting.created_at,
                 public:  true,
             })
@@ -64,10 +65,12 @@ class SearchPostingItem extends React.Component{
         if(status){
             debugger
             newUserArray = newUserArray.filter(postIDX => postIDX !== this.props.currentPosting.id.toString());
+            newUserArray = [...new Set(newUserArray)];
             this.setState({saved: false});
         } else {
             debugger
             newUserArray.push(this.props.currentPosting.id.toString());
+            newUserArray = [...new Set(newUserArray)];
             this.setState({saved: true});
         }
         this.props.updateAUser(this.props.currentUser.id,{followed_posting: newUserArray})

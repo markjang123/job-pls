@@ -24,7 +24,7 @@ const UserSchema = new Schema({
       ref: 'users'
     }],
     followed_posting: [{
-      type: Schema.Types.ObjectId,
+      type: String,
       ref: 'postings'
     }]
   },

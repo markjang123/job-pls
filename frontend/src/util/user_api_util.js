@@ -9,6 +9,5 @@ export const fetchAllUsers = () => {
 };
 
 export const updateUser = (id, userData) => {
-    return axios.put(`api/users/${id}`, userData)
-}
-
+    return axios.put(`/api/users/${id}`, userData)
+};
