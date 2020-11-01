@@ -1,9 +1,25 @@
 .app{
-   /* margin: auto; */
+  margin: auto;
+  align-content: center;
    /* position: relative; */
   /* width: 50%; */
   /* padding: 10px; */
   /* height: 100vh; */
   width: 100vw;
   z-index: 1;
+}
+
+.border-bottom{
+    background:  rgba(27, 31, 29);
+    width: 100vw;
+    height: 10px;
+    -webkit-box-shadow: -2px 8px 17px -4px rgba(0,0,0,1);
+-moz-box-shadow: -2px 8px 17px -4px rgba(0,0,0,1);
+box-shadow: -2px 8px 17px -4px rgba(0,0,0,1);
+}
+
+
+
+.app-content > ul{
+  display: inline-flex;
 }

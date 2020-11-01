@@ -25,7 +25,8 @@ body.modal-opened{
 
 .modal-container{
     height: 90%;
-    overflow-y: auto;
+    /* overflow-y: auto; */
+    overflow-y: auto
 
 }
 
