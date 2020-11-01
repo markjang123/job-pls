@@ -32,7 +32,25 @@
     border-radius: 8px 8px 0px 0px;
     z-index: 11;
     /* margin-top: auto; */
+    cursor: pointer;
     
+}
+
+#tab button{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-size: 22px;
+    width: 120px;
+    height: 45px;
+    padding: 0px;
+    margin: 0px;
+    color: #ffb997;
+    cursor: pointer;
 }
 
 

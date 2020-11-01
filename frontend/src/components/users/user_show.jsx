@@ -15,7 +15,7 @@ class UserShow extends React.Component{
     }
 
     render(){
-        debugger
+        // debugger
         console.log(this.props)
         if (this.props.user === undefined) return null;
         let { username } = this.props.user
@@ -33,13 +33,13 @@ class UserShow extends React.Component{
                     <ul className="user-followers-list"> 
                         <h3>Followers ({this.props.user.following_users.length})</h3>
                         {this.props.user.following_users.map(userId => {
-                            debugger   
+                            // debugger   
                             return <li key={userId}>{this.props.users[userId].username}</li>})}
                     </ul>
                     <ul className="user-follow-list"> 
                         <h3>Following ({this.props.user.followed_users.length})</h3>
                         {this.props.user.followed_users.map(userId => {
-                            debugger   
+                            // debugger   
                             return <li key={userId}>{this.props.users[userId].username}</li>})}
                     </ul>
 

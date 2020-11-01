@@ -15,6 +15,8 @@ export const RECEIVE_NEW_POSTING = "RECEIVE_NEW_POSTING";
 export const RECEIVE_SEARCHED_POSTING = 'RECEIVE_SEARCHED_POSTING';
 export const DESTROY_POSTING = 'DESTROY_POSTING';
 export const UPDATE_POSTING = 'UPDATE_POSTING';
+export const SET_CURRENT_POSTING = 'SET_CURRENT_POSTING';
+
 
 
 export const receivePostings = postings => {
@@ -56,10 +58,15 @@ const updatedPosting = posting => ({
     posting
 });
 
+const currentPosting = posting => ({
+    type: SET_CURRENT_POSTING,
+    posting
+})
+
 export const fetchPostings = () => dispatch => (
     getPostings()
         .then(postings => {
-            debugger
+            // debugger
             dispatch(receivePostings(postings.data))})
         .catch(err => console.log(err))
 );
@@ -73,7 +80,7 @@ export const fetchPosting = id => dispatch => (
 export const fetchUserPostings = id => dispatch => (
     getUserPostings(id)
         .then(postings => {
-            debugger
+            // debugger
             dispatch(receiveUserPostings(postings))
         })
         .catch(err => console.log(err))
@@ -105,3 +112,7 @@ export const updateAPosting = (postingId, postingData) => {
                 .catch(err => console.log(err))
     }
 }
+
+export const setCurrentPosting = (posting) => dispatch => (
+    dispatch(currentPosting(posting))
+)
