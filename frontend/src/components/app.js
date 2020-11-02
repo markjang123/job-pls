@@ -63,7 +63,7 @@ class App extends React.Component{
                 <Modal />
                 <div className='border-bottom'></div>
                 <ul>
-                    <li><Switch id='content-container'>
+                    <li id='search-loading-container'><Switch id='content-container'>
                         <AuthRoute exact path='/' component={SplashContainer} />
                         <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
                         <ProtectedRoute path="/jobs" component={PostIndexContainer} />

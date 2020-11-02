@@ -20,8 +20,8 @@ export const searchAPIPosting = data => {
     return axios.post('/api/postings/search', data)
 };
 
-export const destroy1Posting = id => {
-    return axios.delete(`/api/postings/${id}`)
+export const destroy1Posting = (id, user) => {
+    return axios.delete(`/api/postings/${id}`, user)
 };
 
 export const updatePosting = (id, postingData) => {

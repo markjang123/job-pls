@@ -1,18 +1,20 @@
 import {connect} from 'react-redux';
-import { searchPosting } from '../../actions/posting_actions'
+import { searchPosting, setLoading } from '../../actions/posting_actions'
 import NavSearch from './nav_search';
 import {withRouter} from 'react-router-dom'
 
 const mapStateToProps = state => {
     // debugger
     return {
-        searchedPostings: state.entities.SearchedPosts
+        searchedPostings: state.entities.SearchedPosts,
+        loading: state.ui.loading
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        searchPosting: postingParams => dispatch(searchPosting(postingParams))
+        searchPosting: postingParams => dispatch(searchPosting(postingParams)),
+        setLoading: () => dispatch(setLoading())
     }
 }
  
