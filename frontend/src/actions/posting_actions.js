@@ -16,6 +16,7 @@ export const RECEIVE_SEARCHED_POSTING = 'RECEIVE_SEARCHED_POSTING';
 export const DESTROY_POSTING = 'DESTROY_POSTING';
 export const UPDATE_POSTING = 'UPDATE_POSTING';
 export const SET_CURRENT_POSTING = 'SET_CURRENT_POSTING';
+export const SET_LOADING_STATE = 'SET_LOADING_STATE';
 
 
 
@@ -61,7 +62,11 @@ const updatedPosting = posting => ({
 const currentPosting = posting => ({
     type: SET_CURRENT_POSTING,
     posting
-})
+});
+
+const setLoadingState = () => ({
+    type: SET_LOADING_STATE
+});
 
 export const fetchPostings = () => dispatch => (
     getPostings()
@@ -116,3 +121,7 @@ export const updateAPosting = (postingId, postingData) => {
 export const setCurrentPosting = (posting) => dispatch => (
     dispatch(currentPosting(posting))
 );
+
+export const setLoading = () => dispatch => (
+    dispatch(setLoadingState())
+)

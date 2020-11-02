@@ -34,3 +34,7 @@ box-shadow: -2px 8px 17px -4px rgba(0,0,0,1);
 .app-content > ul{
   display: inline-flex;
 }
+
+#search-loading-container:first{
+    position: relative;
+}
