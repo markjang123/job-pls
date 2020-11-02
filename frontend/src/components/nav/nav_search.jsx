@@ -4,8 +4,6 @@ const React = require('react');
 class NavSearch extends React.Component{
     constructor(props){
         super(props)
-        this.state = {
-        };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -20,8 +18,9 @@ class NavSearch extends React.Component{
         returningState['salary'] = e.currentTarget[5].value;
         returningState['page'] = '1';
         // debugger
+        this.props.history.push('/search')
+        this.props.setLoading()
         this.props.searchPosting(returningState)
-        .then(() => this.props.history.push('/search'))
     }
 
     render(){

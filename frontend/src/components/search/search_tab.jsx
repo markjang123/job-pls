@@ -10,6 +10,12 @@ class SearchTab extends React.Component{
     }
 
     render(){
+        if(this.props.loading){
+            return(
+                <div className='loading-wheel-container'><div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>
+            )
+        }
+
         if(this.props.searchedPostings.length === 0){
             return <div>Theres nothing here!</div>
         }
