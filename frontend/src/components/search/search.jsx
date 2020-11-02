@@ -54,48 +54,62 @@ class Search extends React.Component{
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
                 <form className='search-form' onSubmit={this.handleSubmit}>
 
-                    <div className='search-input-div'>
-                        <input type="text" placeholder='Enter keywords for Search.'/>            
-                        <input type="text" placeholder='See if your dream company is hiring.'/>
-                        <button><i class="material-icons">search</i></button>
-                    </div>
+                <ul>
 
-                    <div className='search-dropdown-div'>
-                        <select className='location-dropdown' type="dropdown" required>
-                            <option value="Remote" disabled selected hidden>Location</option> 
-                                {CITY_STATE_LIST.map((loc, idx) => {
+                    <li>
+                            <div className='search-input-div' id='search-bars'>
+                                <div id='search-bar-container'>
+                                    <input type="text" id='search' placeholder='Enter keywords for Search.'/>            
+                                </div>
+                                <div id='company-search-container'>
+                                    <input type="text" id='company-search' placeholder='See if your dream company is hiring.'/>
+                                </div>
+                                <div>
+                                    <button id='search-button'><i class="material-icons">search</i></button>
+                                </div>
+                        </div>
+                    </li>
+
+
+                    <li id='search-crit'>
+                        <div className='search-dropdown-div'>
+                            <select className='location-dropdown' type="dropdown" required>
+                                <option value="Remote" disabled selected hidden>Location</option> 
+                                    {CITY_STATE_LIST.map((loc, idx) => {
+                                        return(
+                                            <option 
+                                                key={idx} 
+                                                value={loc}>
+                                                    {`${loc}`}
+                                            </option>
+                                        )
+                                    })}
+                            </select>
+
+                            <select className='radius-dropdown' type="dropdown">
+                            <option value="25" disabled selected hidden>How far do you want to drive?</option> 
+                                {['5','10','25','50','75','100'].map((radi, idx) => {
                                     return(
                                         <option 
-                                            key={idx} 
-                                            value={loc}>
-                                                {`${loc}`}
+                                        key={idx} 
+                                        value={radi}>
+                                                {`${radi} miles`}
                                         </option>
                                     )
                                 })}
-                        </select>
+                            </select>
 
-                        <select className='radius-dropdown' type="dropdown">
-                        <option value="25" disabled selected hidden>How far do you want to drive?</option> 
-                            {['5','10','25','50','75','100'].map((radi, idx) => {
-                                return(
-                                    <option 
-                                        key={idx} 
-                                        value={radi}>
-                                            {`${radi} miles`}
-                                    </option>
-                                )
-                            })}
-                        </select>
-
-                        <select className='salary-dropdown' type="dropdown" placeholder='salary'>
-                        <option value="1" disabled selected hidden>Salary</option> 
-                            {['20000','40000','60000','80000','100000','120000'].map((salaryNum, idx) => {
-                                return(
-                                    <option key={idx} value={salaryNum}>{`${salaryNum}`}</option>
-                                )
-                            })}
-                        </select>
-                    </div>
+                            <select className='salary-dropdown' type="dropdown" placeholder='salary'>
+                            <option value="1" disabled selected hidden>Salary</option> 
+                                {['20000','40000','60000','80000','100000','120000'].map((salaryNum, idx) => {
+                                    return(
+                                        <option key={idx} value={salaryNum}>{`${salaryNum}`}</option>
+                                        )
+                                    })}
+                            </select>
+                        </div>
+                    </li>
+                </ul>
                 
                 </form>
                 <div className='search-result-container'>

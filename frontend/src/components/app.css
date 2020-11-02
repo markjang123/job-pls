@@ -9,6 +9,17 @@
   z-index: 1;
 }
 
+.logo{
+  margin: 0px 0px 0px 25px;
+  width: 100px;
+  height: 35px;
+  background: rgba(27, 31, 29);
+  color: rgb(212, 212, 212);
+  padding-top: 10px;
+  text-align: center;
+  border-radius: 0px 0px 8px 0px;
+  cursor: pointer;
+}
 .border-bottom{
     background:  rgba(27, 31, 29);
     width: 100vw;

@@ -7,7 +7,7 @@
     margin-right: auto;
     align-content: center;
     padding-top: 30px;
-    background:rgba(212, 212, 212);
+    /* background:rgba(212, 212, 212); */
     z-index:3px;
     /* margin: 20px; */
     /* height: auto; */
@@ -116,10 +116,10 @@
 }
 
 .post-show{
-    background: #0b032d ;
+    background: rgb(212, 212, 212) ;
     height:100%;
     /* max-width:75%; */
-    color: #ffb997;
+    color: rgb(32, 32, 32);
     padding: 30px 50px 30px 50px;
     box-sizing: border-box;
     overflow-y: auto;
@@ -141,7 +141,7 @@
 #show-salary{
     font-size:25px;
     font-weight: bold;
-    color: rgb(184, 240, 128);
+    color: rgb(32, 32, 32);
     margin-bottom: 40px;
 
 }

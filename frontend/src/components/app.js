@@ -61,9 +61,14 @@ class App extends React.Component{
                 <AuthRoute path="/login" component={LoginFormContainer} /> */}
                 <NavShowContainer/>
                 <Modal />
-                <div className='border-bottom'></div>
+                <div className='border-bottom'>
+                </div>
                 <ul>
-                    <li><Switch id='content-container'>
+                    <li>
+                        {/* <input className='logo'>
+                            job pls
+                        </input> */}
+                        <Switch id='content-container'>
                         <Route exact path='/' component={SplashContainer} />
                         <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
                         <ProtectedRoute path="/jobs" component={PostIndexContainer} />
