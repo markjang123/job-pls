@@ -13,7 +13,8 @@ const mSTP = state => {
         // currentUser: state.entities.users[state.session.id],
         currentUser: state.session.user.id,
         posts: Object.values(state.entities.posts),
-        modal: state.ui.modal
+        modal: state.ui.modal,
+        openUsers: false
     }
 }
 

@@ -1,17 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavSearchContainer from './nav_search_container';
-import './nav.css';
+import PostIndexContainer from '../postings/post_index_container';
+import './nav.css'
 
 class Nav extends React.Component {
     constructor(props) {
         super(props);
         this.handleLogout = this.handleLogout.bind(this);
+        this.openUsers = this.openUsers.bind(this);
     }
 
     handleLogout(){
         this.props.logout()
     }
+
+    openUsers(){
+        // debugger
+        console.log('click');
+        <PostIndexContainer openUsers={true}/>
+
+    }
+
+
+
   
 
     render() {
@@ -25,22 +37,22 @@ class Nav extends React.Component {
                 <NavSearchContainer />
                 
                 <div>
-                    {/* <h1 onClick={() => console.log('click')} >HELLO</h1>
-                    <button onClick={this.props.logout}>LOG OUT</button>
-                <Link to='/users'>All Users</Link> */}
                     <div id='flex-tabs'>
-                        <div id='tab'>
+                        {/* <div id='tab'>
                             <Link to='/jobs'>job pls</Link>
-                        </div>
-                        <div id='tab'>
+                        </div> */}
+                        {/* <div id='tab'>
                             <Link to='/users'>users</Link>
-                        </div>
-                        <div id='tab'>
+                        </div> */}
+                        {/* <div id='tab'>
+                            <p onClick={() => this.openUsers()}>users</p>
+                        </div> */}
+                        {/* <div id='tab'>
                             <Link to='/search'>search</Link>
-                        </div>
-                        <div id='tab'>
+                        </div> */}
+                        {/* <div id='tab'>
                             <button onClick={this.handleLogout}>Logout</button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

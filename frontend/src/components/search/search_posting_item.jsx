@@ -5,7 +5,6 @@ class SearchPostingItem extends React.Component{
 
     constructor(props){
         super(props)
-        debugger
         this.state = {
             saved: this.props.savedPosting
         }
@@ -31,11 +30,9 @@ class SearchPostingItem extends React.Component{
 
     handleClick(){
         if(this.state.saved){
-            // debugger
             this.props.deletePosting(this.props.currentPosting.id)
             .then(this.updatingUser(this.props.currentUser.followed_posting, true));
         } else {
-            // debugger
             let newPosting = ({
                 user_id: this.props.currentUser.id,
                 posting_id: this.props.currentPosting.id.toString(),
@@ -54,7 +51,6 @@ class SearchPostingItem extends React.Component{
             })
             this.props.composePosting(newPosting)
             .then(() => {
-                debugger
                 this.updatingUser(this.props.currentUser.followed_posting, false)
             });
         }
@@ -64,12 +60,10 @@ class SearchPostingItem extends React.Component{
         let newUserArray = userArray;
 
         if(status){
-            debugger
             newUserArray = newUserArray.filter(postIDX => postIDX !== this.props.currentPosting.id.toString());
             newUserArray = [...new Set(newUserArray)];
             this.setState({saved: false});
         } else {
-            debugger
             newUserArray.push(this.props.currentPosting.id.toString());
             newUserArray = [...new Set(newUserArray)];
             this.setState({saved: true});
@@ -79,7 +73,6 @@ class SearchPostingItem extends React.Component{
     }
 
     render(){
-        debugger
         if(this.props.currentPosting.id === undefined) return null;
 
         if(this.props.currentUser.followed_posting.includes(this.props.currentPosting.id.toString()) && this.state.saved === false){

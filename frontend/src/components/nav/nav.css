@@ -1,39 +1,29 @@
 .nav-container{
     width: 100%;
-    height: 125px;
-    background-color: #ffb997;
+    height: 100px;
     top: 0px;
-    z-index: 10;
-    /* display: flex; */
-    /* margin-bottom: 0px; */
-    /* clear: both; */
-    /* position: fixed; */
-    
+    position:relative;
+    overflow: hidden;
+    background: rgb(27, 31, 29);
 }
 
-#tab,
-#tab button{
+
+#tab{
     flex: 0 0 auto;
-    margin: 1px;
-    background-color: #74546a;
-    color: #ffb997;
-    -webkit-box-shadow: 13px -4px 9px 0px  rgba(99,45,75,0.5);
-    -moz-box-shadow: 13px -4px 9px 0px  rgba(99,45,75,0.5);
-    box-shadow: 13px -4px 9px 0px  rgba(99,45,75,0.5);
-    /* margin-top: 45px; */
+    color: rgb(212,212,212);
+    clip-path: inset(-8px -8px 0px -8px);
     width: 120px;
     height: 45px;
     font-size: 22px;
     text-align: center;
     align-items: center;
-    /* align-content: center; */
     padding-top: 10px;
-    /* box-sizing: border-box; */
-    border-radius: 8px 8px 0px 0px;
-    z-index: 11;
-    /* margin-top: auto; */
-    cursor: pointer;
-    
+    border-bottom: 2px solid rgb(27,31,29);
+
+}
+
+#tab:hover {
+    border-bottom: 2px solid rgb(212,212,212);
 }
 
 #tab button{
@@ -62,7 +52,8 @@
     align-items: auto;
     align-content: start;
     padding-right:30px;
-    padding-top: 71px;
-    z-index: 11;
+    bottom: 0px;
+    right: 0px;
+    position:absolute; 
 }
 
