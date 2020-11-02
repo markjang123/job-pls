@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavSearchContainer from './nav_search_container';
 import PostIndexContainer from '../postings/post_index_container';
 import './nav.css'
 import SearchBarContainer from '../search/search_container';
@@ -7,7 +8,12 @@ import SearchBarContainer from '../search/search_container';
 class Nav extends React.Component {
     constructor(props) {
         super(props);
+        this.handleLogout = this.handleLogout.bind(this);
         this.openUsers = this.openUsers.bind(this);
+    }
+
+    handleLogout(){
+        this.props.logout()
     }
 
     openUsers(){
@@ -22,10 +28,9 @@ class Nav extends React.Component {
   
 
     render() {
-        console.log('currentUser:')
-        console.log(this.props.currentUser)
-
-        if (this.props.currentUser === undefined) return null;
+        const {currentUser} = this.props
+        if(Object.keys(currentUser).length === 0 && currentUser.constructor === Object) return null;
+        // if (this.props.currentUser === {}) return null;
 
         return (
             <div className='nav-container'>

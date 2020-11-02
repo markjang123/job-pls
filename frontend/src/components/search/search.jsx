@@ -1,6 +1,6 @@
 import { CITY_STATE_LIST } from './search_terms';
-import PostingItemContainer from './posting_item_container';
-import './search.css'
+import SearchPostingItemContainer from './search_posting_item_container';
+import './search_tab.css'
 
 const React = require('react');
 
@@ -111,33 +111,33 @@ class Search extends React.Component{
                     </li>
                 </ul>
                 
-                </form>
-                <div className='search-result-container'>
-                    {!this.state.searched ? <></> :
-                        <ul className='posting-list'>
-                            {searchedPostings.map((posting, idx) => {
-                                return(
-                                    <li 
-                                        onClick={() => this.selectPost(idx)}
-                                        key={posting.id} 
-                                        id={posting === this.state.selectedPost 
-                                        ? 'selected-posting' 
-                                        : null}>
-                                            <div className='posting-list-title'>{posting.title ? this.niceDescription(posting.title) : ''}</div>
-                                            <div className='posting-list-location'>{posting.location ? this.niceDescription(posting.location) : ''}</div>
-                                            <div className='posting-list-company'>Company: {posting.company ? this.niceDescription(posting.company) : ''}</div>
-                                    </li>
-                                )
-                            })}
-                        </ul>
-                    }
+                 </form>
+                 {/* <div className='search-result-container'>
+                     {!this.state.searched ? <></> :
+                         <ul className='posting-list'>
+                             {searchedPostings.map((posting, idx) => {
+                                 return(
+                                     <li 
+                                         onClick={() => this.selectPost(idx)}
+                                         key={posting.id} 
+                                         id={posting === this.state.selectedPost 
+                                         ? 'selected-posting' 
+                                         : null}>
+                                             <div className='posting-list-title'>{posting.title ? this.niceDescription(posting.title) : ''}</div>
+                                             <div className='posting-list-location'>{posting.location ? this.niceDescription(posting.location) : ''}</div>
+                                             <div className='posting-list-company'>Company: {posting.company ? this.niceDescription(posting.company) : ''}</div>
+                                     </li>
+                                 )
+                             })}
+                         </ul>
+                     }
 
-                    {!this.state.searched ? <></> : 
-                        <PostingItemContainer posting={this.state.selectedPost} />
-                    }
-                </div>
+                     {!this.state.searched ? <></> : 
+                         <PostingItemContainer posting={this.state.selectedPost} />
+                     }
+                 </div> */}
 
-            </div>
+             </div>
         )
     }
 

@@ -9,14 +9,33 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
 
+// router.put("/:id", (req, res) => {
+//   User.findByIdAndUpdate(req.params.id, req.body)
+//   .then(user => res.json(user))
+//   .catch(err => res.status(404)
+//   .json({ updateError: 'Could not update' })))
+
+// })
+
 router.put("/:id", (req, res) => {
-  User.findByIdAndUpdate(req.params.id, req.body)
-  .then(user => res.json(user)
-  .catch(err => res.status(404)
-  .json({ updateError: 'Could not update' })))
-
-
-})
+    User.findByIdAndUpdate(req.params.id, req.body, {new:true})
+        .then(user => {
+            const payload = { 
+                id: user.id, 
+                username: user.username ,
+                followed_users: user.followed_users,
+                following_users: user.following_users,
+                followed_posting: user.followed_posting
+            };
+            jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                res.json({
+                    success: true,
+                    token: "Bearer " + token
+                })
+            })
+        }).catch(err => res.status(404).json({ updateError: 'Could not update' }))
+    }
+);
 
 router.post("/register", (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -41,14 +60,17 @@ router.post("/register", (req, res) => {
             newUser
                 .save()
                 .then(user => {
-                  const payload = { id: user.id, username: user.username };
+                  const payload = { 
+                        id: user.id, 
+                        username: user.username ,
+                        followed_users: user.followed_users,
+                        following_users: user.following_users,
+                        followed_posting: user.followed_posting
+                    };
                   jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                     res.json({
                     success: true,
-                    token: "Bearer " + token,
-                    followed_users: user.followed_users,
-                    following_users: user.following_users,
-                    followed_posting: user.followed_posting
+                    token: "Bearer " + token
                     });
                 });
                 })
@@ -77,14 +99,17 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, username: user.username };
+        const payload = { 
+            id: user.id, 
+            username: user.username,
+            followed_users: user.followed_users,
+            following_users: user.following_users,
+            followed_posting: user.followed_posting        
+        };
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           res.json({
             success: true,
-            token: "Bearer " + token,
-            followed_users: user.followed_users,
-            following_users: user.following_users,
-            followed_posting: user.followed_posting
+            token: "Bearer " + token
           });
         });
       } else {
