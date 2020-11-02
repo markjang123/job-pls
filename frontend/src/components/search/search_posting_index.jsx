@@ -42,7 +42,7 @@ class SearchPostingIndex extends React.Component{
             })
             this.props.composePosting(newPosting)
             .then(() => {
-                debugger
+                // debugger
                 this.updatingUser(this.props.currentUser.followed_posting, false, currentPosting)
             });
         }
@@ -52,11 +52,11 @@ class SearchPostingIndex extends React.Component{
         let newUserArray = userArray;
 
         if(status){
-            debugger
+            // debugger
             newUserArray = newUserArray.filter(postIDX => postIDX !== currentPosting.id.toString());
             newUserArray = [...new Set(newUserArray)];
         } else {
-            debugger
+            // debugger
             newUserArray.push(currentPosting.id.toString());
             newUserArray = [...new Set(newUserArray)];
         }
@@ -73,7 +73,7 @@ class SearchPostingIndex extends React.Component{
     }
 
     render(){
-        debugger
+        // debugger
         if(this.props.searchedPostings.length === 0) return null;
         const { searchedPostings } = this.props
         return(

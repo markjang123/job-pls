@@ -7,7 +7,24 @@
   /* height: 100vh; */
   width: 100vw;
   z-index: 1;
+  max-width: 2000px;
 }
+
+.display-content{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#job-content{
+  width:100%;
+}
+
+#sidebar-content{
+  float: right
+}
+
 
 .logo{
   margin: 0px 0px 0px 25px;
@@ -35,6 +52,7 @@ box-shadow: -2px 8px 17px -4px rgba(0,0,0,1);
   display: inline-flex;
 }
 
-#search-loading-container:first{
+#search-loading-container{
     position: relative;
+    /* width: a; */
 }

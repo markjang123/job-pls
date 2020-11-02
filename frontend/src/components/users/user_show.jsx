@@ -16,7 +16,7 @@ class UserShow extends React.Component{
         this.props.fetchUser(this.props.match.params.userId)
     }
     renderTab(){
-        debugger
+        // debugger
         switch(this.state.tab){
             case "jobs":
                 return <UserPostsIndexContainer jobs={this.props.user.followed_posting.map(postId => this.props.posts.find(post => post._id === postId))}/> //MAP JOB IDS TO JOBS
@@ -27,7 +27,7 @@ class UserShow extends React.Component{
         }
     }
     render(){
-        debugger
+        // debugger
         console.log(this.props)
         if (this.props.user === undefined) return null;
         let { username } = this.props.user
