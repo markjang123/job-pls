@@ -9,7 +9,8 @@ const mapStateToProps = state => {
     if(currentPost === {} || currentPost === undefined) currentPost = state.entities.searchedPosts[0]
     return {
         currentUser: state.session.user,
-        currentPosting: currentPost
+        currentPosting: currentPost,
+        savedPosting: state.session.user.followed_posting.includes(state.entities.currentPosting.id.toString())
     }
 }
 

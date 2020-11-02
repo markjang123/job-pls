@@ -18,9 +18,8 @@ const validateLoginInput = require('../../validation/login');
 // })
 
 router.put("/:id", (req, res) => {
-    User.findByIdAndUpdate(req.params.id, req.body)
+    User.findByIdAndUpdate(req.params.id, req.body, {new:true})
         .then(user => {
-            console.log(user.followed_posting)
             const payload = { 
                 id: user.id, 
                 username: user.username ,

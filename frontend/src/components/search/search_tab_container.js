@@ -4,8 +4,10 @@ import {withRouter} from 'react-router-dom';
 import SearchTab from './search_tab'
 
 const mapStateToProps = state => {
+    debugger
     return {
-        searchedPostings: state.entities.searchedPosts
+        searchedPostings: state.entities.searchedPosts,
+        currentPosting: state.entities.currentPosting
     }
 }
 

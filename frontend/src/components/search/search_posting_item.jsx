@@ -7,17 +7,18 @@ class SearchPostingItem extends React.Component{
         super(props)
         debugger
         this.state = {
-            saved: false
+            saved: this.props.savedPosting
         }
         this.handleClick = this.handleClick.bind(this);
         this.updatingUser = this.updatingUser.bind(this);
     }
 
-    componentDidMount(){
-        this.setState({
-            saved: this.props.currentUser.followed_posting.includes(this.props.currentPosting.id)
-        });
-    }
+    // componentDidMount(){
+    //     debugger
+    //     this.setState({
+    //         saved: this.props.currentUser.followed_posting.includes(this.props.currentPosting.id.toString())
+    //     });
+    // }
 
 
     niceDescription(text){
@@ -80,6 +81,15 @@ class SearchPostingItem extends React.Component{
     render(){
         debugger
         if(this.props.currentPosting.id === undefined) return null;
+
+        if(this.props.currentUser.followed_posting.includes(this.props.currentPosting.id.toString()) && this.state.saved === false){
+            this.setState({saved: true})
+        }
+
+        if(!this.props.currentUser.followed_posting.includes(this.props.currentPosting.id.toString()) && this.state.saved === true){
+            this.setState({saved: false})
+        }
+
         const { title, location, snippet, salary, source, type, link, company, id, updated, url, description, created_at, how_to_apply} = this.props.currentPosting
         return(
             <div className='posting-listing'>

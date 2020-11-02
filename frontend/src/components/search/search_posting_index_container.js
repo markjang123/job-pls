@@ -9,7 +9,8 @@ const mapStateToProps = state => {
     return {
         searchedPostings: state.entities.searchedPosts,
         currentPosting: currentPost,
-        currentUser: state.session.user
+        currentUser: state.session.user,
+        savedPosting: state.session.user.followed_posting.includes(state.entities.currentPosting.id.toString())
     }
 }
 
@@ -19,7 +20,8 @@ const mapDispatchToProps = dispatch => {
         composePosting: posting => dispatch(composePosting(posting)),
         deletePosting: postingId => dispatch(deletePosting(postingId)),
         updateAPosting: (userId, data) => dispatch(updateAUser(userId, data)),
-        setCurrentPosting: ( posting ) => dispatch(setCurrentPosting(posting))
+        setCurrentPosting: ( posting ) => dispatch(setCurrentPosting(posting)),
+        updateAUser: (userId, userData) => dispatch(updateAUser(userId, userData))
 
         // searchPosting: postingParams => dispatch(searchPosting(postingParams)),
         // clearSessionErrors: () => dispatch(clearSessionErrors())
