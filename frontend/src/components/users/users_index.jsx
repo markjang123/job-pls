@@ -10,7 +10,7 @@ class UsersIndex extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchAllUsers()
+        this.props.fetchUsersIfNeeded()
     }
 
     // resize(){
@@ -38,16 +38,16 @@ class UsersIndex extends React.Component {
 
 
     render(){
-        let users = this.props.someUsers ? this.props.someUsers : this.props.allUsers
+        debugger
         if (this.props.currentUser === undefined) return null
         return(
-            <div className='users-index'>
+             <div className='users-index'>}
                 <div className='users-label' onClick={() => this.resize()}>
                     <p id='users-index-label'>users</p>
                 </div>
                 <div className='spacer'/>
                 <div className={this.growshrink()}>
-                    {users.map(user => {
+                    {this.props.users.map(user => {
                         if (user._id === this.props.currentUser._id) return null
                         return <UsersIndexItemContainer key={user.id} user={user}/>
                     })}

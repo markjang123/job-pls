@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import {fetchAllUsers} from '../src/actions/user_actions'
-import {updateAUser} from '../src/actions/user_actions'
+import {updateAPosting} from '../src/actions/posting_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.getState = store.getState
     window.dispatch = store.dispatch
     window.fetchAllUsers = fetchAllUsers
-    window.updateAUser = updateAUser
+    window.updateAPosting = updateAPosting
     ReactDOM.render(
         <Root store={store} />,
         document.getElementById('root')

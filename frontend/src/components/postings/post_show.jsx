@@ -1,9 +1,10 @@
 import React from 'react';
-
+import PostEdit from './post_edit'
 
 class PostShow extends React.Component{
     constructor(props){
         super(props)
+        this.state = {editing: false}
     }
 
     // componentDidMount(){
@@ -24,13 +25,15 @@ class PostShow extends React.Component{
         // let { posts } = this.props;
         // if (!posts) return null;
 
+        debugger
         return(
             <div className='post-show'>
                 <p id='show-title'>{post.job_title}</p>
                 <p id='show-company'>{post.company}</p>
                 <p id='show-salary'>{post.salary}</p>
                 <p>{this.niceDescription(post.description)}</p>
-                <button onClick={() => console.log(currentUser)}>Add To List</button>  
+                <button id="edit-button" onClick={() => this.setState({editing: !this.state.editing})}>{this.state.editing ? "Close" : "Edit"}</button>
+                {this.state.editing && <PostEdit closeEdit={() => this.setState({editing: false})} currentUser={currentUser} updateAPosting={this.props.updateAPosting} post={post}/>}
             </div>
         )
         

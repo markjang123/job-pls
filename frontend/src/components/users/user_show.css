@@ -1,39 +1,92 @@
 .user-show-container {
     height: 100vh;
-    width: 75%;
-    border: 1px solid black;
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    color: rgb(186,185,182);
 }
 #user-show-username {
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
     height: 1.25em;
     width: 100%;
     position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
-.user-follows-index {
-    background-color: red;
+
+
+
+.tabs-container {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid rgb(190,189,186);
+    background-color: white;
+    height: 40px;
 }
-.user-follow-list {
-    position: absolute;
-    display: inline-block;
+.tab {
+    width: 33.33%;
+    text-align: center;
+    cursor: pointer;
+    background-color:  rgb(22,23,24);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.user-followers-list {
-    position: absolute;
-    display: inline-block;
-    left: 25%;
+.tab:focus {
+    border-top: 10px solid rgb(190,189,186);
 }
-.user-jobs-index {
-    height: 300px;
-    width: 75%;
-    border: 1px solid black;
-    position: absolute;
-    top: 400px;
+.tab:hover {
+    opacity: 94%;
 }
-.user-follows {
-    position: relative;
+.profile-content{
+    height: 100vh;
+    overflow-x: scroll;
+}
+.profile-content::-webkit-scrollbar {
+    display: none;
+  }
+.user-follow-index {
+    height: 100vh;
+    width: 600px;
+    margin: auto;
+    opacity: 90%;
+}
+.user-posts-index {
+    height: 100vh;
+    overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+}
+.user-posts-index-item {
+    border-bottom: 1px solid rgb(190,189,186);
+    padding: 5px 3px 10px;
+    margin: 0px 5px 15px 5px;
+}
+#job-title {
+    color: rgb(190,189,186);
+    font-size: 30px;
+    font-weight: bold;
+}
+#job-title: hover {
+    text-decoration: underline;
+}
+#job-company {
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+#job-salary {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+#job-status {
+    font-size: 20px;
 }

@@ -33,8 +33,9 @@ class Nav extends React.Component {
 
         return (
             <div className='nav-container'>
-
                 <NavSearchContainer />
+                <button className="logout-button" onClick={this.handleLogout}>Log Out</button>
+                <h3 className="user-greeting">Hello, {currentUser.username}</h3>
                 
                 <div>
                     <div id='flex-tabs'>

@@ -1,4 +1,7 @@
 html{
+<<<<<<< HEAD
+    background: #161718;
+=======
     height: 100vh;
     width: 100vw;
     /* background: linear-gradient(-45deg, #083025, #040f0f, #250917, #08201c); */
@@ -10,6 +13,7 @@ html{
   
 }
 
+>>>>>>> 72764ccc6aa4a7b4474e1c94ae43f688f7a5b7ea
 
 body{
 }
