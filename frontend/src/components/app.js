@@ -11,7 +11,7 @@ import NavShowContainer from './nav/nav_container';
 import SplashContainer from './splash/splash_container';
 
 import UsersIndexContainer from './users/users_index_container'
-// import UserShowContainer from './users/user_show_container'
+import UserShowContainer from './users/user_show_container'
 
 import './app.css';
 
@@ -69,7 +69,7 @@ class App extends React.Component{
                         <ProtectedRoute path="/jobs" component={PostIndexContainer} />
                         <ProtectedRoute path="/search" component={SearchTabContainer} />
                         {/* <ProtectedRoute exact path="/users" component={UsersIndexContainer} /> */}
-                        {/* <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} /> */}
+                        <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
                         {/* <AuthRoute exact path="/" component={SignupFormContainer} /> */}
                         {/* <ProtectedRoute path="*" component={PostIndexContainer} /> */}
                     </Switch>
