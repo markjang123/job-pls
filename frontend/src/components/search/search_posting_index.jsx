@@ -78,29 +78,31 @@ class SearchPostingIndex extends React.Component{
         const { searchedPostings } = this.props
         return(
                 <div className='search-result-container'>
-                    <ul className='posting-list'>
-                        {searchedPostings.map((posting, idx) => {
-                            return(
-                                <li 
-                                    onClick={() => this.selectPost(idx)}
-                                    key={posting.id} 
-                                    id={posting === this.props.currentPosting
-                                    ? 'selected-posting' 
-                                    : null}>
-                                        <div className='posting-list-title'>{posting.title ? this.niceDescription(posting.title) : ''}</div>
-                                        <div className='posting-list-location'>{posting.location ? this.niceDescription(posting.location) : ''}</div>
-                                        <div className='posting-list-company'>Company: {posting.company ? this.niceDescription(posting.company) : ''}</div>
-                                    <button 
-                                        className='posting-list-save-button'
-                                        onClick={() => this.handleClick(idx)}>
-                                            {this.props.currentUser.followed_posting.includes(posting.id.toString()) 
-                                            ? 'Delete this posting from your collection' 
-                                            : 'Save this posting to your collection'}
-                                        </button>
-                                </li>
-                            )
-                        })}
-                    </ul>
+                    <div className='search-result-list'>
+                        <ul className='posting-list'>
+                            {searchedPostings.map((posting, idx) => {
+                                return(
+                                    <li 
+                                        onClick={() => this.selectPost(idx)}
+                                        key={posting.id} 
+                                        id={posting === this.props.currentPosting
+                                        ? 'selected-posting' 
+                                        : null}>
+                                            <div className='posting-list-title'>{posting.title ? this.niceDescription(posting.title) : ''}</div>
+                                            <div className='posting-list-location'>{posting.location ? this.niceDescription(posting.location) : ''}</div>
+                                            <div className='posting-list-company'>Company: {posting.company ? this.niceDescription(posting.company) : ''}</div>
+                                        <button 
+                                            className='posting-list-save-button'
+                                            onClick={() => this.handleClick(idx)}>
+                                                {this.props.currentUser.followed_posting.includes(posting.id.toString()) 
+                                                ? 'Delete this posting from your collection' 
+                                                : 'Save this posting to your collection'}
+                                            </button>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
                 </div>
             )
     }

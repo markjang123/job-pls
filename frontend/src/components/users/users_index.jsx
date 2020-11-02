@@ -41,7 +41,7 @@ class UsersIndex extends React.Component {
         debugger
         if (this.props.currentUser === undefined) return null
         return(
-             <div className='users-index'>}
+            <div className='users-index'>
                 <div className='users-label' onClick={() => this.resize()}>
                     <p id='users-index-label'>users</p>
                 </div>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import NavSearchContainer from './nav_search_container';
 import PostIndexContainer from '../postings/post_index_container';
 import './nav.css'
+// import SearchBarContainer from '../search/search_container';
 
 class Nav extends React.Component {
     constructor(props) {
@@ -33,29 +34,24 @@ class Nav extends React.Component {
 
         return (
             <div className='nav-container'>
-                <NavSearchContainer />
-                <button className="logout-button" onClick={this.handleLogout}>Log Out</button>
-                <h3 className="user-greeting">Hello, {currentUser.username}</h3>
-                
-                <div>
-                    <div id='flex-tabs'>
-                        {/* <div id='tab'>
-                            <Link to='/jobs'>job pls</Link>
+                {/* <div> */}
+                    {/* <div id='flex-tabs'> */}
+                        {/* <div className='nav-search'> */}
+                        <div>
+                            <NavSearchContainer/>
+                        </div>
+                        {/* </div> */}
+                        {/* <div id='flex-tabs'>
+                            <ul>
+                                <li id='tab'><Link to='/jobs'>job pls</Link></li>
+                                <li id='tab'><p onClick={() => this.openUsers()}>users</p></li>
+                                <li id='tab'><Link to='/search'>search</Link></li>
+
+                            </ul>
                         </div> */}
-                        {/* <div id='tab'>
-                            <Link to='/users'>users</Link>
-                        </div> */}
-                        {/* <div id='tab'>
-                            <p onClick={() => this.openUsers()}>users</p>
-                        </div> */}
-                        {/* <div id='tab'>
-                            <Link to='/search'>search</Link>
-                        </div> */}
-                        {/* <div id='tab'>
-                            <button onClick={this.handleLogout}>Logout</button>
-                        </div> */}
-                    </div>
-                </div>
+                    {/* </div> */}
+                {/* </div> */}
+
             </div>
         )
     }

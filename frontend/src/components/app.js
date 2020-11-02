@@ -61,8 +61,9 @@ class App extends React.Component{
                 <AuthRoute path="/login" component={LoginFormContainer} /> */}
                 <NavShowContainer/>
                 <Modal />
-                <div className='border-bottom'></div>
-                <ul>
+                <div className='border-bottom'>
+                </div>
+                <ul >
                     <li id='search-loading-container'><Switch id='content-container'>
                         <AuthRoute exact path='/' component={SplashContainer} />
                         <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
@@ -70,10 +71,11 @@ class App extends React.Component{
                         <ProtectedRoute path="/search" component={SearchTabContainer} />
                         {/* <ProtectedRoute exact path="/users" component={UsersIndexContainer} /> */}
                         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
-                        {/* {/* <AuthRoute exact path="/" component={SignupFormContainer} /> */}
-                        <AuthRoute exact path="/login" component={LoginFormContainer} /> */}
+                        {/* <AuthRoute exact path="/" component={SignupFormContainer} /> */}
                         {/* <ProtectedRoute path="*" component={PostIndexContainer} /> */}
                     </Switch>
+                    </li>
+                    <li>
                         <UsersIndexContainer/>
                     </li>
                 </ul>

@@ -7,9 +7,8 @@ import UserIndexContainer from '../users/users_index_container';
 class PostIndex extends React.Component{
     constructor(props){
         super(props);
-        this.openUsersIndex = this.openUsersIndex.bind(this) 
-        // this.openUsers = this.props.openUsers
-        
+        this.openUsersIndex = this.openUsersIndex.bind(this);
+        // this.showMySavedJobs = this.showMySavedJobs.bind(this)
     }
 
     componentDidMount(){
@@ -17,7 +16,6 @@ class PostIndex extends React.Component{
     }
 
     openUsersIndex(openUsers){
-        // debugger
         if (openUsers){
             return(
                 <UserIndexContainer />
@@ -29,10 +27,10 @@ class PostIndex extends React.Component{
 
 
 
+
     render(){
-        const { posts, openModal, closeModal, modal, currentUser, openUsers } = this.props;
+        const { posts, myPosts, openModal, closeModal, modal, currentUser, openUsers } = this.props;
         if (posts === undefined) return null;
-        // debugger
         return(
             <div className='index-container'>
                 <div className='jobs-grid'>
@@ -52,6 +50,7 @@ class PostIndex extends React.Component{
                 </div>
             </div>
         )
+        debugger
     }
 }
 
