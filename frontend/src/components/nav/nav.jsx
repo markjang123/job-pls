@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import NavSearchContainer from './nav_search_container';
 import PostIndexContainer from '../postings/post_index_container';
 import './nav.css'
-import SearchBarContainer from '../search/search_container';
+// import SearchBarContainer from '../search/search_container';
 
 class Nav extends React.Component {
     constructor(props) {
@@ -38,7 +38,7 @@ class Nav extends React.Component {
                     {/* <div id='flex-tabs'> */}
                         {/* <div className='nav-search'> */}
                         <div>
-                            <SearchBarContainer/>
+                            <NavSearchContainer/>
                         </div>
                         {/* </div> */}
                         {/* <div id='flex-tabs'>
