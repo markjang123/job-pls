@@ -5,7 +5,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import PostIndexContainer from './postings/post_index_container';
 import PostShowContainer from './postings/post_show_container';
-import SearchContainer from './search/search_container';
+import SearchTabContainer from './search/search_tab_container';
 import { AuthRoute, ProtectedRoute} from '../util/route_util';
 import NavShowContainer from './nav/nav_container';
 import SplashContainer from './splash/splash_container';
@@ -64,10 +64,10 @@ class App extends React.Component{
                 <div className='border-bottom'></div>
                 <ul>
                     <li><Switch id='content-container'>
-                        <Route exact path='/' component={SplashContainer} />
+                        <AuthRoute exact path='/' component={SplashContainer} />
                         <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
                         <ProtectedRoute path="/jobs" component={PostIndexContainer} />
-                        <ProtectedRoute path="/search" component={SearchContainer} />
+                        <ProtectedRoute path="/search" component={SearchTabContainer} />
                         {/* <ProtectedRoute exact path="/users" component={UsersIndexContainer} /> */}
                         {/* <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} /> */}
                         {/* <AuthRoute exact path="/" component={SignupFormContainer} /> */}

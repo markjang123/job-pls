@@ -26,6 +26,23 @@
     border-bottom: 2px solid rgb(212,212,212);
 }
 
+#tab button{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-size: 22px;
+    width: 120px;
+    height: 45px;
+    padding: 0px;
+    margin: 0px;
+    color: #ffb997;
+    cursor: pointer;
+}
+
 
 #flex-tabs {
     display: flex;
