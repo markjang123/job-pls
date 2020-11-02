@@ -32,7 +32,7 @@ class PostShow extends React.Component{
                 <p id='show-company'>{post.company}</p>
                 <p id='show-salary'>{post.salary}</p>
                 <p>{this.niceDescription(post.description)}</p>
-                <button onClick={() => this.setState({editing: !this.state.editing})}>{this.state.editing ? "Close" : "Edit"}</button>
+                <button id="edit-button" onClick={() => this.setState({editing: !this.state.editing})}>{this.state.editing ? "Close" : "Edit"}</button>
                 {this.state.editing && <PostEdit closeEdit={() => this.setState({editing: false})} currentUser={currentUser} updateAPosting={this.props.updateAPosting} post={post}/>}
             </div>
         )

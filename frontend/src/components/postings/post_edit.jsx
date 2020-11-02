@@ -5,8 +5,10 @@ class PostEdit extends React.Component {
         this.state = {public: this.props.post.public,
                     priority: this.props.post.priority
         }
+        this.submitHandler = this.submitHandler.bind(this)
     }
     submitHandler(e){
+        debugger
         e.preventDefault()
         this.props.updateAPosting(this.props.post._id, this.state)
         this.props.closeEdit()
@@ -20,7 +22,7 @@ class PostEdit extends React.Component {
     render() {
         debugger
         return <div className="post-edit">
-            <form>
+            <form onSubmit={this.submitHandler}>
                 <p>Privacy:</p>
                 <label> public
                     <input onChange={this.update("public")} defaultChecked={this.state.public} value={true} type="radio" name="privacy"/>

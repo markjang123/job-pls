@@ -70,13 +70,10 @@ class App extends React.Component{
                         <ProtectedRoute path="/search" component={SearchTabContainer} />
                         {/* <ProtectedRoute exact path="/users" component={UsersIndexContainer} /> */}
                         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
-                        {/* <AuthRoute exact path="/" component={SignupFormContainer} /> */}
+                        {/* {/* <AuthRoute exact path="/" component={SignupFormContainer} /> */}
+                        <AuthRoute exact path="/login" component={LoginFormContainer} /> */}
                         {/* <ProtectedRoute path="*" component={PostIndexContainer} /> */}
                     </Switch>
-                    <li>
-                    </li>
-                    </li>
-                    <li>
                         <UsersIndexContainer/>
                     </li>
                 </ul>

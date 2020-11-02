@@ -38,6 +38,7 @@ class UsersIndex extends React.Component {
 
 
     render(){
+        debugger
         if (this.props.currentUser === undefined) return null
         return(
              <div className='users-index'>}
