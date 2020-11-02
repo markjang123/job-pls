@@ -14,15 +14,16 @@ export const RECEIVE_USER_POSTINGS = "RECEIVE_USER_POSTINGS";
 export const RECEIVE_NEW_POSTING = "RECEIVE_NEW_POSTING";
 export const RECEIVE_SEARCHED_POSTING = 'RECEIVE_SEARCHED_POSTING';
 export const DESTROY_POSTING = 'DESTROY_POSTING';
-export const UPDATE_POSTING = 'UPDATE_POSTING'
+export const UPDATE_POSTING = 'UPDATE_POSTING';
+export const SET_CURRENT_POSTING = 'SET_CURRENT_POSTING';
+
 
 
 export const receivePostings = postings => {
     return{
         type: RECEIVE_POSTINGS,
         postings
-}
-
+    }
 };
 
  const receiveUpdatedPosting = posting => {
@@ -59,10 +60,20 @@ export const receiveSearchedPosting = postings => ({
     postings
 });
 
+const updatedPosting = posting => ({
+    type: UPDATE_POSTING,
+    posting
+});
+
+const currentPosting = posting => ({
+    type: SET_CURRENT_POSTING,
+    posting
+})
+
 export const fetchPostings = () => dispatch => (
     getPostings()
         .then(postings => {
-            debugger
+            // debugger
             dispatch(receivePostings(postings.data))})
         .catch(err => console.log(err))
 );
@@ -76,7 +87,7 @@ export const fetchPosting = id => dispatch => (
 export const fetchUserPostings = id => dispatch => (
     getUserPostings(id)
         .then(postings => {
-            debugger
+            // debugger
             dispatch(receiveUserPostings(postings))
         })
         .catch(err => console.log(err))
@@ -101,11 +112,14 @@ export const deletePosting = postingId => dispatch => (
 );
 
 export const updateAPosting = (postingId, postingData) => {
-    debugger
     return dispatch => {
-        return updateAPosting(postingId, postingData)
+        return updatePosting(postingId, postingData)
                 .then(() => getPosting(postingId))
-                .then(posting => dispatch(receiveUpdatedPosting(posting.data)))
+                .then(posting => dispatch(updatedPosting(posting.data)))
                 .catch(err => console.log(err))
     }
-}
+};
+
+export const setCurrentPosting = (posting) => dispatch => (
+    dispatch(currentPosting(posting))
+);

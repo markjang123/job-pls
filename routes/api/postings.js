@@ -266,5 +266,15 @@ router.delete('/:id', (req, res) => {
     Posting.findOneAndRemove({id: req.params.id})
         .then(() => res.status(200).json({postingdeleted: 'posting deleted sucessfully'}))
         .catch(err => res.status(404).json({nopostingfound: 'No posting found :D'}))
-})
-  module.exports = router;
+});
+
+
+router.put("/:id", (req, res) => {
+    Posting.findByIdAndUpdate(req.params.id, req.body)
+    .then(posting => res.json(posting)
+    .catch(err => res.status(404)
+    .json({ updateError: 'Could not update' })))
+
+});
+  
+module.exports = router;

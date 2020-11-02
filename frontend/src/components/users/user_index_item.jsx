@@ -32,8 +32,12 @@ class UsersIndexItem extends React.Component {
                 is_following={this.is_following} 
                 forceUpdate={() => this.forceUpdate()} 
                 currentUser={this.props.currentUser} 
+<<<<<<< HEAD
                 user={this.props.user}/>}
 
+=======
+                user={this.props.user}/>
+>>>>>>> 72764ccc6aa4a7b4474e1c94ae43f688f7a5b7ea
         </div>
         ) 
     }

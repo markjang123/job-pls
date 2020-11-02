@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import UserIndexItem from './user_index_item'
 const mapStateToProps = state => {
-    debugger
+    // debugger
     return {
         currentUser: state.entities.users[state.session.user.id]
     }

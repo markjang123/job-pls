@@ -51,29 +51,8 @@ class PostIndexItem extends React.Component{
                     <li>{post.status}</li>
                 </ul>
                     <p id='salary'>{post.salary}</p>
-                
-    
             </div>
         )
-        // return (
-        //     <div>
-        //         {/* <Link to={`/jobs/${post._id}`}> */}
-        //         <ul>
-        //             <li>{this.props.post.job_title}</li>
-        //             <li>{this.props.post.company}</li>
-        //             <li>{this.props.post.salary}</li>
-        //         </ul>
-        //         <ul>
-        //             <li>{this.props.post.status}</li>
-        //         </ul>
-        //         {/* </Link> */}
-        //         {/* <button onClick={() => openModal(post)}>Modal Time</button> */}
-        //         {console.log('Logging props from PostIndexItem below:')}
-        //         {console.log(this.props)}
-        //         {console.log('Logging props from PostIndexItem above:')}
-        //         <button onClick={() => this.modeFunc(post)}>Modal Time</button>
-        //     </div>
-        // )
     }
 }
 

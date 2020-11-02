@@ -26,7 +26,7 @@ class UserShow extends React.Component{
         }
     }
     render(){
-        debugger
+        // debugger
         console.log(this.props)
         if (this.props.user === undefined) return null;
         let { username } = this.props.user
@@ -40,6 +40,7 @@ class UserShow extends React.Component{
                    
                 </div>
                 {/* <UsersIndex className="user-follows-index" fetchAllUsers={this.props.fetchAllUsers} users={this.props.user.following_users} /> */}
+<<<<<<< HEAD
                 <div className="tabs-container">
                     <div className="tab" onClick={() => this.setState({tab: "jobs"})}>
                             Jobs
@@ -50,6 +51,23 @@ class UserShow extends React.Component{
                     <div className="tab"onClick={() => this.setState({tab: "following"})}> 
                         Following ({this.props.user.followed_users.length})
                     </div>
+=======
+                <div className="user-follows">
+                    <ul className="user-followers-list"> 
+                        <h3>Followers ({this.props.user.following_users.length})</h3>
+                        {this.props.user.following_users.map(userId => {
+                            // debugger   
+                            return <li key={userId}>{this.props.users[userId].username}</li>})}
+                    </ul>
+                    <ul className="user-follow-list"> 
+                        <h3>Following ({this.props.user.followed_users.length})</h3>
+                        {this.props.user.followed_users.map(userId => {
+                            // debugger   
+                            return <li key={userId}>{this.props.users[userId].username}</li>})}
+                    </ul>
+
+
+>>>>>>> 72764ccc6aa4a7b4474e1c94ae43f688f7a5b7ea
                 </div>
                 <div className="profile-content">
                     {this.renderTab()}

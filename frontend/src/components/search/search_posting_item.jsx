@@ -1,22 +1,23 @@
 import React from 'react';
 
 
-class PostingItem extends React.Component{
+class SearchPostingItem extends React.Component{
 
     constructor(props){
         super(props)
-        debugger
-        let savedPostId = this.props.posting.id
         this.state = {
-            saved: false
+            saved: this.props.savedPosting
         }
         this.handleClick = this.handleClick.bind(this);
         this.updatingUser = this.updatingUser.bind(this);
     }
 
-    componentDidMount(){
-        this.props.fetchUserPostings(this.props.userId);
-    }
+    // componentDidMount(){
+    //     debugger
+    //     this.setState({
+    //         saved: this.props.currentUser.followed_posting.includes(this.props.currentPosting.id.toString())
+    //     });
+    // }
 
 
     niceDescription(text){
@@ -29,30 +30,29 @@ class PostingItem extends React.Component{
 
     handleClick(){
         if(this.state.saved){
-            debugger
-            this.props.deletePosting(this.props.posting.id)
-            .then(this.updatingUser(this.props.userPostings, true));
+            this.props.deletePosting(this.props.currentPosting.id)
+            .then(this.updatingUser(this.props.currentUser.followed_posting, true));
         } else {
-            debugger
             let newPosting = ({
-                user_id: this.props.userId,
-                posting_id: this.props.posting.id.toString(),
-                posting_url: this.props.posting.url || this.props.posting.link,
-                job_title: this.props.posting.title,
+                user_id: this.props.currentUser.id,
+                posting_id: this.props.currentPosting.id.toString(),
+                posting_url: this.props.currentPosting.url || this.props.currentPosting.link,
+                job_title: this.props.currentPosting.title,
                 status: 'interested',
-                company: this.props.posting.company,
-                salary: this.props.posting.salary,
-                description: this.props.posting.description,
-                location: this.props.posting.location,
-                snippet: this.props.posting.snippet,
-                source: this.props.posting.source,
-                type: this.props.posting.type,
-                link: this.props.posting.link,
-                created_at: this.props.posting.created_at,
+                company: this.props.currentPosting.company,
+                salary: this.props.currentPosting.salary,
+                description: this.props.currentPosting.description,
+                location: this.props.currentPosting.location,
+                snippet: this.props.currentPosting.snippet,
+                source: this.props.currentPosting.source,
+                type: this.props.currentPosting.type,
+                created_at: this.props.currentPosting.created_at,
                 public:  true,
             })
             this.props.composePosting(newPosting)
-            .then(this.updatingUser(this.props.userPostings, false));
+            .then(() => {
+                this.updatingUser(this.props.currentUser.followed_posting, false)
+            });
         }
     }
 
@@ -60,20 +60,30 @@ class PostingItem extends React.Component{
         let newUserArray = userArray;
 
         if(status){
-            debugger
-            newUserArray = newUserArray.filter(postIDX => postIDX !== this.props.posting.id);
+            newUserArray = newUserArray.filter(postIDX => postIDX !== this.props.currentPosting.id.toString());
+            newUserArray = [...new Set(newUserArray)];
             this.setState({saved: false});
         } else {
-            debugger
-            newUserArray.push(this.props.posting.id.toString());
+            newUserArray.push(this.props.currentPosting.id.toString());
+            newUserArray = [...new Set(newUserArray)];
             this.setState({saved: true});
         }
-        this.props.updateAUser(this.props.userId,{followed_posting: newUserArray})
+        this.props.updateAUser(this.props.currentUser.id,{followed_posting: newUserArray})
         .then(this.forceUpdate());
     }
 
     render(){
-        const { title, location, snippet, salary, source, type, link, company, id, updated, url, description, created_at, how_to_apply} = this.props.posting
+        if(this.props.currentPosting.id === undefined) return null;
+
+        if(this.props.currentUser.followed_posting.includes(this.props.currentPosting.id.toString()) && this.state.saved === false){
+            this.setState({saved: true})
+        }
+
+        if(!this.props.currentUser.followed_posting.includes(this.props.currentPosting.id.toString()) && this.state.saved === true){
+            this.setState({saved: false})
+        }
+
+        const { title, location, snippet, salary, source, type, link, company, id, updated, url, description, created_at, how_to_apply} = this.props.currentPosting
         return(
             <div className='posting-listing'>
                 <button className='posting-listing-add-button' onClick={this.handleClick}>{this.state.saved ? 'Delete Job Posting from Collection' : 'Save Job Posting for Collection'}</button>
@@ -93,5 +103,4 @@ class PostingItem extends React.Component{
 
 };
 
-export default PostingItem;
-
+export default SearchPostingItem;
