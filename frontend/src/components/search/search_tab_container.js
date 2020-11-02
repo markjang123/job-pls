@@ -7,7 +7,8 @@ const mapStateToProps = state => {
     debugger
     return {
         searchedPostings: state.entities.searchedPosts,
-        currentPosting: state.entities.currentPosting
+        currentPosting: state.entities.currentPosting,
+        loading: state.ui.loading
     }
 }
 
