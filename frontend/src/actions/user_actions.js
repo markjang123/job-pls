@@ -55,6 +55,7 @@ export const fetchUser = userId => dispatch => {
 
 
 export const updateAUser = (userId, userData) => {
+    debugger
     return dispatch => {
         debugger
         return APIUserUtil.updateUser(userId, userData)

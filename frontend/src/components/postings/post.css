@@ -81,13 +81,19 @@
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 } */
-
+#edit-button {
+    background-color: white;
+}
+.post-edit {
+    background-color: white;
+}
 
 
 #job-title{
     font-size: 22px;
     text-align: left;
-    color: rgb(32, 32, 32) 
+    /* color: rgb(32, 32, 32)  */
+    color: red;
 }
 
 #company{
@@ -131,6 +137,7 @@
 #show-title{
     font-size: 30px;
     margin-bottom: 10px;
+    color: rgb(32, 32, 32)
 }
 
 #show-company{

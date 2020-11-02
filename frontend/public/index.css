@@ -1,4 +1,5 @@
 html{
+    background: #161718;
     height: 100vh;
     width: 100vw;
     /* background: linear-gradient(-45deg, #083025, #040f0f, #250917, #08201c); */
@@ -7,8 +8,9 @@ html{
     /* background: linear-gradient(-45deg, #474747, #1a1919, #050505, #252525, #1b1b1b); */
 	background-size: 200% 200%;
     animation: gradient 40s ease-in-out infinite;
-  
 }
+
+
 
 @keyframes gradient {
 	0% {

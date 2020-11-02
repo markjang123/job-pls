@@ -27,6 +27,14 @@ export const receivePostings = postings => {
     }
 };
 
+ const receiveUpdatedPosting = posting => {
+     debugger
+    return {
+        type: UPDATE_POSTING,
+        posting
+    }
+}
+
 export const receivePosting = posting => {
     return {
         type: RECEIVE_POSTING,
@@ -39,17 +47,17 @@ export const receiveUserPostings = postings => ({
     postings
 });
 
-const destroyPosting = postingId => ({
+export const destroyPosting = postingId => ({
     type: DESTROY_POSTING,
     postingId
 });
 
-const receiveNewPosting = posting => ({
+export const receiveNewPosting = posting => ({
     type: RECEIVE_NEW_POSTING,
     posting
 });
 
-const receiveSearchedPosting = postings => ({
+export const receiveSearchedPosting = postings => ({
     type: RECEIVE_SEARCHED_POSTING,
     postings
 });
@@ -110,10 +118,12 @@ export const deletePosting = postingId => dispatch => (
 );
 
 export const updateAPosting = (postingId, postingData) => {
+    debugger
     return dispatch => {
         return updatePosting(postingId, postingData)
-                .then(() => getPosting(postingId))
-                .then(posting => dispatch(updatedPosting(posting.data)))
+                .then(response => console.log(`Reponse from updatePosting: ${response.data}`))
+                // .then(() => getPosting(postingId))
+                // .then(posting => dispatch(receiveUpdatedPosting(posting.data)))
                 .catch(err => console.log(err))
     }
 };
