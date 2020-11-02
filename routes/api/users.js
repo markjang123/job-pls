@@ -11,7 +11,7 @@ const validateLoginInput = require('../../validation/login');
 
 // router.put("/:id", (req, res) => {
 //   User.findByIdAndUpdate(req.params.id, req.body)
-//   .then(user => res.json(user)
+//   .then(user => res.json(user))
 //   .catch(err => res.status(404)
 //   .json({ updateError: 'Could not update' })))
 
@@ -28,8 +28,6 @@ router.put("/:id", (req, res) => {
                 followed_posting: user.followed_posting
             };
             jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
-                console.log(payload.followed_posting);
-                console.log(user.followed_posting)
                 res.json({
                     success: true,
                     token: "Bearer " + token
