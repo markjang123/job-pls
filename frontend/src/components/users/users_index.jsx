@@ -7,16 +7,15 @@ class UsersIndex extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchAllUsers()
+        this.props.fetchUsersIfNeeded()
     }
 
     render(){
-        let users = this.props.someUsers ? this.props.someUsers : this.props.allUsers
         if (this.props.currentUser === undefined) return null
-        return <ul className="users-index">
-            {users.map(user => {
+        return <ul className={this.props.className}>
+            {this.props.users.map(user => {
                 debugger
-                if (user._id === this.props.currentUser._id) return null
+                if (this.props.className === "users-index" && user._id === this.props.currentUser._id) return null
                 return <UsersIndexItemContainer key={user.id} user={user}/>
 
             })

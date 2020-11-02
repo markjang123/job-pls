@@ -28,11 +28,11 @@ class UsersIndexItem extends React.Component {
                     <Link className="username-link" to={`/users/${_id}`}>{username}</Link>
                 </p>
             </div>
-            <FollowButtonContainer updateAUser={this.props.updateAUser} 
+            {this.props.user._id !== this.props.currentUser._id && <FollowButtonContainer updateAUser={this.props.updateAUser} 
                 is_following={this.is_following} 
                 forceUpdate={() => this.forceUpdate()} 
                 currentUser={this.props.currentUser} 
-                user={this.props.user}/>
+                user={this.props.user}/>}
 
         </div>
         ) 

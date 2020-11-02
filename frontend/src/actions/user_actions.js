@@ -39,6 +39,7 @@ export const fetchUser = userId => dispatch => {
 };
 
 export const updateAUser = (userId, userData) => {
+    debugger
     return dispatch => {
         return APIUserUtil.updateUser(userId, userData)
                 .then(() => APIUserUtil.fetchUser(userId))

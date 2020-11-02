@@ -14,7 +14,8 @@ debugger
         currentUser: users[session.id],
         user,
         // ownProps,
-        users
+        users,
+        posts
     }
 }
 

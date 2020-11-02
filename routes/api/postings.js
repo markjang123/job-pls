@@ -142,7 +142,13 @@ router.get('/user/:user_id', (req, res) => {
 
 //     }
 // );
-
+router.put("/:id", (req, res) => {
+    Posting.findByIdAndUpdate(req.params.id, req.body)
+    .then(post => res.json(post))
+    // .catch(err => res.status(404))
+})
+   
+  
 router.post('/search',
     (req, res) => {
 

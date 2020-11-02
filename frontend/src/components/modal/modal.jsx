@@ -1,7 +1,7 @@
 import React from 'react';
 // import LoginFormContainer from '../session/login_form_container';
 // import SignupFormContainer from '../session/signup_form_container';
-// import PostShowContainer from '../postings/post_show_container';
+import PostShowContainer from '../postings/post_show_container';
 import PostShow from '../postings/post_show';
 import './modal.css'
 
@@ -39,7 +39,7 @@ class Modal extends React.Component{
                     <div onClick={() => this.openScroll(closeModal)} id='close-modal'>x</div>
                 </div>
                 <div className='modal-container'>
-                    <PostShow post={modal}/>
+                    <PostShowContainer post={modal}/>
                 </div>
             </div>
         )

@@ -18,6 +18,9 @@ const PostingSchema = new Schema({
         type: String,
         required: true
     },
+    priority: {
+        type: Number
+    },
     company: {
         type: String  
     },
