@@ -18,7 +18,7 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
-        banana: () => dispatch(fetchAllUsers()),
+        fetchAllUsers: () => dispatch(fetchAllUsers()),
 
         openModal: type => dispatch(openModal(type)),
         closeModal: () => dispatch(closeModal())

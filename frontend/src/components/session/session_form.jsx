@@ -133,7 +133,7 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+        // debugger
         let loginUser = {
             email: e.currentTarget[0].value,
             password: e.currentTarget[1].value
