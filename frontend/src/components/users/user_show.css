@@ -69,14 +69,15 @@
     padding: 5px 3px 10px;
     margin: 0px 5px 15px 5px;
 }
-#job-title {
-    color: rgb(190,189,186);
-    font-size: 30px;
-    font-weight: bold;
+
+#job-title{
+    font-size: 22px;
+    text-align: left;
+    color: rgba(27, 31, 29)
+    /* color: red; */
 }
-#job-title:hover {
-    text-decoration: underline;
-}
+
+
 #job-company {
     font-size: 20px;
     margin-bottom: 15px;

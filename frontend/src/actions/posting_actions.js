@@ -28,7 +28,7 @@ export const receivePostings = postings => {
 };
 
  const receiveUpdatedPosting = posting => {
-     debugger
+    //  debugger
     return {
         type: UPDATE_POSTING,
         posting
@@ -118,7 +118,7 @@ export const deletePosting = postingId => dispatch => (
 );
 
 export const updateAPosting = (postingId, postingData) => {
-    debugger
+    // debugger
     return dispatch => {
         return updatePosting(postingId, postingData)
                 .then(response => console.log(`Reponse from updatePosting: ${response.data}`))
