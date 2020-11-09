@@ -46,7 +46,7 @@ class Nav extends React.Component {
                                 <li id='tab'><Link to='/jobs'>job pls</Link></li>
                                 <li id='tab'><p onClick={() => this.openUsers()}>users</p></li>
                                 <li id='tab'><Link to='/search'>search</Link></li>
-
+                            
                             </ul>
                         </div> */}
                     {/* </div> */}
