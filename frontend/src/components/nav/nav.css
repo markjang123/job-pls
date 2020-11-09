@@ -50,6 +50,10 @@
 
 }
 .logout-button {
+    cursor: pointer;
+    position: absolute;
+    right: 15%;
+    bottom: 0;
     margin: 5px;
     border-radius: 3px;
     font-family: Arial, Helvetica, sans-serif;
@@ -124,15 +128,15 @@
 
 }
 
-.search-form li{
+/* .search-form li{
     /* position: relative; */
-}
+/* } */
 
-#search-bar-container, 
+/* #search-bar-container, 
 #company-search-container,
 #search-button{
     /* margin: 8px 8px 8px 8px; */
-}
+/* } */
 
 
 #search{
@@ -160,9 +164,9 @@
 
 }
 
-#search-crit > div {
+/* #search-crit > div {
     /* display: flex; */
-}
+/* } */ */
 
 .material-icons{
     height: 35px;
@@ -228,18 +232,18 @@
     border-radius: 8px 0px 8px 0px;
 }
 
-.search-dropdown-div option{
+/* .search-dropdown-div option{
     /* color: red; */
-}
+/* } */ 
 .search-dropdown-div select:hover{
     background-color: powderblue;
 }
 
 
 
-.search-dropdown-div .location-dropdown option{
+/* .search-dropdown-div .location-dropdown option{
 
-}
+} */
 
 .search-result-container{
 

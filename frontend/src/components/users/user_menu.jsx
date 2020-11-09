@@ -75,8 +75,8 @@ class UserMenu extends React.Component {
         return (
             <div className='user-menu'>
                 <div className='user-header'>
-                    <p>Hello, {this.props.currentUser.username}</p>
-                    <ul className='user-menu-items'>
+                    <p className="user-greeting">Hello, {this.props.currentUser.username}</p>
+                    {/* <ul className='user-menu-items'>
                         <li onClick={() => this.props.history.push('/jobs')} >
                             jobs
                         </li>
@@ -86,7 +86,7 @@ class UserMenu extends React.Component {
                         <li>
                             followers
                         </li>
-                    </ul>
+                    </ul> */}
                 </div>
                 <div className="profile-content">
                     {this.renderTab()}
