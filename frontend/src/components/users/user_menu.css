@@ -1,0 +1,18 @@
+.user-menu{
+    background: rgb(27,31,29);
+}
+
+.user-header{
+    height: 60px;
+    width: 90%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.2s ease-out;
+    color:  #D4D4D4;
+    border-bottom: 10px solid rgb(27,31,29);
+}
+
+ul.user-menu-items li{
+    display: inline;
+}

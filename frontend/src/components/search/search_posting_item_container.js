@@ -4,7 +4,7 @@ import {updateAUser} from '../../actions/user_actions';
 import SearchPostingItem from './search_posting_item';
 
 const mapStateToProps = state => {
-    debugger
+    // debugger
     let currentPost = state.entities.currentPosting;
     if(currentPost === {} || currentPost === undefined) currentPost = state.entities.searchedPosts[0]
     return {

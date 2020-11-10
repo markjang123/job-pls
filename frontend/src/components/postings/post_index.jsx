@@ -50,7 +50,7 @@ class PostIndex extends React.Component{
                 </div>
             </div>
         )
-        debugger
+        // debugger
     }
 }
 

@@ -34,9 +34,7 @@ class Nav extends React.Component {
 
         return (
             <div className='nav-container'>
-                {/* <div> */}
-                    {/* <div id='flex-tabs'> */}
-                        {/* <div className='nav-search'> */}
+                <button onClick={this.handleLogout} className="logout-button">logout</button>
                         <div>
                             <NavSearchContainer/>
                         </div>
@@ -46,7 +44,7 @@ class Nav extends React.Component {
                                 <li id='tab'><Link to='/jobs'>job pls</Link></li>
                                 <li id='tab'><p onClick={() => this.openUsers()}>users</p></li>
                                 <li id='tab'><Link to='/search'>search</Link></li>
-
+                            
                             </ul>
                         </div> */}
                     {/* </div> */}

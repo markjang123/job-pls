@@ -8,19 +8,19 @@ class PostEdit extends React.Component {
         this.submitHandler = this.submitHandler.bind(this)
     }
     submitHandler(e){
-        debugger
+        // debugger
         e.preventDefault()
         this.props.updateAPosting(this.props.post._id, this.state)
         this.props.closeEdit()
     }
     update(field){
-        debugger
+        // debugger
         return e => {
             this.setState({[field]: e.target.value})
         }
     }
     render() {
-        debugger
+        // debugger
         return <div className="post-edit">
             <form onSubmit={this.submitHandler}>
                 <p>Privacy:</p>

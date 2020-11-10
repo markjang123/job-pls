@@ -12,6 +12,7 @@ import SplashContainer from './splash/splash_container';
 
 import UsersIndexContainer from './users/users_index_container'
 import UserShowContainer from './users/user_show_container'
+import UserMenuContainer from './users/user_menu_container'
 
 import './app.css';
 
@@ -63,8 +64,10 @@ class App extends React.Component{
                 <Modal />
                 <div className='border-bottom'>
                 </div>
-                <ul >
-                    <li id='search-loading-container'><Switch id='content-container'>
+                <ul className='display-content' >
+                    {/* <li id='search-loading-container'><Switch id='content-container'> */}
+                    {/* <li><Switch id='content-container'> */}
+                    <li id='job-content'><Switch>
                         <AuthRoute exact path='/' component={SplashContainer} />
                         <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
                         <ProtectedRoute path="/jobs" component={PostIndexContainer} />
@@ -72,11 +75,13 @@ class App extends React.Component{
                         {/* <ProtectedRoute exact path="/users" component={UsersIndexContainer} /> */}
                         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
                         {/* <AuthRoute exact path="/" component={SignupFormContainer} /> */}
+                        <AuthRoute exact path="/login" component={LoginFormContainer} />
                         {/* <ProtectedRoute path="*" component={PostIndexContainer} /> */}
                     </Switch>
                     </li>
-                    <li>
-                        <UsersIndexContainer/>
+                    <li id='sidebar-content'>
+                        {/* <UsersIndexContainer/> */}
+                        <UserMenuContainer/>
                     </li>
                 </ul>
             </div>

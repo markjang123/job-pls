@@ -123,6 +123,26 @@ class SessionForm extends React.Component {
         this.switcharoni = this.switcharoni.bind(this);
         this.formType = this.props.formType;
         this.switchForm = this.props.switchForm;
+        this.demoUserLogin = this.demoUserLogin.bind(this);
+    }
+
+    demoUserLogin(){
+        debugger
+        if(this.formType === 'signup'){
+            let sType = this.formType;
+            let fType = this.switchForm;
+            this.formType = this.switchForm;
+            this.switchForm = sType;
+            this.forceUpdate();        
+        };
+        let demoUser = {
+            email: 'demo-user@demo.com',
+            password: 'demofordays'
+        };
+        this.props.loginUser(demoUser).then(() => {
+            this.props.history.push('/jobs');
+            this.props.closeModal();
+        });
     }
 
     update(field) {
@@ -269,6 +289,9 @@ class SessionForm extends React.Component {
                     </form>
                     <div className="switch-tab">
                         <p onClick={this.switcharoni} id='toggle'> or {this.switchForm}</p>
+                    </div>
+                    <div className='demo-user-button'>
+                        <p onClick={this.demoUserLogin}>Try for free as a demo</p>
                     </div>
                 </div>
                 </div>

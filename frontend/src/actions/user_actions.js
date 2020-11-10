@@ -55,12 +55,12 @@ export const fetchUser = userId => dispatch => {
 
 
 export const updateAUser = (userId, userData) => {
-    debugger
+    // debugger
     return dispatch => {
-        debugger
+        // debugger
         return APIUserUtil.updateUser(userId, userData)
             .then((res) => {const { token } = res.data;
-                    debugger
+                    // debugger
                     localStorage.setItem('jwtToken', token);
                     APIUtil.setAuthToken(token);
                     const decoded = jwt_decode(token);

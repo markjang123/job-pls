@@ -92,8 +92,8 @@
 #job-title{
     font-size: 22px;
     text-align: left;
-    /* color: rgb(32, 32, 32)  */
-    color: red;
+    color: rgb(32, 32, 32) 
+    /* color: red; */
 }
 
 #company{

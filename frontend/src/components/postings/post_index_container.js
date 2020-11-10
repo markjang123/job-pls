@@ -9,7 +9,7 @@ import { logout } from '../../actions/session_actions'
 // need to handle modal actions, container, and modal.jsx
 
 const mSTP = state => {
-    debugger
+    // debugger
     return{
         // currentUser: state.entities.users[state.session.id],
         myPosts: Object.values(state.session.user.followed_posting),
