@@ -60,14 +60,15 @@ router.post("/register", (req, res) => {
             newUser
                 .save()
                 .then(user => {
-                  const payload = { 
-                        id: user.id, 
+                    const payload = { 
+                        _id: user._id, 
                         username: user.username ,
                         followed_users: user.followed_users,
                         following_users: user.following_users,
                         followed_posting: user.followed_posting
                     };
-                  jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                    console.log(payload);
+                    jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                     res.json({
                     success: true,
                     token: "Bearer " + token
@@ -100,7 +101,7 @@ router.post("/login", (req, res) => {
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         const payload = { 
-            id: user.id, 
+            _id: user._id, 
             username: user.username,
             followed_users: user.followed_users,
             following_users: user.following_users,
@@ -119,6 +120,60 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+// router.patch(`/:id`, (req, res) => {
+    
+//     const newPosting = new Posting({
+//         posting_id: req.body.posting_id,
+//         posting_url: req.body.posting_url,
+//         job_title: req.body.job_title,
+//         status: req.body.status,
+//         company: req.body.company,
+//         salary: req.body.salary,
+//         description: req.body.description,
+//         location: req.body.location,
+//         snippet: req.body.snippet,
+//         source: req.body.source,
+//         type: req.body.type,
+//         link: req.body.link,
+//         created_at: req.body.created_at,
+//         public:  true,
+//     });
+//     newPosting.save().then(posting => {
+//         User.findById(req.params.id)
+//         .then(user => {
+//             console.log(user);
+//             // let newUserFollows = {
+//                 // followed_posting: 
+//             user.followed_posting.push(posting);                    
+//             // }
+//             user.save({new: true}).then((newUser) => {
+//                 res.json(newUser);
+//             }).catch(errors => res.json(errors));
+//         }).catch(errors => res.json(errors));
+//     }).catch(errors => res.json(errors));
+// });
+
+router.put(`/:id/posting`, (req, res) => {    
+    const newPosting = JSON.parse(req.body);
+    newPosting.save().then(posting => {
+        User.findById(req.params.id)
+        .then(user => {
+            user.followed_posting.push(posting);                    
+            user.save({new: true}).then((newUser) => {
+                const payload = { 
+                    _id: newUser._id, 
+                    username: newUser.username ,
+                    followed_users: newUser.followed_users,
+                    following_users: newUser.following_users,
+                    followed_posting: newUser.followed_posting
+                };
+                res.json(payload);
+            }).catch(errors => res.json(errors));
+        }).catch(errors => res.json(errors));
+    }).catch(errors => res.json(errors));
+});
+
 
 
 router.get('/follows', (req, res) => {

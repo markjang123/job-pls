@@ -4,7 +4,7 @@ import FollowButton from './follow_button'
 import {updateAUser} from '../../actions/user_actions'
 const mapStateToProps = state => {
     return {
-        currentUser: state.entities.users[state.session.user.id]
+        currentUser: state.session.user
     }
 }
 

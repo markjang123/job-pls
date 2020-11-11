@@ -3,10 +3,10 @@ import UserMenu from './user_menu';
 import { connect } from 'react-redux';
 import { fetchAllUsers, updateAUser } from '../../actions/user_actions'
 const mapStateToProps = state => {
-    // debugger
+    debugger
     return {
         users: Object.values(state.entities.users),
-        currentUser: state.entities.users[state.session.user.id],
+        currentUser: state.session.user,
         className: "users-index"
     }
 }

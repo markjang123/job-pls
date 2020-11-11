@@ -36,14 +36,14 @@ class UsersIndex extends React.Component {
     }
 
     render(){
-        // debugger
+        debugger
         if (this.props.currentUser === undefined) return null
         return(
             <div className='users-index'>
                     <div className={this.growshrink()}>
                         {this.props.users.map(user => {
                             if (user._id === this.props.currentUser._id) return null
-                            return <UsersIndexItemContainer key={user.id} user={user}/>
+                            return <UsersIndexItemContainer key={user._id} user={user}/>
                         })}
                     </div>
             </div>

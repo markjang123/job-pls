@@ -10,7 +10,7 @@ const mSTP = ({ entities: { posts, users }, session }) => {
 
 
     return{
-        currentUser: users[session.id],
+        currentUser: session.user,
         posts
     }
 }

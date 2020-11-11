@@ -13,7 +13,7 @@ const mSTP = state => {
     return{
         // currentUser: state.entities.users[state.session.id],
         myPosts: Object.values(state.session.user.followed_posting),
-        currentUser: state.session.user.id,
+        currentUser: state.session.user._id,
         posts: Object.values(state.entities.posts),
         modal: state.ui.modal,
         openUsers: false

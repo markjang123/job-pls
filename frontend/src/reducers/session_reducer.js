@@ -15,7 +15,7 @@ const SessionReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            // debugger
+            debugger
             return {
                 ...state,
                 isAuthenticated: !!action.currentUser,
@@ -27,7 +27,7 @@ const SessionReducer = (state = initialState, action) => {
                 user: {}
             };
         case UPDATE_USER:
-            // debugger
+            debugger
             if(state.user.id === action.user.id){
                 return {
                     isAuthenticated: state.isAuthenticated,

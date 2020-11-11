@@ -1,12 +1,4 @@
-import { 
-    getPostings, 
-    getPosting, 
-    getUserPostings, 
-    writePosting,
-    searchAPIPosting,
-    destroy1Posting,
-    updatePosting
-} from '../util/posting_api_util';
+import * as postingAPIUtil from '../util/posting_api_util';
 
 export const RECEIVE_POSTINGS = "RECEIVE_POSTINGS";
 export const RECEIVE_POSTING = "RECEIVE_POSTING";
@@ -28,7 +20,6 @@ export const receivePostings = postings => {
 };
 
  const receiveUpdatedPosting = posting => {
-    //  debugger
     return {
         type: UPDATE_POSTING,
         posting
@@ -76,56 +67,50 @@ const setLoadingState = () => ({
     type: SET_LOADING_STATE
 });
 
+
 export const fetchPostings = () => dispatch => (
-    getPostings()
+    postingAPIUtil.getPostings()
         .then(postings => {
-            // debugger
             dispatch(receivePostings(postings.data))})
         .catch(err => console.log(err))
 );
 
 export const fetchPosting = id => dispatch => (
-    getPosting(id)
+    postingAPIUtil.getPosting(id)
         .then(posting => dispatch(receivePosting(posting)))
         .catch(err => console.log(err))
 );
 
 export const fetchUserPostings = id => dispatch => (
-    getUserPostings(id)
+    postingAPIUtil.getUserPostings(id)
         .then(postings => {
-            // debugger
             dispatch(receiveUserPostings(postings))
         })
         .catch(err => console.log(err))
 );
 
 export const composePosting = data => dispatch => (
-    writePosting(data)
+    postingAPIUtil.writePosting(data)
         .then(posting => dispatch(receiveNewPosting(posting)))
         .catch(err => console.log(err))
 );
 
 export const searchPosting = data => dispatch => (
-    searchAPIPosting(data)
+    postingAPIUtil.searchAPIPosting(data)
         .then(postings => dispatch(receiveSearchedPosting(postings)))
         .catch(err => console.log(err))
 );
 
 export const deletePosting = postingId => dispatch => (
-    destroy1Posting(postingId)
+    postingAPIUtil.destroy1Posting(postingId)
         .then(() => dispatch(destroyPosting(postingId)))
         .catch(err => console.log(err))
 );
 
-export const updateAPosting = (postingId, postingData) => {
-    // debugger
-    return dispatch => {
-        return updatePosting(postingId, postingData)
-                .then(response => console.log(`Reponse from updatePosting: ${response.data}`))
-                // .then(() => getPosting(postingId))
-                // .then(posting => dispatch(receiveUpdatedPosting(posting.data)))
-                .catch(err => console.log(err))
-    }
+export const updateAPosting = (postingId, postingData) => dispatch => {
+    return postingAPIUtil.updatePosting(postingId, postingData)
+        .then(response => console.log(`Reponse from updatePosting: ${response.data}`))
+        .catch(err => console.log(err));
 };
 
 export const setCurrentPosting = (posting) => dispatch => (
