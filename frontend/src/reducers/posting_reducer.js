@@ -39,7 +39,6 @@ const PostingsReducer = (state = initialState, action) => {
         newState.user[action.postingId] = undefined;
         return newState;
     case UPDATE_POSTING:
-        debugger
         newState[action.posting.id] = action.posting;
         return newState        
     default:

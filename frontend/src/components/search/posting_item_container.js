@@ -8,7 +8,7 @@ const mapStateToProps = state => {
     let userPostingsId = state.entities.posts.user.map(obj => obj.posting_id) 
     return {
         userPostings: userPostingsId,
-        userId: state.session.user.id
+        userId: state.session.user._id
     }
 }
 

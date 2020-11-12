@@ -3,7 +3,7 @@ import UserPostsIndex from './user_posts_index'
 const mapStateToProps = state => {
     // debugger
     return {
-        currentUser: state.entities.users[state.session.user.id]
+        currentUser: state.session.user
     }
 }
 

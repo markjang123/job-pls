@@ -6,7 +6,7 @@ const mapStateToProps = state => {
     // debugger
     return {
         users: Object.values(state.entities.users),
-        currentUser: state.entities.users[state.session.user.id],
+        currentUser: state.session.user,
         className: "users-index"
     }
 } 

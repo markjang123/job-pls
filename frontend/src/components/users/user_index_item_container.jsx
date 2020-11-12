@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import UserIndexItem from './user_index_item'
 const mapStateToProps = state => {
     return {
-        state
+        currentUser: state.session.user
     }
 }
 

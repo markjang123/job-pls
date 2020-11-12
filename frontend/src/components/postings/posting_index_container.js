@@ -8,7 +8,7 @@ import PostIndex from './post_index';
 
 const mSTP = state => {
     return{
-        currentUser: state.entities.users[state.session.id],
+        currentUser: state.session.user,
         posts: Object.values(state.entities.posts)
         // modal: state.ui.modal goes here
     }

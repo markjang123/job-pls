@@ -11,7 +11,7 @@ const mSTP = ({ entities: { posts , users }, session }, ownProps) => {
 
 
     return {
-        currentUser: users[session.id],
+        currentUser: session.user,
         user,
         // ownProps,
         users,

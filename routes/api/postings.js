@@ -267,7 +267,6 @@ router.delete('/:id', (req, res) => {
 
     Posting.findOneAndDelete({id: req.params.id.trim()})
         .then((posting) => {
-            console.log(posting)
             res.status(200).json({postingdeleted: 'posting deleted sucessfully'})})
         .catch(err => res.status(404).json({nopostingfound: 'No posting found :D'}))
 });
