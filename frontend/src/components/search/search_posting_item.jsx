@@ -43,8 +43,8 @@ class SearchPostingItem extends React.Component{
                 created_at: this.props.currentPosting.created_at,
                 public:  true,
         })
-        newPosting = JSON.stringify(newPosting);
-        debugger
+        // newPosting = JSON.stringify(newPosting);
+        // debugger
             // this.props.composePosting(newPosting)
             // .then(() => {
         this.updatingUser(newPosting, false)

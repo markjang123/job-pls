@@ -2,7 +2,8 @@ import Modal from './modal/modal.jsx';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container';
-import SignupFormContainer from './session/signup_form_container';
+import SignupFormContainer from './session/signup_form_container'
+// import SignupFormContainer from './session/signup_form_container';
 import PostIndexContainer from './postings/post_index_container';
 import PostShowContainer from './postings/post_show_container';
 import SearchTabContainer from './search/search_tab_container';
@@ -76,6 +77,7 @@ class App extends React.Component{
                         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
                         {/* <AuthRoute exact path="/" component={SignupFormContainer} /> */}
                         <AuthRoute exact path="/login" component={LoginFormContainer} />
+                        <AuthRoute exact path="/signup" component={SignupFormContainer} />
                         {/* <ProtectedRoute path="*" component={PostIndexContainer} /> */}
                     </Switch>
                     </li>

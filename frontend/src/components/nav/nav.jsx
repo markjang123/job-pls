@@ -17,7 +17,6 @@ class Nav extends React.Component {
     }
 
     openUsers(){
-        // debugger
         console.log('click');
         <PostIndexContainer openUsers={true}/>
 
@@ -30,11 +29,10 @@ class Nav extends React.Component {
     render() {
         const {currentUser} = this.props
         if(Object.keys(currentUser).length === 0 && currentUser.constructor === Object) return null;
-        // if (this.props.currentUser === {}) return null;
 
         return (
             <div className='nav-container'>
-                <button onClick={this.handleLogout} className="logout-button">logout</button>
+                <button onClick={() => this.props.logout()} className="logout-button">logout</button>
                         <div>
                             <NavSearchContainer/>
                         </div>
