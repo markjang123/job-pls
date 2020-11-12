@@ -40,15 +40,14 @@ import { withRouter } from 'react-router-dom'
 
 const mSTP = state => {
     return {
-        formType: 'signup',
-        switchForm: 'login',
-        loginInfo: {
+        sessionType: 'Sign Up',
+        sessionInfo: {
             email: '',
             username: '',
             password: '',
             password2: ''
         },
-        // navLink: <Link to="/login">Have an account? Sign in!</Link>,
+        other: 'Login',
         errors: state.errors.session
     };
 };
