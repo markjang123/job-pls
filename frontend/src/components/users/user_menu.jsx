@@ -82,8 +82,7 @@ class UserMenu extends React.Component {
     }
 
     render() {
-        debugger
-        if (this.props.currentUser.id === undefined) return null
+        if (this.props.currentUser._id === undefined) return null
         return (
             <div className='user-menu'>
                 <div className='user-header'>
