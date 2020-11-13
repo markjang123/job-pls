@@ -85,9 +85,51 @@
     background-color: white;
 }
 .post-edit {
+    width: 100%;
     background-color: white;
+    /* display: flex; */
+    /* flex-direction: column; */
 }
 
+#notes-label{
+    background:white;
+}
+
+.radio-toolbar input[type="radio"] {
+    display: none;  
+}
+
+.radio-toolbar label {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 4px 11px;
+    font-family: Arial;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.radio-toolbar input[type="radio"]:checked+label {
+    background-color: #bbb;
+}
+
+#notes{
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    /* background: red; */
+    border-bottom: 2px solid rgb(27, 31, 29)
+}
+
+#notes-field{
+    border-bottom: 1px solid rgb(27, 31, 29);
+    width: 425px;
+    height: 20px;
+};
+
+#drop-down{
+    height: 500px;
+    width: 500px;
+}
 
 #job-title{
     font-size: 22px;
@@ -121,22 +163,30 @@
    
 }
 
+
+
+
 .post-show{
-    background: rgb(212, 212, 212) ;
-    height:100%;
-    /* max-width:75%; */
+    background: rgb(212, 212, 212);
+    height: 100%;
+    width: 550px;
     color: rgb(32, 32, 32);
-    padding: 30px 50px 30px 50px;
+    padding: 20px 35px 20px 35px;
     box-sizing: border-box;
-    overflow-y: auto;
     -webkit-box-shadow: 0px 0px 73px -14px rgba(5,1,23,0.55);
     -moz-box-shadow: 0px 0px 73px -14px rgba(5,1,23,0.55);
     box-shadow: 0px 0px 73px -14px rgba(5,1,23,0.55);
+    border-radius: 50px 0px 50px 0px;
+    border: 10px solid rgb(27, 31, 29);
+}
+.description-container{
+    height: 40%;
+    overflow-y: auto;  
 }
 
 #show-title{
     font-size: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: rgb(32, 32, 32)
 }
 
