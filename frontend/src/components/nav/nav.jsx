@@ -17,7 +17,8 @@ class Nav extends React.Component {
 
     render() {
         const {currentUser} = this.props
-        if(currentUser._id === undefined) return null;
+        debugger
+        if (currentUser._id === undefined) return null;
 
         return (
             <div className='nav-container'>
