@@ -4,7 +4,6 @@ import {withRouter} from 'react-router-dom';
 import SearchTab from './search_tab'
 
 const mapStateToProps = state => {
-    // debugger
     return {
         searchedPostings: state.entities.searchedPosts,
         currentPosting: state.entities.currentPosting,
@@ -15,7 +14,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         searchPosting: postingParams => dispatch(searchPosting(postingParams)),
-        // clearSessionErrors: () => dispatch(clearSessionErrors())
     }
 }
  

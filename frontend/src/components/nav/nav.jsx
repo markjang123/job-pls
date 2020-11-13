@@ -8,23 +8,12 @@ import './nav.css'
 class Nav extends React.Component {
     constructor(props) {
         super(props);
-        this.handleLogout = this.handleLogout.bind(this);
         this.openUsers = this.openUsers.bind(this);
     }
 
-    handleLogout(){
-        this.props.logout()
-    }
-
     openUsers(){
-        console.log('click');
         <PostIndexContainer openUsers={true}/>
-
     }
-
-
-
-  
 
     render() {
         const {currentUser} = this.props
@@ -33,21 +22,9 @@ class Nav extends React.Component {
         return (
             <div className='nav-container'>
                 <button onClick={() => this.props.logout()} className="logout-button">logout</button>
-                        <div>
-                            <NavSearchContainer/>
-                        </div>
-                        {/* </div> */}
-                        {/* <div id='flex-tabs'>
-                            <ul>
-                                <li id='tab'><Link to='/jobs'>job pls</Link></li>
-                                <li id='tab'><p onClick={() => this.openUsers()}>users</p></li>
-                                <li id='tab'><Link to='/search'>search</Link></li>
-                            
-                            </ul>
-                        </div> */}
-                    {/* </div> */}
-                {/* </div> */}
-
+                    <div>
+                        <NavSearchContainer/>
+                    </div>
             </div>
         )
     }

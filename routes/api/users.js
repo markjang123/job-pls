@@ -154,13 +154,15 @@ router.post("/login", (req, res) => {
 //     }).catch(errors => res.json(errors));
 // });
 
-router.put(`/:id/posting`, (req, res) => {    
-    const newPosting = JSON.parse(req.body);
+router.put(`/:id/posting`, (req, res) => {
+    const newPosting = new Posting(req.body);
+    console.log(newPosting);
     newPosting.save().then(posting => {
         User.findById(req.params.id)
         .then(user => {
-            user.followed_posting.push(posting);                    
+            user.followed_posting.push(posting._id);
             user.save({new: true}).then((newUser) => {
+                
                 const payload = { 
                     _id: newUser._id, 
                     username: newUser.username ,
@@ -169,9 +171,15 @@ router.put(`/:id/posting`, (req, res) => {
                     followed_posting: newUser.followed_posting
                 };
                 res.json(payload);
-            }).catch(errors => res.json(errors));
-        }).catch(errors => res.json(errors));
-    }).catch(errors => res.json(errors));
+            }).catch(errors => {
+                console.log('error1')
+                res.json(errors)});
+        }).catch(errors => {
+            console.log('error2')
+            res.json(errors)});
+    }).catch(errors => {
+        console.log('error3')
+        res.json(errors)});
 });
 
 
@@ -182,6 +190,21 @@ router.get('/follows', (req, res) => {
   .then(folUser => res.json(folUser))
   .catch(errors => res.json(errors))
 });
+
+router.get('/userpostings/:id', (req, res) => {
+    User.findById(req.params.id)
+        .then(user => {
+            Posting.find({posting_id: req.body.posting_id})
+                .then(postings => {
+                    postings.forEach( posting => {
+                        if(user.followed_posting.includes(posting._id.toString())){
+                            return res.json(posting);
+                        }
+                        return res.json(false);
+                    })
+                })
+        })
+})
 
 router.get('/', (req, res) => {
 User.find()
@@ -202,6 +225,8 @@ router.get('/', (req, res) => {
         .then(users => res.json(users))
         .catch(err => res.status(404).json({ nousersfound: 'No users found' }));
 });
+
+
 
 
 

@@ -2,6 +2,7 @@ import {
     RECEIVE_CURRENT_USER, 
     RECEIVE_USER_LOGOUT
 } from '../actions/session_actions';
+import { DESTROY_POSTING } from '../actions/posting_actions';
 import {UPDATE_USER} from '../actions/user_actions';
 
 const initialState = {
@@ -15,7 +16,6 @@ const SessionReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            debugger
             return {
                 ...state,
                 isAuthenticated: !!action.currentUser,
@@ -26,6 +26,13 @@ const SessionReducer = (state = initialState, action) => {
                 isAuthenticated: false,
                 user: {}
             };
+        case DESTROY_POSTING:
+            let newUser = state.user;
+            newUser.followed_posting = newUser.followed_posting.filter(idx => idx !== action.postingId);
+            return {
+                isAuthenticated: true,
+                user: newUser
+            }
         case UPDATE_USER:
             debugger
             if(state.user.id === action.user.id){
@@ -42,5 +49,3 @@ const SessionReducer = (state = initialState, action) => {
 }
 
 export default SessionReducer;
-
-// Returned from back end token doesnt have updated follow postings

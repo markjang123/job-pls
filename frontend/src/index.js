@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store'
-import Root from './components/root'
+import Root from './components/root';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
-import {fetchAllUsers} from '../src/actions/user_actions'
-import {updateAPosting} from '../src/actions/posting_actions'
+import {fetchAllUsers} from '../src/actions/user_actions';
+import {updateAPosting} from '../src/actions/posting_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;

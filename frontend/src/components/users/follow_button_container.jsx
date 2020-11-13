@@ -1,7 +1,8 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import FollowButton from './follow_button'
-import {updateAUser} from '../../actions/user_actions'
+import React from 'react';
+import {connect} from 'react-redux';
+import FollowButton from './follow_button';
+import {updateAUser} from '../../actions/user_actions';
+
 const mapStateToProps = state => {
     return {
         currentUser: state.session.user
@@ -14,5 +15,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-const FollowButtonContainer = connect(mapStateToProps, mapDispatchToProps)(FollowButton)
-export default FollowButtonContainer
+export default connect(mapStateToProps, mapDispatchToProps)(FollowButton);
