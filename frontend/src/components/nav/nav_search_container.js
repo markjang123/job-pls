@@ -4,7 +4,6 @@ import NavSearch from './nav_search';
 import {withRouter} from 'react-router-dom'
 
 const mapStateToProps = state => {
-    // debugger
     return {
         searchedPostings: state.entities.SearchedPosts,
         loading: state.ui.loading

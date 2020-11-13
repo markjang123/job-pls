@@ -8,19 +8,17 @@ const CurrentPostingReducer = (state = {}, action) => {
   
   switch(action.type) {
     case RECEIVE_SEARCHED_POSTING:
-        debugger
         let jooble = action.postings.data[0];
         if(jooble === undefined){
             jooble = [];
         };
         const github = action.postings.data[1] || [];
         const concattedPostings = jooble.jobs.concat(github);
-        return [...new Set(concattedPostings)];
+        return concattedPostings[0] || {};
     case SET_CURRENT_POSTING:
-        debugger
-        if(typeof action.posting === 'string'){
-            return JSON.parse(action.posting);
-        };
+            // if(typeof action.posting === 'string'){
+            //     return JSON.parse(action.posting);
+            // };
         return action.posting;
     default:
         return state;

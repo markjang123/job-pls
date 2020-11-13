@@ -3,15 +3,17 @@ import PostEdit from './post_edit'
 
 class PostShow extends React.Component{
     constructor(props){
-        super(props)
-        this.state = {editing: false}
+        super(props);
+        this.state = {editing: false};
     }
+
 
     componentDidMount(){
         // this.props.fetchPosting(this.props.match.params.jobId);
         console.log('logging this.props.post:')
         console.log(this.props.post)
     }
+
 
 
     niceDescription(text){

@@ -1,23 +1,25 @@
 import React from 'react'
 class PostEdit extends React.Component {
     constructor(props){
+
         super(props)
         this.state = {public: this.props.post.public,
                     priority: this.props.post.priority,
                     application: '',
                     misc: 'none',
         }
-        this.submitHandler = this.submitHandler.bind(this)
+        this.submitHandler = this.submitHandler.bind(this);
     }
     submitHandler(e){
-        e.preventDefault()
-        this.props.updateAPosting(this.props.post._id, this.state)
-        this.props.closeEdit()
+
+        e.preventDefault();
+        this.props.updateAPosting(this.props.post._id, this.state);
+        this.props.closeEdit();
     }
     update(field){
         return e => {
             this.setState({[field]: e.target.value})
-        }
+        };
     }
     render() {
         debugger

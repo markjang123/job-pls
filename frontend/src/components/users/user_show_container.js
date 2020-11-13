@@ -1,19 +1,13 @@
 import { connect } from 'react-redux';
 import UserShow from './user_show';
 import { fetchUser , fetchAllUsers } from '../../actions/user_actions';
-// import { fetchAllUsers } from '../../actions/posting_actions';
 import { withRouter } from 'react-router-dom';
 
 const mSTP = ({ entities: { posts , users }, session }, ownProps) => {
-// debugger
-    let user = users[ownProps.match.params.userId]
-    // let post = 'hello'
-
-
+    let user = users[ownProps.match.params.userId];
     return {
         currentUser: session.user,
         user,
-        // ownProps,
         users,
         posts
     }
@@ -27,4 +21,4 @@ const mDTP = dispatch => {
     }
 }
 
-export default withRouter(connect(mSTP, mDTP)(UserShow))
+export default withRouter(connect(mSTP, mDTP)(UserShow));

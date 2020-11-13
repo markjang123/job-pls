@@ -19,7 +19,7 @@ export const receivePostings = postings => {
     }
 };
 
- const receiveUpdatedPosting = posting => {
+const receiveUpdatedPosting = posting => {
     return {
         type: UPDATE_POSTING,
         posting
