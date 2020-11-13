@@ -1,5 +1,5 @@
-import { connect } from 'react-redux'
-import Splash from './splash'
+import { connect } from 'react-redux';
+import Splash from './splash';
 import {openModal, closeModal} from '../../actions/modal_actions';
 
 

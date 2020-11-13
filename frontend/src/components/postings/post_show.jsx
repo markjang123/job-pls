@@ -3,15 +3,9 @@ import PostEdit from './post_edit'
 
 class PostShow extends React.Component{
     constructor(props){
-        super(props)
-        this.state = {editing: false}
+        super(props);
+        this.state = {editing: false};
     }
-
-    // componentDidMount(){
-        // this.props.fetchPosting(this.props.match.params.jobId);
-        // console.log(this.props.post)
-    // }
-
 
     niceDescription(text){
         return text.replace(/<style[^>]*>.*<\/style>/gm, '')
@@ -22,18 +16,36 @@ class PostShow extends React.Component{
 
     render(){
         let { post, currentUser } = this.props.post
-        // let { posts } = this.props;
-        // if (!posts) return null;
 
-        // debugger
         return(
             <div className='post-show'>
-                <p id='show-title'>{post.job_title}</p>
-                <p id='show-company'>{post.company}</p>
-                <p id='show-salary'>{post.salary}</p>
-                <p>{this.niceDescription(post.description)}</p>
-                <button id="edit-button" onClick={() => this.setState({editing: !this.state.editing})}>{this.state.editing ? "Close" : "Edit"}</button>
-                {this.state.editing && <PostEdit closeEdit={() => this.setState({editing: false})} currentUser={currentUser} updateAPosting={this.props.updateAPosting} post={post}/>}
+                <p id='show-title'>
+                    {post.job_title}
+                </p>
+                <p id='show-company'>
+                    {post.company}
+                </p>
+                <p id='show-salary'>
+                    {post.salary}
+                </p>
+                <p>
+                    {this.niceDescription(post.description)}
+                </p>
+                <button 
+                    id="edit-button" 
+                    onClick={() => 
+                        this.setState({editing: !this.state.editing})}>
+                            {this.state.editing 
+                            ? "Close" 
+                            : "Edit"}
+                </button>
+                {this.state.editing 
+                && <PostEdit closeEdit={() => 
+                    this.setState({editing: false})} 
+                    currentUser={currentUser} 
+                    updateAPosting={this.props.updateAPosting} 
+                    post={post}/>
+                }
             </div>
         )
         

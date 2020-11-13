@@ -1,11 +1,13 @@
 import * as APIUserUtil from '../util/user_api_util';
 import * as APIUtil from '../util/session_api_util';
+import * as postingAPIUtil from '../util/posting_api_util';
+
 import jwt_decode from 'jwt-decode';
 import {
     receiveCurrentUser
 } from './session_actions';
 import {
-    setCurrentPosting
+    setCurrentPosting,
 } from './posting_actions';
 
 
@@ -34,13 +36,12 @@ export const updateUser = user => {
 };
 
 export const savePostingToUser = (userId, posting) => dispatch => {
-    debugger;
     return APIUserUtil.savePostingToUser(userId, posting)
     .then(user => {
-        let newPost = user.data.followed_posting[user.data.followed_posting.length -1];
-        debugger;
+        let newPost = user.data.followed_posting[user.data.followed_posting.length -1] || [];
         dispatch(receiveCurrentUser(user.data));
-        dispatch(setCurrentPosting(newPost));
+        return postingAPIUtil.getPosting(newPost)
+        .then( currentPosting => dispatch(setCurrentPosting(currentPosting.data)))
     })
     .catch(err => {
         console.log(err);
@@ -62,25 +63,10 @@ export const fetchUser = userId => dispatch => {
         .then(user => dispatch(receiveUser(user.data)))
 };
 
-// export const updateAUser = (userId, userData) => {
-//     return dispatch => {
-//         debugger
-//         return APIUserUtil.updateUser(userId, userData)
-//                 .then(() => APIUserUtil.fetchUser(userId))
-//                 .then(user => {
-//                     debugger
-//                     dispatch(updateUser(user.data))})
-//                 .catch(err => console.log(err))
-//     }
-// };
-
-
 export const updateAUser = (userId, userData) => {
     return dispatch => {
-        debugger
         return APIUserUtil.updateUser(userId, userData)
             .then((res) => {const { token } = res.data;
-                    debugger
                     localStorage.setItem('jwtToken', token);
                     APIUtil.setAuthToken(token);
                     const decoded = jwt_decode(token);
@@ -91,21 +77,3 @@ export const updateAUser = (userId, userData) => {
         )
     }
 };
-
-// export const login = user => dispatch => {
-//     // debugger
-//     return APIUtil.login(user)
-//         .then(res => {const { token } = res.data;
-//             localStorage.setItem('jwtToken', token);
-//             ;
-//             let decoded = jwt_decode(token);
-//             decoded.followed_users = res.data.followed_users;
-//             decoded.following_users = res.data.following_users;
-//             decoded.followed_posting = res.data.followed_posting;
-//             dispatch(receiveCurrentUser(decoded))})
-//         .catch(err => {
-//             dispatch(receiveErrors(err.response.data));
-//         }
-//     )
-// };
-

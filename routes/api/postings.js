@@ -218,13 +218,8 @@ router.post('/search',
 
 
 router.post('/',
-    // passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validatePostingInput(req.body);
-  
-      // if (!isValid) {
-      //   return res.status(400).json(errors);
-      // }
   
         const newPosting = new Posting({
             posting_id: req.body.posting_id,
@@ -263,10 +258,8 @@ router.get('/', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    Posting.findById(req.params.id.trim())
-
-    Posting.findOneAndDelete({id: req.params.id.trim()})
-        .then((posting) => {
+    Posting.findOneAndDelete({_id: req.params.id.trim()})
+        .then(() => {
             res.status(200).json({postingdeleted: 'posting deleted sucessfully'})})
         .catch(err => res.status(404).json({nopostingfound: 'No posting found :D'}))
 });

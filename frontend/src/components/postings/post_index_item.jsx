@@ -1,8 +1,6 @@
 import React from 'react';
 import PostShowContainer from './post_show_container';
-import { Link } from 'react-router-dom';
-import { openModal } from '../../actions/modal_actions';
-import './post.css'
+import './post.css';
 
 
 class PostIndexItem extends React.Component{
@@ -18,12 +16,10 @@ class PostIndexItem extends React.Component{
     }
 
     showPost(post){
-        console.log(post.job_title)
         return(
             <PostShowContainer post={post}/>
         )
     }
-
 
     modeFunc(props) {
         const modalObject = ({
@@ -35,22 +31,25 @@ class PostIndexItem extends React.Component{
         document.body.style.position = 'fixed';
     }
 
-
-
-
-
-
     render(){
         const { post } = this.props;
 
         return(
             <div className='job' onClick={() => this.modeFunc(this.props)}>
                 <ul>
-                    <li id='job-title'>{post.job_title}</li> 
-                    <li id='company'>{post.company}</li>
-                    <li>{post.status}</li>
+                    <li id='job-title'>
+                        {post.job_title}
+                    </li> 
+                    <li id='company'>
+                        {post.company}
+                    </li>
+                    <li>
+                        {post.status}
+                    </li>
                 </ul>
-                    <p id='salary'>{post.salary}</p>
+                <p id='salary'>
+                    {post.salary}
+                </p>
             </div>
         )
     }

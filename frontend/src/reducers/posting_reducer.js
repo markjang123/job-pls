@@ -14,7 +14,6 @@ const initialState =  {
     new: [] // 
 };
   
-// const PostingsReducer = (state = initialState, action) => {
 const PostingsReducer = (state = initialState, action) => {
   
     Object.freeze(state);
@@ -28,16 +27,13 @@ const PostingsReducer = (state = initialState, action) => {
     case RECEIVE_USER_POSTINGS:
         newState.user = action.postings.data;
         return newState;
-    // case RECEIVE_NEW_POSTING:
-    //     newState.user = action.postings.data;
-    //     return newState;
     case RECEIVE_NEW_POSTING:
         newState.new = action.posting.data
         newState.user.push(action.posting.data)
         return newState;
-    case DESTROY_POSTING:
-        newState.user[action.postingId] = undefined;
-        return newState;
+    // case DESTROY_POSTING:
+    //     debugger
+    //     return Object.values(newState).filter( posting => posting._id !== action.postingId);
     case UPDATE_POSTING:
         newState[action.posting.id] = action.posting;
         return newState        

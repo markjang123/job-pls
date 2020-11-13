@@ -1,14 +1,15 @@
 import React from 'react';
-import './users_index.css'
+import './users_index.css';
+
 class FollowButton extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = {following: this.props.is_following()}
-        this.followUser = this.followUser.bind(this)
-        this.unfollowUser = this.unfollowUser.bind(this)
+        super(props);
+        this.state = {following: this.props.is_following()};
+        this.followUser = this.followUser.bind(this);
+        this.unfollowUser = this.unfollowUser.bind(this);
     }
+
     followUser(){
-        // debugger
         const {currentUser, user} = this.props
         user.following_users.push(currentUser._id)
         currentUser.followed_users.push(user._id)
@@ -18,7 +19,6 @@ class FollowButton extends React.Component {
     }
     
     unfollowUser(){
-        // debugger
         const {currentUser, user} = this.props
         const followIdx = user.following_users.findIndex(ele => ele === currentUser._id)
         user.following_users.splice(followIdx, 1)
@@ -30,8 +30,22 @@ class FollowButton extends React.Component {
 
     }
     render(){
-        // debugger
-    return <button onClick={this.props.is_following() ? this.unfollowUser : this.followUser} id={this.props.is_following() ? "following" : "follow"} className="follow-button">{this.props.is_following() ? "following" : "follow"}</button>
+        return (
+            <button 
+                onClick={
+                    this.props.is_following() 
+                    ? this.unfollowUser 
+                    : this.followUser} 
+                id={
+                    this.props.is_following() 
+                    ? "following" 
+                    : "follow"} 
+                className="follow-button">
+                    {this.props.is_following() 
+                    ? "following" 
+                    : "follow"}
+            </button>
+        );
     }
 }
 

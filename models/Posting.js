@@ -33,9 +33,6 @@ const PostingSchema = new Schema({
     location: {
         type: String
     },
-    snippet: {
-        type: String
-    },
     source: {
         type: String
     },

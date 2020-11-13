@@ -1,42 +1,55 @@
-import React from 'react'
-import './user_menu.css'
-import UsersIndexItemContainer from './users_index_item_container'
-import UserFollowIndexContainer from './user_follow_index_container'
-import UserPostsIndexContainer from '../postings/user_posts_index_container'
+import React from 'react';
+import './user_menu.css';
+import UsersIndexItemContainer from './users_index_item_container';
+import UserFollowIndexContainer from './user_follow_index_container';
+import UserPostsIndexContainer from '../postings/user_posts_index_container';
 
 class UserMenu extends React.Component {
     constructor(props) {
         super(props)
         this.state = { 
             grow: true,
-            tab: 'users' }
-        this.growshrink = this.growshrink.bind(this)
-        this.resize = this.resize.bind(this)
-        this.renderUserIndex = this.renderUserIndex.bind(this)
+            tab: 'users' };
+        this.growshrink = this.growshrink.bind(this);
+        this.resize = this.resize.bind(this);
+        this.renderUserIndex = this.renderUserIndex.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchUsersIfNeeded()
-        // this.props.fetchUser
     }
 
-    // resize(){
-    //     console.log(this.state.grow)
-    //     this.setState({grow: !this.state.grow});
-    //     console.log(this.state.grow)
-    // }
-
     renderTab() {
-        // debugger
         switch (this.state.tab) {
             case 'users':
                 return this.renderUserIndex() ;
             case "jobs":
-                return <UserPostsIndexContainer jobs={this.props.user.followed_posting.map(postId => this.props.posts.find(post => post._id === postId))} /> //MAP JOB IDS TO JOBS
+                return (
+                    <UserPostsIndexContainer 
+                        jobs={this.props.user.followed_posting.map(postId => 
+                            this.props.posts.find(post => 
+                                post._id === postId)
+                            )
+                        } 
+                    />
+                )
             case "followers":
-                return <UserFollowIndexContainer users={this.props.user.following_users.map(userId => this.props.users[userId])} />
+                return (
+                    <UserFollowIndexContainer 
+                        users={this.props.user.following_users.map(userId => 
+                            this.props.users[userId])} 
+                    />
+                )
             case "following":
-                return <UserFollowIndexContainer users={this.props.user.followed_users.map(userId => this.props.users[userId])} />
+                return (
+                    <UserFollowIndexContainer 
+                        users={this.props.user.followed_users.map(userId => 
+                            this.props.users[userId])
+                        } 
+                    />
+                )
+            default:
+                return;
         }
     }
 
@@ -55,13 +68,10 @@ class UserMenu extends React.Component {
     }
 
     resize() {
-        console.log(this.state.grow)
         this.setState({ grow: !this.state.grow });
-        console.log(this.state.grow)
     }
 
     growshrink() {
-        // debugger
         if (this.state.grow) {
             return 'users-index-item-container'
         } else {
@@ -70,23 +80,15 @@ class UserMenu extends React.Component {
     }
 
     render() {
-        // debugger
-        if (this.props.currentUser._id === undefined) return null
+        if (this.props.currentUser._id === undefined){
+            return null
+        };
         return (
             <div className='user-menu'>
                 <div className='user-header'>
-                    <p className="user-greeting">Hello, {this.props.currentUser.username}</p>
-                    {/* <ul className='user-menu-items'>
-                        <li onClick={() => this.props.history.push('/jobs')} >
-                            jobs
-                        </li>
-                        <li>
-                            following
-                        </li>
-                        <li>
-                            followers
-                        </li>
-                    </ul> */}
+                    <p className="user-greeting">
+                        Hello, {this.props.currentUser.username}
+                    </p>
                 </div>
                 <div className="profile-content">
                     {this.renderTab()}
@@ -96,4 +98,4 @@ class UserMenu extends React.Component {
     }
 }
 
-export default UserMenu
+export default UserMenu;

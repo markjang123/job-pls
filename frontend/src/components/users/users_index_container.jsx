@@ -1,9 +1,9 @@
 import React from 'react';
 import UsersIndex from './users_index';
 import {connect} from 'react-redux';
-import {fetchAllUsers, updateAUser} from '../../actions/user_actions'
+import {fetchAllUsers, updateAUser} from '../../actions/user_actions';
+
 const mapStateToProps = state => {
-    // debugger
     return {
         users: Object.values(state.entities.users),
         currentUser: state.session.user,
@@ -18,5 +18,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-const UsersIndexContainer = connect(mapStateToProps, mapDispatchToProps)(UsersIndex)
-export default UsersIndexContainer
+export default connect(mapStateToProps, mapDispatchToProps)(UsersIndex);
