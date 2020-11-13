@@ -20,6 +20,7 @@ class UserMenu extends React.Component {
     }
 
     renderTab() {
+        debugger
         switch (this.state.tab) {
             case 'users':
                 return this.renderUserIndex() ;
@@ -55,6 +56,7 @@ class UserMenu extends React.Component {
 
 
     renderUserIndex(){
+        debugger
         return(
             <div className='users-index'>
                     <div className={this.growshrink()}>
@@ -80,9 +82,8 @@ class UserMenu extends React.Component {
     }
 
     render() {
-        if (this.props.currentUser._id === undefined){
-            return null
-        };
+        debugger
+        if (this.props.currentUser.id === undefined) return null
         return (
             <div className='user-menu'>
                 <div className='user-header'>

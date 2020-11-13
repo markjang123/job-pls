@@ -16,20 +16,15 @@ class Nav extends React.Component {
     }
 
     render() {
-        const {currentUser} = this.props;
-        if(Object.keys(currentUser).length === 0 
-            && currentUser.constructor === Object) return null;
+        const {currentUser} = this.props
+        if(Object.keys(currentUser).length === 0 && currentUser.constructor === Object) return null;
 
         return (
             <div className='nav-container'>
-                <button 
-                    onClick={this.props.logout} 
-                    className="logout-button">
-                        logout
-                </button>
-                <div>
-                    <NavSearchContainer/>
-                </div>
+                <button onClick={() => this.props.logout()} className="logout-button">logout</button>
+                    <div>
+                        <NavSearchContainer/>
+                    </div>
             </div>
         )
     }

@@ -1,32 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './session_form.css';
 
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.loginInfo;
+        this.state = {
+            sessionType: this.props.sessionType,
+            sessionInfo: this.props.sessionInfo,
+            other: this.props.other
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.switcharoni = this.switcharoni.bind(this);
-        this.formType = this.props.formType;
-        this.switchForm = this.props.switchForm;
         this.demoUserLogin = this.demoUserLogin.bind(this);
     }
 
     demoUserLogin(){
-        if(this.formType === 'signup'){
-            let sType = this.formType;
-            this.formType = this.switchForm;
-            this.switchForm = sType;
-            this.forceUpdate();        
-        };
         let demoUser = {
-            email: 'demo-user@demo.com',
-            password: 'demofordays'
+        email: 'demo-user@demo.com',
+        password: 'demofordays'
         };
         this.props.loginUser(demoUser).then(() => {
-            this.props.history.push('/jobs');
-            this.props.closeModal();
-        });
+            if (this.props.isAuthenticated) {
+                this.props.history.push("/jobs")
+            }
+        })
     }
 
     update(field) {
@@ -37,16 +34,18 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let loginUser = {
-            email: e.currentTarget[0].value,
-            password: e.currentTarget[1].value
-        }
-        const user = Object.assign({}, this.state);
-        if (this.formType === 'login') {
+        debugger
+        if (this.state.sessionType === 'Login') {
+                let loginUser = {
+                    email: e.currentTarget[0].value,
+                    password: e.currentTarget[1].value
+                }
             this.props.loginUser(loginUser).then(() => {
-                this.props.history.push('/jobs');
-                this.props.closeModal();
-            });
+                debugger
+                if (this.props.isAuthenticated) {
+                    this.props.history.push("/jobs")
+                }
+            })
         } else {
             let newUser = {
                 email: e.currentTarget[0].value,
@@ -55,28 +54,19 @@ class SessionForm extends React.Component {
                 password2: e.currentTarget[3].value,
             }
             this.props.signupUser(newUser).then(() => {
-                this.props.history.push('/jobs');
-                this.props.closeModal();
-            });
+                if (this.props.isAuthenticated) {
+                    this.props.history.push("/jobs")
+                }
+            })
         }
     }
 
-    switcharoni(e) {
-        e.preventDefault();
-        let sType = this.formType;
-        let fType = this.switchForm;
-        this.formType = this.switchForm;
-        this.switchForm = sType;
-        this.forceUpdate();
-    }
-
-
     renderUsername() {
-        console.log('render username')
-        if (this.formType === 'signup') {
+        if (this.state.sessionType === 'Sign Up') {
             return (
                 <div>
                     <label>
+                        <p className="session-errors">{this.props.errors.username}</p>
                         <input type="text"
                             placeholder='Username'
                             id='form-element'
@@ -89,10 +79,11 @@ class SessionForm extends React.Component {
     }
 
     renderPassword2() {
-        if (this.formType === 'signup') {
+        if (this.state.sessionType === 'Sign Up') {
             return (
                 <div>
                     <label>
+                        <p className="session-errors">{this.props.errors.password2}</p>
                         <input type="password"
                             placeholder='Password 2'
                             id='form-element'
@@ -104,32 +95,36 @@ class SessionForm extends React.Component {
         }
     }
 
-    renderErrors() {
-        return (
-            <div>
-                <ul id='errors'>
-                    {this.props.errors.map((error, i) => (
-                        <li key={`error-${i}`}>
-                            {error}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        );
-    }
 
+
+    
     clearErrors() {
-        if (this.props.errors.length > 0) {
+        debugger
+        if (Object.keys(this.props.errors).length > 0) {
             return (
-                <div 
-                    id='clear-errors' 
-                    onClick={this.props.clearErrors}>
-                        clear errors
-                </div>
-            )
+                <div id='clear-errors' onClick={this.props.clearSessionErrors}>clear errors</div>
+                )
+            }
         }
-    }
-
+        
+        renderLinks() {
+            if (this.props.sessionType === "Sign Up"){
+                return <p onClick={this.props.clearSessionErrors} 
+                className="bottom-message">Have an account?<br/> 
+                <Link className="form-link" to="/login">Login!</Link></p>
+            } else {
+                return(
+                <div className="bottom-message">
+                    <p onClick={this.props.clearSessionErrors}>
+                        Don't have an account?<br/> 
+                <Link className="form-link" to="/signup">Sign Up!</Link><br/>
+                    </p>
+                    <br/>
+                    <p onClick={this.demoUserLogin}>Or try our Demo User.</p>
+                </div>
+                )
+            }
+        }
 
 
 
@@ -141,9 +136,9 @@ class SessionForm extends React.Component {
                     <form onSubmit={this.handleSubmit} className="form-header">
                         <br />
                         <div>
-                            {this.renderErrors()}
                             {this.clearErrors()}
                             <label>
+                                    <p className="session-errors">{this.props.errors.email}</p>
                                 <input type="text"
                                     placeholder='Email'
                                     id='form-element'
@@ -152,6 +147,7 @@ class SessionForm extends React.Component {
                             <br />
                             {this.renderUsername()}
                             <label>
+                                    <p className="session-errors">{this.props.errors.password}</p>
                                 <input type="password"
                                     placeholder='Password'
                                     id='form-element'
@@ -162,18 +158,11 @@ class SessionForm extends React.Component {
                             <input type="submit" id='submit-button' value={this.formType} />
                         </div>
                     </form>
-                    <div className="switch-tab">
-                        <p 
-                            onClick={this.switcharoni} 
-                            id='toggle'>
-                                 or {this.switchForm}
-                        </p>
-                    </div>
-                    <div className='demo-user-button'>
-                        <p 
-                            onClick={this.demoUserLogin}>
-                                Try for free as a demo
-                        </p>
+                    {this.renderLinks()}
+                    {/* <div className="switch-tab">
+                        <p onClick={this.switcharoni} id='toggle'>Need an account?<br/>{this.state.other}</p>
+                    </div> */}
+                    <div>
                     </div>
                 </div>
                 </div>
