@@ -268,8 +268,6 @@ class SessionForm extends React.Component {
                                 <input type="password"
                                     placeholder='Password'
                                     id='form-element'
-                                    // value={this.state.password}
-                                    // onChange={this.update('password')}
                                 />
                             </label>
                             {this.renderPassword2()}
@@ -278,9 +276,6 @@ class SessionForm extends React.Component {
                         </div>
                     </form>
                     {this.renderLinks()}
-                    {/* <div className="switch-tab">
-                        <p onClick={this.switcharoni} id='toggle'>Need an account?<br/>{this.state.other}</p>
-                    </div> */}
                     <div>
                     </div>
                 </div>

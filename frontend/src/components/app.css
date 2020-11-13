@@ -8,6 +8,7 @@
   width: 100vw;
   z-index: 1;
   max-width: 2000px;
+  min-width:800px; 
 }
 
 .display-content{
