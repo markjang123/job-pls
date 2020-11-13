@@ -17,7 +17,7 @@ class Nav extends React.Component {
 
     render() {
         const {currentUser} = this.props
-        if(Object.keys(currentUser).length === 0 && currentUser.constructor === Object) return null;
+        if(currentUser._id === undefined) return null;
 
         return (
             <div className='nav-container'>
