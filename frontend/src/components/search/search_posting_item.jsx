@@ -17,7 +17,6 @@ class SearchPostingItem extends React.Component{
             let newUserArray = this.props.currentUser.followed_posting.filter(postIDX => postIDX !== this.props.currentPosting._id );
             
             newUserArray = [...new Set(newUserArray)];
-            debugger
             this.props.deletePosting(this.props.currentPosting._id)
             .then(this.props.setCurrentPosting(savingPost))
             .then(this.props.updateAUser(this.props.currentUser._id,{followed_posting: newUserArray}))

@@ -7,19 +7,24 @@ const keys = require('../../config/keys');
 
 
 const Posting = require('../../models/Posting');
+const User = require('../../models/User');
+
 const validatePostingInput = require('../../validation/postings');
 
 
 
 router.get('/user/:user_id', (req, res) => {
-    Posting.find({user: req.params.user_id})
-        .then(postings => {
-            console.log(postings);
-            res.json(postings)})
-        .catch(err =>
-            res.status(404).json({ nopostingsfound: 'No postings found from that user' }
-        )
-    );
+    User.findById(req.params.user_id)
+    .then(user => {
+        Posting.find({_id: {$in : user.followed_posting}})
+            .then(postings => {
+                res.json(postings)})
+            .catch(err =>
+                res.status(404).json({ nopostingsfound: 'No postings found from that user' }
+            )
+        );
+
+    })
 });
 
 
@@ -143,8 +148,11 @@ router.get('/user/:user_id', (req, res) => {
 //     }
 // );
 router.put("/:id", (req, res) => {
-    Posting.findByIdAndUpdate(req.params.id, req.body)
-    .then(post => res.json(post))
+    Posting.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(post => {
+        console.log(post);
+        res.json(post)
+    })
     // .catch(err => res.status(404))
 })
    

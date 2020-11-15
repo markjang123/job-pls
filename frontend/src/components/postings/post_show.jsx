@@ -35,7 +35,6 @@ class PostShow extends React.Component{
         // let { posts } = this.props;
         // if (!posts) return null;
 
-        debugger
         return(
             <div className='post-show'>
                 <p id='show-title'>{post.job_title}</p>

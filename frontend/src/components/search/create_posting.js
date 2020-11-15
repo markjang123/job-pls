@@ -80,15 +80,15 @@ export const saveReadyPost = posting => {
         posting_id: "",
         posting_url: "",
         job_title: "",
-        status: "interested",
-        priority: 0,
+        status: "Haven't applied",
+        priority: 1,
         company: "",
         salary: "",
         description: "",
         location: "",
         source: "",
         type: "",
-        created_at: "",
+        created_at: Date.now(),
         public: true,
         date: ""
     }
