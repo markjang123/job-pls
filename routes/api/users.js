@@ -191,20 +191,20 @@ router.get('/follows', (req, res) => {
   .catch(errors => res.json(errors))
 });
 
-router.get('/userpostings/:id', (req, res) => {
-    User.findById(req.params.id)
-        .then(user => {
-            Posting.find({posting_id: req.body.posting_id})
-                .then(postings => {
-                    postings.forEach( posting => {
-                        if(user.followed_posting.includes(posting._id.toString())){
-                            return res.json(posting);
-                        }
-                        return res.json(false);
-                    })
-                })
-        })
-})
+// router.get('/userpostings/:id', (req, res) => {
+//     User.findById(req.params.id)
+//         .then(user => {
+//             Posting.find({posting_id: req.body.posting_id})
+//                 .then(postings => {
+//                     postings.forEach( posting => {
+//                         if(user.followed_posting.includes(posting._id.toString())){
+//                             return res.json(posting);
+//                         }
+//                         return res.json(false);
+//                     })
+//                 })
+//         })
+// })
 
 router.get('/', (req, res) => {
 User.find()

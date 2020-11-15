@@ -24,7 +24,6 @@ class PostEdit extends React.Component {
     }
 
     render() {
-        debugger
         return <div className="post-edit">
             <form onSubmit={this.submitHandler}>
                 <p id='notes'>Notes</p>
@@ -39,13 +38,13 @@ class PostEdit extends React.Component {
                         <label for="radio2">Private</label>
                     <br/>
                     <label id='notes-label'>Priority:</label>
-                    <input type="radio" id="radio3" name="priority_radios" onChange={this.update("priority")} defaultChecked={this.state.priority} value={this.state.priority}/>
+                    <input type="radio" id="radio3" name="priority_radios" onChange={this.update("priority")} defaultChecked={this.state.priority} value={1}/>
                     <label for="radio3">Low</label>
 
-                    <input type="radio" id="radio4" name="priority_radios" onChange={this.update("priority")} defaultChecked={this.state.priority} value={this.state.priority} />
+                    <input type="radio" id="radio4" name="priority_radios" onChange={this.update("priority")} defaultChecked={this.state.priority} value={2} />
                     <label for="radio4">Medium</label>
 
-                    <input type="radio" id="radio5" name="priority_radios" onChange={this.update("priority")} defaultChecked={this.state.priority} value={this.state.priority} />
+                    <input type="radio" id="radio5" name="priority_radios" onChange={this.update("priority")} defaultChecked={this.state.priority} value={3} />
                     <label for="radio5">High</label>
 
 
