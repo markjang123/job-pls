@@ -13,6 +13,8 @@ class UserShow extends React.Component{
     componentDidMount(){
         this.props.fetchAllUsers();
         this.props.fetchUser(this.props.match.params.userId);
+        this.props.fetchPosting(this.props.match.params.jobId);
+        this.props.fetchPostings();
     }
     renderTab(){
         switch(this.state.tab){
