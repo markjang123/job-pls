@@ -21,7 +21,7 @@ router.put("/:id", (req, res) => {
     User.findByIdAndUpdate(req.params.id, req.body, {new:true})
         .then(user => {
             const payload = { 
-                id: user.id, 
+                _id: user._id, 
                 username: user.username ,
                 followed_users: user.followed_users,
                 following_users: user.following_users,

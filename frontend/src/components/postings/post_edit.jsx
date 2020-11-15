@@ -1,31 +1,32 @@
 import React from 'react'
 class PostEdit extends React.Component {
     constructor(props){
-
         super(props)
         this.state = {public: this.props.post.public,
                     priority: this.props.post.priority,
                     application: '',
-                    misc: 'none',
+                    notes: 'none',
         }
         this.submitHandler = this.submitHandler.bind(this);
     }
+    
     submitHandler(e){
 
         e.preventDefault();
         this.props.updateAPosting(this.props.post._id, this.state);
         this.props.closeEdit();
     }
+
     update(field){
         return e => {
             this.setState({[field]: e.target.value})
         };
     }
+
     render() {
         return <div className="post-edit">
             <form onSubmit={this.submitHandler}>
                 <p id='notes'>Notes</p>
-                <br />
                 <div class="radio-toolbar">
                     <label id='notes-label'>Privacy:</label>
 
@@ -35,8 +36,7 @@ class PostEdit extends React.Component {
                         
                         <input type="radio" id="radio2" name="privacy_radios" onChange={this.update("public")} defaultChecked={!this.state.public} value={false}/>
                         <label for="radio2">Private</label>
-
-                        <br/>
+                    <br/>
                     <label id='notes-label'>Priority:</label>
                     <input type="radio" id="radio3" name="priority_radios" onChange={this.update("priority")} defaultChecked={this.state.priority} value={1}/>
                     <label for="radio3">Low</label>
@@ -54,8 +54,6 @@ class PostEdit extends React.Component {
                             <option defaultValue={this.state.priority === "high"} value="high">high</option>
                         </select> */}
               
-                <br/>
-                <br/>
                 <div>
                     <label id='notes-label'>Application Process:
                         <select id='drop-down' onChange={this.update("application")} value={this.state.application}>
@@ -69,19 +67,15 @@ class PostEdit extends React.Component {
                         </select>
                     </label>
                 </div>
-                <br/>
-                </div>
+
                 
-                <label><p>Past Misc Notes:</p>
-                    <p>{this.state.misc}</p>
+                <label id='notes-label'>Notes: {this.state.notes}
                 </label>
-                <br/>
-                <label><p>Misc:</p>
-                    <br/>
-                    <input type='text' id='notes-field' placeholder='Extra notes?'/>
+                <label>New Notes: <input type='text' id='notes-field' placeholder='New notes?'/>
                 </label>
-                <br />
-                <button type="submit" id='submit-button' value="Save Changes">Save Changes</button>
+                </div>
+                <button type="submit" id='save-change-button' value="Save Changes">Save Changes</button>
+                <button type="submit" id='delete-job-button' value="Delete Job">Delete Job</button>
             </form>
         </div>
     }

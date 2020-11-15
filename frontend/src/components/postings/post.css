@@ -95,6 +95,10 @@
     background:white;
 }
 
+.radio-toolbar{
+    border-left: 2px solid rgb(27, 31, 29)
+}
+
 .radio-toolbar input[type="radio"] {
     display: none;  
 }
@@ -203,3 +207,21 @@
 
 }
 
+#save-change-button{
+    color: white;
+    /* background-color: #7badee; */
+    background-color: #242424;
+    padding: 15px auto 15px;
+    height: 35px;
+    width: 210px;
+
+}
+
+#delete-job-button{
+    color: white;
+    /* background-color: #7badee; */
+    background-color: #757575;
+    padding: 15px auto 15px;
+    height: 35px;
+    width: 210px;
+}
