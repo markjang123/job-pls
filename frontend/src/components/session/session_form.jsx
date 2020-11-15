@@ -34,14 +34,12 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         if (this.state.sessionType === 'Login') {
                 let loginUser = {
                     email: e.currentTarget[0].value,
                     password: e.currentTarget[1].value
                 }
             this.props.loginUser(loginUser).then(() => {
-                debugger
                 if (this.props.isAuthenticated) {
                     this.props.history.push("/jobs")
                 }
@@ -99,7 +97,6 @@ class SessionForm extends React.Component {
 
     
     clearErrors() {
-        debugger
         if (Object.keys(this.props.errors).length > 0) {
             return (
                 <div id='clear-errors' onClick={this.props.clearSessionErrors}>clear errors</div>

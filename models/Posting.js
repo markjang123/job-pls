@@ -46,6 +46,9 @@ const PostingSchema = new Schema({
         type: Boolean,
         required: true
     },
+    misc: {
+        type: String
+    },
     date: {
         type: Date,
         default: Date.now

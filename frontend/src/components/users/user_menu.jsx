@@ -20,7 +20,6 @@ class UserMenu extends React.Component {
     }
 
     renderTab() {
-        debugger
         switch (this.state.tab) {
             case 'users':
                 return this.renderUserIndex() ;

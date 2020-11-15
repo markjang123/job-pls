@@ -34,7 +34,6 @@ const SessionReducer = (state = initialState, action) => {
                 user: newUser
             }
         case UPDATE_USER:
-            debugger
             if(state.user.id === action.user.id){
                 return {
                     isAuthenticated: state.isAuthenticated,

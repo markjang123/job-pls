@@ -86,7 +86,9 @@ export const fetchUserPostings = id => dispatch => (
         .then(postings => {
             dispatch(receiveUserPostings(postings))
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+        })
 );
 
 export const composePosting = data => dispatch => (
