@@ -37,7 +37,6 @@ class PostIndex extends React.Component{
             openUsers 
         } = this.props;
         if (posts === undefined) return null;
-        debugger
         return(
             <div className='index-container'>
                 <div className='jobs-grid'>

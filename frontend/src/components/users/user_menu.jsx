@@ -55,7 +55,6 @@ class UserMenu extends React.Component {
 
 
     renderUserIndex(){
-        debugger
         return(
             <div className='users-index'>
                     <div className={this.growshrink()}>

@@ -15,6 +15,7 @@ export const RECEIVE_USERS = 'RECEIVE_USERS';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const UPDATE_USER = 'UPDATE_USER';
 export const SAVE_POSTING_TO_USER = 'SAVE_POSTING_TO_USER';
+export const UPDATE_CURRENT_USER = 'UPDATE_CURRENT_USER';
 
 export const receiveUsers = users => {
     return {
@@ -31,6 +32,13 @@ export const receiveUser = user => ({
 export const updateUser = user => {
     return {
         type: UPDATE_USER,
+        user
+    }
+};
+
+export const updateCurrentUser = user => {
+    return {
+        type: UPDATE_CURRENT_USER,
         user
     }
 };
@@ -71,6 +79,22 @@ export const updateAUser = (userId, userData) => {
                     APIUtil.setAuthToken(token);
                     const decoded = jwt_decode(token);
                     dispatch(updateUser(decoded));
+                }
+            )
+            .catch(err => console.log(err)
+        )
+    }
+};
+
+export const updateTheCurrentUser = (userId, userData) => {
+    return dispatch => {
+        return APIUserUtil.updateUser(userId, userData)
+            .then((res) => {const { token } = res.data;
+                    localStorage.setItem('jwtToken', token);
+                    APIUtil.setAuthToken(token);
+                    const decoded = jwt_decode(token);
+                    dispatch(updateUser(decoded));
+                    dispatch(updateCurrentUser(decoded));
                 }
             )
             .catch(err => console.log(err)
