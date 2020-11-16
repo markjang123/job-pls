@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import { composePosting, deletePosting, fetchUserPostings,setCurrentPosting } from '../../actions/posting_actions';
-import {updateAUser, savePostingToUser} from '../../actions/user_actions';
+import {updateTheCurrentUser, savePostingToUser} from '../../actions/user_actions';
 import SearchPostingIndex from './search_posting_index';
 import { createPosting } from './create_posting';
 
@@ -32,9 +32,9 @@ const mapDispatchToProps = dispatch => {
         fetchUserPostings: userId => dispatch(fetchUserPostings(userId)),
         composePosting: posting => dispatch(composePosting(posting)),
         deletePosting: postingId => dispatch(deletePosting(postingId)),
-        updateAPosting: (userId, data) => dispatch(updateAUser(userId, data)),
+        updateAPosting: (userId, data) => dispatch(updateTheCurrentUser(userId, data)),
         setCurrentPosting: ( posting ) => dispatch(setCurrentPosting(posting)),
-        updateAUser: (userId, userData) => dispatch(updateAUser(userId, userData)),
+        updateTheCurrentUser: (userId, userData) => dispatch(updateTheCurrentUser(userId, userData)),
         savePostingToUser: (userId, posting) => dispatch(savePostingToUser(userId, posting))
     }
 }

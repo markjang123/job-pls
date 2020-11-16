@@ -19,7 +19,7 @@ class SearchPostingItem extends React.Component{
             newUserArray = [...new Set(newUserArray)];
             this.props.deletePosting(this.props.currentPosting._id)
             .then(this.props.setCurrentPosting(savingPost))
-            .then(this.props.updateAUser(this.props.currentUser._id,{followed_posting: newUserArray}))
+            .then(this.props.updateTheCurrentUser(this.props.currentUser._id,{followed_posting: newUserArray}))
             .then(this.forceUpdate());
             this.setState({saved: false});
         } else {

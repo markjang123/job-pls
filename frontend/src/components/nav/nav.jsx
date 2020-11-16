@@ -17,7 +17,6 @@ class Nav extends React.Component {
 
     render() {
         const {currentUser} = this.props
-        debugger
         if (currentUser._id === undefined) return null;
 
         return (

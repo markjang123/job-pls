@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import { composePosting, deletePosting, fetchUserPostings } from '../../actions/posting_actions';
-import {updateAUser} from '../../actions/user_actions';
+import {updateTheCurrentUser} from '../../actions/user_actions';
 import PostingItem from './posting_item';
 
 const mapStateToProps = state => {
@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => {
         fetchUserPostings: userId => dispatch(fetchUserPostings(userId)),
         composePosting: posting => dispatch(composePosting(posting)),
         deletePosting: postingId => dispatch(deletePosting(postingId)),
-        updateAUser: (userId, data) => dispatch(updateAUser(userId, data))
+        updateTheCurrentUser: (userId, data) => dispatch(updateTheCurrentUser(userId, data))
     }
 }
  

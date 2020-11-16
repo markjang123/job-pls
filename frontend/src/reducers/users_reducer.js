@@ -1,5 +1,5 @@
-import {RECEIVE_USER} from '../actions/user_actions';
-import {RECEIVE_USERS, UPDATE_USER} from '../actions/user_actions';
+import { RECEIVE_USER_POSTINGS, RECEIVE_CURRENT_USER_POSTINGS } from '../actions/posting_actions';
+import {RECEIVE_USER, RECEIVE_USERS, UPDATE_USER, UPDATE_CURRENT_USER} from '../actions/user_actions';
 
 
 
@@ -14,8 +14,18 @@ const usersReducer = (state = {}, action) => {
             return nextState;
         case RECEIVE_USER:
             nextState[action.user._id] = action.user
-            return nextState
+            return nextState;
+        case RECEIVE_USER_POSTINGS:
+            debugger;
+            nextState[action.userId].followed_posting = action.postings.data;
+            return nextState;
+        case RECEIVE_CURRENT_USER_POSTINGS:
+            nextState[action.userId].followed_posting = action.postings.data;
+            return nextState;        
         case UPDATE_USER:
+            nextState[action.user._id] = action.user
+            return nextState;
+        case UPDATE_CURRENT_USER:
             nextState[action.user._id] = action.user
             return nextState
         default:

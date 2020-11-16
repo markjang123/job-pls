@@ -13,8 +13,8 @@ class FollowButton extends React.Component {
         const {currentUser, user} = this.props
         user.following_users.push(currentUser._id)
         currentUser.followed_users.push(user._id)
-        this.props.updateAUser(currentUser._id, {followed_users: currentUser.followed_users})
         this.props.updateAUser(user._id, {following_users: user.following_users})
+        this.props.updateTheCurrentUser(currentUser._id, {followed_users: currentUser.followed_users})
             .then(() => this.props.forceUpdate())
     }
     
@@ -25,7 +25,7 @@ class FollowButton extends React.Component {
         this.props.updateAUser(user._id, {following_users: user.following_users})
         const followIdx2 = currentUser.followed_users.findIndex(ele => ele === user._id)
         currentUser.followed_users.splice(followIdx2, 1)
-        this.props.updateAUser(currentUser._id, {followed_users: currentUser.followed_users})
+        this.props.updateTheCurrentUser(currentUser._id, {followed_users: currentUser.followed_users})
             .then(() => this.props.forceUpdate())
 
     }

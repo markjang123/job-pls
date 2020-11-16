@@ -1,7 +1,7 @@
 import React from 'react';
 import UsersIndex from './users_index';
 import {connect} from 'react-redux';
-import {fetchAllUsers, updateAUser} from '../../actions/user_actions';
+import {fetchAllUsers, updateAUser, updateTheCurrentUser} from '../../actions/user_actions';
 
 const mapStateToProps = state => {
     return {
@@ -14,7 +14,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchUsersIfNeeded: () => dispatch(fetchAllUsers()),
-        updateAUser: (userId, userData) => dispatch(updateAUser(userId,userData))
+        updateAUser: (userId, userData) => dispatch(updateAUser(userId,userData)),
+        updateTheCurrentUser: (userId, userData) => dispatch(updateTheCurrentUser(userId,userData))
     }
 }
 
