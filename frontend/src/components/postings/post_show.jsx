@@ -9,6 +9,7 @@ class PostShow extends React.Component{
 
 
     componentDidMount(){
+        this.props.fetchPosting(this.props.match.params.jobId);
         // this.props.fetchPosting(this.props.match.params.jobId);
         console.log('logging this.props.post:')
         console.log(this.props.post)
