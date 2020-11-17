@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import UserIndexItem from './user_index_item';
-import { fetchUserPostings } from '../../actions/posting_actions';
-
 
 const mapStateToProps = state => {
     return {
@@ -12,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchUserPostings: (id) => dispatch(fetchUserPostings(id))
+        dispatch
     }
 }
 

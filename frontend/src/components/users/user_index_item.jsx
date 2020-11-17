@@ -6,6 +6,7 @@ import FollowButtonContainer from './follow_button_container';
 class UsersIndexItem extends React.Component {
     constructor(props){
         super(props);
+        this.props.fetchUserPostings(this.props.user._id);
         this.forceUpdate = this.forceUpdate.bind(this);
         this.is_following = this.is_following.bind(this);
     }

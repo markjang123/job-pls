@@ -6,7 +6,6 @@ import { logout } from '../../actions/session_actions'
 
 
 const mSTP = state => {
-    debugger
     return{
         myPosts: Object.values(state.session.user.followed_posting),
         currentUser: state.session.user._id,

@@ -18,9 +18,10 @@ class UserShow extends React.Component{
     renderTab(){
         switch(this.state.tab){
             case "jobs":
-                debugger
+                debugger;
                 return <UserPostsIndexContainer 
-                    jobs={this.props.user.followed_posting}/>;
+                    jobs={this.props.user.followed_posting}
+                />;
             case "followers":
                 return <UserFollowIndexContainer 
                     users={this.props.user.following_users.map(userId => 
