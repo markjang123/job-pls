@@ -36,47 +36,50 @@ class SearchPostingItem extends React.Component{
         ) return null;
         const {posting_url, job_title, status, priority, company, salary, description, location, source, type, created_at, date} = this.props.currentPosting
         return(
-            <div className="posting-listing">
-                <button className="posting-listing-add-button" 
-                    onClick={this.handleClick}>
-                        { this.props.currentUser.followed_posting.includes(this.props.currentPosting._id) 
-                        ? "Delete Job Posting from Collection" 
-                        : "Save Job Posting for Collection"}
-                </button>
-                <div className="posting-listing-title">
-                    {job_title ? job_title : ""}
-                </div>
-                <div className="posting-listing-company">
-                    {company ? company : ""}
-                </div>
-                <div className="posting-listing-location">
-                    Location: {location ? location : ""}
-                </div>
-                <div className="posting-listing-description">
-                    {description
-                    ? `${description.slice(0,1500)}...` 
-                    : ""}
-                </div>
-                <div className="posting-listing-type">
-                    {type 
-                    ? `Schedule: ${type}` 
-                    : ""}
-                </div>
-                <div className="posting-listing-salary">
-                    {salary 
-                    ? `Salary: ${salary}` 
-                    : ""}
-                </div>
-                <div className="posting-listing-url">
-                    {posting_url 
-                    ? <a href={posting_url}>Click here to apply.</a> 
-                    : ""}
-                </div>
-                <div className="posting-listing-created_at">
-                    {created_at 
-                    ? created_at 
-                    : ""}
-                </div>
+            <div className="posting-listing-container">
+                <div className="posting-listing">
+                    <div className="posting-listing-title">
+                        {job_title ? job_title : ""}
+                    </div>
+                    <div className="posting-listing-company">
+                        {company ? company : ""}
+                    </div>
+                    <div className="posting-listing-location">
+                        {location ? location : ""}
+                    </div>
+                    <div className="posting-listing-description">
+                        {description
+                        ? `${description.slice(0,1500)}...` 
+                        : ""}
+                    </div>
+                    <div className="posting-listing-type">
+                        {type 
+                        ? `Schedule: ${type}` 
+                        : ""}
+                    </div>
+                    <div className="posting-listing-salary">
+                        {salary 
+                        ? `Salary: ${salary}` 
+                        : ""}
+                    </div>
+                    <button className="posting-listing-add-button" 
+                        onClick={this.handleClick}>
+                            { this.props.currentUser.followed_posting.includes(this.props.currentPosting._id) 
+                            ? "Delete Job Posting from Collection" 
+                            : "Save Job Posting for Collection"}
+                    </button>
+                    {/* <div className="posting-listing-url"> */}
+                    <div className="apply-to-job">
+                        {posting_url 
+                        ? <a href={posting_url} target='_blank'>Click here to apply.</a> 
+                        : "No application link available."}
+                    </div>
+                    <div className="posting-listing-created_at">
+                        {created_at 
+                        ? created_at 
+                        : ""}
+                    </div>
+                </div>       
             </div>       
         ) 
     }
