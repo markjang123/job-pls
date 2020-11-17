@@ -16,7 +16,6 @@ const usersReducer = (state = {}, action) => {
             nextState[action.user._id] = action.user
             return nextState;
         case RECEIVE_USER_POSTINGS:
-            debugger;
             nextState[action.userId].followed_posting = action.postings.data;
             return nextState;
         case RECEIVE_CURRENT_USER_POSTINGS:
