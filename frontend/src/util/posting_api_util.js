@@ -25,6 +25,7 @@ export const destroy1Posting = (id, user) => {
 };
 
 export const updatePosting = (id, postingData) => {
+    debugger
     return axios.put(`api/postings/${id}`, postingData)
 }
 
