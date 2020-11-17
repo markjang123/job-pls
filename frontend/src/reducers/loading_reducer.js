@@ -1,6 +1,7 @@
 import { 
     SET_LOADING_STATE, 
-    RECEIVE_SEARCHED_POSTING 
+    RECEIVE_SEARCHED_POSTING,
+    RECEIVE_CURRENT_USER_POSTINGS
 } from '../actions/posting_actions';
 
 
@@ -12,6 +13,8 @@ const LoadingReducer = (oldState = false, action) => {
         case SET_LOADING_STATE:
             return true;
         case RECEIVE_SEARCHED_POSTING:
+            return false;
+        case RECEIVE_CURRENT_USER_POSTINGS:
             return false;
         default:
             return oldState;
