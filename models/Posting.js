@@ -46,6 +46,9 @@ const PostingSchema = new Schema({
         type: Boolean,
         required: true
     },
+    notes: {
+        type: String
+    },
     misc: {
         type: String
     },

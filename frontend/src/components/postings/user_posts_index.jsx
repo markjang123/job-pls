@@ -10,7 +10,7 @@ class UserPostsIndex extends React.Component {
         return <ul className="user-posts-index">
             {this.props.jobs.map(job => 
                 job === undefined 
-                ? "undefined" 
+                ? null
                 : <UserPostsIndexItem 
                     key={job} 
                     job={job}
