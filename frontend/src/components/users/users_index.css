@@ -48,6 +48,15 @@
 
 }
 
+.user-show-container .users-index-item-container{
+    float: right;
+    height: 100vh;
+    width: 600px;
+    overflow-y: auto;
+    background: rgb(27, 31, 29);
+
+}
+
 .shrink{
     display: none;
 }
