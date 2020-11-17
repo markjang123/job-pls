@@ -38,47 +38,59 @@ class SearchPostingItem extends React.Component{
         return(
             <div className="posting-listing-container">
                 <div className="posting-listing">
-                    <div className="posting-listing-title">
-                        {job_title ? job_title : ""}
+                    <div className='posting-listing-header'>
+                        <div className="posting-listing-title">
+                            {job_title ? job_title : ""}
+                        </div>
+                        <div className="posting-listing-company">
+                            {company ? company : ""}
+                        </div>
+                        <div className="posting-listing-location">
+                            {location ? location : ""}
+                        </div>
                     </div>
-                    <div className="posting-listing-company">
-                        {company ? company : ""}
+
+                    <div className='posting-listing-body'>
+                        <div className="posting-listing-description">
+                            {description
+                            ? `${description.slice(0,1500)}...` 
+                            : ""}
+                        </div>
+                        <br/>
+                        <br/>
+                        <div className="posting-listing-type">
+                            {type 
+                            ? `Schedule: ${type}` 
+                            : ""}
+                        </div>
+                        <div className="posting-listing-salary">
+                            {salary 
+                            ? `Salary: ${salary}`
+                            : ""}
+                        </div>
                     </div>
-                    <div className="posting-listing-location">
-                        {location ? location : ""}
-                    </div>
-                    <div className="posting-listing-description">
-                        {description
-                        ? `${description.slice(0,1500)}...` 
-                        : ""}
-                    </div>
-                    <div className="posting-listing-type">
-                        {type 
-                        ? `Schedule: ${type}` 
-                        : ""}
-                    </div>
-                    <div className="posting-listing-salary">
-                        {salary 
-                        ? `Salary: ${salary}` 
-                        : ""}
-                    </div>
-                    <button className="posting-listing-add-button" 
-                        onClick={this.handleClick}>
-                            { this.props.currentUser.followed_posting.includes(this.props.currentPosting._id) 
-                            ? "Delete Job Posting from Collection" 
-                            : "Save Job Posting for Collection"}
-                    </button>
-                    {/* <div className="posting-listing-url"> */}
-                    <div className="apply-to-job">
-                        {posting_url 
-                        ? <a href={posting_url} target='_blank'>Click here to apply.</a> 
-                        : "No application link available."}
-                    </div>
-                    <div className="posting-listing-created_at">
-                        {created_at 
-                        ? created_at 
-                        : ""}
-                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                        <button className="posting-listing-add-button" 
+                            onClick={this.handleClick}>
+                                { this.props.currentUser.followed_posting.includes(this.props.currentPosting._id) 
+                                ? "Delete Job Posting from Collection" 
+                                : "Save Job Posting for Collection"}
+                        </button>
+                        <br />
+                        <div className="apply-to-job">
+                            {posting_url 
+                            ? <a href={posting_url} target='_blank'>Click here to apply.</a> 
+                            : "No application link available."}
+                        </div>
+                        <br />
+                        <br />
+                        <div className="posting-listing-created_at">
+                            {created_at 
+                            ? created_at 
+                            : ""}
+                        </div>
                 </div>       
             </div>       
         ) 

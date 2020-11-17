@@ -25,7 +25,6 @@
 .logo-class{
     font-size: 36px;
     color: rgb(212,212,212);
-    background: orange;
     height: 100%;
     vertical-align: middle;
 }
@@ -256,7 +255,6 @@
 
 .search-result-list{
     height: 100vh;
-    background: red;
 }
 
 .posting-list{
@@ -281,7 +279,7 @@
     background-color: lightgray;
 }
 
-.posting-list #selected-posting{
+#selected-posting{
     list-style: none;
     background-color: powderblue;
 }
@@ -320,11 +318,20 @@
 
 .apply-to-job:hover{
     background-color: rgb(122, 122, 122);
-
- 
-
 }
 
+.posting-listing-header{
+    margin-top: 20px;
+}
+
+.posting-listing-body{
+    margin-top: 20px;
+}
+
+.posting-listing-buttons{
+    margin-top: 20px;
+
+}
 .posting-listing-add-button:hover{
     background-color: rgb(176, 198, 230);
 }
@@ -334,7 +341,6 @@
     flex-direction: column;
     width: 35vw;
     height: 100vh;
-    background: royalblue;
     bottom: 0;
     right: 0;
 }
@@ -372,16 +378,16 @@
 }
 
 .posting-listing-company{
-    font-size: 24px;
+    font-size: 20px;
     padding-left: 15px;
-    padding-top: 10px;
+    padding-top: 4px;
     text-decoration: underline;
 }
 
 .posting-listing-location{
-    font-size: 24px;
+    font-size: 20px;
     padding-left: 15px;
-    padding-top: 10px;
+    padding-top: 4px;
 }
 
 .posting-listing-description,
@@ -391,8 +397,9 @@
     box-sizing: border-box;
 }
 
-.posting-listing-type{
-    margin-left: 40px;
+.posting-listing-type,
+.posting-listing-salary{
+
 }
 
 .posting-listing-link,
