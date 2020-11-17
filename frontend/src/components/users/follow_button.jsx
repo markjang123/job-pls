@@ -30,6 +30,9 @@ class FollowButton extends React.Component {
 
     }
     render(){
+        if(this.props.user._id === this.props.currentUser._id){
+            return null;
+        }
         return (
             <button 
                 onClick={

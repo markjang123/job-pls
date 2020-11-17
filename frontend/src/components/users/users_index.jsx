@@ -10,9 +10,9 @@ class UsersIndex extends React.Component {
         this.resize = this.resize.bind(this);
     }
 
-    componentDidMount(){
-        this.props.fetchUsersIfNeeded();
-    }
+    // componentDidMount(){
+    //     this.props.fetchUsersIfNeeded();
+    // }
 
     resize() {
         this.setState({ grow: !this.state.grow });
@@ -31,12 +31,12 @@ class UsersIndex extends React.Component {
     }
 
     render(){
-        if (this.props.currentUser === undefined) return null
+        if (this.props.currentUser === undefined) return null;
         return(
             <div className='users-index'>
                     <div className={this.growshrink()}>
                         {this.props.users.map(user => {
-                            if (user._id === this.props.currentUser._id) return null
+                            // if (user._id === this.props.currentUser._id) return null
                             return <UsersIndexItemContainer key={user._id} user={user}/>
                         })}
                     </div>

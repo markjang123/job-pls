@@ -11,31 +11,45 @@ class UserShow extends React.Component{
     }
 
     componentDidMount(){
+        this.props.setLoading();
         this.props.fetchAllUsers();
-        this.props.fetchUser(this.props.match.params.userId);
-        this.props.fetchPostings();
+        this.props.fetchUser(this.props.match.params.userId)
+        .then(this.props.fetchCurrentUserPostings(this.props.currentUser._id))
+        // this.props.fetchPostings();
     }
     renderTab(){
         switch(this.state.tab){
             case "jobs":
-                debugger;
                 return <UserPostsIndexContainer 
-                    jobs={this.props.user.followed_posting}
+                    jobs={[...new Set(this.props.user.followed_posting)]}
                 />;
             case "followers":
                 return <UserFollowIndexContainer 
-                    users={this.props.user.following_users.map(userId => 
+                    users={[...new Set(this.props.user.following_users)].map(userId => 
                         this.props.users[userId]
                     )} />;
             case "following":
                 return <UserFollowIndexContainer 
-                    users={this.props.user.followed_users.map(userId => 
+                    users={[...new Set(this.props.user.followed_users)].map(userId => 
                         this.props.users[userId]
                     )} />;
         };
     }
     render(){
         if (this.props.user === undefined) return null;
+        if(this.props.loading){
+            return(
+                <div 
+                    className='loading-wheel-container'>
+                        <div className="lds-ellipsis">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                </div>
+            )
+        };
         let { username } = this.props.user;
 
         return(
@@ -55,12 +69,12 @@ class UserShow extends React.Component{
                     <div 
                         className="tab" 
                         onClick={() => this.setState({tab: "followers"})}> 
-                            Followers ({this.props.user.following_users.length})    
+                            Followers ({[...new Set(this.props.user.following_users)].length})    
                     </div>
                     <div 
                         className="tab"
                         onClick={() => this.setState({tab: "following"})}> 
-                            Following ({this.props.user.followed_users.length})
+                            Following ({[...new Set(this.props.user.followed_users)].length})
                     </div>
                 </div>
                 <div className="profile-content">

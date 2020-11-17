@@ -105,6 +105,7 @@ export const fetchCurrentUserPostings = id => dispatch => (
     postingAPIUtil.getUserPostings(id)
         .then(postings => {
             dispatch(receiveUserPostings(id, postings));
+            debugger;
             dispatch(receiveCurrentUserPostings(id ,postings));
         })
         .catch(err => {

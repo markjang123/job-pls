@@ -21,6 +21,8 @@ const mDTP = dispatch => {
         fetchUserPostings: (id) => dispatch(fetchUserPostings(id)),
         fetchPostings: () => dispatch(fetchPostings()),
         fetchPosting: jobId => dispatch(fetchPosting(jobId)),
+        fetchCurrentUserPostings: userId => dispatch(fetchCurrentUserPostings(userId)),
+        setLoading: () => dispatch(setLoading())
     }
 }
 

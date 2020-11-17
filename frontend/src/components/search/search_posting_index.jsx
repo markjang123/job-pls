@@ -1,4 +1,5 @@
 import React from "react";
+import SearchPostingItem from './search_posting_item_container';
 import { createPosting } from './create_posting';
 
 class SearchPostingIndex extends React.Component{
@@ -28,17 +29,18 @@ class SearchPostingIndex extends React.Component{
             <div className="search-result-container">
                 <div className="search-result-list">
                     <ul className="posting-list">
+                        
                         {searchedPostings.map((posting, idx) => {
                             return(
-                                <li 
+                                <li
                                     onClick={() => this.selectPost(posting)}
                                     key={posting.posting_id} 
                                     id={posting === this.props.currentPosting
                                     ? "selected-posting" 
                                     : null}>
                                         <div className="posting-list-title">{posting.job_title ? posting.job_title : ""}</div>
+                                        <div className="posting-list-company">{posting.company ? posting.company : ""}</div>
                                         <div className="posting-list-location">{posting.location ? posting.location : ""}</div>
-                                        <div className="posting-list-company">Company: {posting.company ? posting.company : ""}</div>
                                     {/* <button 
                                         className="posting-list-save-button"
                                         onClick={this.handleClick}>
@@ -51,6 +53,7 @@ class SearchPostingIndex extends React.Component{
                         })}
                     </ul>
                 </div>
+                <SearchPostingItem/>
             </div>
         )
     }

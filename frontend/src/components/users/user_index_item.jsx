@@ -34,15 +34,16 @@ class UsersIndexItem extends React.Component {
                 </p>
             </div>
 
-            {this.props.user._id !== this.props.currentUser._id 
-            && <FollowButtonContainer 
+            {/* {this.props.user._id !== this.props.currentUser._id 
+            &&  */}
+                <FollowButtonContainer 
                     updateAUser={this.props.updateAUser} 
                     is_following={this.is_following} 
                     forceUpdate={() => this.forceUpdate()} 
                     currentUser={this.props.currentUser} 
                     user={this.props.user}
                 />
-            }
+            {/* } */}
         </div>
         ) 
     }
