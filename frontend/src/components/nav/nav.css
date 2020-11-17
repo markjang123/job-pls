@@ -2,7 +2,15 @@
 /* results styles around 240 */
 
 
-
+#job-pls-logo{
+    background-image: url('../../images/job-pls-logo.png');
+    background-size: cover;
+    width: 120px;
+    height: 106px;
+    position: absolute;
+    left: 14px;
+    top: 14px;
+}
 
 .nav-container{
     display: flex;
