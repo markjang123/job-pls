@@ -51,7 +51,7 @@
 }
 .form-header {
     font-size: 25px;
-    margin: 30px auto 30px;
+    margin: 10px auto 0px;
 }
 .session-errors {
     color: red;
@@ -88,6 +88,9 @@
     height: 35px;
     width: 210px;
 
+}
+.demo-login {
+    cursor: pointer;
 }
 
 

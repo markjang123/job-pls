@@ -96,13 +96,13 @@ class SessionForm extends React.Component {
 
 
     
-    clearErrors() {
-        if (Object.keys(this.props.errors).length > 0) {
-            return (
-                <div id='clear-errors' onClick={this.props.clearSessionErrors}>clear errors</div>
-                )
-            }
-        }
+    // clearErrors() {
+    //     if (Object.keys(this.props.errors).length > 0) {
+    //         return (
+    //             <div id='clear-errors' onClick={this.props.clearSessionErrors}>clear errors</div>
+    //             )
+    //         }
+    //     }
         
         renderLinks() {
             if (this.props.sessionType === "Sign Up"){
@@ -117,7 +117,7 @@ class SessionForm extends React.Component {
                 <Link className="form-link" to="/signup">Sign Up!</Link><br/>
                     </p>
                     <br/>
-                    <p onClick={this.demoUserLogin}>Or try our Demo User.</p>
+                    <p className="demo-login" onClick={this.demoUserLogin}>Or try our Demo User.</p>
                 </div>
                 )
             }
@@ -130,10 +130,11 @@ class SessionForm extends React.Component {
             <div className='session-form-container'>
                 <div className="session-form">
                     <div className='session-form-liner'>
+                    <h3 className="form-header">{this.state.sessionType}</h3>
                     <form onSubmit={this.handleSubmit} className="form-header">
                         <br />
                         <div>
-                            {this.clearErrors()}
+                            {/* {this.clearErrors()} */}
                             <label>
                                     <p className="session-errors">{this.props.errors.email}</p>
                                 <input type="text"
