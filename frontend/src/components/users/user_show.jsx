@@ -56,6 +56,7 @@ class UserShow extends React.Component{
         return(
 
             <div className="user-show-container">
+                
                 <div id="user-show-username">
                   
                         {username}
