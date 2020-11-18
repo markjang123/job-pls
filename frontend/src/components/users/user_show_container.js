@@ -13,7 +13,6 @@ const mSTP = ({ entities: { posts , users }, session }, ownProps) => {
     }
 }
 
-
 const mDTP = dispatch => {
     return {
         fetchUser: userId => dispatch(fetchUser(userId)),

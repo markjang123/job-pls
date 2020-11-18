@@ -23,9 +23,6 @@ class PostIndex extends React.Component{
         }
     }
 
-
-
-
     render(){
         const { 
             posts, 

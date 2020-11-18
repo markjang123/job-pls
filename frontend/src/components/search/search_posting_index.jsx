@@ -36,7 +36,6 @@ class SearchPostingIndex extends React.Component{
         if(this.props.searchedPostings.length === 0) return null;
         if(this.props.currentUser.followed_posting === undefined) return null;
         const { searchedPostings } = this.props;
-        debugger
         return(
             <div className="search-result-container">
                 <div className="search-result-list">
