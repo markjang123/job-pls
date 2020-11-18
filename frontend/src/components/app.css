@@ -1,29 +1,32 @@
 .app{
   margin: auto;
   align-content: center;
-   /* position: relative; */
-  /* width: 50%; */
-  /* padding: 10px; */
-  /* height: 100vh; */
+
   width: 100vw;
+  height: 100vh;
   z-index: 1;
   max-width: 2000px;
-  min-width:800px; 
+  min-width:800px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .display-content{
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: row;
-}
+} 
 
 #job-content{
   width:100%;
+  height: 100vh;
 }
 
 #sidebar-content{
-  float: right
+  float: right;
+  height: 100%;
+  background: rgb(27, 31, 29);
 }
 
 
@@ -31,23 +34,40 @@
   margin: 0px 0px 0px 25px;
   width: 100px;
   height: 35px;
-  background: rgba(27, 31, 29);
+  background: rgb(27, 31, 29);
   color: rgb(212, 212, 212);
   padding-top: 10px;
   text-align: center;
   border-radius: 0px 0px 8px 0px;
   cursor: pointer;
 }
-.border-bottom{
-    background:  rgba(27, 31, 29);
-    width: 100vw;
-    height: 10px;
-    -webkit-box-shadow: -2px 8px 17px -4px rgba(0,0,0,1);
--moz-box-shadow: -2px 8px 17px -4px rgba(0,0,0,1);
-box-shadow: -2px 8px 17px -4px rgba(0,0,0,1);
+
+.nav{
+  width: 100%;
+  height: 30px;
+  background: rgb(27, 31, 29);
+  border-bottom: 1px solid rgb(27, 31, 29);
+  -webkit-box-shadow: 0px 8px 15px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 8px 15px -4px rgba(0,0,0,0.5);
+  box-shadow: 0px 8px 15px -4px rgba(0,0,0,0.5);
 }
 
+.border-bottom{
+  /* background:  rgba(27, 31, 29); */
+  background: powderblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 30px;
+  -webkit-box-shadow: -2px 8px 17px -4px rgba(0,0,0,1);
+  -moz-box-shadow: -2px 8px 17px -4px rgba(0,0,0,1);
+  box-shadow: -2px 8px 17px -4px rgba(0,0,0,1);
+}
 
+.app-content{
+  height: 100vh;
+}
 
 .app-content > ul{
   display: inline-flex;

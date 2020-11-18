@@ -1,5 +1,7 @@
 import UserShow from './user_show';
 import { connect } from 'react-redux';
+import { fetchAllUsers } from '../../actions/user_actions';
+import { fetchUserPostings, fetchCurrentUserPostings, setLoading } from '../../actions/posting_actions';
 import { withRouter } from 'react-router-dom';
 import { fetchUserPostings, setLoading, fetchCurrentUserPostings } from '../../actions/posting_actions';
 import { fetchAllUsers } from '../../actions/user_actions';
@@ -12,7 +14,6 @@ const mSTP = ( state, ownProps ) => {
         hasUsers: !!Object.keys(state.entities.users).length
     }
 }
-
 
 const mDTP = dispatch => {
     return {

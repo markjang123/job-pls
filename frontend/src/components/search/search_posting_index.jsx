@@ -7,18 +7,29 @@ class SearchPostingIndex extends React.Component{
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.idSelector = this.idSelector.bind(this);
     }
 
     componentDidMount(){
         this.props.setCurrentPosting(this.props.searchedPostings[0]);
     }
 
-    selectPost(posting){
-        this.props.setCurrentPosting(createPosting(posting));
-    }
     
     handleClick(posting){
         this.props.setCurrentPosting(posting);
+    }
+
+    idSelector(posting){
+        let posting_to_str = Object.entries(posting).toString();
+        let currentPosting_to_str = Object.entries(this.props.currentPosting).toString()
+
+        return(
+            posting_to_str === currentPosting_to_str ?
+                    'selected-posting'   
+            :
+                    'null'
+        )
+
     }
 
     render(){
@@ -32,7 +43,6 @@ class SearchPostingIndex extends React.Component{
             <div className="search-result-container">
                 <div className="search-result-list">
                     <ul className="posting-list">
-                        
                         {searchedPostings.map((posting, idx) => {
                             return(
                                 <li
@@ -44,13 +54,6 @@ class SearchPostingIndex extends React.Component{
                                         <div className="posting-list-title">{posting.job_title ? posting.job_title : ""}</div>
                                         <div className="posting-list-company">{posting.company ? posting.company : ""}</div>
                                         <div className="posting-list-location">{posting.location ? posting.location : ""}</div>
-                                    {/* <button 
-                                        className="posting-list-save-button"
-                                        onClick={this.handleClick}>
-                                            {this.props.currentUser.followed_posting.includes(posting._id) 
-                                            ? "Delete this posting from your collection" 
-                                            : "Save this posting to your collection"}
-                                    </button> */}
                                 </li>
                             )
                         })}

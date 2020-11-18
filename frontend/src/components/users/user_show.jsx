@@ -28,7 +28,7 @@ class UserShow extends React.Component{
         switch(this.state.tab){
             case "jobs":
                 return <UserPostsIndexContainer 
-                    jobs={[...new Set(this.props.user.followed_posting)]}
+                    jobs={this.props.user.followed_posting.filter(job => job.public)}
                 />;
             case "followers":
                 return <UserFollowIndexContainer 
@@ -46,7 +46,6 @@ class UserShow extends React.Component{
     }
     
     render(){
-
         if (this.props.user === undefined) return null;
 
         let { username } = this.props.user;
@@ -54,6 +53,7 @@ class UserShow extends React.Component{
         return(
 
             <div className="user-show-container">
+                
                 <div id="user-show-username">
                   
                         {username}
@@ -63,7 +63,7 @@ class UserShow extends React.Component{
                     <div 
                         className="tab" 
                         onClick={() => this.setState({tab: "jobs"})}>
-                            Jobs
+                            Jobs ({this.props.user.followed_posting.filter(job => job.public).length})
                     </div>
                     <div 
                         className="tab" 

@@ -47,8 +47,16 @@ class SearchPostingItem extends React.Component{
         return(
             <div className="posting-listing-container">
                 <div className="posting-listing">
-                    <div className="posting-listing-title">
-                        {job_title ? job_title : ""}
+                    <div className='posting-listing-header'>
+                        <div className="posting-listing-title">
+                            {job_title ? job_title : ""}
+                        </div>
+                        <div className="posting-listing-company">
+                            {company ? company : ""}
+                        </div>
+                        <div className="posting-listing-location">
+                            {location ? location : ""}
+                        </div>
                     </div>
                     <div className="posting-listing-company">
                         {company ? company : ""}

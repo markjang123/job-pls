@@ -4,6 +4,7 @@ import UserPostsIndexItem from './user_posts_index_item';
 class UserPostsIndex extends React.Component {
 
     render() {
+        debugger
         {if (this.props.jobs.length < 1) {
             return <div>
                 No jobs
@@ -11,10 +12,10 @@ class UserPostsIndex extends React.Component {
         }}
         return <ul className="user-posts-index">
             {this.props.jobs.map(job => 
-                job === undefined 
+                job === undefined
                 ? null
                 : <UserPostsIndexItem 
-                    key={job} 
+                    key={job._id} 
                     job={job}
                     />
                 )}

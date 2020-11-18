@@ -21,8 +21,8 @@ class Nav extends React.Component {
 
         return (
             <div className='nav-container'>
-                <div id='job-pls-logo' onClick={() => this.props.history.push('/jobs')}></div>
-                <button onClick={() => this.props.logout()} className="logout-button">logout</button>
+                {/* <div id='job-pls-logo' onClick={() => this.props.history.push('/jobs')}></div> */}
+                {/* <button onClick={() => this.props.logout()} className="logout-button">logout</button> */}
                     <div>
                         <NavSearchContainer/>
                     </div>
