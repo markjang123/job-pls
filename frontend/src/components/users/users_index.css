@@ -1,37 +1,20 @@
 .users-index {
     float: right;
-    /* height: 100vh; */
     display: flex;
     flex-direction: row;
-    /* min-width: 30px; */
-    /* width: 500px; */
     overflow-y: auto;
-    /* background:rgb(212, 212, 212); */
-    /* background:rgb(2); */
 }
-
 
 .users-label{
     margin-top: 45px;
-    /* color:  rgb(27,31,29); */
     background: powderblue;
     height: 50px;
     width: 50px;
     padding-top: 20px;
-    /* vertical-align: middle; */
     text-align: center;
     border-radius: 8px 0px 0px 8px;
     cursor: pointer;
 }
-
-/* #users-index-label{
-    font-style: italic;
-}
-
-#users-index-label:hover{
-    text-decoration: underline rgb(27,31,29);
-    /* f: 2px solid rgb(27,31,29) */
-/* } */
 
 .spacer{
     width: 5px;
@@ -49,7 +32,7 @@
 
 .user-show-container .users-index-item-container{
     float: right;
-    height: 100vh;
+    height: 70vh;
     width: 600px;
     overflow-y: auto;
     background: rgb(27, 31, 29);
@@ -66,19 +49,16 @@
     border-radius: 15px 0px 15px 0px;
     background: rgba(212, 212, 212) ;
     margin-bottom: 10px;
-    /* border-radius: 4px; */
     position: relative;
     margin-left: auto;
     margin-right: auto;
     transition: all 0.2s ease-out;
-    /* box-shadow: .1em .1em .2em rgba(0, 0, 0, .2); */
-    /* border: .4em solid rgba(255, 255, 255, .1); */
 }
+
 .users-index-item:hover {
     box-shadow: 2px 2px 2px 2px rgba(192, 192, 192, 0.25);
     transform: scale(1.03);
 }
-
 
 .username {
     color: rgb(27, 31, 29) ;
@@ -99,10 +79,12 @@
     padding-left: 5%;
     vertical-align: bottom;
 }
+
 .username-link {
     text-decoration: none;
     color: black;
 }
+
 .username-container {
     height: 100%;
     width: 65%;
@@ -111,6 +93,7 @@
     display: inline-block;
     position: relative;
 }
+
 .follow-button {
     border: 1px dashed rgba(138, 138, 138, 0.274);
     border-radius: 15px 0px 15px 0px ;
@@ -125,29 +108,19 @@
     margin: 5px;
     top: 3px;
 }
+
 .follow-button:focus {
     outline-style: none;
 }
+
 #following {
     color:  rgb(255, 255, 255);
     background-color: rgb(27 ,31, 29);
     top: 10%;
 }
+
 #follow {
     background: #d6d6d6;
     color: rgb(85, 85, 85);
     top: 10%;
 }
-
-
-/* @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-} */
