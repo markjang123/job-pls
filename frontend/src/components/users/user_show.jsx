@@ -13,15 +13,15 @@ class UserShow extends React.Component{
     componentDidMount(){
         this.props.setLoading();
         this.props.fetchAllUsers();
-        this.props.fetchUser(this.props.match.params.userId)
-        .then(this.props.fetchCurrentUserPostings(this.props.currentUser._id))
+        // this.props.fetchUser(this.props.match.params.userId)
+        // .then(this.props.fetchCurrentUserPostings(this.props.currentUser._id))
         // this.props.fetchPostings();
     }
     renderTab(){
         switch(this.state.tab){
             case "jobs":
                 return <UserPostsIndexContainer 
-                    jobs={[...new Set(this.props.user.followed_posting)]}
+                    jobs={this.props.user.followed_posting.filter(job => job.public)}
                 />;
             case "followers":
                 return <UserFollowIndexContainer 
@@ -36,6 +36,7 @@ class UserShow extends React.Component{
         };
     }
     render(){
+        debugger
         if (this.props.user === undefined) return null;
         if(this.props.loading){
             return(
@@ -64,7 +65,7 @@ class UserShow extends React.Component{
                     <div 
                         className="tab" 
                         onClick={() => this.setState({tab: "jobs"})}>
-                            Jobs
+                            Jobs ({this.props.user.followed_posting.filter(job => job.public).length})
                     </div>
                     <div 
                         className="tab" 
