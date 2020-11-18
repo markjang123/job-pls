@@ -24,6 +24,7 @@ export const createPosting = posting => {
     }
     if(posting.id || posting.posting_id){
         returnedPosting.posting_id = posting.id || posting.posting_id;
+        returnedPosting.posting_id = returnedPosting.posting_id.toString();
     }
     if(posting.posting_url || posting.url || posting.link){
         returnedPosting.posting_url = posting.posting_url || posting.url || posting.link;

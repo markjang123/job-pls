@@ -1,6 +1,8 @@
 import React from 'react';
 import UserPostsIndexItem from './user_posts_index_item';
+
 class UserPostsIndex extends React.Component {
+
     render() {
         debugger
         {if (this.props.jobs.length < 1) {
@@ -21,4 +23,4 @@ class UserPostsIndex extends React.Component {
     }
 }
 
- export default UserPostsIndex
+export default UserPostsIndex;

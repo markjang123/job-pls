@@ -13,7 +13,7 @@ export const SET_LOADING_STATE = 'SET_LOADING_STATE';
 
 
 
-export const receivePostings = postings => {
+const receivePostings = postings => {
     return{
         type: RECEIVE_POSTINGS,
         postings
@@ -25,39 +25,39 @@ const receiveUpdatedPosting = posting => {
         type: UPDATE_POSTING,
         posting
     }
-}
+};
 
-export const receivePosting = posting => {
+const receivePosting = posting => {
     return {
         type: RECEIVE_POSTING,
         posting
     }
 };
 
-export const receiveUserPostings = (userId, postings) => ({
+const receiveUserPostings = (userId, postings) => ({
     type: RECEIVE_USER_POSTINGS,
     postings,
     userId
 });
 
 
-export const receiveCurrentUserPostings = (userId, postings) => ({
+const receiveCurrentUserPostings = (userId, postings) => ({
     type: RECEIVE_CURRENT_USER_POSTINGS,
     postings,
     userId
 });
 
-export const destroyPosting = postingId => ({
+const destroyPosting = postingId => ({
     type: DESTROY_POSTING,
     postingId
 });
 
-export const receiveNewPosting = posting => ({
+const receiveNewPosting = posting => ({
     type: RECEIVE_NEW_POSTING,
     posting
 });
 
-export const receiveSearchedPosting = postings => ({
+const receiveSearchedPosting = postings => ({
     type: RECEIVE_SEARCHED_POSTING,
     postings
 });
@@ -123,11 +123,9 @@ export const searchPosting = data => dispatch => (
         .catch(err => console.log(err))
 );
 
-export const deletePosting = postingId => dispatch => (
-    postingAPIUtil.destroy1Posting(postingId)
-        .then(() => dispatch(destroyPosting(postingId)))
-        .catch(err => console.log(err))
-);
+export const deletePosting = postingId => dispatch => {
+    return postingAPIUtil.destroy1Posting(postingId)
+};
 
 export const updateAPosting = (postingId, postingData) => dispatch => {
     return postingAPIUtil.updatePosting(postingId, postingData)

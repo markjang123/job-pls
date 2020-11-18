@@ -27,6 +27,7 @@ router.put("/:id", (req, res) => {
                 following_users: user.following_users,
                 followed_posting: user.followed_posting
             };
+            
             jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                 res.json({
                     success: true,

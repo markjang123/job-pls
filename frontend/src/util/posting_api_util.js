@@ -28,6 +28,6 @@ export const updatePosting = (id, postingData) => {
     return axios.put(`api/postings/${id}`, postingData)
 }
 
-export const findUserPosting = (posting, userId) => {
-    return axios.get(`/api/userpostings/${userId}`, posting)
-}
+// export const findUserPosting = (posting, userId) => {
+//     return axios.get(`/api/userpostings/${userId}`, posting)
+// }

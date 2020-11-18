@@ -1,19 +1,23 @@
-import {connect} from 'react-redux';
-import { searchPosting, setLoading } from '../../actions/posting_actions'
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { searchPosting, setLoading, fetchCurrentUserPostings } from '../../actions/posting_actions';
+import { fetchAllUsers } from '../../actions/user_actions';
 import NavSearch from './nav_search';
-import {withRouter} from 'react-router-dom'
 
 const mapStateToProps = state => {
     return {
         searchedPostings: state.entities.SearchedPosts,
-        loading: state.ui.loading
+        loading: state.ui.loading,
+        hasUsers: !!Object.keys(state.entities.users).length
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         searchPosting: postingParams => dispatch(searchPosting(postingParams)),
-        setLoading: () => dispatch(setLoading())
+        setLoading: () => dispatch(setLoading()),
+        fetchAllUsers: () => dispatch(fetchAllUsers()),
+        fetchCurrentUserPostings: userId => dispatch(fetchCurrentUserPostings(userId))
     }
 }
  

@@ -3,7 +3,7 @@ import {
     RECEIVE_USER_LOGOUT
 } from '../actions/session_actions';
 import { DESTROY_POSTING, RECEIVE_CURRENT_USER_POSTINGS } from '../actions/posting_actions';
-import {UPDATE_CURRENT_USER} from '../actions/user_actions';
+import {UPDATE_CURRENT_USER, UPDATE_CURRENT_USER_POSTINGS} from '../actions/user_actions';
 
 const initialState = {
     isAuthenticated: false,
@@ -35,17 +35,19 @@ const SessionReducer = (state = initialState, action) => {
             }
         case UPDATE_CURRENT_USER:
             if(state.user._id === action.user._id){
+                let updatedUserPostings = state.user;
+                updatedUserPostings.followed_posting = updatedUserPostings.followed_posting.filter(posting => action.user.followed_posting.includes(posting._id))
                 return {
                     isAuthenticated: state.isAuthenticated,
-                    user: action.user
+                    user: updatedUserPostings
                 }
             } else {
-                return state
+                return state;
             }
         case RECEIVE_CURRENT_USER_POSTINGS:
-            if(state.user._id === action.user.userId){
+            if(state.user._id === action.userId){
                 let newUser = state.user;
-                newUser.followed_posting = action.postings;
+                newUser.followed_posting = action.postings.data;
                 return {
                     isAuthenticated: state.isAuthenticated,
                     user: newUser
@@ -53,6 +55,13 @@ const SessionReducer = (state = initialState, action) => {
             } else {
                 return state;
             };
+        case UPDATE_CURRENT_USER_POSTINGS:
+            let updatedUser = state.user;
+            updatedUser.followed_posting.push(action.posting);
+            return {
+                isAuthenticated: state.isAuthenticated,
+                user: updatedUser
+            }
         default:
             return state;
     }

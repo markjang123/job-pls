@@ -11,8 +11,6 @@ const User = require('../../models/User');
 
 const validatePostingInput = require('../../validation/postings');
 
-
-
 router.get('/user/:user_id', (req, res) => {
     User.findById(req.params.user_id)
     .then(user => {
@@ -26,7 +24,6 @@ router.get('/user/:user_id', (req, res) => {
 
     })
 });
-
 
 // router.post('/usa_search',
 //     (req, res) => {
@@ -150,7 +147,6 @@ router.get('/user/:user_id', (req, res) => {
 router.put("/:id", (req, res) => {
     Posting.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .then(post => {
-        console.log(post);
         res.json(post)
     })
     // .catch(err => res.status(404))

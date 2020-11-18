@@ -14,23 +14,21 @@ export const receiveCurrentUser = currentUser => {
     }
 };
 
-export const receiveUsers = users => ({
+const receiveUsers = users => ({
     type: RECEIVE_USERS,
     users
 });
 
-export const receiveErrors = errors => {
+const receiveErrors = errors => {
     return {
         type: RECEIVE_SESSION_ERRORS,
         errors
     }
 };
 
-export const logoutUser = () => ({
+const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT
 });
-
-
 
 export const signup = user => dispatch => {
     return APIUtil.signup(user)
@@ -61,11 +59,11 @@ export const login = user => dispatch => {
 export const clearSessionErrors = () => {
     return dispatch => {
         dispatch(receiveErrors({}))
-    }
+    };
 };
 
 export const logout = () => dispatch => {
-    localStorage.removeItem('jwtToken')
-    APIUtil.setAuthToken(false)
-    dispatch(logoutUser())
+    localStorage.removeItem('jwtToken');
+    APIUtil.setAuthToken(false);
+    dispatch(logoutUser());
 };

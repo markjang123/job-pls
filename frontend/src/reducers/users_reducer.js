@@ -9,11 +9,11 @@ const usersReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_USERS:
             for (const user of action.users){
-                nextState[user._id] = user
+                nextState[user._id] = user;
             }
             return nextState;
         case RECEIVE_USER:
-            nextState[action.user._id] = action.user
+            nextState[action.user._id] = action.user;
             return nextState;
         case RECEIVE_USER_POSTINGS:
             nextState[action.userId].followed_posting = action.postings.data;
@@ -22,11 +22,11 @@ const usersReducer = (state = {}, action) => {
             nextState[action.userId].followed_posting = action.postings.data;
             return nextState;        
         case UPDATE_USER:
-            nextState[action.user._id] = action.user
+            nextState[action.user._id] = action.user;
             return nextState;
         case UPDATE_CURRENT_USER:
-            nextState[action.user._id] = action.user
-            return nextState
+            nextState[action.user._id] = action.user;
+            return nextState;
         default:
             return state;
     }
