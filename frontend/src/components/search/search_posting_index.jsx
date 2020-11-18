@@ -23,8 +23,11 @@ class SearchPostingIndex extends React.Component{
 
     render(){
         if(this.props.searchedPostings.length === 0) return null;
+
         if(this.props.currentUser.followed_posting === undefined) return null;
+        
         const { searchedPostings } = this.props;
+        
         return(
             <div className="search-result-container">
                 <div className="search-result-list">
@@ -33,7 +36,7 @@ class SearchPostingIndex extends React.Component{
                         {searchedPostings.map((posting, idx) => {
                             return(
                                 <li
-                                    onClick={() => this.selectPost(posting)}
+                                    onClick={() => this.selectPost(createPosting(posting))}
                                     key={posting.posting_id} 
                                     id={posting === this.props.currentPosting
                                     ? "selected-posting" 

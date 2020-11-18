@@ -3,10 +3,16 @@ const React = require('react');
 
 class NavSearch extends React.Component{
     constructor(props){
-        super(props)
+        super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount(){
+        if(!this.props.hasUsers){
+            this.props.fetchAllUsers()
+            .then(this.props.fetchCurrentUserPostings(this.props.currentUser))
+        }
+    }
     
     handleSubmit(e){
         e.preventDefault();

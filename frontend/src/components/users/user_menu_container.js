@@ -7,13 +7,13 @@ const mapStateToProps = state => {
     return {
         users: Object.values(state.entities.users),
         currentUser: state.session.user,
-        className: "users-index"
+        className: "users-index",
+        hasUsers: !!Object.keys(state.entities.users).length
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchUsersIfNeeded: () => dispatch(fetchAllUsers()),
         updateAUser: (userId, userData) => dispatch(updateAUser(userId, userData)),
         updateTheCurrentUser: (userId, userData) => dispatch(updateTheCurrentUser(userId, userData))
     }

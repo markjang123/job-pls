@@ -1,8 +1,8 @@
-import {connect} from 'react-redux';
-import { composePosting, deletePosting, fetchUserPostings,setCurrentPosting } from '../../actions/posting_actions';
-import {updateTheCurrentUser, savePostingToUser} from '../../actions/user_actions';
 import SearchPostingIndex from './search_posting_index';
+import { connect } from 'react-redux';
 import { createPosting } from './create_posting';
+import { updateTheCurrentUser, savePostingToUser} from '../../actions/user_actions';
+import { deletePosting, setCurrentPosting } from '../../actions/posting_actions';
 
 const mapStateToProps = state => {
     let currentPost = state.entities.currentPosting;
@@ -29,10 +29,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchUserPostings: userId => dispatch(fetchUserPostings(userId)),
-        composePosting: posting => dispatch(composePosting(posting)),
         deletePosting: postingId => dispatch(deletePosting(postingId)),
-        updateAPosting: (userId, data) => dispatch(updateTheCurrentUser(userId, data)),
         setCurrentPosting: ( posting ) => dispatch(setCurrentPosting(posting)),
         updateTheCurrentUser: (userId, userData) => dispatch(updateTheCurrentUser(userId, userData)),
         savePostingToUser: (userId, posting) => dispatch(savePostingToUser(userId, posting))
