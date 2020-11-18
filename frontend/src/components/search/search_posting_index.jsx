@@ -7,7 +7,7 @@ class SearchPostingIndex extends React.Component{
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
-        this.idSelector = this.idSelector.bind(this);
+        // this.idSelector = this.idSelector.bind(this);
     }
 
     componentDidMount(){
@@ -19,18 +19,18 @@ class SearchPostingIndex extends React.Component{
         this.props.setCurrentPosting(posting);
     }
 
-    idSelector(posting){
-        let posting_to_str = Object.entries(posting).toString();
-        let currentPosting_to_str = Object.entries(this.props.currentPosting).toString()
+    // idSelector(posting){
+    //     let posting_to_str = Object.entries(posting).toString();
+    //     let currentPosting_to_str = Object.entries(this.props.currentPosting).toString()
 
-        return(
-            posting_to_str === currentPosting_to_str ?
-                    'selected-posting'   
-            :
-                    'null'
-        )
+    //     return(
+    //         posting_to_str === currentPosting_to_str ?
+    //                 'selected-posting'   
+    //         :
+    //                 'null'
+    //     )
 
-    }
+    // }
 
     render(){
         if(this.props.searchedPostings.length === 0) return null;
@@ -46,7 +46,7 @@ class SearchPostingIndex extends React.Component{
                         {searchedPostings.map((posting, idx) => {
                             return(
                                 <li
-                                    onClick={() => this.selectPost(createPosting(posting))}
+                                    onClick={() => this.handleClick(createPosting(posting))}
                                     key={posting.posting_id} 
                                     id={posting === this.props.currentPosting
                                     ? "selected-posting" 
