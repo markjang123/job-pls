@@ -1,15 +1,17 @@
 import React from 'react'
+
 class PostEdit extends React.Component {
     constructor(props){
-        super(props)
-        this.state = {public: this.props.post.public,
-                    priority: this.props.post.priority,
-                    status: this.props.post.status,
-                    notes: this.props.post.notes || 'none',
-        }
+        super(props);
+        this.state = {
+            public: this.props.post.public,
+            priority: this.props.post.priority,
+            status: this.props.post.status,
+            notes: this.props.post.notes || 'none',
+        };
         this.submitHandler = this.submitHandler.bind(this);
     }
-    
+
     submitHandler(e){
         e.preventDefault();
         this.props.updateAPosting(this.props.post._id, this.state);
@@ -28,31 +30,55 @@ class PostEdit extends React.Component {
                 <p id='notes'>Notes</p>
                 <div class="radio-toolbar">
                     <label id='notes-label'>Privacy:</label>
-
-
-                        <input type="radio" id="radio1" name="privacy_radios" onChange={this.update("public")} defaultChecked={this.state.public} value={true}/>
-                        <label for="radio1">Public</label>
-                        
-                        <input type="radio" id="radio2" name="privacy_radios" onChange={this.update("public")} defaultChecked={!this.state.public} value={false}/>
-                        <label for="radio2">Private</label>
-                    <br/>
+                        <input 
+                            type="radio" 
+                            id="radio1" 
+                            name="privacy_radios" 
+                            onChange={this.update("public")} 
+                            defaultChecked={this.state.public} 
+                            value={true}
+                        />
+                    <label for="radio1">Public</label>
+                        <input 
+                            type="radio" 
+                            id="radio2" 
+                            name="privacy_radios" 
+                            onChange={this.update("public")} 
+                            defaultChecked={!this.state.public} 
+                            value={false}
+                        />
+                    <label for="radio2">Private</label>
+                        <br/>
                     <label id='notes-label'>Priority:</label>
-                    <input type="radio" id="radio3" name="priority_radios" onChange={this.update("priority")} defaultChecked={this.state.priority === 1} value={1}/>
+                    <input 
+                        type="radio" 
+                        id="radio3" 
+                        name="priority_radios" 
+                        onChange={this.update("priority")} 
+                        defaultChecked={this.state.priority === 1} 
+                        value={1}
+                    />
                     <label for="radio3">Low</label>
 
-                    <input type="radio" id="radio4" name="priority_radios" onChange={this.update("priority")} defaultChecked={this.state.priority === 2} value={2} />
+                    <input 
+                        type="radio" 
+                        id="radio4" 
+                        name="priority_radios" 
+                        onChange={this.update("priority")} 
+                        defaultChecked={this.state.priority === 2} 
+                        value={2} 
+                    />
                     <label for="radio4">Medium</label>
 
-                    <input type="radio" id="radio5" name="priority_radios" onChange={this.update("priority")} defaultChecked={this.state.priority === 3} value={3} />
+                    <input 
+                        type="radio" 
+                        id="radio5" 
+                        name="priority_radios" 
+                        onChange={this.update("priority")} 
+                        defaultChecked={this.state.priority === 3} 
+                        value={3} 
+                    />
                     <label for="radio5">High</label>
-
-
-                        {/* <select onChange={this.update("priority")} value={this.state.priority}>
-                            <option defaultValue={this.state.priority === "low"} value="low">low</option>
-                            <option defaultValue={this.state.priority === "medium"} value="medium">medium</option>
-                            <option defaultValue={this.state.priority === "high"} value="high">high</option>
-                        </select> */}
-              
                 <div>
                     <label id='notes-label'>Application Process:
                         <select id='drop-down' onChange={this.update("status")} value={this.state.status}>

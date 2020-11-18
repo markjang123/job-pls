@@ -1,12 +1,12 @@
 import React from 'react';
 import './user_menu.css';
-import UsersIndexItemContainer from './users_index_item_container';
+import UserIndexItemContainer from './user_index_item_container';
 import UserFollowIndexContainer from './user_follow_index_container';
 import UserPostsIndexContainer from '../postings/user_posts_index_container';
 
 class UserMenu extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = { 
             grow: true,
             tab: 'users' };
@@ -15,14 +15,10 @@ class UserMenu extends React.Component {
         this.renderUserIndex = this.renderUserIndex.bind(this);
     }
 
-    componentDidMount() {
-        this.props.fetchUsersIfNeeded()
-    }
-
     renderTab() {
         switch (this.state.tab) {
             case 'users':
-                return this.renderUserIndex() ;
+                return this.renderUserIndex();
             case "jobs":
                 return (
                     <UserPostsIndexContainer 
@@ -60,7 +56,7 @@ class UserMenu extends React.Component {
                     <div className={this.growshrink()}>
                         {this.props.users.map(user => {
                             if (user._id === this.props.currentUser._id) return null
-                            return <UsersIndexItemContainer key={user._id} user={user} />
+                            return <UserIndexItemContainer key={user._id} user={user} />
                         })}
                     </div>
             </div> 

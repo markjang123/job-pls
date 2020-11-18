@@ -2,6 +2,7 @@ import {
     SET_CURRENT_POSTING,
     RECEIVE_SEARCHED_POSTING
 } from '../actions/posting_actions';
+import { UPDATE_CURRENT_USER_POSTINGS } from '../actions/user_actions';
 
 const CurrentPostingReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -16,9 +17,8 @@ const CurrentPostingReducer = (state = {}, action) => {
         const concattedPostings = jooble.jobs.concat(github);
         return concattedPostings[0] || {};
     case SET_CURRENT_POSTING:
-            // if(typeof action.posting === 'string'){
-            //     return JSON.parse(action.posting);
-            // };
+        return action.posting;
+    case UPDATE_CURRENT_USER_POSTINGS:
         return action.posting;
     default:
         return state;

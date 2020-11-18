@@ -10,7 +10,11 @@ class PostIndex extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchUserPostings(this.props.currentUser);
+        this.props.setLoading();
+        if(!this.props.hasUsers){
+            this.props.fetchAllUsers();
+        }
+        this.props.fetchCurrentUserPostings(this.props.currentUser);
     }
 
     openUsersIndex(openUsers){
@@ -24,16 +28,31 @@ class PostIndex extends React.Component{
     }
 
     render(){
+        if(this.props.loading){
+            return(
+                <div 
+                className='loading-wheel-container'>
+                        <div className="lds-ellipsis">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                </div>
+            )
+        };
+
         const { 
             posts, 
-            myPosts, 
             openModal, 
             closeModal, 
             modal, 
             currentUser, 
             openUsers 
         } = this.props;
+
         if (posts === undefined) return null;
+        
         return(
             <div className='index-container'>
                 <div className='jobs-grid'>

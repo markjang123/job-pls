@@ -1,8 +1,8 @@
 import React from 'react';
+import UserPostsIndexContainer from '../postings/user_posts_index_container';
+import UserFollowIndexContainer from './user_follow_index_container';
 import './user_show.css';
 import './users_index.css';
-import UserFollowIndexContainer from './user_follow_index_container';
-import UserPostsIndexContainer from '../postings/user_posts_index_container';
 
 class UserShow extends React.Component{
     constructor(props){
@@ -11,12 +11,19 @@ class UserShow extends React.Component{
     }
 
     componentDidMount(){
-        this.props.setLoading();
-        this.props.fetchAllUsers();
-        // this.props.fetchUser(this.props.match.params.userId)
-        // .then(this.props.fetchCurrentUserPostings(this.props.currentUser._id))
-        // this.props.fetchPostings();
+        if(!this.props.hasUsers){
+            this.props.fetchAllUsers()
+            .then(this.props.fetchCurrentUserPostings(this.props.currentUser))
+        }
+        this.props.fetchUserPostings(this.props.match.params.userId);
     }
+
+    componentDidUpdate(prevProps, prevState, snapshot){     
+        if(this.props.user._id !== prevProps.user._id){
+            this.props.fetchUserPostings(this.props.match.params.userId);
+        }
+    }
+    
     renderTab(){
         switch(this.state.tab){
             case "jobs":
@@ -33,24 +40,14 @@ class UserShow extends React.Component{
                     users={[...new Set(this.props.user.followed_users)].map(userId => 
                         this.props.users[userId]
                     )} />;
+            default:
+                return;
         };
     }
+    
     render(){
-        debugger
         if (this.props.user === undefined) return null;
-        if(this.props.loading){
-            return(
-                <div 
-                    className='loading-wheel-container'>
-                        <div className="lds-ellipsis">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                </div>
-            )
-        };
+
         let { username } = this.props.user;
 
         return(

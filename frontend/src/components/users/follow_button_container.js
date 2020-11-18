@@ -1,6 +1,5 @@
-import React from 'react';
-import {connect} from 'react-redux';
 import FollowButton from './follow_button';
+import {connect} from 'react-redux';
 import {updateAUser, updateTheCurrentUser} from '../../actions/user_actions';
 
 const mapStateToProps = state => {

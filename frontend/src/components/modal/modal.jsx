@@ -13,14 +13,10 @@ class Modal extends React.Component{
         this.openScroll = this.openScroll.bind(this);
     }
 
-
     openScroll(){
         this.props.closeModal();
         document.body.style.position = '';
     }
-
-
-
 
     render(){
         let { modal } = this.props;

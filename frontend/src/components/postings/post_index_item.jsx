@@ -10,11 +10,6 @@ class PostIndexItem extends React.Component{
         this.modeFunc = this.modeFunc.bind(this);
     }
 
-    componentDidMount(){
-        <PostShowContainer post={this.props.post} />
-
-    }
-
     showPost(post){
         return(
             <PostShowContainer post={post}/>
@@ -32,6 +27,7 @@ class PostIndexItem extends React.Component{
     }
 
     render(){
+        
         const { post } = this.props;
 
         return(
