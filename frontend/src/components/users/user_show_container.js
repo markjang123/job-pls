@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { fetchAllUsers } from '../../actions/user_actions';
 import { fetchUserPostings, fetchCurrentUserPostings, setLoading } from '../../actions/posting_actions';
 import { withRouter } from 'react-router-dom';
-import { fetchUserPostings, setLoading, fetchCurrentUserPostings } from '../../actions/posting_actions';
-import { fetchAllUsers } from '../../actions/user_actions';
 
 const mSTP = ( state, ownProps ) => {
     return {
