@@ -7,6 +7,8 @@ class PostIndex extends React.Component{
     constructor(props){
         super(props);
         this.openUsersIndex = this.openUsersIndex.bind(this);
+        this.state = {sorted: false}
+        this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount(){
@@ -22,9 +24,12 @@ class PostIndex extends React.Component{
             return null;
         }
     }
-
+    handleClick(){
+        this.setState({sorted: true})
+    }
     render(){
-        const { 
+        debugger
+        let { 
             posts, 
             myPosts, 
             openModal, 
@@ -34,8 +39,12 @@ class PostIndex extends React.Component{
             openUsers 
         } = this.props;
         if (posts === undefined) return null;
+        if (this.state.sorted){
+            posts = posts.sort((a,b) => b.priority - a.priority)
+        } 
         return(
             <div className='index-container'>
+                <button onClick = {this.handleClick}className="sort-button">sort by priority</button>
                 <div className='jobs-grid'>
                     {posts.map(post => (
                             <PostIndexItem 

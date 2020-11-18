@@ -13,13 +13,7 @@
     width: 100px;
     padding-left: 35px;
     padding-top: 5px;
-    /* width: 120px; */
-    /* height: 106px; */
-    /* position: absolute; */
-    /* left: 25px;
-    top: 14px;
-    clear: both;
-    float: left; */
+    cursor: pointer;
 }
 
 .nav-buttons{
@@ -92,6 +86,15 @@
     width: 100px;
     background-color: white;
     /* z-index: 500; */
+}
+.sort-button {
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    height: 30px;
+    width: 100px;
+    background-color: white;
+    border-radius: 3px;
 }
 .user-greeting {
     font-family: Arial, Helvetica, sans-serif;

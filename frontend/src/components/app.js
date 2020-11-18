@@ -4,6 +4,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container'
 // import SignupFormContainer from './session/signup_form_container';
 import PostIndexContainer from './postings/post_index_container';
+import SortedPostIndexContainer from './postings/sorted_post_index_container'
 import PostShowContainer from './postings/post_show_container';
 import Modal from './modal/modal.jsx';
 import SearchTabContainer from './search/search_tab_container';
@@ -47,6 +48,7 @@ class App extends React.Component{
                                 <AuthRoute exact path='/' component={SplashContainer} />
                                 <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
                                 <ProtectedRoute path="/jobs" component={PostIndexContainer} />
+                                <ProtectedRoute exact path="/jobs/sorted" component={SortedPostIndexContainer} />
                                 <ProtectedRoute path="/search" component={SearchTabContainer} />
                                 <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
                                 <AuthRoute exact path="/login" component={LoginFormContainer} />
