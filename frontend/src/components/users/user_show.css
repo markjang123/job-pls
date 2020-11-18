@@ -47,7 +47,6 @@
 }
 .profile-content{
     height: 100vh;
-    overflow-x: scroll;
 }
 .profile-content::-webkit-scrollbar {
     display: none;
