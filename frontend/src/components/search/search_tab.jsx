@@ -34,8 +34,6 @@ class SearchTab extends React.Component{
         return(
             <div>
                 <SearchPostingIndexContainer/>
-
-                {Object.keys(this.props.searchedPostings).length === 0 ? <></> : <SearchPostingItemContainer />}
             </div>
         );
     }
