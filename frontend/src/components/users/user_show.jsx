@@ -64,7 +64,7 @@ class UserShow extends React.Component{
                     <div 
                         className="tab" 
                         onClick={() => this.setState({tab: "jobs"})}>
-                            Jobs
+                            Jobs ({[...new Set(this.props.user.followed_posting)].length})
                     </div>
                     <div 
                         className="tab" 

@@ -12,7 +12,7 @@ class UserPostsIndex extends React.Component {
                 job === undefined 
                 ? null
                 : <UserPostsIndexItem 
-                    key={job} 
+                    key={job._id} 
                     job={job}
                     />
                 )}
