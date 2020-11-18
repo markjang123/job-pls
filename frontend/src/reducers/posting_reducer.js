@@ -32,10 +32,9 @@ const PostingsReducer = (state = initialState, action) => {
         newState.user.push(action.posting.data)
         return newState;
     // case DESTROY_POSTING:
-    //     debugger
     //     return Object.values(newState).filter( posting => posting._id !== action.postingId);
     case UPDATE_POSTING:
-        debugger
+
         let oldPosting = newState.user.find(posting => posting._id === action.posting._id)
         let oldPostingIndex = newState.user.indexOf(oldPosting) // find correct posting in array, replace at index
         newState.user[oldPostingIndex] = action.posting;

@@ -1,6 +1,6 @@
 .users-index {
     float: right;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: row;
     /* min-width: 30px; */
@@ -41,10 +41,9 @@
 
 .users-index-item-container{
     float: right;
-    height: 100vh;
+    height: 70vh;
     width: 400px;
     overflow-y: auto;
-    background: rgb(27, 31, 29);
 
 }
 

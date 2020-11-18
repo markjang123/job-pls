@@ -11,7 +11,6 @@ class PostEdit extends React.Component {
     }
     
     submitHandler(e){
-        debugger
         e.preventDefault();
         this.props.updateAPosting(this.props.post._id, this.state);
         this.props.closeEdit();
@@ -24,7 +23,6 @@ class PostEdit extends React.Component {
     }
 
     render() {
-        debugger
         return <div className="post-edit">
             <form onSubmit={this.submitHandler}>
                 <p id='notes'>Notes</p>
