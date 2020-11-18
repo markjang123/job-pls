@@ -6,7 +6,6 @@ import FollowButtonContainer from './follow_button_container';
 class UsersIndexItem extends React.Component {
     constructor(props){
         super(props);
-        this.props.fetchUserPostings(this.props.user._id);
         this.forceUpdate = this.forceUpdate.bind(this);
         this.is_following = this.is_following.bind(this);
     }
@@ -34,16 +33,13 @@ class UsersIndexItem extends React.Component {
                 </p>
             </div>
 
-            {/* {this.props.user._id !== this.props.currentUser._id 
-            &&  */}
-                <FollowButtonContainer 
-                    updateAUser={this.props.updateAUser} 
-                    is_following={this.is_following} 
-                    forceUpdate={() => this.forceUpdate()} 
-                    currentUser={this.props.currentUser} 
-                    user={this.props.user}
-                />
-            {/* } */}
+            <FollowButtonContainer 
+                updateAUser={this.props.updateAUser} 
+                is_following={this.is_following} 
+                forceUpdate={() => this.forceUpdate()} 
+                currentUser={this.props.currentUser} 
+                user={this.props.user}
+            />
         </div>
         ) 
     }

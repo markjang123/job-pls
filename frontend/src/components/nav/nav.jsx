@@ -16,13 +16,13 @@ class Nav extends React.Component {
     }
 
     render() {
-        const {currentUser} = this.props
+        const {currentUser} = this.props;
         if (currentUser._id === undefined) return null;
 
         return (
             <div className='nav-container'>
-                <div id='job-pls-logo' onClick={() => this.props.history.push('/jobs')}></div>
-                <button onClick={() => this.props.logout()} className="logout-button">logout</button>
+                {/* <div id='job-pls-logo' onClick={() => this.props.history.push('/jobs')}></div> */}
+                {/* <button onClick={() => this.props.logout()} className="logout-button">logout</button> */}
                     <div>
                         <NavSearchContainer/>
                     </div>

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
-import Nav from './nav';
+import NavButtons from './nav_buttons';
+import { withRouter } from 'react-router-dom';
 
 
 const mSTP = state => {
@@ -13,8 +13,9 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        
     }
 }
 
-export default withRouter(connect(mSTP, mDTP)(Nav));
+export default withRouter(connect(mSTP, mDTP)(NavButtons));

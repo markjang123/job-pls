@@ -1,8 +1,9 @@
-import { connect } from 'react-redux';
-import { fetchPostings, fetchPosting, fetchUserPostings } from '../../actions/posting_actions';
 import PostIndex from './post_index';
+import { connect } from 'react-redux';
+import { fetchCurrentUserPostings, setLoading } from '../../actions/posting_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
-import { logout } from '../../actions/session_actions'
+import { fetchAllUsers } from '../../actions/user_actions';
+import { logout } from '../../actions/session_actions';
 
 
 const mSTP = state => {
@@ -11,18 +12,19 @@ const mSTP = state => {
         currentUser: state.session.user._id,
         posts: state.entities.posts.user,
         modal: state.ui.modal,
-        openUsers: false
+        openUsers: false,
+        hasUsers: !!Object.keys(state.entities.users).length
     }
 }
 
 const mDTP = dispatch => {
     return{
-        fetchPostings: () => dispatch(fetchPostings()),
-        fetchPosting: jobId => dispatch(fetchPosting(jobId)),
+        logout: () => dispatch(logout()),
+        setLoading: () => dispatch(setLoading()),
+        fetchCurrentUserPostings: userId => dispatch(fetchCurrentUserPostings(userId)),
+        fetchAllUsers: () => dispatch(fetchAllUsers()),
         openModal: type => dispatch(openModal(type)),
         closeModal: () => dispatch(closeModal()),
-        logout: () => dispatch(logout()),
-        fetchUserPostings: userId => dispatch(fetchUserPostings(userId))
     }
 }
 
