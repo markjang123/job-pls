@@ -9,7 +9,8 @@ const mSTP = ({ entities: { posts , users }, session }, ownProps) => {
     return {
         currentUser: session.user,
         user,
-        users
+        users,
+        userPostings: posts.user
     }
 }
 
