@@ -53,8 +53,7 @@
 }
 
 .border-bottom{
-  /* background:  rgba(27, 31, 29); */
-  background: powderblue;
+  background: rgb(176, 224, 230);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -75,5 +74,4 @@
 
 #search-loading-container{
     position: relative;
-    /* width: a; */
 }

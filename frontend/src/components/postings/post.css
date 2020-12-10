@@ -1,22 +1,14 @@
 .index-container{
     height: 100%;
-    /* overflow-y: auto; */
     margin: auto;
     margin-left: auto;
     margin-right: auto;
     align-content: center;
-    /* background:rgba(212, 212, 212); */
-    /* z-index:3px; */
-    /* margin: 20px; */
-    /* height: auto; */
 }
 
 .jobs-grid{
     margin: auto;
     height: 75vh;
-    /* display: grid;
-    grid-gap: 15px;
-    grid-template-columns: repeat(auto-fit, 225px); */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -30,7 +22,6 @@
     width: 200px;
     height: 350px;
     margin: 15px;
-    /* background:rgba(235, 235, 235, 0.527); */
     border-radius: 15px;
     border-style: solid;
     border-width: 2px;
@@ -57,26 +48,28 @@
 }
 
 
-
-
 .job:hover {
-    /* animation: shake 0.25s; */
     transform: scale(1.05);
     -webkit-box-shadow: 0px 0px 3px 2px rgba(27, 31, 29, 0.15);
     -moz-box-shadow: 0px 0px 3px 2px rgb(27, 31, 29, 0.15);
     box-shadow: 0px 0px 3px 2px rgb(27, 31, 29, 0.15);
-    /* height: 100%; */
     border-radius: 15px;
 }
+
 
 #edit-button {
     background-color: white;
 }
 .post-edit {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     background-color: white;
-    /* display: flex; */
-    /* flex-direction: column; */
+}
+
+.post-edit div{
+    margin-top: 5px;
+    gap: 10px;
 }
 
 #notes-label{
@@ -84,31 +77,121 @@
 }
 
 .radio-toolbar{
-    border-left: 2px solid rgb(27, 31, 29)
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* margin-top: 10px; */
+
 }
 
-.radio-toolbar input[type="radio"] {
-    display: none;  
+.radio-container{
+    font-size: 24px;
 }
 
-.radio-toolbar label {
-    display: inline-block;
-    background-color: #ddd;
-    padding: 4px 11px;
-    font-family: Arial;
-    font-size: 16px;
+input[type='radio']{
+    display: none;
+}
+
+.radio-container label{
+    position: relative;
     cursor: pointer;
+    font-weight: bold;
+    padding-right: 32px;
 }
 
-.radio-toolbar input[type="radio"]:checked+label {
-    background-color: #bbb;
+.label-header{
+    padding-top: 10px;
 }
+
+
+
+.radio-container label:nth-last-child(1){
+    padding-right: 0px;
+}
+
+.radio-container label::before{
+    content: '';
+    border: 2px solid rgb(27, 31,29);
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin: -8px 10px;
+    margin-left: 0px;
+    border-radius: 50%;
+}
+
+.radio-container label::after{
+    content:'';
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: rgba(27, 31, 29, 0);
+    left: 5px;
+    top: -2px;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+
+.radio-container input[type='radio']:checked + label::after{
+    background: rgb(27, 31, 29);
+}
+
+
+.priority-picker{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.switch input[type='radio']:checked + label{
+    color: white;
+}
+
+.switch label:hover{
+    color: white;
+    transition: color 500ms ease-out;
+}
+
+.switch label{
+    z-index: 3;
+    transition: color 200ms ease-out;
+}
+
+
+.switch{
+    content: '';
+    position: relative;
+    width: 50%;
+    height: 25px;
+    border: solid 2px rgb(27, 31, 29);
+    color: rgb(27, 31, 29);
+    border-radius: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+}
+
+.switch::after{
+    content: '';
+    position: absolute;
+    content:'';
+    position: absolute;
+    width: 97%;
+    height: 18px;
+    border-radius: 10px 10px 10px 10px;
+    background: rgb(0,185,255);
+    background: linear-gradient(90deg, rgba(0,185,255,1) 0%, rgba(255,0,9,1) 100%);
+    transition: all 0.4s;
+}
+
 
 #notes{
     text-align: center;
     font-size: 16px;
     font-weight: bold;
-    /* background: red; */
     border-bottom: 2px solid rgb(27, 31, 29)
 }
 
@@ -127,7 +210,6 @@
     font-size: 22px;
     text-align: left;
     color: rgb(32, 32, 32) 
-    /* color: red; */
 }
 
 #company{
@@ -143,12 +225,9 @@
     font-weight: bold;
     text-align: right;
     color: rgb(32, 32, 32);
-    /* background: darkmagenta; */
-    /* position: absolute; */
     position:absolute;
     bottom:0;
     right:0;
-    /* margin-right: 10px; */
     margin-bottom: 15px;
     margin-right: 10px;
     text-overflow: ellipsis;
@@ -156,7 +235,7 @@
 }
 
 .post-show{
-    background: rgb(212, 212, 212);
+    background: white;
     height: 100%;
     width: 550px;
     color: rgb(32, 32, 32);
@@ -189,24 +268,24 @@
     font-weight: bold;
     color: rgb(32, 32, 32);
     margin-bottom: 40px;
-
 }
 
 #save-change-button{
     color: white;
-    /* background-color: #7badee; */
     background-color: #242424;
     padding: 15px auto 15px;
     height: 35px;
-    width: 210px;
-
+    width: 50%;
 }
 
 #delete-job-button{
     color: white;
-    /* background-color: #7badee; */
     background-color: #757575;
     padding: 15px auto 15px;
     height: 35px;
-    width: 210px;
+    width: 50%;
+}
+
+.privacy{
+    margin-top: -5px;
 }

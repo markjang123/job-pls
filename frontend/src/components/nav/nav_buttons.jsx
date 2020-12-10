@@ -11,7 +11,7 @@ class NavButtons extends React.Component {
     render() {
         const { currentUser, logout } = this.props
         if (currentUser._id === undefined) return null;
-        debugger
+    
         return (
             <div className='nav-buttons'>
                 <div id='job-pls-logo' onClick={() => this.props.history.push('/jobs')}> My jobs</div>

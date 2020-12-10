@@ -32,7 +32,7 @@ class PostIndex extends React.Component{
         this.setState({sorted: true})
     }
     render(){
-        debugger
+        
         let { 
             posts, 
             openModal, 

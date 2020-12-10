@@ -3,7 +3,7 @@ import { fetchPostings } from '../../actions/posting_actions';
 import PostIndex from './post_index';
 
 const mSTP = state => {
-    debugger
+    
     let posts = Object.values(state.entities.posts)
     return{
         currentUser: state.session.user,
