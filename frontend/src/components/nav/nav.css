@@ -101,7 +101,7 @@
     font-weight: bold;
     font-size: 30px;
     margin: 10px;
-    z-index: 500;
+    /* z-index: 500; */
     position: absolute;
     bottom: 0px;
 }
