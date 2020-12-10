@@ -1,11 +1,8 @@
 html{
-    background: #161718;
+    background: white;
+    /* background: #161718; */
     height: 100vh;
     width: 100vw;
-    /* background: linear-gradient(-45deg, #083025, #040f0f, #250917, #08201c); */
-    /* background: linear-gradient(-45deg, #a4fcc8, #80f5a7, #b3ffde, #a2f8ea); */
-    background: linear-gradient(-45deg, #ffffff, #f7f7f7, #dddddd, #eeeeee);
-    /* background: linear-gradient(-45deg, #474747, #1a1919, #050505, #252525, #1b1b1b); */
 	background-size: 200% 200%;
     animation: gradient 40s ease-in-out infinite;
 }

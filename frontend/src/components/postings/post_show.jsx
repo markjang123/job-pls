@@ -16,7 +16,7 @@ class PostShow extends React.Component{
     }
 
     render(){
-        debugger
+        
         let { post, currentUser } = this.props.post
         let job_desc;
         if (post.snippet === undefined){

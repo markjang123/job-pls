@@ -47,7 +47,7 @@
     height: 60px;
     width: 90%;
     border-radius: 15px 0px 15px 0px;
-    background: rgba(212, 212, 212) ;
+    background: white;
     margin-bottom: 10px;
     position: relative;
     margin-left: auto;
@@ -120,7 +120,7 @@
 }
 
 #follow {
-    background: #d6d6d6;
+    background: #e6e6e6;
     color: rgb(85, 85, 85);
     top: 10%;
 }

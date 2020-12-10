@@ -4,7 +4,7 @@ import UserPostsIndexItem from './user_posts_index_item';
 class UserPostsIndex extends React.Component {
 
     render() {
-        debugger
+        
         {if (this.props.jobs.length < 1) {
             return <div>
                 No jobs
