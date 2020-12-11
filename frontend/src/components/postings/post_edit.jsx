@@ -7,7 +7,7 @@ class PostEdit extends React.Component {
             public: this.props.post.public,
             priority: this.props.post.priority,
             status: this.props.post.status,
-            notes: this.props.post.notes || 'none',
+            notes: this.props.post.notes || 'Updates go here',
         };
         this.submitHandler = this.submitHandler.bind(this);
     }
@@ -16,6 +16,7 @@ class PostEdit extends React.Component {
         e.preventDefault();
         this.props.updateAPosting(this.props.post._id, this.state);
         this.props.closeEdit();
+        this.props.closeModal();
     }
 
     update(field){
@@ -24,7 +25,19 @@ class PostEdit extends React.Component {
         };
     }
 
+    displayNotes(){
+        return(
+            <div>
+                <textarea onChange={this.update("notes")}>
+                    {this.state.notes}
+
+                </textarea>
+            </div>
+        )
+    }
+
     render() {
+        debugger
         return(
 
         <div className="post-edit">
@@ -92,26 +105,34 @@ class PostEdit extends React.Component {
                     </div>
 
                 </div>
+                    <div className='radio-toolbar'>
+                        <div>
+                            <h1 id='job-label'>Application Status:</h1>
+                        </div>
+                        <div className='select'>
+                                <select id='drop-down' onChange={this.update("status")} value={this.state.status}>
+                                    <option defaultValue={this.state.status === "Haven't applied"} value="Haven't applied">Haven't applied</option>
+                                    <option defaultValue={this.state.status === "Applied"} value="Applied">Applied</option>
+                                    <option defaultValue={this.state.status === "Call Back"} value="Call Back">Call Back</option>
+                                    <option defaultValue={this.state.status === "Phone Interview"} value="Phone Interview">Phone Interview</option>
+                                    <option defaultValue={this.state.status === "On-site Interview"} value="On-site Interview">On-site Interview</option>
+                                    <option defaultValue={this.state.status === "Offer Received"} value="Offer Received">Offer Received</option>
+                                    <option defaultValue={this.state.status === "Offer Accepted"} value="Offer Accepted">Offer Accepted</option>
+                                </select>
+                                <div class="select_arrow"/>
+                        </div> 
+                    </div>
 
-                    <div class='application-process'>
-                        <label id='notes-label'>Application Process:
-                            <select id='drop-down' onChange={this.update("status")} value={this.state.status}>
-                                <option defaultValue={this.state.status === "Haven't applied"} value="Haven't applied">Haven't applied</option>
-                                <option defaultValue={this.state.status === "Applied"} value="Applied">Applied</option>
-                                <option defaultValue={this.state.status === "Call Back"} value="Call Back">Call Back</option>
-                                <option defaultValue={this.state.status === "Phone Interview"} value="Phone Interview">Phone Interview</option>
-                                <option defaultValue={this.state.status === "On-site Interview"} value="On-site Interview">On-site Interview</option>
-                                <option defaultValue={this.state.status === "Offer Received"} value="Offer Received">Offer Received</option>
-                                <option defaultValue={this.state.status === "Offer Accepted"} value="Offer Accepted">Offer Accepted</option>
-                            </select>
-                        </label>
-                    </div> 
 
-                    <div>
-                        <label id='notes-label'>Notes: {this.state.notes}
-                        </label>
-                        <label>New Notes: <input type='text' id='notes-field' placeholder='New notes?' onChange={this.update("notes")}/>
-                        </label>
+                    <div className='radio-toolbar'>
+                        <div className='notes'>
+                            <h1 id='job-label'>Updates:</h1>
+                            {this.displayNotes()}
+                            {/* <label id='notes-label'>{this.state.notes} */}
+                            {/* </label> */}
+                            {/* <label>New Notes: <input type='text' id='notes-field' placeholder='New notes?' onChange={this.update("notes")}/> */}
+                            {/* </label> */}
+                        </div>
                     </div>
 
                 <button type="submit" id='save-change-button' value="Save Changes">Save Changes</button>

@@ -18,6 +18,7 @@ class PostShow extends React.Component{
     render(){
         
         let { post, currentUser } = this.props.post
+        let { closeModal } = this.props
         let job_desc;
         if (post.snippet === undefined){
             job_desc = post.description
@@ -25,6 +26,7 @@ class PostShow extends React.Component{
             job_desc = post.snippet
         }
 
+        debugger
         return(
             <div className='post-show'>
                 <p id='show-title'>{post.job_title}</p>
@@ -38,6 +40,7 @@ class PostShow extends React.Component{
                     currentUser={currentUser} 
                     updateAPosting={this.props.updateAPosting} 
                     post={post}
+                    closeModal={closeModal}
                 />
             </div>
         )
