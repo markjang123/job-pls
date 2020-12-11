@@ -20,7 +20,8 @@
 
 #job-content{
   width:100%;
-  height: 100vh;
+  /* height: 90vh; */
+  height: 86vh;
 }
 
 #sidebar-content{
@@ -72,6 +73,6 @@
   display: inline-flex;
 }
 
-#search-loading-container{
+/* #search-loading-container{
     position: relative;
-}
+} */

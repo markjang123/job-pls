@@ -25,8 +25,7 @@ class PostShow extends React.Component{
         } else {
             job_desc = post.snippet
         }
-
-        debugger
+        
         return(
             <div className='post-show'>
                 <p id='show-title'>{post.job_title}</p>

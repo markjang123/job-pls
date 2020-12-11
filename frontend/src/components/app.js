@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container'
-// import SignupFormContainer from './session/signup_form_container';
 import PostIndexContainer from './postings/post_index_container';
 import SortedPostIndexContainer from './postings/sorted_post_index_container'
 import PostShowContainer from './postings/post_show_container';
@@ -43,7 +42,7 @@ class App extends React.Component{
                         <div className='nav'>
                             <NavButtonsContainer/>
                         </div>
-                        <div>
+                        {/* <div> */}
                             <Switch>
                                 <AuthRoute exact path='/' component={SplashContainer} />
                                 <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
@@ -53,9 +52,8 @@ class App extends React.Component{
                                 <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
                                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
-                                {/* <ProtectedRoute path="*" component={PostIndexContainer} /> */}
                             </Switch>
-                        </div>
+                        {/* </div> */}
                     </li>
                     <li id='sidebar-content'>
                         <UserMenuContainer/>

@@ -37,7 +37,6 @@ class PostEdit extends React.Component {
     }
 
     render() {
-        debugger
         return(
 
         <div className="post-edit">
@@ -128,10 +127,6 @@ class PostEdit extends React.Component {
                         <div className='notes'>
                             <h1 id='job-label'>Updates:</h1>
                             {this.displayNotes()}
-                            {/* <label id='notes-label'>{this.state.notes} */}
-                            {/* </label> */}
-                            {/* <label>New Notes: <input type='text' id='notes-field' placeholder='New notes?' onChange={this.update("notes")}/> */}
-                            {/* </label> */}
                         </div>
                     </div>
 
