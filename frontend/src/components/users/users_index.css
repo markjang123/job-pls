@@ -23,6 +23,11 @@
     background: rgb(27,31,29);
 }
 
+.user-show-container{
+    display: flex;
+    flex-direction: column;
+}
+
 .users-index-item-container{
     float: right;
     /* height: 75vh; */
@@ -32,7 +37,7 @@
 
 }
 
-.user-show-container .users-index-item-container{
+.users-index-item-container{
     float: right;
     height: 70vh;
     width: 600px;

@@ -105,9 +105,9 @@
     position: absolute;
     bottom: 0px;
 }
-#tab:hover {
+/* #tab:hover {
     border-bottom: 2px solid rgb(212,212,212);
-}
+} */
 
 #tab button{
     display: flex;
