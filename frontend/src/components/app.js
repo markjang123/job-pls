@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container'
-// import SignupFormContainer from './session/signup_form_container';
 import PostIndexContainer from './postings/post_index_container';
 import SortedPostIndexContainer from './postings/sorted_post_index_container'
 import PostShowContainer from './postings/post_show_container';
@@ -44,7 +43,7 @@ class App extends React.Component{
                         <div className='nav'>
                             <NavButtonsContainer/>
                         </div>
-                        <div>
+                        {/* <div> */}
                             <Switch>
                                 <AuthRoute exact path="/" component={SplashContainer} formType="signup"/>
                                 <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
@@ -52,11 +51,11 @@ class App extends React.Component{
                                 <ProtectedRoute exact path="/jobs/sorted" component={SortedPostIndexContainer} />
                                 <ProtectedRoute path="/search" component={SearchTabContainer} />
                                 <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
-                                <AuthRoute exact path="/login" component={SplashContainer} formType="login" />
-                                <AuthRoute exact path="/signup" component={SplashContainer} formType="signup" />
-                                {/* <ProtectedRoute path="*" component={PostIndexContainer} /> */}
+                                <AuthRoute exact path="/login" component={LoginFormContainer} />
+                                <AuthRoute exact path="/signup" component={SignupFormContainer} />
+
                             </Switch>
-                        </div>
+                        {/* </div> */}
                     </li>
                     <li id='sidebar-content'>
                         <UserMenuContainer/>

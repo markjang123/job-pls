@@ -12,8 +12,7 @@ class SearchTab extends React.Component{
     render(){
         if(this.props.loading){
             return(
-                <div 
-                    className='loading-wheel-container'>
+                <div className='loading-wheel-container'>
                         <div className="lds-ellipsis">
                             <div></div>
                             <div></div>
@@ -26,8 +25,8 @@ class SearchTab extends React.Component{
 
         if(this.props.searchedPostings.length === 0){
             return (
-                <div>
-                    Theres nothing here!
+                <div className='no-results'>
+                    No results to display. How about you search for something? Maybe apply? Maybe save it to your jobs? :&#41;
                 </div>
             )
         };

@@ -256,17 +256,16 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* margin: 0px auto; */
-    height: 80vh;
-    overflow-y: auto;
+    height: 82vh;
     margin: auto;
     margin-left: auto;
     margin-right: auto;
-    /* align-content: center; */
-    /* z-index:3px; */
+    box-sizing: border-box;
 }
 
 .search-result-list{
+    padding: 15px;
+    height: 100%;
     /* height: 80vh; */
 }
 
@@ -311,10 +310,14 @@
     font-size: 20px;
     color: rgb(27,31,29);
     background-color:powderblue;
-    /* margin-left: 20px; */
     padding: 10px 25px;
     box-sizing: border-box;
     border-radius: 2px;
+}
+
+.posting-listing-buttons{
+    display: flex;
+    flex-direction: row;
 }
 
 .apply-to-job{
@@ -322,11 +325,14 @@
     font-size: 20px;
     color: mintcream;
     background-color: rgb(27, 31, 29);
-    /* margin-left: 20px; */
     padding: 10px 25px;
     box-sizing: border-box;
     border-radius: 2px;
 
+}
+
+.posting-listing-add-button, .apply-to-job{
+    width: 50%;
 }
 
 .apply-to-job:hover{
@@ -423,15 +429,13 @@
     margin-bottom: 20px;
 }
 
-.loading-wheel-container{
+.loading-wheel-container, .no-results{
     display: flex;
-    position: absolute;
     width: 100%;
-    height: 95%;
+    height: 100%;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
-    opacity: .3;
+    opacity: .5;
 }
 
 .lds-ellipsis {

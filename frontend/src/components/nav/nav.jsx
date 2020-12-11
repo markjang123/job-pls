@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import NavSearchContainer from './nav_search_container';
 import PostIndexContainer from '../postings/post_index_container';
 import './nav.css'
-// import SearchBarContainer from '../search/search_container';
 
 class Nav extends React.Component {
     constructor(props) {
@@ -20,13 +18,9 @@ class Nav extends React.Component {
         if (currentUser._id === undefined) return null;
 
         return (
-            <div className='nav-container'>
-                {/* <div id='job-pls-logo' onClick={() => this.props.history.push('/jobs')}></div> */}
-                {/* <button onClick={() => this.props.logout()} className="logout-button">logout</button> */}
-                    <div>
+            // <div className='nav-container'>
                         <NavSearchContainer/>
-                    </div>
-            </div>
+            // </div>
         )
     }
 }
