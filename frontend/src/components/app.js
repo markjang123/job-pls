@@ -32,6 +32,7 @@ class App extends React.Component{
     }
 
     render() {
+        debugger
         return(
             <div className='app'>
             <div className='app-content'>
@@ -44,7 +45,7 @@ class App extends React.Component{
                         </div>
                         {/* <div> */}
                             <Switch>
-                                <AuthRoute exact path='/' component={SplashContainer} />
+                                <AuthRoute exact path="/" component={SplashContainer} formType="signup"/>
                                 <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
                                 <ProtectedRoute path="/jobs" component={PostIndexContainer} />
                                 <ProtectedRoute exact path="/jobs/sorted" component={SortedPostIndexContainer} />
@@ -52,6 +53,7 @@ class App extends React.Component{
                                 <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
                                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
+
                             </Switch>
                         {/* </div> */}
                     </li>
