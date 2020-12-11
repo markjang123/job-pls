@@ -83,7 +83,7 @@ class SessionForm extends React.Component {
                     <label>
                         <p className="session-errors">{this.props.errors.password2}</p>
                         <input type="password"
-                            placeholder='Password 2'
+                            placeholder='Confirm Password'
                             id='form-element'
                         />
                     </label>
@@ -93,31 +93,25 @@ class SessionForm extends React.Component {
         }
     }
 
-
-
-    
-    // clearErrors() {
-    //     if (Object.keys(this.props.errors).length > 0) {
-    //         return (
-    //             <div id='clear-errors' onClick={this.props.clearSessionErrors}>clear errors</div>
-    //             )
-    //         }
-    //     }
         
         renderLinks() {
             if (this.props.sessionType === "Sign Up"){
-                return <p onClick={this.props.clearSessionErrors} 
+                return <div onClick={this.props.clearSessionErrors} 
                 className="bottom-message">Have an account?<br/> 
-                <Link className="form-link" to="/login">Login!</Link></p>
+                        <Link className="form-link" to="/login">Login!</Link>
+                    <br/>
+                    <br />
+                    <p className="demo-login" onClick={this.demoUserLogin}>Or try as a Demo User.</p>
+                   </div>
             } else {
                 return(
                 <div className="bottom-message">
                     <p onClick={this.props.clearSessionErrors}>
                         Don't have an account?<br/> 
-                <Link className="form-link" to="/signup">Sign Up!</Link><br/>
+                        <Link className="form-link" to="/signup">Sign Up!</Link><br/>
                     </p>
                     <br/>
-                    <p className="demo-login" onClick={this.demoUserLogin}>Or try our Demo User.</p>
+                    <p className="demo-login" onClick={this.demoUserLogin}>Or try as a Demo User.</p>
                 </div>
                 )
             }
@@ -127,41 +121,39 @@ class SessionForm extends React.Component {
 
     render() {
         return (
-            <div className='session-form-container'>
                 <div className="session-form">
                     <div className='session-form-liner'>
-                    <h3 className="form-header">{this.state.sessionType}</h3>
-                    <form onSubmit={this.handleSubmit} className="form-header">
-                        <br />
-                        <div>
-                            {/* {this.clearErrors()} */}
-                            <label>
-                                    <p className="session-errors">{this.props.errors.email}</p>
-                                <input type="text"
-                                    placeholder='Email'
-                                    id='form-element'
-                                />
-                            </label>
+                        <h3 className="form-header">{this.state.sessionType}</h3>
+                        <form onSubmit={this.handleSubmit} className="form-header">
                             <br />
-                            {this.renderUsername()}
-                            <label>
-                                    <p className="session-errors">{this.props.errors.password}</p>
-                                <input type="password"
-                                    placeholder='Password'
-                                    id='form-element'
-                                />
-                            </label>
-                            {this.renderPassword2()}
-                            <br />
-                            <input type="submit" id='submit-button' value={this.formType} />
-                        </div>
-                    </form>
-                    {this.renderLinks()}
-                    <div>
+                            <div>
+                                {/* {this.clearErrors()} */}
+                                <label>
+                                        <p className="session-errors">{this.props.errors.email}</p>
+                                    <input type="text"
+                                        placeholder='Email'
+                                        id='form-element'
+                                    />
+                                </label>
+                                <br />
+                                {this.renderUsername()}
+                                <label>
+                                        <p className="session-errors">{this.props.errors.password}</p>
+                                    <input type="password"
+                                        placeholder='Password'
+                                        id='form-element'
+                                    />
+                                </label>
+                                {this.renderPassword2()}
+                                <br />
+                                <input type="submit" id='submit-button' value={this.state.sessionType} />
+                            </div>
+                        </form>
+                        {this.renderLinks()}
                     </div>
-                </div>
-                </div>
-            </div>
+                    </div>
+                
+             
 
         );
     }

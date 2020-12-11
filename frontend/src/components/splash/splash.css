@@ -20,3 +20,61 @@
 		background-position: 0% 50%;
 	}
 }
+/* .splash-background {
+	background-image: url('../../images/pexels-cadeau-maestro-1170412-min.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 1000px;
+	position: relative;
+	background-attachment: fixed;
+	opacity: 0.5;
+	z-index: 1;
+} */
+.splash-container{
+	overflow: scroll;
+}
+.splash-greeting {
+	color: white;
+	display: inline-block;
+	height: 500px;
+	width: 700px;
+	position: relative;
+	font-size: 50px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	z-index: 2;
+}
+.other-image {
+	background-image: url(../../images/pexels-photo-3184302.jpeg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: block;
+	height: 1000px;
+	width: 1920px;
+	background-color: blue;
+	z-index: 200;
+}
+.greeting-subtitle {
+	font-size: 25px;
+	margin-top: 30px;
+	line-height: 30px;
+	font-weight: 500;
+	color: mintcream;
+	word-wrap: break-word;
+}
+.bg-image{
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 1000px;
+    margin: 0;
+    height: 900px;
+}
+.image-1 {
+	background-image: url('../../images/pexels-cadeau-maestro-1170412-min.jpg');
+}
+.image-3 {
+	background-image: url(../../images/pexels-arina-krasnikova-5950095-min.jpg);
+}
