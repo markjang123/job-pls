@@ -2,15 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
-const Auth = ({ component: Component, path, loggedIn, exact }) => (
-  <Route path={path} exact={exact} render={(props) => (
+const Auth = ({ component: Component, path, loggedIn, exact, props, formType }) => {
+  debugger
+  return <Route path={path} exact={exact} props={props} formType={formType} render={(props) => (
     !loggedIn ? 
-        ( <Component {...props} /> ) 
+        ( <Component {...props} formType={formType}/> ) 
     : 
         ( <Redirect to="/jobs" />
     )
   )} />
-);
+  
+}
+
+;
 
 const Protected = ({ component: Component, loggedIn, ...rest }) => (
   <Route
