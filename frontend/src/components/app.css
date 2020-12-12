@@ -24,11 +24,7 @@
 
 #sidebar-content{
   float: right;
-  /* height: 100vh; */
   height: calc(100vh - 130px);
-  /* width: 20%; */
-  /* background: rgb(27, 31, 29); */
-  /* background: red; */
 }
 
 

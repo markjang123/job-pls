@@ -29,22 +29,12 @@
 }
 
 .users-index-item-container{
-    /* float: right; */
     height: 86%;
     width: 450px;
     overflow-y: auto;
 
 }
 
-/* .users-index-item-container{
-    float: right;
-    height: 70vh;
-    height: 78%;
-    width: 600px;
-    overflow-y: auto;
-    background: rgb(27, 31, 29);
-}
-*/
 
 .shrink{
     display: none;

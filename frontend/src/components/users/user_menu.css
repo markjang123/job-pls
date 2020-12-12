@@ -1,13 +1,10 @@
 .user-menu{
     background: rgb(27,31,29);
     height: 100%;
-    /* height: 85vh; */
-    /* width: 100%; */
 }
 
 .user-header{
     height: 60px;
-    /* width: 90%; */
     position: relative;
     margin-left: auto;
     margin-right: auto;

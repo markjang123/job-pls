@@ -5,7 +5,7 @@ class PostEdit extends React.Component {
         super(props);
         this.state = {
             public: this.props.post.public,
-            priority: this.props.post.priority,
+            priority: this.props.post.priority || null,
             status: this.props.post.status,
             notes: this.props.post.notes || 'Updates go here',
         };

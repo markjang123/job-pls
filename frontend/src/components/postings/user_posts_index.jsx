@@ -14,8 +14,9 @@ class UserPostsIndex extends React.Component {
             ) 
             
         }}
+
         return <ul className="user-posts-index">
-            {this.props.jobs.map(job => 
+            {this.props.jobs.reverse().map(job => 
                 job === undefined
                 ? null
                 : <UserPostsIndexItem 
