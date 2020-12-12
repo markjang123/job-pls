@@ -9,8 +9,9 @@ class UserMenu extends React.Component {
         super(props);
         this.state = { 
             grow: true,
-            tab: 'users' };
-        this.growshrink = this.growshrink.bind(this);
+            tab: 'users'};
+            // tab: "followers"};
+        // this.growshrink = this.growshrink.bind(this);
         this.resize = this.resize.bind(this);
         this.renderUserIndex = this.renderUserIndex.bind(this);
     }
@@ -19,28 +20,18 @@ class UserMenu extends React.Component {
         switch (this.state.tab) {
             case 'users':
                 return this.renderUserIndex();
-            case "jobs":
-                return (
-                    <UserPostsIndexContainer 
-                        jobs={this.props.user.followed_posting.map(postId => 
-                            this.props.posts.find(post => 
-                                post._id === postId)
-                            )
-                        } 
-                    />
-                )
             case "followers":
                 return (
                     <UserFollowIndexContainer 
-                        users={this.props.user.following_users.map(userId => 
-                            this.props.users[userId])} 
+                        users={this.props.currentUser.following_users.map( userId => 
+                            this.props.user[userId])} 
                     />
                 )
             case "following":
                 return (
                     <UserFollowIndexContainer 
-                        users={this.props.user.followed_users.map(userId => 
-                            this.props.users[userId])
+                        users={this.props.currentUser.followed_users.map(userId => 
+                            this.props.user[userId])
                         } 
                     />
                 )
@@ -52,13 +43,17 @@ class UserMenu extends React.Component {
 
     renderUserIndex(){
         return(
-            <div className='users-index'>
-                    <div className={this.growshrink()}>
+            <div className='users-index-item-container'>
+                {this.props.users.map(user => {
+                    if (user._id === this.props.currentUser._id) return null
+                    return <UserIndexItemContainer key={user._id} user={user} />
+                })}
+                    {/* <div className={this.growshrink()}>
                         {this.props.users.map(user => {
                             if (user._id === this.props.currentUser._id) return null
                             return <UserIndexItemContainer key={user._id} user={user} />
                         })}
-                    </div>
+                    </div> */}
             </div> 
         )
     }
@@ -67,13 +62,13 @@ class UserMenu extends React.Component {
         this.setState({ grow: !this.state.grow });
     }
 
-    growshrink() {
-        if (this.state.grow) {
-            return 'users-index-item-container'
-        } else {
-            return 'shrink'
-        }
-    }
+    // growshrink() {
+    //     if (this.state.grow) {
+    //         return 'users-index-item-container'
+    //     } else {
+    //         return 'shrink'
+    //     }
+    // }
 
     render() {
         if (this.props.currentUser._id === undefined) return null
@@ -84,9 +79,37 @@ class UserMenu extends React.Component {
                         Hello, {this.props.currentUser.username}
                     </p>
                 </div>
-                <div className="profile-content">
+
+                <div className='user-tabs-container'>
+                    <div className='tabs'>
+                        <div
+                            className="tab"
+                            onClick={() => this.setState({ tab: "followers" })}>
+                            Followers 
+                            ({[...new Set(this.props.currentUser.following_users)].length})
+                            </div>
+                        <div
+                            className="tab"
+                            onClick={() => this.setState({ tab: "following" })}>
+                            Following 
+                            ({[...new Set(this.props.currentUser.followed_users)].length})
+                            </div>
+                        <div
+                            className="tab"
+                            onClick={() => this.setState({ tab: "users" })}>
+                            All Users
+                            ({[...new Set(this.props.users)].length})
+                            </div>
+                    </div>
+
+                    {/* <div className='users-index-item-container'> */}
+                        {this.renderTab()}
+                    {/* </div> */}
+                </div> 
+
+                {/* <div className="profile-content">
                     {this.renderTab()}
-                </div>
+                </div> */}
             </div>
         )
     }

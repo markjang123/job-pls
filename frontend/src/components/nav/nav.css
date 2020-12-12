@@ -19,8 +19,9 @@
 .nav-buttons{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    color: rgb(212,212,212);
+    justify-content: flex-end;
+    /* color: rgb(212,212,212); */
+    color: white;
     margin-left: 25px;
 }
 
@@ -30,7 +31,7 @@
     flex-direction: column;
     position: relative;
     width: 100%;
-    min-height: 130px;
+    height: 130px;
     /* height: 300px; */
     top: 0px;
     position:relative;
@@ -74,19 +75,14 @@
 
 .logout-button {
     cursor: pointer;
-    /* position: absolute; */
-    /* right: 15%; */
     float: right;
-    /* bottom: 0; */
-    /* margin: 5px; */
-    /* border-radius: 3px; */
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     height: 30px;
     width: 100px;
     background-color: white;
-    /* z-index: 500; */
 }
+
 .sort-button {
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
@@ -96,17 +92,15 @@
     background-color: white;
     border-radius: 3px;
 }
+
 .user-greeting {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 30px;
     margin: 10px;
-    /* z-index: 500; */
+    color: white;
     position: absolute;
     bottom: 0px;
-}
-#tab:hover {
-    border-bottom: 2px solid rgb(212,212,212);
 }
 
 #tab button{
@@ -435,7 +429,7 @@
     height: 100%;
     align-items: center;
     justify-content: center;
-    opacity: .5;
+    /* opacity: .5; */
 }
 
 .lds-ellipsis {

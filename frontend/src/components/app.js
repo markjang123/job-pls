@@ -32,10 +32,8 @@ class App extends React.Component{
     }
 
     render() {
-        debugger
         return(
             <div className='app'>
-            <div className='app-content'>
                 <NavShowContainer/>
                 <Modal />
                 <ul className='display-content' >
@@ -43,7 +41,6 @@ class App extends React.Component{
                         <div className='nav'>
                             <NavButtonsContainer/>
                         </div>
-                        {/* <div> */}
                             <Switch>
                                 <AuthRoute exact path="/" component={SplashContainer} formType="signup"/>
                                 <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
@@ -53,15 +50,12 @@ class App extends React.Component{
                                 <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
                                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
-
                             </Switch>
-                        {/* </div> */}
                     </li>
                     <li id='sidebar-content'>
                         <UserMenuContainer/>
                     </li>
                 </ul>
-            </div>
         </div>
     );
     }

@@ -23,23 +23,28 @@
     background: rgb(27,31,29);
 }
 
+.user-show-container{
+    display: flex;
+    flex-direction: column;
+}
+
 .users-index-item-container{
-    float: right;
-    /* height: 75vh; */
-    height: 100%;
-    width: 400px;
+    /* float: right; */
+    height: 86%;
+    width: 450px;
     overflow-y: auto;
 
 }
 
-.user-show-container .users-index-item-container{
+/* .users-index-item-container{
     float: right;
     height: 70vh;
+    height: 78%;
     width: 600px;
     overflow-y: auto;
     background: rgb(27, 31, 29);
-
 }
+*/
 
 .shrink{
     display: none;
