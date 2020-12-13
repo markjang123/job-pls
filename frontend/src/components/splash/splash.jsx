@@ -20,14 +20,16 @@ class Splash extends React.Component{
                 { this.props.formType === "signup" ? <SignupFormContainer/> : <LoginFormContainer/>}
                 <div className="bg-image image-1">
                     <div className="greeting-background">
-                    <div className="splash-greeting">
+                        <div className="text-screen">
+                            <div className="splash-greeting">
                             Streamline your job search 
                             <p className="greeting-subtitle">
                                 Track all your applications in one spot,                        
                                 from initial apply to  <br /> offer received
                             </p>              
                         </div> 
-                        <div className="text-screen" />
+
+                        </div>
                     </div>
                 </div>
                 <div className="other-image">

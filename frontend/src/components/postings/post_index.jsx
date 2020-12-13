@@ -1,6 +1,8 @@
 import React from 'react';
 import PostIndexItem from './post_index_item';
 import UserIndexContainer from '../users/users_index_container';
+import PostPriorityItem from './posts_priority_item';
+import NavShowContainer from '../nav/nav_container';
 import './post.css'
 
 class PostIndex extends React.Component{
@@ -28,6 +30,7 @@ class PostIndex extends React.Component{
             return null;
         }
     }
+
     handleClick(){
         this.setState({sorted: true})
     }
@@ -39,7 +42,8 @@ class PostIndex extends React.Component{
             closeModal, 
             modal, 
             currentUser, 
-            openUsers 
+            openUsers,
+            prioritizedPosts
         } = this.props;
 
         if (posts === undefined) return null;
@@ -54,11 +58,12 @@ class PostIndex extends React.Component{
                 </div>
             )
         } else {
+
             return(
+
                 <div className='index-container'>
-                    <button onClick = {this.handleClick}className="sort-button">sort by priority</button>
                     <div className='jobs-grid'>
-                        {posts.map(post => (
+                        {posts.reverse().map(post => (
                                 <PostIndexItem 
                                     className='job'
                                     post={post}

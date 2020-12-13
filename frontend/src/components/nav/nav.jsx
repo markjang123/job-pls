@@ -18,9 +18,7 @@ class Nav extends React.Component {
         if (currentUser._id === undefined) return null;
 
         return (
-            // <div className='nav-container'>
-                        <NavSearchContainer/>
-            // </div>
+            <NavSearchContainer/>
         )
     }
 }

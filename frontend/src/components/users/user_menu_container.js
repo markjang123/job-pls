@@ -3,10 +3,8 @@ import UserMenu from './user_menu';
 import { connect } from 'react-redux';
 import { fetchAllUsers, updateAUser, updateTheCurrentUser } from '../../actions/user_actions';
 
-// const mapStateToProps = (state, ownProps) => {
 const mSTP = (state) => {
     return {
-        // usersIndex: Object.values(state.entities.users),
         users: Object.values(state.entities.users),
         user: state.entities.users,
         currentUser: state.session.user,

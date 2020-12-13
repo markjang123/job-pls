@@ -6,14 +6,13 @@
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
-    /* color: rgb(186,185,182); */
     color: white;
     overflow-y: auto;
 }
 
 #user-show-username {
     text-align: center;
-    font-size: 40px;
+    font-size: 25px;
     font-weight: bold;
     height: 1.25em;
     width: 100%;
@@ -24,31 +23,96 @@
 
 .tabs-container {
     font-weight: bold;
-    height: 100%;
-    width: 400px;
+    height: 100vh;
+    width: 325px;
     display: flex;
     flex-direction: column;
     padding: 0px 15px 0px 15px;
     background-color:rgb(27,31,29);
-    /* border-bottom: 2px solid rgb(190,189,186); */
+}
+
+.jobs-priority{
+    height: 100vh;
+    width: 325px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 15px 0px 15px;
+    background-color:rgb(27,31,29);
+
+}
+
+.menu-header{
+    padding-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 2px solid white;
+}
+
+.job-priority-header{
+    width: 325px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.job-priority-card{
+    height: 95px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    background: white;
+    box-sizing: border-box;
+}
+
+#white, #one, #two, #three{
+    height:100%;
+    border-radius: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+}
+
+#three{
+    background: rgb(255, 0, 8);
+    background: linear-gradient(30deg, rgb(202, 53, 175) 0%, rgb(255, 0, 8) 45%);
+    transition: all 0.4s;
+}
+
+#two{
+    background: rgb(202, 53, 175);
+    background: linear-gradient(30deg, rgb(155, 53, 202) 0%, rgb(202, 53, 175) 45%, rgb(202, 53, 175) 100%);
+}
+
+#one{
+    background: rgb(0, 185, 255);
+    background: linear-gradient(30deg,rgb(159, 229, 255) 0%, rgb(0, 185, 255) 45%); 
+}
+
+#white{
+    background: white;
+}
+
+.job-priority-container{
+    height: calc(100% - 65px) ;
+    overflow-y: auto;
 }
 
 .user-tabs-container{
     height: 100%;
-    /* padding: 0px 15px 0px 15px; */
-    /* background: red; */
-
 }
-/* .user-tabs-container{
-    width: 100%;
-} */
+
 
 .tabs{
     display: flex;
     flex-direction: row;
     padding-top: 10px;
     padding-bottom: 15px;
-    background-color:rgb(27,31,29);
+}
+
+.menu-header{
+    padding-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 2px solid white;
 }
 
 .tab {
@@ -56,19 +120,15 @@
     height: 100%;
     text-align: center;
     cursor: pointer;
-    background-color:rgb(27,31,29);
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: white;
 }
+
 .tab:focus {
     border-top: 10px solid rgb(190,189,186);
 }
-
-/* .tab:hover {
-    opacity: 94%;
-} */
 
 .profile-content{
     display: flex;
@@ -90,7 +150,6 @@
 }
 
 .user-posts-index {
-    /* height: 75vh; */
     height: 98%;
     width: 100%;
     overflow-wrap: break-word;

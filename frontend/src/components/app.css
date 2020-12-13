@@ -1,7 +1,6 @@
 .app{
   margin: auto;
   align-content: center;
-
   width: 100vw;
   height: 100vh;
   z-index: 1;
@@ -12,23 +11,18 @@
 }
 
 .display-content{
-
   display: flex;
   flex-direction: row;
 } 
 
 #job-content{
   width:80%;
-  height: 86vh;
+  height: 100vh;
 }
 
 #sidebar-content{
-  float: right;
-  /* height: 100vh; */
-  height: calc(100vh - 130px);
-  /* width: 20%; */
-  /* background: rgb(27, 31, 29); */
-  /* background: red; */
+  height: 100vh;
+  width: 400px;
 }
 
 

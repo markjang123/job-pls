@@ -5,7 +5,7 @@ class PostEdit extends React.Component {
         super(props);
         this.state = {
             public: this.props.post.public,
-            priority: this.props.post.priority,
+            priority: this.props.post.priority || null,
             status: this.props.post.status,
             notes: this.props.post.notes || 'Updates go here',
         };
@@ -28,10 +28,7 @@ class PostEdit extends React.Component {
     displayNotes(){
         return(
             <div>
-                <textarea onChange={this.update("notes")}>
-                    {this.state.notes}
-
-                </textarea>
+                <textarea defaultValue={this.state.notes} onChange={this.update("notes")}/>
             </div>
         )
     }

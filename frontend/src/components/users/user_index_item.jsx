@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './users_index.css';
 import FollowButtonContainer from './follow_button_container';
 
+
 class UsersIndexItem extends React.Component {
     constructor(props){
         super(props);
