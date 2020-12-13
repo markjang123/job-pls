@@ -1,7 +1,5 @@
 .session-form-container{
     width: 100vw;
-    /* height: 100vh; */
-    /* background: green; */
     margin-top: 100px;
 }
 
@@ -27,12 +25,14 @@
     position: fixed;
     left: 60%;
 }
+
 .form-header {
     font-size: 25px;
     margin: 0px auto 0px;
     padding: 0;
     position: relative;
 }
+
 .session-errors {
     color: red;
     text-align: center;
@@ -54,6 +54,7 @@
     border: 1px solid gray;
     color: rgb(32, 32, 32);
 }
+
 .bottom-message {
     display: inline-block;
     font-size: 12px;
@@ -62,13 +63,14 @@
     left: 35%;
     bottom: 20%;
 }
+
 .form-link {
-    /* text-decoration: none; */
-    color: #7badee;
+    color: #9fe5ff
 }
+
 #submit-button {
     color: white;
-    background-color: #7badee;
+    background-color: #4ccaf8;
     margin-top: 20px;
     height: 35px;
     width: 210px;
@@ -76,24 +78,25 @@
     left: 20%;
     border-radius: 5px;
     position: absolute;
-
 }
+
 .demo-login {
     cursor: pointer;
     margin-top: 0;
-    color: #7badee;
+    color: #4ccaf8;
 }
 
 .demo-login:hover{
     text-decoration: underline;
 }
+
 .session-form-container {
-    /* display: inline-block; */
 	min-height: 1000px;
     margin: 0;
     height: 900px;
     top: 50%;
 }
+
 .session-form-container::before {
     background-image: url('../../images/pexels-cadeau-maestro-1170412-min.jpg');
     background-position: center;
@@ -105,8 +108,8 @@
     bottom: 0px;
     left: 0px;
     right: 0px;
-    /* opacity: 0.5; */
- } 
+} 
+
 .greeting-background {
 	display: inline-block;
 	height: 250px;
@@ -121,16 +124,17 @@
     border-radius: 30px;
 
 }
+
 .text-screen {
     display: inline-block;
 	height: 250px;
 	width: 680px;
     position: absolute;
+    padding: 15px;
     top: 5px;
     left: 0;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 30px;
-    opacity: 0.3;
 }
 
 

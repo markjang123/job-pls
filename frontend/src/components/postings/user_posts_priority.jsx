@@ -11,12 +11,10 @@ class UserPostsIndex extends React.Component {
                     <div className='no-results'>
                         Looks like this user hasn't saved any jobs yet.
                     </div>
-
                 )
-
             }
         }
-        
+
         return <ul className="user-posts-index">
             {this.props.jobs.reverse().map(job =>
                 job === undefined

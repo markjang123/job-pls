@@ -3,6 +3,7 @@ import './user_menu.css';
 import UserIndexItemContainer from './user_index_item_container';
 import UserFollowIndexContainer from './user_follow_index_container';
 import UserPostsIndexContainer from '../postings/user_posts_index_container';
+import NavButtonsContainer from '../nav/nav_buttons_container'
 
 class UserMenu extends React.Component {
     constructor(props) {
@@ -48,12 +49,6 @@ class UserMenu extends React.Component {
                     if (user._id === this.props.currentUser._id) return null
                     return <UserIndexItemContainer key={user._id} user={user} />
                 })}
-                    {/* <div className={this.growshrink()}>
-                        {this.props.users.map(user => {
-                            if (user._id === this.props.currentUser._id) return null
-                            return <UserIndexItemContainer key={user._id} user={user} />
-                        })}
-                    </div> */}
             </div> 
         )
     }
@@ -62,22 +57,12 @@ class UserMenu extends React.Component {
         this.setState({ grow: !this.state.grow });
     }
 
-    // growshrink() {
-    //     if (this.state.grow) {
-    //         return 'users-index-item-container'
-    //     } else {
-    //         return 'shrink'
-    //     }
-    // }
-
     render() {
         if (this.props.currentUser._id === undefined) return null
         return (
             <div className='user-menu'>
-                <div className='user-header'>
-                    <p className="user-greeting">
-                        Hello, {this.props.currentUser.username}
-                    </p>
+                <div className='menu-header'>
+                    Contacts
                 </div>
 
                 <div className='user-tabs-container'>

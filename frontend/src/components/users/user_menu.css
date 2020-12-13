@@ -1,6 +1,7 @@
 .user-menu{
     background: rgb(27,31,29);
     height: 100%;
+    padding: 0px 15px 15px 15px;
 }
 
 .user-header{
@@ -11,6 +12,11 @@
     transition: all 0.2s ease-out;
     color:  #D4D4D4;
     border-bottom: 10px solid rgb(27,31,29);
+}
+
+.menu-header{
+    color: white;
+    padding-bottom: 5px;
 }
 
 ul.user-menu-items li{

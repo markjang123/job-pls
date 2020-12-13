@@ -8,10 +8,7 @@
 } 
 
 .search-form{
-    margin: 0 1rem;  
     margin: auto;
-    padding-top: 35px;
-
 }
 
 .search-form li{
@@ -27,6 +24,7 @@
 #search{
     height: 35px;
     min-width: 265px;
+    background: none;
 
 }
 #company-search{
@@ -54,7 +52,7 @@
 #search-button{
     height: 35px;
     width: 100%;
-    background: powderblue;
+    background: #9fe5ff;
     box-sizing: border-box;
     padding: 6px 0px 5px 0px;
 
@@ -91,7 +89,6 @@
     text-align: center;
 }
 
-
 .search-dropdown-div{
     margin-top: 5px;
 }
@@ -106,13 +103,7 @@
     border-radius: 8px 0px 8px 0px;
 }
 
-.search-dropdown-div option{
-}
 .search-dropdown-div select:hover{
-    background-color: powderblue;
+    background-color: #9fe5ff;
 }
 
-
-
-.search-dropdown-div .location-dropdown option{
-}

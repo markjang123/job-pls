@@ -8,7 +8,7 @@
 
 .users-label{
     margin-top: 45px;
-    background: powderblue;
+    background: #9fe5ff;
     height: 50px;
     width: 50px;
     padding-top: 20px;
@@ -29,21 +29,15 @@
 }
 
 .users-index-item-container{
-    height: 86%;
-    width: 450px;
+    height: 90%;
+    width: 350px;
     overflow-y: auto;
-
-}
-
-
-.shrink{
-    display: none;
 }
 
 .users-index-item {
     height: 60px;
-    width: 90%;
-    border-radius: 15px 0px 15px 0px;
+    width: 100%;
+    /* border-radius: 15px 0px 15px 0px; */
     background: white;
     margin-bottom: 10px;
     position: relative;

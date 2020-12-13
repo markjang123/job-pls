@@ -1,12 +1,11 @@
 .index-container{
     display: flex;
     flex-direction: row;
-    height: 100%;
+    height: calc(100vh - 130px);
     align-content: center;
 }
 
 .jobs-grid{
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -266,7 +265,8 @@ input[type='radio']{
 #job-title{
     font-size: 22px;
     text-align: left;
-    color: rgb(32, 32, 32) 
+    color: rgb(32, 32, 32);
+    font-weight: bold;
 }
 
 #company{

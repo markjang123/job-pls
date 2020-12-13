@@ -28,10 +28,7 @@ class PostEdit extends React.Component {
     displayNotes(){
         return(
             <div>
-                <textarea onChange={this.update("notes")}>
-                    {this.state.notes}
-
-                </textarea>
+                <textarea defaultValue={this.state.notes} onChange={this.update("notes")}/>
             </div>
         )
     }

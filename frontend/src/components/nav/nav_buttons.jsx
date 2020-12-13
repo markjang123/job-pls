@@ -13,7 +13,12 @@ class NavButtons extends React.Component {
     
         return (
             <div className='nav-buttons'>
-                <div id='job-pls-logo' onClick={() => this.props.history.push('/jobs')}> My jobs</div>
+                <div className='nav-user-info'>
+                    <div className='nav-user-greeting'>
+                        Hello, {this.props.currentUser.username}
+                    </div>
+                    <div id='job-pls-logo' onClick={() => this.props.history.push('/jobs')}> My jobs</div>
+                </div>
                 <button onClick={() => logout()} className="logout-button">logout</button>
             </div>
         )
