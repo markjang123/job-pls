@@ -1,12 +1,15 @@
 .user-show-container {
     height: 100%;
     width: 100%;
+    padding-top: 10px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: column;
     color: rgb(27 ,31, 29);
     overflow-y: auto;
+    box-shadow: inset 0 1px 10px 0 rgba(0, 0, 0, .1); 
+
 }
 
 #user-show-username {
@@ -26,7 +29,6 @@
     width: 350px;
     display: flex;
     flex-direction: column;
-    /* padding: 0px 15px 0px 15px; */
 }
 
 .jobs-priority{
@@ -93,21 +95,21 @@
 
 .job-priority-three::after{
     background: rgb(255, 0, 8);
-    background: linear-gradient(45deg, rgb(211, 97, 240) 15%, rgb(255, 0, 8) 45%, rgb(177, 2, 7) 100%);
+    background: linear-gradient(45deg, rgb(201, 126, 219) 15%, rgb(255, 0, 8) 65%, rgb(116, 10, 13) 100%);
     animation: animatedgradient 8s ease alternate infinite;
     background-size: 500% 500%;
 }
 
 .job-priority-two::after{
     background: rgb(202, 53, 175);
-    background: linear-gradient(90deg, rgb(126, 98, 204) 25%,  rgb(202, 53, 175) 65 rgb(105, 18, 89) 100%);
+    background: linear-gradient(90deg, rgb(114, 53, 170) 25%,  rgb(202, 53, 175) 65%, rgb(105, 18, 89) 100%);
     animation: animatedgradient 8s ease alternate infinite;
     background-size: 500% 500%;
 }
 
 .job-priority-one::after{
     background: rgb(0, 185, 255);
-    background: linear-gradient(90deg,rgb(159, 229, 255) 25%, rgb(0, 185, 255) 65%, rgb(90, 2, 255) 100%); 
+    background: linear-gradient(90deg,rgb(159, 229, 255) 25%, rgb(0, 185, 255) 65%, rgb(42, 4, 179) 100%); 
     animation: animatedgradient 8s ease alternate infinite;
     background-size: 500% 500%;
 }
@@ -138,6 +140,7 @@
     align-items: center;
     height: calc(100% - 65px) ;
     overflow-y: auto;
+    padding-bottom: 15px;
     z-index: 1;
 }
 
@@ -160,17 +163,26 @@
     cursor: pointer;
 }
 
+.tab label::after{
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
 .tab {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: 100%;
     cursor: pointer;
     text-align: center;
-    display: flex;
-    align-content: center;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
     color: rgb(27 ,31, 29);
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+.tab::after{
+    transition: all 0.4s;
     cursor: pointer;
 }
 

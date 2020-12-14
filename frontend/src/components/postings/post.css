@@ -149,6 +149,7 @@ input[type='radio']{
 
 .radio-container input[type='radio']:checked + label::after{
     background: rgb(27, 31, 29);
+    transition: all 0.4s;
 }
 
 
@@ -324,6 +325,8 @@ input[type='radio']{
 .description-container{
     height: 40%;
     overflow-y: auto;  
+    font-size: 18px;
+    /* font-weight: 1000px; */
 }
 
 #show-title{
