@@ -19,13 +19,17 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 120%;
+	color: rgb(27,31,29);
 	font: inherit;
 	vertical-align: baseline;
 	text-decoration: none;
-    /* font-family: "Lucida Console", Monaco, monospace; */
-    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+}
+
+font{
+
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -35,6 +39,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	background: rgb(184, 184, 184, 0.4);
 }
 ol, ul {
 	list-style: none;
@@ -87,7 +92,7 @@ textarea
 	line-height:1;
 	/* Browsers have different default form fonts */
 	font-size:13px;
-	font-family:Arial;
+	font-weight: 700px;
 }
 
 /* Remove the stupid outer glow in Webkit */
@@ -220,5 +225,5 @@ select
 select[multiple] 
 {
 	/* Move the label to the top */
-	vertical-align:top;
+	/* vertical-align:top; */
 }

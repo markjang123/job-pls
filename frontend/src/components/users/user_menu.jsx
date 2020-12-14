@@ -14,13 +14,28 @@ class UserMenu extends React.Component {
             // tab: "followers"};
         // this.growshrink = this.growshrink.bind(this);
         this.resize = this.resize.bind(this);
-        this.renderUserIndex = this.renderUserIndex.bind(this);
+        // this.renderUserIndex = this.renderUserIndex.bind(this);
+        this.usersMenu = this.usersMenu.bind(this);
+        this.update = this.update.bind(this);
+    }
+
+    update(field) {
+        return e => {
+            this.setState({ [field]: e.target.value })
+        };
     }
 
     renderTab() {
         switch (this.state.tab) {
             case 'users':
-                return this.renderUserIndex();
+                return (
+                    <div className='users-index-item-container'>
+                        {this.props.users.map(user => {
+                            if (user._id === this.props.currentUser._id) return null
+                            return <UserIndexItemContainer key={user._id} user={user} />
+                        })}
+                    </div>
+                )
             case "followers":
                 return (
                     <UserFollowIndexContainer 
@@ -41,20 +56,59 @@ class UserMenu extends React.Component {
         }
     }
 
-
-    renderUserIndex(){
-        return(
-            <div className='users-index-item-container'>
-                {this.props.users.map(user => {
-                    if (user._id === this.props.currentUser._id) return null
-                    return <UserIndexItemContainer key={user._id} user={user} />
-                })}
-            </div> 
-        )
+    selectedTab(){
+        return('selected-tab')
     }
+
+
+    // renderUserIndex(){
+    //     return(
+    //         <div className='users-index-item-container'>
+    //             {this.props.users.map(user => {
+    //                 if (user._id === this.props.currentUser._id) return null
+    //                 return <UserIndexItemContainer key={user._id} user={user} />
+    //             })}
+    //         </div> 
+    //     )
+    // }
 
     resize() {
         this.setState({ grow: !this.state.grow });
+    }
+
+    usersMenu(){
+        return(
+            <div class="tabs">
+                <input name="tab"
+                    className='tab'
+                    id="followers"
+                    type="radio"
+                    onClick={() => this.setState({ tab: 'followers'})}
+                    />
+                <label for="followers">Followers
+                    ({[...new Set(this.props.currentUser.following_users)].length})</label>
+
+                <input name="tab"
+                    className='tab'
+                    id="following"
+                    type="radio"
+                    onClick={() => this.setState({ tab: 'following' })}
+                    />
+                <label for="following">Following
+                    ({[...new Set(this.props.currentUser.followed_users)].length})
+                    </label>
+
+                <input name="tab"
+                    className='tab'
+                    id="users"
+                    type="radio"
+                    onClick={() => this.setState({ tab: 'users' })} 
+                    />
+                <label for="users">All Users 
+                    ({[...new Set(this.props.users)].length})
+                    </label>
+            </div>
+        )
     }
 
     render() {
@@ -66,7 +120,8 @@ class UserMenu extends React.Component {
                 </div>
 
                 <div className='user-tabs-container'>
-                    <div className='tabs'>
+                    {this.usersMenu()}
+                    {/* <div className='tabs'>
                         <div
                             className="tab"
                             onClick={() => this.setState({ tab: "followers" })}>
@@ -85,16 +140,9 @@ class UserMenu extends React.Component {
                             All Users
                             ({[...new Set(this.props.users)].length})
                             </div>
-                    </div>
-
-                    {/* <div className='users-index-item-container'> */}
+                    </div> */}
                         {this.renderTab()}
-                    {/* </div> */}
                 </div> 
-
-                {/* <div className="profile-content">
-                    {this.renderTab()}
-                </div> */}
             </div>
         )
     }

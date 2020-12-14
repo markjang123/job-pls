@@ -8,16 +8,21 @@
 } 
 
 .search-form{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+
     margin: auto;
 }
 
-.search-form li{
-}
 
 #search-bar-container, 
-#company-search-container,
-#search-button{
+#company-search-container{
     margin: 8px 8px 8px 8px;
+    /* border-bottom: 2px solid rgb(27, 31, 29); */
+    border-bottom: 2px solid rgb(184, 184, 184);
+
 }
 
 
@@ -49,22 +54,32 @@
     height: 35px;
 }
 
-#search-button{
+/* #search-button{ 
     height: 35px;
     width: 100%;
     background: #9fe5ff;
     box-sizing: border-box;
     padding: 6px 0px 5px 0px;
+    
+}
+*/
 
+.selects{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    /* height: 35px; */
+    /* background: red; */
 }
 
-.search-input-div{
-
+.search-inputs-div{
+    display: flex;
+    flex-direction: column;
 }
 
 
 .search-input-div input{
-
     border-bottom: 2px solid mintcream;
     color: mintcream;
     max-width: 100%;
@@ -84,20 +99,24 @@
 .search-input-div button{
     font-size: 19px;
     padding-left: 9px;
-    box-sizing: content-box;
     border-left: none;
     text-align: center;
 }
 
+
+
 .search-dropdown-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     margin-top: 5px;
 }
 
 .search-dropdown-div select{
     background-color: mintcream;
     color: rgb(32, 32, 32);
-    font-size: 16px;
-    font-weight: 600;
+    /* font-size: 16px; */
+    /* font-weight: 600; */
     padding-left: 10px;
     margin: 0px 14px;
     border-radius: 8px 0px 8px 0px;
