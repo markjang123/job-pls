@@ -3,10 +3,9 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: rgb(27 ,31, 29);
     overflow-y: auto;
 }
 
@@ -24,28 +23,25 @@
 .tabs-container {
     font-weight: bold;
     height: 100vh;
-    width: 325px;
+    width: 350px;
     display: flex;
     flex-direction: column;
-    padding: 0px 15px 0px 15px;
-    background-color:rgb(27,31,29);
+    /* padding: 0px 15px 0px 15px; */
 }
 
 .jobs-priority{
     height: 100vh;
-    width: 325px;
+    width: 20%;
     display: flex;
     flex-direction: column;
     padding: 0px 15px 0px 15px;
-    background-color:rgb(27,31,29);
-
 }
 
 .menu-header{
     padding-top: 10px;
     font-size: 20px;
     text-align: center;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #afafaf;
 }
 
 .job-priority-header{
@@ -54,46 +50,95 @@
     margin-bottom: 15px;
 }
 
-.job-priority-card{
-    height: 95px;
-    width: 100%;
+
+.job-priority-white, .job-priority-one, .job-priority-two, .job-priority-three{
+    position: relative;
     margin-bottom: 10px;
-    padding: 5px;
-    background: white;
-    box-sizing: border-box;
+    z-index: 3;
 }
 
-#white, #one, #two, #three{
-    height:100%;
-    border-radius: 5px;
-    padding: 5px;
+#card{
+    height: 100px;
+    width: 90%;
+    border-radius: 10px;
     box-sizing: border-box;
+    transition: all 0.2s ease-out;
+}
+
+#card:hover{
+    box-shadow: 2px 2px 2px 2px rgba(192, 192, 192, 0.25);
+    transform: scale(1.01);
+}
+
+.job-priority-white::after, .job-priority-one::after, .job-priority-two::after, .job-priority-three::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(100% + 5px);
+    width: calc(100% + 5px);
+    z-index: -1;
+}
+
+
+.job-priority-data{
+    height: 100%;
+    width: 100%;
+    padding: 10px;
     text-overflow: ellipsis;
+    background: #dfdfdf;
+    box-sizing: border-box;
 }
 
-#three{
+.job-priority-three::after{
     background: rgb(255, 0, 8);
-    background: linear-gradient(30deg, rgb(202, 53, 175) 0%, rgb(255, 0, 8) 45%);
-    transition: all 0.4s;
+    background: linear-gradient(45deg, rgb(211, 97, 240) 15%, rgb(255, 0, 8) 45%, rgb(177, 2, 7) 100%);
+    animation: animatedgradient 8s ease alternate infinite;
+    background-size: 500% 500%;
 }
 
-#two{
+.job-priority-two::after{
     background: rgb(202, 53, 175);
-    background: linear-gradient(30deg, rgb(155, 53, 202) 0%, rgb(202, 53, 175) 45%, rgb(202, 53, 175) 100%);
+    background: linear-gradient(90deg, rgb(126, 98, 204) 25%,  rgb(202, 53, 175) 65 rgb(105, 18, 89) 100%);
+    animation: animatedgradient 8s ease alternate infinite;
+    background-size: 500% 500%;
 }
 
-#one{
+.job-priority-one::after{
     background: rgb(0, 185, 255);
-    background: linear-gradient(30deg,rgb(159, 229, 255) 0%, rgb(0, 185, 255) 45%); 
+    background: linear-gradient(90deg,rgb(159, 229, 255) 25%, rgb(0, 185, 255) 65%, rgb(90, 2, 255) 100%); 
+    animation: animatedgradient 8s ease alternate infinite;
+    background-size: 500% 500%;
 }
 
-#white{
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+
+.white{
     background: white;
 }
 
 .job-priority-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: calc(100% - 65px) ;
     overflow-y: auto;
+    z-index: 1;
 }
 
 .user-tabs-container{
@@ -103,32 +148,42 @@
 
 .tabs{
     display: flex;
+    height: 35px;
     flex-direction: row;
-    padding-top: 10px;
-    padding-bottom: 15px;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
 }
 
-.menu-header{
-    padding-top: 10px;
-    font-size: 20px;
-    text-align: center;
-    border-bottom: 2px solid white;
+.tabs > input[type='radio']:checked + label{
+    border-bottom: 2px solid #afafaf;
+    cursor: pointer;
 }
 
 .tab {
     width: 100%;
     height: 100%;
-    text-align: center;
     cursor: pointer;
+    text-align: center;
     display: flex;
+    align-content: center;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    color: white;
+    color: rgb(27 ,31, 29);
+    cursor: pointer;
 }
 
 .tab:focus {
-    border-top: 10px solid rgb(190,189,186);
+    border-bottom: 10px solid rgb(190,189,186);
+    cursor: pointer;
 }
+
+#selected-tab{
+    border-bottom: 2px solid #afafaf;
+    transition: border 500ms ease-out;
+}
+
 
 .profile-content{
     display: flex;
@@ -141,6 +196,7 @@
     display: none;
     overflow-y: auto;
 }
+
 
 .user-follow-index {
     height: 100vh;

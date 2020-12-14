@@ -1,5 +1,6 @@
 import React from 'react';
 import './nav.css';
+import logo from './logo192.png'
 
 
 class NavButtons extends React.Component {
@@ -15,6 +16,8 @@ class NavButtons extends React.Component {
             <div className='nav-buttons'>
                 <div className='nav-user-info'>
                     <div className='nav-user-greeting'>
+
+                        <img id='logo' src={logo}></img>
                         Hello, {this.props.currentUser.username}
                     </div>
                     <div id='job-pls-logo' onClick={() => this.props.history.push('/jobs')}> My jobs</div>

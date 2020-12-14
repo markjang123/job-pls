@@ -34,13 +34,11 @@ class App extends React.Component{
 
     render() {
         return(
-            <div className='app'>
+        <div className='app'>
                 <Modal />
-                <ul className='display-content' >
-                    <li>
-                        <PrioritizedPostsContainer/>
-                    </li>
-                    <li id='job-content'>
+                <div className='display-content' >
+                        <PrioritizedPostsContainer/> 
+                    <div id='job-content'>
                             <NavShowContainer/>
                             <Switch>
                                 <AuthRoute exact path="/" component={SplashContainer} formType="signup"/>
@@ -52,12 +50,13 @@ class App extends React.Component{
                                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
                             </Switch>
-                    </li>
-                    <li id='sidebar-content'>
+                    </div>
+                    <div id='sidebar-content'>
                         <UserMenuContainer/>
-                    </li>
-                </ul>
+                </div>
+            </div>
         </div>
+
     );
     }
 

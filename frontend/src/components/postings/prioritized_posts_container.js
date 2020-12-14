@@ -3,22 +3,22 @@ import { connect } from 'react-redux';
 import { fetchCurrentUserPostings, setLoading } from '../../actions/posting_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { fetchAllUsers } from '../../actions/user_actions';
-import { prioritizer } from '../../reducers/jobs_selector'
+import { prioritizer, lowPrioritizer, mediumPrioritizer, highPrioritizer } from '../../reducers/jobs_selector'
 
 
 const mSTP = state => {
 
-    // let posts = state.entities.posts.user
     let posts = state.session.user.followed_posting
 
     return {
-        // myPosts: Object.values(state.session.user.followed_posting),
         currentUser: state.session.user._id,
-        // posts: state.entities.posts.user,
         modal: state.ui.modal,
         openUsers: false,
         hasUsers: !!Object.keys(state.entities.users).length,
-        prioritizedPosts: prioritizer(posts)
+        prioritizedPosts: prioritizer(posts),
+        highPriority: highPrioritizer(posts),
+        mediumPriority: mediumPrioritizer(posts),
+        lowPriority: lowPrioritizer(posts)
     }
 }
 
