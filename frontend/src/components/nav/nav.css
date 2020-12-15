@@ -42,7 +42,7 @@
     /* align-items: center; */
     /* align-content: center; */
     width: 100%;
-    height: 130px;
+    height: 75px;
     /* box-sizing: border-box; */
 }
 
@@ -437,6 +437,7 @@
     justify-content: center;
     box-shadow: inset 0 1px 10px 0 rgba(0, 0, 0, .1); 
     color: rgb(27, 31, 29);
+    text-align: center;
 }
 
 

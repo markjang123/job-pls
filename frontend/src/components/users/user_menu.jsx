@@ -60,18 +60,6 @@ class UserMenu extends React.Component {
         return('selected-tab')
     }
 
-
-    // renderUserIndex(){
-    //     return(
-    //         <div className='users-index-item-container'>
-    //             {this.props.users.map(user => {
-    //                 if (user._id === this.props.currentUser._id) return null
-    //                 return <UserIndexItemContainer key={user._id} user={user} />
-    //             })}
-    //         </div> 
-    //     )
-    // }
-
     resize() {
         this.setState({ grow: !this.state.grow });
     }
@@ -121,27 +109,7 @@ class UserMenu extends React.Component {
 
                 <div className='user-tabs-container'>
                     {this.usersMenu()}
-                    {/* <div className='tabs'>
-                        <div
-                            className="tab"
-                            onClick={() => this.setState({ tab: "followers" })}>
-                            Followers 
-                            ({[...new Set(this.props.currentUser.following_users)].length})
-                            </div>
-                        <div
-                            className="tab"
-                            onClick={() => this.setState({ tab: "following" })}>
-                            Following 
-                            ({[...new Set(this.props.currentUser.followed_users)].length})
-                            </div>
-                        <div
-                            className="tab"
-                            onClick={() => this.setState({ tab: "users" })}>
-                            All Users
-                            ({[...new Set(this.props.users)].length})
-                            </div>
-                    </div> */}
-                        {this.renderTab()}
+                    {this.renderTab()}
                 </div> 
             </div>
         )

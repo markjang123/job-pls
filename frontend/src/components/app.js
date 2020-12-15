@@ -34,32 +34,35 @@ class App extends React.Component{
 
     render() {
         return(
-        <div className='app'>
-                <Modal />
-                <NavButtonsContainer/>
+            <div className='app'>
                 <div className='display-content' >
-                    {/* <div id='sidebar-content'> */}
-                        <PrioritizedPostsContainer/> 
-                    {/* </div> */}
-                    <div id='job-content'>
-                            <NavShowContainer/>
-                            <Switch>
-                                <AuthRoute exact path="/" component={SplashContainer} formType="signup"/>
-                                <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
-                                <ProtectedRoute path="/jobs" component={PostIndexContainer} />
-                                <ProtectedRoute exact path="/jobs/sorted" component={SortedPostIndexContainer} />
-                                <ProtectedRoute path="/search" component={SearchTabContainer} />
-                                <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
-                                <AuthRoute exact path="/login" component={LoginFormContainer} />
-                                <AuthRoute exact path="/signup" component={SignupFormContainer} />
-                            </Switch>
+                    <div className='header-content'>
+                        <NavButtonsContainer/>
                     </div>
-                    <div id='sidebar-content'>
-                        <UserMenuContainer/>
+                    <div className='body-content'>
+                        <div id='sidebar-content'>
+                            <PrioritizedPostsContainer/> 
+                        </div>
+                        <div id='job-content'>
+                                <NavShowContainer/>
+                                    <Modal />
+                                <Switch>
+                                    <AuthRoute exact path="/" component={SplashContainer} formType="signup"/>
+                                    <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
+                                    <ProtectedRoute path="/jobs" component={PostIndexContainer} />
+                                    <ProtectedRoute exact path="/jobs/sorted" component={SortedPostIndexContainer} />
+                                    <ProtectedRoute path="/search" component={SearchTabContainer} />
+                                    <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
+                                    <AuthRoute exact path="/login" component={LoginFormContainer} />
+                                    <AuthRoute exact path="/signup" component={SignupFormContainer} />
+                                </Switch>
+                        </div>
+                        <div id='sidebar-content'>
+                            <UserMenuContainer/>
+                        </div>
                     </div>
+                </div>
             </div>
-        </div>
-
     );
     }
 

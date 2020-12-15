@@ -13,8 +13,6 @@ const mSTP = state => {
     return {
         currentUser: state.session.user._id,
         modal: state.ui.modal,
-        // openUsers: false,
-        // hasUsers: !!Object.keys(state.entities.users).length,
         prioritizedPosts: prioritizer(posts),
         highPriority: highPrioritizer(posts),
         mediumPriority: mediumPrioritizer(posts),
@@ -25,9 +23,6 @@ const mSTP = state => {
 const mDTP = dispatch => {
 
     return {
-        // setLoading: () => dispatch(setLoading()),
-        // fetchCurrentUserPostings: userId => dispatch(fetchCurrentUserPostings(userId)),
-        // fetchAllUsers: () => dispatch(fetchAllUsers()),
         openModal: type => dispatch(openModal(type)),
         closeModal: () => dispatch(closeModal()),
     }

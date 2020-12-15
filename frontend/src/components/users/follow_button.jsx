@@ -3,10 +3,11 @@ import './users_index.css';
 
 class FollowButton extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = {following: this.props.is_following()};
-        this.followUser = this.followUser.bind(this);
-        this.unfollowUser = this.unfollowUser.bind(this);
+        super(props)
+        this.state = {following: this.props.is_following()}
+        this.followUser = this.followUser.bind(this)
+        this.unfollowUser = this.unfollowUser.bind(this)
+        this.styling = this.styling.bind(this)
     }
 
     followUser(){
@@ -29,25 +30,41 @@ class FollowButton extends React.Component {
             .then(() => this.props.forceUpdate())
 
     }
+
+
+    styling(style) {
+        switch (style) {
+            case ('user-show'):
+                    return 'users-show-follow-button';
+                default:
+                    return 'follow-button';
+        }
+    }
+
     render(){
+        let { style } = this.props.style
         if(this.props.user._id === this.props.currentUser._id){
             return null;
         }
         return (
-            <button
-                onClick={
-                    this.props.is_following()
-                        ? this.unfollowUser
-                        : this.followUser}
-                id={
-                    this.props.is_following()
+            <div>
+                <br></br>
+
+                <button
+                    onClick={
+                        this.props.is_following()
+                            ? this.unfollowUser
+                            : this.followUser}
+                    id={
+                        this.props.is_following()
+                            ? "following"
+                            : "follow"}
+                    className={this.styling(style)}>
+                    {this.props.is_following()
                         ? "following"
                         : "follow"}
-                className="follow-button">
-                {this.props.is_following()
-                    ? "following"
-                    : "follow"}
-            </button>
+                </button>
+            </div>
         );
     }
 }

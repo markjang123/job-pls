@@ -11,7 +11,6 @@ class PrioritizedPostsContainer extends React.Component {
         this.prioritySelector = this.prioritySelector.bind(this)
     }
 
-
     priorityMenu() {
         return (
             <div class="tabs">
@@ -57,17 +56,6 @@ class PrioritizedPostsContainer extends React.Component {
         )
     }
 
-
-    // openUsersIndex(openUsers) {
-    //     if (openUsers) {
-    //         return (
-    //             <UserIndexContainer />
-    //         )
-    //     } else {
-    //         return null;
-    //     }
-    // }
-
     prioritySelector(priority){
 
         let { 
@@ -94,7 +82,6 @@ class PrioritizedPostsContainer extends React.Component {
                         ))
                     }
                     </div>
-
                 );
             case ('high'):
                 return (
@@ -132,7 +119,6 @@ class PrioritizedPostsContainer extends React.Component {
                             ))
                         }
                     </div>
-
                 );
             case ('low'):
                 return (
@@ -163,8 +149,7 @@ class PrioritizedPostsContainer extends React.Component {
             closeModal,
             modal,
             currentUser,
-            prioritizedPosts,
-            // openUsers
+            prioritizedPosts
         } = this.props;
 
         let { priority } = this.state
@@ -173,13 +158,17 @@ class PrioritizedPostsContainer extends React.Component {
 
         if (prioritizedPosts === null) {
             return (
-                <div className='no-results'>
-                    No results to display yet. :&#41;
+                <div className='user-menu'>
+                    <div className='menu-header'>My Jobs by priority</div>
+                    {this.priorityMenu()}
+                    <div className='no-results'>
+                        You haven't saved and prioritized any jobs yet! hit the search! :&#41;
+                    </div>
                 </div>
             )
         } else {
             return (
-                    <div className='jobs-priority'>
+                    <div className='user-menu'>
                         <div className='menu-header'>My Jobs by priority</div>
                         {this.priorityMenu()}
                         {this.prioritySelector(priority)}
