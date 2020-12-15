@@ -1,4 +1,4 @@
-.index-container{
+.index-container, .search-result-container{
     display: flex;
     flex-direction: row;
     height: calc(100vh - 130px);
@@ -280,7 +280,7 @@ input[type='radio']{
     font-weight: bold;
 }
 
-#company{
+#company, #location{
     margin: 5px 0px;
     font-size:13px;
     text-decoration: underline;

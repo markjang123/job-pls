@@ -10,7 +10,7 @@ import Modal from './modal/modal.jsx';
 import SearchTabContainer from './search/search_tab_container';
 import { AuthRoute, ProtectedRoute} from '../util/route_util';
 import NavShowContainer from './nav/nav_container';
-// import NavButtonsContainer from './nav/nav_buttons_container';
+import NavButtonsContainer from './nav/nav_buttons_container';
 import SplashContainer from './splash/splash_container';
 
 import UserShowContainer from './users/user_show_container';
@@ -36,8 +36,11 @@ class App extends React.Component{
         return(
         <div className='app'>
                 <Modal />
+                <NavButtonsContainer/>
                 <div className='display-content' >
+                    {/* <div id='sidebar-content'> */}
                         <PrioritizedPostsContainer/> 
+                    {/* </div> */}
                     <div id='job-content'>
                             <NavShowContainer/>
                             <Switch>
@@ -53,7 +56,7 @@ class App extends React.Component{
                     </div>
                     <div id='sidebar-content'>
                         <UserMenuContainer/>
-                </div>
+                    </div>
             </div>
         </div>
 

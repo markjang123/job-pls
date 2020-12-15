@@ -23,15 +23,15 @@ class UsersIndexItem extends React.Component {
 
         let { _id, username } = this.props.user
         return(
-        <div className="users-index-item">
+        <div className="users-index-item" id='username-card'>
             <div className="username-container">
-                <p className="username" >
+                <div className="username-data" >
                     <Link 
                         className="username-link" 
                         to={`/users/${_id}`}>
                             {username}
                     </Link>
-                </p>
+                </div>
             </div>
 
             <FollowButtonContainer 

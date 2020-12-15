@@ -1,25 +1,31 @@
 .app{
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: center; */
+  /* background: red; */
+  /* align-items: center; */
   margin: auto;
-  align-content: center;
-  max-width: 1920px;
+  /* align-content: center; */
+  /* max-width: 1920px; */
   height: 100vh;
 
   z-index: 1;
-  max-width: 2000px;
-  min-width:800px;
-  box-sizing: border-box;
+  max-width: 1760px;
+  /* min-width:800px; */
+  /* box-sizing: border-box; */
   overflow: hidden;
 }
 
 .display-content{
   display: flex;
   flex-direction: row;
+  justify-content: center;
   height: 100%;
   z-index: 0;
 } 
 
 #job-content{
-  width:60%;
+  width:50%;
   height: 100vh;
 }
 

@@ -1,21 +1,22 @@
 import React from "react";
 import SearchPostingItem from './search_posting_item_container';
+import SearchPostingIndexItem from './search_posting_index_item';
 import { createPosting } from './create_posting';
 
-class SearchPostingIndex extends React.Component{
+class SearchPostingIndex extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         // this.idSelector = this.idSelector.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.setCurrentPosting(this.props.searchedPostings[0]);
     }
 
-    
-    handleClick(posting){
+
+    handleClick(posting) {
         this.props.setCurrentPosting(posting);
     }
 
@@ -32,34 +33,35 @@ class SearchPostingIndex extends React.Component{
 
     // }
 
-    render(){
-        if(this.props.searchedPostings.length === 0) return null;
+    render() {
+        if (this.props.searchedPostings.length === 0) return null;
 
-        if(this.props.currentUser.followed_posting === undefined) return null;
-        
+        if (this.props.currentUser.followed_posting === undefined) return null;
+
         const { searchedPostings } = this.props;
-        
-        return(
+
+        return (
             <div className="search-result-container">
                 <div className="search-result-list">
-                    <ul className="posting-list">
-                        {searchedPostings.map((posting, idx) => {
-                            return(
-                                <li
-                                    onClick={() => this.handleClick(createPosting(posting))}
-                                    key={posting.posting_id} 
-                                    id={posting === this.props.currentPosting
-                                    ? "selected-posting" 
-                                    : null}>
-                                        <div className="posting-list-title">{posting.job_title ? posting.job_title : ""}</div>
-                                        <div className="posting-list-company">{posting.company ? posting.company : ""}</div>
-                                        <div className="posting-list-location">{posting.location ? posting.location : ""}</div>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </div>
-                <SearchPostingItem/>
+                    {searchedPostings.map(posting => (
+                        <SearchPostingIndexItem
+                            // className='job'
+                            onClick={() => this.handleClick(createPosting(posting))}
+                            post={posting}
+                            key={posting.posting_id}
+                            id={posting === this.props.currentPosting
+                                ? "selected-posting" 
+                                : null}
+                            // currentUser={currentUser}
+                            // modal={modal}
+                            // openModal={openModal}
+                            // closeModal={closeModal
+                            // }
+                        />
+                    ))}
+                                    </div>
+                    
+                <SearchPostingItem />
             </div>
         )
     }

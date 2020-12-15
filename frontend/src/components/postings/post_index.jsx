@@ -63,7 +63,8 @@ class PostIndex extends React.Component{
 
                 <div className='index-container'>
                     <div className='jobs-grid'>
-                        {posts.reverse().map(post => (
+                        {/* {posts.reverse().map(post => ( */}
+                        {posts.map(post => (
                                 <PostIndexItem 
                                     className='job'
                                     post={post}

@@ -15,7 +15,11 @@
 
 .menu-header{
     color: rgb(27 ,31, 29);
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
+    height: 36px;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 2px solid #afafaf;
 }
 
 ul.user-menu-items li{

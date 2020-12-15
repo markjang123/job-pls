@@ -1,10 +1,8 @@
 .users-index {
-    /* float: right; */
     display: flex;
     flex-direction: row;
     overflow-y: auto;
     height: 100%;
-    /* background: red; */
 }
 
 .users-label{
@@ -35,32 +33,55 @@
     height: calc(100% - 95px);
     width: 100%;
     overflow-y: auto;
-
 }
 
-
-.users-index-item {
-    height: 60px;
+.users-index-item{
+    height: 100px;
     width: 90%;
-    margin-bottom: 10px;
     position: relative;
     margin-left: auto;
-    margin-right: auto;
+    /* margin-right: auto; */
     transition: all 0.2s ease-out;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(184, 184, 184);
+    border-bottom: 1px solid rgba(184, 184, 184, 0.445);
     box-sizing: border-box;
     transition: all 0.2s ease-out;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2); 
+    z-index: 3;
 }
 
-.users-index-item:hover {
-    box-shadow: 2px 2px 2px 2px rgba(192, 192, 192, 0.25);
-    transform: scale(1.03);
+#username-card:hover{
+    transform: translate(-10px, 0px);
+}
+/* .users-index-item:hover{
+    transform: translate(-10px, 0px);
+} */
+
+.users-index-item::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100%);
+    width: calc(100% + 5px);
+    z-index: -1;
+    padding-left: 5px;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgb(209, 209, 209) 15%, rgb(85, 85, 85) 35%, rgb(29, 28, 28) 75%);
+    animation: animatedgradient 8s ease alternate infinite;
+    background-size: 400% 400%;
 }
 
-.username {
+.username-data{
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    text-overflow: ellipsis;
+    background: white;
+    box-sizing: border-box;
+    margin-left: 10px;
+    /* float: right; */
+}
+
+.username{
     color: rgb(27, 31, 29) ;
     padding-top: auto;
     padding-bottom: auto;
@@ -82,7 +103,6 @@
 
 .username-link {
     text-decoration: none;
-
 }
 
 .username-container {
@@ -114,12 +134,12 @@
 
 #following {
     color:  rgb(255, 255, 255);
-    background-color: rgb(27 ,31, 29);
+    background: #9b9b9b;
     top: 10%;
 }
 
 #follow {
     background: #e6e6e6;
-    color: rgb(85, 85, 85);
+    color: #9b9b9b;
     top: 10%;
 }

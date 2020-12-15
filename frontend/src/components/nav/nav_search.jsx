@@ -144,7 +144,6 @@ class NavSearch extends React.Component{
                     {/* </div> */}
 
                 </form>
-                <NavShowContainer />
             </div>
         )
     }

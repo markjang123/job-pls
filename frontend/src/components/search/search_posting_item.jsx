@@ -74,12 +74,13 @@ class SearchPostingItem extends React.Component{
                         : ""}
                     </div>
                     <div className='posting-listing-buttons'>
-                        <button className="posting-listing-add-button" 
+                        {/* <button className="posting-listing-add-button"  */}
+                        <div className="posting-listing-add-button" 
                             onClick={this.handleClick}>
                                 { this.state.saved 
                                 ? "Delete job from My Jobs" 
                                 : "Save job to My Jobs"}
-                        </button>
+                        </div>
                         <div className="apply-to-job">
                             {posting_url 
                             ? <a href={posting_url} target='_blank'>Click here to apply</a> 
