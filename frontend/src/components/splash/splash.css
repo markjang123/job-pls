@@ -1,6 +1,7 @@
 .splash-container{
-    height: 100vh;
-    width: 100vw;
+	/* height: 100%;
+	width: 100%;
+	background: red; */
 }
 
 @keyframes gradient {
@@ -15,8 +16,10 @@
 	}
 }
 
-.splash-container{
-	overflow: scroll;
+.splash-slider{
+	overflow-y: scroll;
+	height: 100%;
+	width: 100%;
 }
 .splash-greeting {
 	color: white;

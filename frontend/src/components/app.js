@@ -35,6 +35,7 @@ class App extends React.Component{
     render() {
         return(
             <div className='app'>
+                <AuthRoute exact path="/" component={SplashContainer} formType="signup" />
                 <div className='display-content' >
                     <div className='header-content'>
                         <NavButtonsContainer/>
@@ -47,7 +48,7 @@ class App extends React.Component{
                                 <NavShowContainer/>
                                     <Modal />
                                 <Switch>
-                                    <AuthRoute exact path="/" component={SplashContainer} formType="signup"/>
+                                    {/* <AuthRoute exact path="/" component={SplashContainer} formType="signup"/> */}
                                     <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
                                     <ProtectedRoute path="/jobs" component={PostIndexContainer} />
                                     <ProtectedRoute exact path="/jobs/sorted" component={SortedPostIndexContainer} />
