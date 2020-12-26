@@ -1,5 +1,3 @@
-/*-- Search styles begin at line 90ish--*/
-/* results styles around 240 */
 
 .nav-buttons{
     display: flex;
@@ -7,39 +5,53 @@
 }
 
 #job-pls-logo{
-    background-image: url('../../images/job-pls-logo.png');
-    background-size: 30px;
+    background-size: 20px;
     background-repeat: no-repeat;
     width: 100px;
-    padding-left: 35px;
-    padding-top: 5px;
+    margin-left: 40px;
     cursor: pointer;
 }
 
 .nav-buttons{
     display: flex;
     flex-direction: row;
+    /* background: red; */
+    width: 100%;
+    height: 50px;
     justify-content: space-between;
-    color: rgb(212,212,212);
-    margin-left: 25px;
+    align-content: center;
+    align-items: center;
+    /* color: white; */
+    box-sizing: border-box;
+    /* padding: 15px 15px 0px 15px;     */
+}
+
+.nav-user-greeting{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* gap: 5px; */
+    border-right: 2px solid white;
+    width: 150px;
+    height: 20px;
+}
+
+.nav-user-info{
+    /* padding-left: 25px; */
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
 }
 
 
 .nav-container{
     display: flex;
     flex-direction: column;
-    position: relative;
+    align-items: center;
+    align-content: center;
     width: 100%;
-    min-height: 130px;
-    /* height: 300px; */
-    top: 0px;
-    position:relative;
-    /* overflow: hidden; */
-    background: rgb(27, 31, 29);
+    height: 130px;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
 
@@ -68,45 +80,33 @@
     align-items: center;
     padding-top: 10px;
     border-bottom: 2px solid rgb(27,31,29);
-
 }
 
 
 .logout-button {
     cursor: pointer;
-    /* position: absolute; */
-    /* right: 15%; */
-    float: right;
-    /* bottom: 0; */
-    /* margin: 5px; */
-    /* border-radius: 3px; */
-    font-family: Arial, Helvetica, sans-serif;
+    /* float: right; */
     font-weight: bold;
     height: 30px;
     width: 100px;
-    background-color: white;
-    /* z-index: 500; */
+    /* background-color: white; */
 }
+
 .sort-button {
     cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     height: 30px;
     width: 100px;
     background-color: white;
     border-radius: 3px;
 }
+
 .user-greeting {
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 30px;
     margin: 10px;
-    z-index: 500;
     position: absolute;
     bottom: 0px;
-}
-#tab:hover {
-    border-bottom: 2px solid rgb(212,212,212);
 }
 
 #tab button{
@@ -128,40 +128,21 @@
 
 
 #flex-tabs {
-    /* height: 100vh; */
     display: flex;
-    /* flex-wrap: wrap; */
-    /* flex-direction: row; */
     align-items: auto;
     align-content: start;
     padding-right:30px;
-    /* bottom: 0px;
-    right: 0px;
-    position:absolute;  */
 }
 
 /*-- search styles below  */
 
 #search-bars{
-    /* background: green; */
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
 }
-
-.search-form{
-    /* background: red; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* margin: 0 1rem;   */
-    /* margin: auto; */
-
-}
-
-
 
 
 #search{
@@ -187,10 +168,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-
 }
-
-
 
 .material-icons{
     height: 35px;
@@ -199,30 +177,26 @@
 #search-button{
     height: 35px;
     width: 100%;
-    background: powderblue;
-    /* box-sizing: border-box; */
+    background: #9fe5ff;
     padding: 6px 0px 5px 0px;
+}
 
+.search-inputs-divs{
+    display: flex;
+    flex-direction: column;
 }
 
 .search-input-div{
-    /* background: green; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
-
 }
 
-
 .search-input-div input{
-
-    border-bottom: 2px solid mintcream;
+    border-bottom: 2px solid rgb(27, 31, 29);
     color: mintcream;
     max-width: 100%;
     font-size: 19px;
-    /* padding-left: 9px; */
-    margin: 0px 0px;
 }
 
 .search-input-div placeholder{
@@ -236,54 +210,64 @@
 .search-input-div button{
     font-size: 19px;
     padding-left: 9px;
-    box-sizing: content-box;
     border-left: none;
     text-align: center;
 }
 
+.nav-select{
+    width: 30%;
+}
 
-.search-dropdown-div{
-    margin-top: 5px;
+#border{
+    border-radius: 0px;
+    border: 0px;
+    width: 100%;
+}
+.search-button-div{
+    width: 50px;
+    margin: 8px 8px 8px 8px;
 }
 
 .search-dropdown-div select{
-    background-color: mintcream;
-    color: rgb(32, 32, 32);
-    font-size: 16px;
-    font-weight: 600;
-    padding-left: 10px;
-    margin: 0px 14px;
-    border-radius: 8px 0px 8px 0px;
+    /* background-color: mintcream; */
+    /* color: rgb(32, 32, 32); */
+    /* font-size: 16px; */
+    /* font-weight: 600; */
+    /* padding-left: 10px; */
+    /* margin: 0px 14px; */
+    /* border-radius: 8px 0px 8px 0px; */
 }
 
 .search-dropdown-div select:hover{
-    background-color: powderblue;
+    background-color: #9fe5ff;
+}
+
+#logo{
+    height:30px;
 }
 
 /* results container */
-
 
 .search-result-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* margin: 0px auto; */
-    height: 80vh;
-    overflow-y: auto;
+    height: calc(100vh - 130px );
+    width: 100%;
     margin: auto;
-    margin-left: auto;
+    margin-left: auto; 
     margin-right: auto;
-    /* align-content: center; */
-    /* z-index:3px; */
+    box-sizing: border-box;
 }
 
 .search-result-list{
-    /* height: 80vh; */
+    height: 100%;
+    width: 100%;
 }
 
 .posting-list{
     height: 100%;
-    width: 25vw;
+    width: 100%;
     border-right: gray solid 1px;
     overflow-y: auto;
 }
@@ -292,40 +276,46 @@
     width: 100%;
     height: 110px;
     background-color: ghostwhite;
-    border-right: gray solid 1px;
-    border-top: lightgray solid 1px;
+    border-right: #afafaf solid 1px;
+    border-top: #afafaf solid 1px;
     list-style: none;
     text-overflow: ellipsis;
 }
 
 .posting-list li:hover{
     list-style: none;
-    background-color: lightgray;
+    background-color: #9fe5ff;
 }
 
 #selected-posting{
     list-style: none;
-    background-color: powderblue;
+    background-color: #9fe5ff;
 }
 
 .posting-listing-container{
     padding: 15px;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    width: 100%;
 }
 
 .posting-listing{
-    padding: 5px;
+    width: 100%;
 }
 
 .posting-listing-add-button{
     font-size: 20px;
     color: rgb(27,31,29);
-    background-color:powderblue;
-    /* margin-left: 20px; */
+    background-color:#9fe5ff;
     padding: 10px 25px;
     box-sizing: border-box;
     border-radius: 2px;
+}
+
+.posting-listing-buttons{
+    display: flex;
+    flex-direction: row;
 }
 
 .apply-to-job{
@@ -333,11 +323,14 @@
     font-size: 20px;
     color: mintcream;
     background-color: rgb(27, 31, 29);
-    /* margin-left: 20px; */
     padding: 10px 25px;
     box-sizing: border-box;
     border-radius: 2px;
 
+}
+
+.posting-listing-add-button, .apply-to-job{
+    width: 50%;
 }
 
 .apply-to-job:hover{
@@ -421,11 +414,6 @@
     box-sizing: border-box;
 }
 
-.posting-listing-type,
-.posting-listing-salary{
-
-}
-
 .posting-listing-link,
 .posting-listing-url{
     font-size: 22px;
@@ -434,15 +422,17 @@
     margin-bottom: 20px;
 }
 
-.loading-wheel-container{
+.loading-wheel-container, .no-results{
     display: flex;
-    position: absolute;
     width: 100%;
-    height: 95%;
+    height: 100%;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
-    opacity: .3;
+}
+
+.no-results{
+    color: black;
+    align-items: center;
 }
 
 .lds-ellipsis {

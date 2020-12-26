@@ -1,7 +1,7 @@
 import React from 'react';
 import './nav.css';
-// import NavButtonsContainer from './nav_buttons_container';
-// import SearchBarContainer from '../search/search_container';
+import logo from './logo192.png'
+
 
 class NavButtons extends React.Component {
     constructor(props) {
@@ -11,12 +11,18 @@ class NavButtons extends React.Component {
     render() {
         const { currentUser, logout } = this.props
         if (currentUser._id === undefined) return null;
-        debugger
+    
         return (
             <div className='nav-buttons'>
-                <div id='job-pls-logo' onClick={() => this.props.history.push('/jobs')}> My jobs</div>
+                <div className='nav-user-info'>
+                    <div className='nav-user-greeting'>
+
+                        <img id='logo' src={logo}></img>
+                        Hello, {this.props.currentUser.username}
+                    </div>
+                    <div id='job-pls-logo' onClick={() => this.props.history.push('/jobs')}> My jobs</div>
+                </div>
                 <button onClick={() => logout()} className="logout-button">logout</button>
-                
             </div>
         )
     }

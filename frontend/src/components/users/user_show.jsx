@@ -7,7 +7,7 @@ import './users_index.css';
 class UserShow extends React.Component{
     constructor(props){
         super(props);
-        this.state = {tab: "jobs"};
+        this.state = {tab: "followers"};
     }
 
     componentDidMount(){
@@ -26,10 +26,10 @@ class UserShow extends React.Component{
     
     renderTab(){
         switch(this.state.tab){
-            case "jobs":
-                return <UserPostsIndexContainer 
-                    jobs={this.props.userPostings.filter(job => job.public)}
-                />;
+            // case "jobs":
+            //     return <UserPostsIndexContainer 
+            //         jobs={this.props.userPostings.filter(job => job.public)}
+            //     />;
             case "followers":
                 return <UserFollowIndexContainer 
                     users={[...new Set(this.props.user.following_users)].map(userId => 
@@ -53,13 +53,38 @@ class UserShow extends React.Component{
         return(
 
             <div className="user-show-container">
-                
-                <div id="user-show-username">
-                  
-                        {username}
-                   
+                <div className="profile-content">
+                    <div className='tabs-container'>
+                        <div id="user-show-username">
+                                {username}
+                        </div>
+                        <div className='tabs'>
+                            <div
+                                className="tab"
+                                onClick={() => this.setState({ tab: "followers" })}>
+                                Followers ({[...new Set(this.props.user.following_users)].length})
+                            </div>
+                            <div
+                                className="tab"
+                                onClick={() => this.setState({ tab: "following" })}>
+                                Following ({[...new Set(this.props.user.followed_users)].length})
+                            </div>
+                        </div>
+                    
+                        <div className='tab'>
+                            {this.renderTab()}
+                        </div>
+                    </div> 
+
+
+                    <UserPostsIndexContainer
+                    jobs={this.props.userPostings.filter(job => job.public)}
+                    />
                 </div>
-                <div className="tabs-container">
+
+
+
+                {/* <div className="tabs-container">
                     <div 
                         className="tab" 
                         onClick={() => this.setState({tab: "jobs"})}>
@@ -75,10 +100,10 @@ class UserShow extends React.Component{
                         onClick={() => this.setState({tab: "following"})}> 
                             Following ({[...new Set(this.props.user.followed_users)].length})
                     </div>
-                </div>
-                <div className="profile-content">
+                </div> */}
+                {/* <div className="profile-content">
                     {this.renderTab()}
-                </div>
+                </div> */}
             </div>
         )
     }

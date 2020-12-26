@@ -1,7 +1,7 @@
 import UsersIndex from './users_index';
 import {connect} from 'react-redux';
 
-const mapStateToProps = state => {
+const mSTP = state => {
     return {
         users: Object.values(state.entities.users),
         currentUser: state.session.user,
@@ -9,8 +9,8 @@ const mapStateToProps = state => {
     }
 } 
 
-const mapDispatchToProps = dispatch => {
+const mDTP = dispatch => {
     return {}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersIndex);
+export default connect(mSTP, mDTP)(UsersIndex);
