@@ -37,9 +37,11 @@ class PostShow extends React.Component{
                 <PostEdit 
                     closeEdit={() => this.setState({editing: false})} 
                     currentUser={currentUser} 
-                    updateAPosting={this.props.updateAPosting} 
+                    updateAPosting={this.props.updateAPosting}
+                    deletePosting={this.props.deletePosting}
                     post={post}
                     closeModal={closeModal}
+                    fetchCurrentUserPostings={this.props.fetchCurrentUserPostings}
                 />
             </div>
         )

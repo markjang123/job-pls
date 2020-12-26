@@ -10,6 +10,7 @@ class PostEdit extends React.Component {
             notes: this.props.post.notes || 'Updates go here',
         };
         this.submitHandler = this.submitHandler.bind(this);
+        this.handleDelete = this.handleDelete.bind(this)
     }
 
     submitHandler(e){
@@ -18,7 +19,13 @@ class PostEdit extends React.Component {
         this.props.closeEdit();
         this.props.closeModal();
     }
-
+    handleDelete(e) {
+        e.preventDefault();
+        this.props.deletePosting(this.props.post._id)
+        this.props.closeEdit();
+        this.props.closeModal();
+        this.props.fetchCurrentUserPostings(this.props.currentUser)
+    }
     update(field){
         return e => {
             this.setState({[field]: e.target.value})
@@ -128,7 +135,7 @@ class PostEdit extends React.Component {
                     </div>
 
                 <button type="submit" id='save-change-button' value="Save Changes">Save Changes</button>
-                <button type="submit" id='delete-job-button' value="Delete Job">Delete Job</button>
+                <button onClick = {this.handleDelete} id='delete-job-button' value="Delete Job">Delete Job</button>
             </form>
         </div>
         ) 
