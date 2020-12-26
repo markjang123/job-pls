@@ -54,7 +54,6 @@ class App extends React.Component{
                                 <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
                                 <AuthRoute exact path="/login" component={SplashContainer} formType="login" />
                                 <AuthRoute exact path="/signup" component={SplashContainer} formType="signup" />
-                                {/* <ProtectedRoute path="*" component={PostIndexContainer} /> */}
                             </Switch>
                         </div>
                     </li>
