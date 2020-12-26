@@ -47,8 +47,8 @@ class App extends React.Component{
                                 <ProtectedRoute exact path="/jobs/sorted" component={SortedPostIndexContainer} />
                                 <ProtectedRoute path="/search" component={SearchTabContainer} />
                                 <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
-                                <AuthRoute exact path="/login" component={LoginFormContainer} />
-                                <AuthRoute exact path="/signup" component={SignupFormContainer} />
+                                <AuthRoute exact path="/login" component={SplashContainer} formType="login" />
+                                <AuthRoute exact path="/signup" component={SplashContainer} formType="signup" />
                             </Switch>
                     </div>
                     <div id='sidebar-content'>
