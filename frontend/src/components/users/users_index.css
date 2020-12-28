@@ -33,6 +33,7 @@
     height: calc(100% - 86px);
     width: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .users-index-item, .users-show-index-item{

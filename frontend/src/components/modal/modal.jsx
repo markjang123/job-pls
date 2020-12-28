@@ -25,9 +25,9 @@ class Modal extends React.Component{
         
 
         return(        
-            <div className='modal-background'>
-                <div className='modal-container'>
-                    <div className='modal-child'>
+            <div className='modal-background' onClick={() => this.openScroll()}>
+                <div className='modal-container' onClick={e => e.stopPropagation()}>
+                    <div className='modal-child' onClick={e => e.stopPropagation()}>
                         <div onClick={() => this.openScroll(closeModal)} id='close-modal'>x</div>
                     </div>
                     <PostShowContainer post={modal}/>

@@ -21,6 +21,10 @@
 	height: 100%;
 	width: 100%;
 }
+
+.splash-container{
+	overflow: scroll;
+}
 .splash-greeting {
 	color: white;
 	display: inline-block;
@@ -31,17 +35,8 @@
 	font-weight: bold;
 	z-index: 2;
 }
-.other-image {
-	background-image: url(../../images/pexels-photo-3184302.jpeg);
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	display: block;
-	height: 1000px;
-	width: 1920px;
-	background-color: blue;
-	z-index: 200;
-}
+
+
 .greeting-subtitle {
 	font-size: 25px;
 	margin-top: 30px;
@@ -63,4 +58,7 @@
 }
 .image-3 {
 	background-image: url(../../images/pexels-arina-krasnikova-5950095-min.jpg);
+}
+.image-2 {
+	background-image: url(../../images/pexels-photo-3184302.jpeg);
 }

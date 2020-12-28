@@ -154,5 +154,6 @@ const niceDescription = (text) => {
     .replace(/<script[^>]*>.*<\/script>/gm, "")
     .replace(/<[^>]+>/gm, "")
     .replace(/&nbsp/gm, "")
-    .replace(/([\r\n]+ +)+/gm, "");
+    .replace(/([\r\n]+ +)+/gm, "")
+    .replace(/;.../gm, "");
 };

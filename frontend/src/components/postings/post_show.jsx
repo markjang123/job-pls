@@ -12,7 +12,8 @@ class PostShow extends React.Component{
         return text.replace(/<style[^>]*>.*<\/style>/gm, '')
         .replace(/<script[^>]*>.*<\/script>/gm, '')
         .replace(/<[^>]+>/gm, '')
-        .replace(/([\r\n]+ +)+/gm, '');
+        .replace(/([\r\n]+ +)+/gm, '')
+        .replace(/;.../gm, "");
     }
 
     render(){
@@ -37,9 +38,11 @@ class PostShow extends React.Component{
                 <PostEdit 
                     closeEdit={() => this.setState({editing: false})} 
                     currentUser={currentUser} 
-                    updateAPosting={this.props.updateAPosting} 
+                    updateAPosting={this.props.updateAPosting}
+                    deletePosting={this.props.deletePosting}
                     post={post}
                     closeModal={closeModal}
+                    fetchCurrentUserPostings={this.props.fetchCurrentUserPostings}
                 />
             </div>
         )

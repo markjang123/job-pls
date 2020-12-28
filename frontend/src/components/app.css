@@ -14,6 +14,7 @@
   height: 100%;
   z-index: 1;
   overflow: hidden;
+  min-width: 1600px;
 } 
 
 .header-content{
