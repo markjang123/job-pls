@@ -16,6 +16,7 @@
   flex-direction: row;
   height: 100%;
   z-index: 0;
+  min-width: 1600px;
 } 
 
 #job-content{
