@@ -22,6 +22,8 @@ class Modal extends React.Component{
         let { modal } = this.props;
         if (modal === null ) return null;
 
+        
+
         return(        
             <div className='modal-background'>
                 <div className='modal-container'>

@@ -15,24 +15,22 @@ class UsersIndex extends React.Component {
         this.setState({ grow: !this.state.grow });
     }
 
-    growshrink() {
-        if (this.state.grow) {
-            return (
-                'users-index-item-container'
-            )
-        } else {
-            return (
-                'shrink'
-            )
-        }
-    }
+    // growshrink() {
+    //     if (this.state.grow) {
+    //         return (
+    //             'users-index-item-container'
+    //         )
+    //     } else {
+    //         return (
+    //             'shrink'
+    //         )
+    //     }
+    // }
 
     render() {
         if (this.props.currentUser === undefined) return null;
 
         let { users } = this.props
-
-        debugger
 
         if ( users.length === 0 ){
             return(
@@ -43,7 +41,7 @@ class UsersIndex extends React.Component {
         } else {         
             return (
                 <div className='users-index'>
-                    <div className={this.growshrink()}>
+                    <div className='users-index-item-container'>
                         {this.props.users.map(user => {
                             return <UsersIndexItemContainer key={user._id} user={user} style='user-show' />
                         })}
