@@ -161,6 +161,7 @@ router.post('/search',
         let joobleURL = "https://jooble.org/api/";
         let key = keys.joobleAPI;
         let gitURL = "https://jobs.github.com/positions.json?";
+        let gitMarkdown = '&markdown=true';
         const joobleRequest = ({
             keywords: `${keywords} ${company}`.trim(),
             location: location,
@@ -199,7 +200,7 @@ router.post('/search',
         }
 
 
-        gitURL = gitURL + companyURL;
+        gitURL = gitURL + companyURL + gitMarkdown;
         joobleURL = joobleURL + key;
 
         let testXMLArr = [joobleURL, gitURL];

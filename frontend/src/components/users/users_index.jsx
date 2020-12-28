@@ -77,7 +77,7 @@ class UsersIndex extends React.Component {
         return (
             <div className='users-index'>
                 <div className={this.growshrink()}>
-                    {this.props.users.map(user => {
+                    {[...(new Set(this.props.users))].map(user => {
                         return <UsersIndexItemContainer key={user._id} user={user} />
                     })}
                 </div>

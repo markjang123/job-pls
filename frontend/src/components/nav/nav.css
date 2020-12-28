@@ -378,10 +378,15 @@
 }
 
 .posting-list-title{
+    display: -webkit-box;
     padding-top: 18px;
     padding-left: 20px;
     font-size: 21px;
     font-weight: 700;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .posting-list-company{

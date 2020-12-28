@@ -9,10 +9,10 @@ class Splash extends React.Component{
     constructor(props){
         super(props);
     }
-    componentDidMount() {
-        window.addEventListener('scroll', (e) => console.log(e))
-        document.addEventListener('click', (e) => console.log(e))
-    }
+    // componentDidMount() {
+    //     window.addEventListener('scroll', (e) => console.log(e))
+    //     document.addEventListener('click', (e) => console.log(e))
+    // }
     render(){
         return(
             <div className='splash-container'>
