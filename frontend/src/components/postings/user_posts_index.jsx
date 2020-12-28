@@ -4,14 +4,19 @@ import UserPostsIndexItem from './user_posts_index_item';
 class UserPostsIndex extends React.Component {
 
     render() {
-        debugger
+        
         {if (this.props.jobs.length < 1) {
-            return <div>
-                No jobs
-            </div>
+            return(
+                <div className='no-results'>
+                    Looks like this user hasn't saved any jobs yet.
+                </div>
+
+            ) 
+            
         }}
+
         return <ul className="user-posts-index">
-            {this.props.jobs.map(job => 
+            {this.props.jobs.reverse().map(job => 
                 job === undefined
                 ? null
                 : <UserPostsIndexItem 

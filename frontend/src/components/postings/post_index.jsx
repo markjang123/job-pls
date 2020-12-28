@@ -1,6 +1,8 @@
 import React from 'react';
 import PostIndexItem from './post_index_item';
 import UserIndexContainer from '../users/users_index_container';
+import PostPriorityItem from './posts_priority_item';
+import NavShowContainer from '../nav/nav_container';
 import './post.css'
 
 class PostIndex extends React.Component{
@@ -28,46 +30,59 @@ class PostIndex extends React.Component{
             return null;
         }
     }
+
     handleClick(){
         this.setState({sorted: true})
     }
     render(){
-        debugger
+        
         let { 
             posts, 
             openModal, 
             closeModal, 
             modal, 
             currentUser, 
-            openUsers 
+            openUsers,
+            prioritizedPosts
         } = this.props;
 
         if (posts === undefined) return null;
         if (this.state.sorted){
             posts = posts.sort((a,b) => b.priority - a.priority)
         } 
-        return(
-            <div className='index-container'>
-                <button onClick = {this.handleClick}className="sort-button">sort by priority</button>
-                <div className='jobs-grid'>
-                    {posts.map(post => (
-                            <PostIndexItem 
-                                className='job'
-                                post={post}
-                                key={post._id}
-                                currentUser={currentUser}
-                                modal={modal}
-                                openModal={openModal}
-                                closeModal={closeModal
-                            }
-                        />
-                    ))}
+
+        if (posts.length === 0 ){
+            return(
+                <div className='no-results'>
+                    No results to display. How about you search for something? Maybe apply? Maybe save it to your jobs? :&#41;
                 </div>
-                <div className='index-users-index'>
-                    {this.openUsersIndex(openUsers)}
+            )
+        } else {
+
+            return(
+
+                <div className='index-container'>
+                    <div className='jobs-grid'>
+                        {posts.reverse().map(post => (
+                                <PostIndexItem 
+                                    className='job'
+                                    post={post}
+                                    key={post._id}
+                                    currentUser={currentUser}
+                                    modal={modal}
+                                    openModal={openModal}
+                                    closeModal={closeModal
+                                }
+                            />
+                        ))}
+                    </div>
+                    <div className='index-users-index'>
+                        {this.openUsersIndex(openUsers)}
+                    </div>
                 </div>
-            </div>
-        )
+            )
+
+        }
     }
 }
 

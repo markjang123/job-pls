@@ -17,15 +17,16 @@ class PostShow extends React.Component{
     }
 
     render(){
-        debugger
+        
         let { post, currentUser } = this.props.post
+        let { closeModal } = this.props
         let job_desc;
         if (post.snippet === undefined){
             job_desc = post.description
         } else {
             job_desc = post.snippet
         }
-
+        
         return(
             <div className='post-show'>
                 <p id='show-title'>{post.job_title}</p>
@@ -37,8 +38,11 @@ class PostShow extends React.Component{
                 <PostEdit 
                     closeEdit={() => this.setState({editing: false})} 
                     currentUser={currentUser} 
-                    updateAPosting={this.props.updateAPosting} 
+                    updateAPosting={this.props.updateAPosting}
+                    deletePosting={this.props.deletePosting}
                     post={post}
+                    closeModal={closeModal}
+                    fetchCurrentUserPostings={this.props.fetchCurrentUserPostings}
                 />
             </div>
         )

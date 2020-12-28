@@ -58,12 +58,6 @@ class SearchPostingItem extends React.Component{
                             {location ? location : ""}
                         </div>
                     </div>
-                    <div className="posting-listing-company">
-                        {company ? company : ""}
-                    </div>
-                    <div className="posting-listing-location">
-                        {location ? location : ""}
-                    </div>
                     <div className="posting-listing-description">
                         {description
                         ? `${description.slice(0,1500)}...` 
@@ -79,16 +73,18 @@ class SearchPostingItem extends React.Component{
                         ? `Salary: ${salary}` 
                         : ""}
                     </div>
-                    <button className="posting-listing-add-button" 
-                        onClick={this.handleClick}>
-                            { this.state.saved 
-                            ? "Delete Job Posting from Collection" 
-                            : "Save Job Posting for Collection"}
-                    </button>
-                    <div className="apply-to-job">
-                        {posting_url 
-                        ? <a href={posting_url} target='_blank'>Click here to apply.</a> 
-                        : "No application link available."}
+                    <div className='posting-listing-buttons'>
+                        <button className="posting-listing-add-button" 
+                            onClick={this.handleClick}>
+                                { this.state.saved 
+                                ? "Delete job from My Jobs" 
+                                : "Save job to My Jobs"}
+                        </button>
+                        <div className="apply-to-job">
+                            {posting_url 
+                            ? <a href={posting_url} target='_blank'>Click here to apply</a> 
+                            : "No application link available"}
+                        </div>
                     </div>
                 </div>       
             </div>       

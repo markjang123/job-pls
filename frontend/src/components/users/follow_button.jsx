@@ -34,18 +34,18 @@ class FollowButton extends React.Component {
             return null;
         }
         return (
-            <button 
+            <button
                 onClick={
-                    this.props.is_following() 
-                    ? this.unfollowUser 
-                    : this.followUser} 
+                    this.props.is_following()
+                        ? this.unfollowUser
+                        : this.followUser}
                 id={
-                    this.props.is_following() 
-                    ? "following" 
-                    : "follow"} 
+                    this.props.is_following()
+                        ? "following"
+                        : "follow"}
                 className="follow-button">
-                    {this.props.is_following() 
-                    ? "following" 
+                {this.props.is_following()
+                    ? "following"
                     : "follow"}
             </button>
         );

@@ -1,13 +1,15 @@
 .users-index {
-    float: right;
-    display: flex;
-    flex-direction: row;
+    /* float: right; */
+    /* display: flex; */
+    /* flex-direction: row; */
     overflow-y: auto;
+    height: 100%;
+    /* background: red; */
 }
 
 .users-label{
     margin-top: 45px;
-    background: powderblue;
+    background: #9fe5ff;
     height: 50px;
     width: 50px;
     padding-top: 20px;
@@ -22,37 +24,37 @@
     background: rgb(27,31,29);
 }
 
+.user-show-container{
+    display: flex;
+    flex-direction: column;
+}
+
 .users-index-item-container{
-    float: right;
-    height: 70vh;
-    width: 400px;
+    padding-top: 10px;
+    height: 90%;
+    width: 100%;
     overflow-y: auto;
-
+    overflow-x: hidden;
 }
 
-.user-show-container .users-index-item-container{
-    float: right;
-    height: 70vh;
-    width: 600px;
-    overflow-y: auto;
-    background: rgb(27, 31, 29);
-
-}
-
-.shrink{
-    display: none;
-}
 
 .users-index-item {
     height: 60px;
     width: 90%;
-    border-radius: 15px 0px 15px 0px;
-    background: rgba(212, 212, 212) ;
     margin-bottom: 10px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
     transition: all 0.2s ease-out;
+
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(184, 184, 184);
+    /* padding: 10px 8px 10px 15px; */
+    box-sizing: border-box;
+    transition: all 0.2s ease-out;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2); 
 }
 
 .users-index-item:hover {
@@ -82,22 +84,23 @@
 
 .username-link {
     text-decoration: none;
-    color: black;
+
 }
 
 .username-container {
     height: 100%;
-    width: 65%;
+    /* width: 65%; */
+    width: 100%;
     margin: 0;
     padding: 0;
     display: inline-block;
     position: relative;
+    text-overflow: ellipsis;
 }
 
 .follow-button {
     border: 1px dashed rgba(138, 138, 138, 0.274);
-    border-radius: 15px 0px 15px 0px ;
-    font-family: Arial, Helvetica, sans-serif;
+    /* border-radius: 15px 0px 15px 0px ; */
     font-weight: bold;
     font-size: 12px;
     position: absolute;
@@ -120,7 +123,7 @@
 }
 
 #follow {
-    background: #d6d6d6;
+    background: #e6e6e6;
     color: rgb(85, 85, 85);
     top: 10%;
 }

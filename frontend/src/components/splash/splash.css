@@ -1,12 +1,6 @@
 .splash-container{
     height: 100vh;
     width: 100vw;
-    /* background-attachment: fixed; */
-    /* background-image: linear-gradient(to right top, #6b1044, #561747, #411b46, #2d1c40, #1c1a37, #1c2846, #1b3654, #1b4561, #1d6f8d, #1e9cb5, #33cbd7, #5ffbf1); */
-    /* background-image: linear-gradient(to right top, #6b1044, #5c1a4c, #4b214f, #3a2550, #2a274c, #28365d, #24466c, #1f5679, #197d9f, #17a6c1, #32d0dd, #5ffbf1); */
-    /* background-image: linear-gradient(to right top, #02084a, #000b46, #000d41, #000f3c, #001036, #002147, #003258, #004368, #006d93, #009bb9, #21cbd9, #5ffbf1); */
-    /* background: black; */
-	
 }
 
 @keyframes gradient {
@@ -19,4 +13,51 @@
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+.splash-container{
+	overflow: scroll;
+}
+.splash-greeting {
+	color: white;
+	display: inline-block;
+	height: 500px;
+	width: 700px;
+	position: relative;
+	font-size: 50px;
+	font-weight: bold;
+	z-index: 2;
+}
+.other-image {
+	background-image: url(../../images/pexels-photo-3184302.jpeg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: block;
+	height: 1000px;
+	width: 1920px;
+	background-color: blue;
+	z-index: 200;
+}
+.greeting-subtitle {
+	font-size: 25px;
+	margin-top: 30px;
+	line-height: 30px;
+	font-weight: 500;
+	color: mintcream;
+	word-wrap: break-word;
+}
+.bg-image{
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 1000px;
+    margin: 0;
+    height: 900px;
+}
+.image-1 {
+	background-image: url('../../images/pexels-cadeau-maestro-1170412-min.jpg');
+}
+.image-3 {
+	background-image: url(../../images/pexels-arina-krasnikova-5950095-min.jpg);
 }
