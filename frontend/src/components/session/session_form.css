@@ -111,23 +111,24 @@
 } 
 
 .greeting-background {
-	display: inline-block;
+	/* display: inline-block; */
 	height: 250px;
-	width: 600px;
+	width: 500px;
 	position: relative;
 	top: 25%;
-	left: 22%;
+	left: 10%;
 	font-size: 50px;
-	font-weight: bolder;;
+	font-weight: bolder;
     padding: 20px;
     border-radius: 30px;
+    margin-right: 10px;
 
 }
 
 .text-screen {
     display: inline-block;
 	height: 250px;
-	width: 680px;
+	width: 640px;
     position: absolute;
     padding: 15px;
     top: 5px;
