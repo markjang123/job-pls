@@ -6,26 +6,12 @@ import './users_index.css';
 class UsersIndex extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { grow: true };
-        this.growshrink = this.growshrink.bind(this);
         this.resize = this.resize.bind(this);
     }
 
     resize() {
         this.setState({ grow: !this.state.grow });
     }
-
-    // growshrink() {
-    //     if (this.state.grow) {
-    //         return (
-    //             'users-index-item-container'
-    //         )
-    //     } else {
-    //         return (
-    //             'shrink'
-    //         )
-    //     }
-    // }
 
     render() {
         if (this.props.currentUser === undefined) return null;
