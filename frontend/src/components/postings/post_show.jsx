@@ -12,7 +12,8 @@ class PostShow extends React.Component{
         return text.replace(/<style[^>]*>.*<\/style>/gm, '')
         .replace(/<script[^>]*>.*<\/script>/gm, '')
         .replace(/<[^>]+>/gm, '')
-        .replace(/([\r\n]+ +)+/gm, '');
+        .replace(/([\r\n]+ +)+/gm, '')
+        .replace(/;.../gm, "");
     }
 
     render(){

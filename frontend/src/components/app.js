@@ -53,7 +53,7 @@ class App extends React.Component{
                                 <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
                                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
-                                {/* <ProtectedRoute path="*" component={PostIndexContainer} /> */}
+                                <ProtectedRoute path="*" component={PostIndexContainer} />
                             </Switch>
                         </div>
                     </li>
