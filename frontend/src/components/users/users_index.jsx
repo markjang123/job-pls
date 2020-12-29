@@ -35,7 +35,6 @@ class UsersIndex extends React.Component {
                 </div>
             )
         }
-
     }
 }
 
