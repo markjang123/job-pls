@@ -1,7 +1,6 @@
 .splash-container{
-    height: 100vh;
-	width: 100vw;
-	/* display: flex; */
+	height: 100%;
+	width: 100%;
 }
 
 @keyframes gradient {
@@ -16,9 +15,10 @@
 	}
 }
 
-
-.splash-container{
-	overflow: scroll;
+.splash-slider{
+	overflow-y: scroll;
+	height: 100%;
+	width: 100%;
 }
 .splash-greeting {
 	color: white;
@@ -31,7 +31,17 @@
 	z-index: 2;
 }
 
-
+.other-image {
+	background-image: url(../../images/pexels-photo-3184302.jpeg);
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: block;
+	height: 1000px;
+	width: 1920px;
+	background-color: blue;
+	z-index: 200;
+}
 .greeting-subtitle {
 	font-size: 25px;
 	margin-top: 30px;

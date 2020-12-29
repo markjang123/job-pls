@@ -7,8 +7,9 @@ import FollowButtonContainer from './follow_button_container';
 class UsersIndexItem extends React.Component {
     constructor(props){
         super(props);
-        this.forceUpdate = this.forceUpdate.bind(this);
-        this.is_following = this.is_following.bind(this);
+        this.forceUpdate = this.forceUpdate.bind(this)
+        this.is_following = this.is_following.bind(this)
+        this.styling = this.styling.bind(this)
     }
 
     is_following(){
@@ -18,31 +19,45 @@ class UsersIndexItem extends React.Component {
         )
     }
 
+   
+
+    styling(style){
+        switch(style){
+            case ('user-show'):
+                return 'users-show-index-item';
+            default:
+                return 'users-index-item';
+        }
+    }
+
     render(){
         if (this.props.user === undefined) return null;
 
         let { _id, username } = this.props.user
-        return(
-        <div className="users-index-item">
-            <div className="username-container">
-                <p className="username" >
-                    <Link 
-                        className="username-link" 
-                        to={`/users/${_id}`}>
-                            {username}
-                    </Link>
-                </p>
-            </div>
+        let { style } = this.props
 
-            <FollowButtonContainer 
-                updateAUser={this.props.updateAUser} 
-                is_following={this.is_following} 
-                forceUpdate={() => this.forceUpdate()} 
-                currentUser={this.props.currentUser} 
-                user={this.props.user}
-            />
-        </div>
-        ) 
+        return (
+            <div className={this.styling(style)} id='username-card'>
+                <div className="username-container">
+                    <div className="username-data" >
+                        <Link
+                            className="username-link"
+                            to={`/users/${_id}`}>
+                            {username}
+                        </Link>
+                    <FollowButtonContainer
+                        updateAUser={this.props.updateAUser}
+                        is_following={this.is_following}
+                        forceUpdate={() => this.forceUpdate()}
+                        currentUser={this.props.currentUser}
+                        user={this.props.user}
+                        style={'user-show'}
+                    />
+                    </div>
+                </div>
+
+            </div>
+        )
     }
 }
 

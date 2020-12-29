@@ -1,3 +1,4 @@
+
 import React from "react";
 import SearchPostingItem from './search_posting_item_container';
 import { createPosting } from './create_posting';
@@ -7,7 +8,7 @@ class SearchPostingIndex extends React.Component{
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
-        // this.idSelector = this.idSelector.bind(this);
+
     }
 
     componentDidMount(){
@@ -19,18 +20,6 @@ class SearchPostingIndex extends React.Component{
         this.props.setCurrentPosting(posting);
     }
 
-    // idSelector(posting){
-    //     let posting_to_str = Object.entries(posting).toString();
-    //     let currentPosting_to_str = Object.entries(this.props.currentPosting).toString()
-
-    //     return(
-    //         posting_to_str === currentPosting_to_str ?
-    //                 'selected-posting'   
-    //         :
-    //                 'null'
-    //     )
-
-    // }
 
     render(){
         if(this.props.searchedPostings.length === 0) return null;
@@ -42,22 +31,21 @@ class SearchPostingIndex extends React.Component{
         return(
             <div className="search-result-container">
                 <div className="search-result-list">
-                    <ul className="posting-list">
                         {searchedPostings.map((posting, idx) => {
                             return(
-                                <li
+                                <div className='search-result-card'
                                     onClick={() => this.handleClick(createPosting(posting))}
                                     key={posting.posting_id} 
                                     id={posting === this.props.currentPosting
                                     ? "selected-posting" 
                                     : null}>
-                                        <div className="posting-list-title">{posting.job_title ? posting.job_title : ""}</div>
-                                        <div className="posting-list-company">{posting.company ? posting.company : ""}</div>
-                                        <div className="posting-list-location">{posting.location ? posting.location : ""}</div>
-                                </li>
+                                        <div className="job-title">{posting.job_title ? posting.job_title : ""}</div>
+                                        <div className="company">{posting.company ? posting.company : ""}</div>
+                                        <div className="location">{posting.location ? posting.location : ""}</div>
+
+                                </div>
                             )
                         })}
-                    </ul>
                 </div>
                 <SearchPostingItem/>
             </div>

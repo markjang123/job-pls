@@ -1,6 +1,9 @@
-import React from 'react';
+import React from 'react'
 import { Link } from 'react-router-dom'
-import './session_form.css';
+import './session_form.css'
+import TypeWriterEffect from 'react-typewriter-effect'
+import logo from '../nav/logo192.png'
+
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -10,8 +13,8 @@ class SessionForm extends React.Component {
             sessionInfo: this.props.sessionInfo,
             other: this.props.other
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.demoUserLogin = this.demoUserLogin.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.demoUserLogin = this.demoUserLogin.bind(this)
     }
 
     demoUserLogin(){
@@ -118,40 +121,81 @@ class SessionForm extends React.Component {
         }
 
 
-
     render() {
         return (
                 <div className="session-form">
+
+
+
+
+                    <div className='session-form-liner-border'>
                     <div className='session-form-liner'>
-                        <h3 className="form-header">{this.state.sessionType}</h3>
-                        <form onSubmit={this.handleSubmit} className="form-header">
-                            <br />
-                            <div>
-                                {/* {this.clearErrors()} */}
-                                <label>
-                                        <p className="session-errors">{this.props.errors.email}</p>
-                                    <input type="text"
-                                        placeholder='Email'
-                                        id='form-element'
-                                    />
-                                </label>
-                                <br />
-                                {this.renderUsername()}
-                                <label>
-                                        <p className="session-errors">{this.props.errors.password}</p>
-                                    <input type="password"
-                                        placeholder='Password'
-                                        id='form-element'
-                                    />
-                                </label>
-                                {this.renderPassword2()}
-                                <br />
-                                <input type="submit" id='submit-button' value={this.state.sessionType} />
+                        <div className='banner'>
+                            <div className='banner-header'>
+                                <img src={logo} width='25px'></img>
+                                <p>
+                                    Job Pls - search for:
+                                </p>
                             </div>
-                        </form>
-                        {this.renderLinks()}
+                            <div className='banner-body'>
+                                <TypeWriterEffect
+                                    textStyle={{
+                                    // fontFamily: 'Red Hat Display',
+                                    color: '#3F3D56',
+                                    fontWeight: 900,
+                                    fontSize: '1.75em',
+                                    }}
+                                    startDelay={750}
+                                    cursorColor="#3F3D56"
+                                    multiText={[
+                                    'full stack jobs.',
+                                    'front-end dev.',
+                                    'MERN stack jobs.',
+                                    'Ruby on Rails jobs.',
+                                    'React JS jobs.',
+                                    'Find the best fit!!!',
+                                    ]}
+                                    loop={true}
+                                    nextTextDelay={2000}
+                                    typeSpeed={100}
+                                />
+                            </div>
+
+                            <h3 className="form-header">{this.state.sessionType}</h3>
+
+                            <form onSubmit={this.handleSubmit} className="form-session">
+                                <br />
+                                <div>
+                                    <label>
+                                            <p className="session-errors">{this.props.errors.email}</p>
+                                        <input type="text"
+                                            placeholder='Email'
+                                            id='form-element'
+                                        />
+                                    </label>
+                                    <br />
+                                    {this.renderUsername()}
+                                    <label>
+                                            <p className="session-errors">{this.props.errors.password}</p>
+                                        <input type="password"
+                                            placeholder='Password'
+                                            id='form-element'
+                                        />
+                                    </label>
+                                    {this.renderPassword2()}
+                                    <br />
+                                    <input type="submit" id='submit-button' value={this.state.sessionType} />
+                                </div>
+                            </form>
+                            {this.renderLinks()}
+                        </div>
+                        </div>
                     </div>
                     </div>
+
+
+
+
                 
              
 
