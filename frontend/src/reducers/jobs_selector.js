@@ -38,6 +38,7 @@ export const mediumPrioritizer = (posts) => {
 }
 
 export const lowPrioritizer = (posts) => {
+    debugger
     if (posts === undefined) return null
     let lowPriority = []
 
@@ -46,6 +47,7 @@ export const lowPrioritizer = (posts) => {
             lowPriority.push(post)
         }
     })
+    debugger
 
     return lowPriority
 }

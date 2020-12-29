@@ -40,17 +40,7 @@ class PrioritizedPostsContainer extends React.Component {
                     onClick={() => this.setState({ priority: 'low' })}
                 />
                 <label for="low">Low
-                    ({[...new Set(this.props.mediumPriority)].length})
-                    </label>
-
-                <input name="tab"
-                    className='tab'
-                    id="jobs"
-                    type="radio"
-                    onClick={() => this.setState({ priority: 'all' })}
-                />
-                <label for="jobs">All Jobs
-                    ({[...new Set(this.props.prioritizedPosts)].length})
+                    ({[...new Set(this.props.lowPriority)].length})
                     </label>
             </div>
         )

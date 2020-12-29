@@ -39,11 +39,8 @@
 .nav-container{
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* align-content: center; */
     width: 100%;
     height: 75px;
-    /* box-sizing: border-box; */
 }
 
 
@@ -56,7 +53,6 @@
 
 .nav-search{
     height: 100%;
-    /* margin: auto; */
     vertical-align: middle;
 }
 
@@ -76,11 +72,9 @@
 
 .logout-button {
     cursor: pointer;
-    /* float: right; */
     font-weight: bold;
     height: 30px;
     width: 100px;
-    /* background-color: white; */
 }
 
 .sort-button {
@@ -152,8 +146,7 @@
 }
 
 #search-crit{
-    /* margin-top: 8px; */
-    /* margin: auto; */
+
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -219,18 +212,10 @@
 }
 .search-button-div{
     width: 50px;
-    /* margin: 8px 8px 8px 8px;
-     */
+
 }
 
 .search-dropdown-div select{
-    /* background-color: mintcream; */
-    /* color: rgb(32, 32, 32); */
-    /* font-size: 16px; */
-    /* font-weight: 600; */
-    /* padding-left: 10px; */
-    /* margin: 0px 14px; */
-    /* border-radius: 8px 0px 8px 0px; */
 }
 
 .search-dropdown-div select:hover{
@@ -259,7 +244,8 @@
 
 .search-result-list{
     height: 100%;
-    width: 100%;
+    width: 40%;
+    overflow-y: auto;
 }
 
 .posting-list{
@@ -276,10 +262,7 @@
     height: 100px;
     border-radius: 8px 8px 8px 8px;
     padding-bottom: 10px;
-    /* margin-bottom: 10px; */
-    /* height: 110px; */
     border: #afafaf solid 1px;
-    /* border-top: #afafaf solid 1px; */
     list-style: none;
     text-overflow: ellipsis;
 }
@@ -299,11 +282,11 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 500px;
+    width: 60%
 }
 
 .posting-listing{
-    width: 400%px;
+    width: 100%;
 }
 
 .posting-listing-add-button{
@@ -313,7 +296,6 @@
     padding: 10px 25px;
     box-sizing: border-box;
     border-radius: 2px;
-    /* font-family: 'Roboto'; */
 }
 
 .posting-listing-buttons{
@@ -345,6 +327,7 @@
 
 .posting-listing-header{
     margin-top: 20px;
+    width: 100%;
 }
 
 .posting-listing-body{
@@ -362,10 +345,6 @@
 .posting-listing{
     display: flex;
     flex-direction: column;
-    width: 35vw;
-    height: 75vh;
-    bottom: 0;
-    right: 0;
 }
 
 .posting-list-title,

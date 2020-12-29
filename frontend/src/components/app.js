@@ -16,13 +16,16 @@ import SplashContainer from './splash/splash_container';
 import UserShowContainer from './users/user_show_container';
 import UserMenuContainer from './users/user_menu_container';
 
+import SessionReducer from '../reducers/root_reducer'
+
 import './app.css';
 
 class App extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            usersbarCollapsed: true
+            usersbarCollapsed: true,
+            userRecieved: false
         }
     }
 
@@ -32,10 +35,14 @@ class App extends React.Component{
         })
     }
 
+
     render() {
+        debugger
         return(
             <div className='app'>
-                <AuthRoute exact path="/" component={SplashContainer} formType="signup" />
+                {/* <figure></figure>
+                <figure></figure>
+                <figure></figure> */}
                 <div className='display-content' >
                     <div className='header-content'>
                         <NavButtonsContainer/>
@@ -56,6 +63,7 @@ class App extends React.Component{
                                     <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
                                     <AuthRoute exact path="/login" component={LoginFormContainer} />
                                     <AuthRoute exact path="/signup" component={SignupFormContainer} />
+                                    <AuthRoute exact path="/" component={SplashContainer} formType="signup" />
                                 </Switch>
                         </div>
                         <div id='sidebar-content'>

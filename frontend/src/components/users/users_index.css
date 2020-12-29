@@ -49,8 +49,6 @@
 }
 
 .users-index-item{
-    /* flex-direction: row; */
-    /* justify-content: space-between; */
 }
 
 #username-card:hover{
@@ -134,12 +132,6 @@
 }
 
 .users-show-follow-button{
-    /* flex-direction: column; */
-    /* top: 30px; */
-    /* margin-top: 10px; */
-    /* margin-top: 20px; */
-    /* adding-top: 10px; */
-    /* top: 20px; */
 }
 
 

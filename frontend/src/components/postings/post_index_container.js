@@ -4,7 +4,6 @@ import { fetchCurrentUserPostings, setLoading } from '../../actions/posting_acti
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { fetchAllUsers } from '../../actions/user_actions';
 import { logout } from '../../actions/session_actions';
-import { prioritizer } from '../../reducers/jobs_selector'
 
 
 const mSTP = state => {
@@ -18,7 +17,6 @@ const mSTP = state => {
         modal: state.ui.modal,
         openUsers: false,
         hasUsers: !!Object.keys(state.entities.users).length,
-        // prioritizedPosts: prioritizer(posts)
     }
 }
 

@@ -13,6 +13,9 @@ class Splash extends React.Component{
         window.addEventListener('scroll', (e) => console.log(e))
         document.addEventListener('click', (e) => console.log(e))
     }
+
+
+    
     render(){
         return(
             <div className='splash-container'>

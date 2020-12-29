@@ -11,10 +11,7 @@ class UserMenu extends React.Component {
         this.state = { 
             grow: true,
             tab: 'users'};
-            // tab: "followers"};
-        // this.growshrink = this.growshrink.bind(this);
         this.resize = this.resize.bind(this);
-        // this.renderUserIndex = this.renderUserIndex.bind(this);
         this.usersMenu = this.usersMenu.bind(this);
         this.update = this.update.bind(this);
     }

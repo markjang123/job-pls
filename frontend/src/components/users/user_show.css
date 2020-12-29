@@ -93,21 +93,23 @@
 
 .job-priority-three::after{
     background: rgb(255, 0, 8);
-    background: linear-gradient(45deg, rgb(201, 126, 219) 15%, rgb(255, 0, 8) 65%, rgb(116, 10, 13) 100%);
+    background: linear-gradient(45deg, rgb(187, 53, 120) 15%, rgb(255, 0, 8) 65%, rgb(194, 36, 42) 100%);
     animation: animatedgradient 8s ease alternate infinite;
     background-size: 500% 500%;
 }
 
+
+
 .job-priority-two::after{
     background: rgb(202, 53, 175);
-    background: linear-gradient(90deg, rgb(114, 53, 170) 25%,  rgb(202, 53, 175) 65%, rgb(105, 18, 89) 100%);
+    background: linear-gradient(90deg, rgb(235, 114, 225) 25%,  rgb(202, 53, 175) 65%, rgb(132, 34, 189) 100%);
     animation: animatedgradient 8s ease alternate infinite;
     background-size: 500% 500%;
 }
 
 .job-priority-one::after{
     background: rgb(0, 185, 255);
-    background: linear-gradient(90deg,rgb(159, 229, 255) 25%, rgb(0, 185, 255) 65%, rgb(42, 4, 179) 100%); 
+    background: linear-gradient(90deg,rgb(159, 229, 255) 25%, rgb(0, 185, 255) 65%, rgb(119, 61, 212) 100%); 
     animation: animatedgradient 8s ease alternate infinite;
     background-size: 500% 500%;
 }

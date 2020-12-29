@@ -83,7 +83,7 @@ class NavSearch extends React.Component{
                                             )
                                         })}
                                     </select>
-                                {/* <div class="select_arrow" /> */}
+                               
                                 </div>
                                 
                             <div className='nav-select'>
@@ -107,7 +107,7 @@ class NavSearch extends React.Component{
                                         )
                                     })}
                                 </select>
-                                {/* <div class="select_arrow" /> */}
+                               
                             </div>
 
                             <div className='nav-select'>
@@ -137,11 +137,10 @@ class NavSearch extends React.Component{
                                         )
                                     })}
                                 </select>
-                                {/* <div class="select_arrow" /> */}
+                               
                             </div>
                         </div>
     
-                    {/* </div> */}
 
                 </form>
             </div>
