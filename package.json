@@ -42,6 +42,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "thunk": "0.0.1",
+    "typewriter-effect": "^2.17.0",
     "validator": "^13.1.17",
     "xmlhttprequest": "^1.8.0"
   },
