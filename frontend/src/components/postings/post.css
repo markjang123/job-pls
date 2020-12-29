@@ -1,4 +1,4 @@
-.index-container{
+.index-container, .search-result-container{
     display: flex;
     flex-direction: row;
     height: calc(100vh - 130px);
@@ -149,6 +149,7 @@ input[type='radio']{
 
 .radio-container input[type='radio']:checked + label::after{
     background: rgb(27, 31, 29);
+    transition: all 0.4s;
 }
 
 
@@ -178,7 +179,6 @@ input[type='radio']{
     width: 50%;
     height: 25px;
     border: solid 2px rgb(27, 31, 29);
-    /* border: 2px solid #afafaf; */
     color: rgb(27, 31, 29);
     border-radius: 20px 20px 20px 20px;
     display: flex;
@@ -197,7 +197,7 @@ input[type='radio']{
     height: 18px;
     border-radius: 10px 10px 10px 10px;
     background: rgb(0,185,255);
-    background: linear-gradient(90deg, rgb(0, 185, 255) 0%, rgb(255, 0, 8) 100%);
+    background: linear-gradient(90deg, rgb(0, 185, 255) 0%, #ff0008 100%);
     transition: all 0.4s;
 }
 
@@ -213,7 +213,6 @@ input[type='radio']{
         cursor: pointer;
         padding: 0px 15px;
         outline: 0;
-        /* border: 2px solid #afafaf; */
         border: solid 2px rgb(27, 31, 29);
         border-radius: 25px;
         background: #ffffff;
@@ -279,7 +278,7 @@ input[type='radio']{
     font-weight: bold;
 }
 
-#company{
+#company, #location{
     margin: 5px 0px;
     font-size:13px;
     text-decoration: underline;
@@ -324,6 +323,7 @@ input[type='radio']{
 .description-container{
     height: 40%;
     overflow-y: auto;  
+    font-size: 18px;
 }
 
 #show-title{

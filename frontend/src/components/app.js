@@ -10,11 +10,13 @@ import Modal from './modal/modal.jsx';
 import SearchTabContainer from './search/search_tab_container';
 import { AuthRoute, ProtectedRoute} from '../util/route_util';
 import NavShowContainer from './nav/nav_container';
-// import NavButtonsContainer from './nav/nav_buttons_container';
+import NavButtonsContainer from './nav/nav_buttons_container';
 import SplashContainer from './splash/splash_container';
 
 import UserShowContainer from './users/user_show_container';
 import UserMenuContainer from './users/user_menu_container';
+
+import SessionReducer from '../reducers/root_reducer'
 
 import './app.css';
 
@@ -22,7 +24,8 @@ class App extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            usersbarCollapsed: true
+            usersbarCollapsed: true,
+            userRecieved: false
         }
     }
 
@@ -32,32 +35,43 @@ class App extends React.Component{
         })
     }
 
+
     render() {
+
         return(
-        <div className='app'>
-                <Modal />
+            <div className='app'>
+                {/* <figure></figure>
+                <figure></figure>
+                <figure></figure> */}
                 <div className='display-content' >
-                        <PrioritizedPostsContainer/> 
-                    <div id='job-content'>
-                            <NavShowContainer/>
-                            <Switch>
-                                <AuthRoute exact path="/" component={SplashContainer} formType="signup"/>
-                                <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
-                                <ProtectedRoute path="/jobs" component={PostIndexContainer} />
-                                <ProtectedRoute exact path="/jobs/sorted" component={SortedPostIndexContainer} />
-                                <ProtectedRoute path="/search" component={SearchTabContainer} />
-                                <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
-                                <AuthRoute exact path="/login" component={SplashContainer} formType="login" />
-                                <AuthRoute exact path="/signup" component={SplashContainer} formType="signup" />
-                                <ProtectedRoute path="*" component={PostIndexContainer} />
-                            </Switch>
+                    <div className='header-content'>
+                        <NavButtonsContainer/>
                     </div>
-                    <div id='sidebar-content'>
-                        <UserMenuContainer/>
+                    <div className='body-content'>
+                        <div id='sidebar-content'>
+                            <PrioritizedPostsContainer/> 
+                        </div>
+                        <div id='job-content'>
+                                <NavShowContainer/>
+                                    <Modal />
+                                <Switch>
+                                    {/* <AuthRoute exact path="/" component={SplashContainer} formType="signup"/> */}
+                                    <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
+                                    <ProtectedRoute path="/jobs" component={PostIndexContainer} />
+                                    <ProtectedRoute exact path="/jobs/sorted" component={SortedPostIndexContainer} />
+                                    <ProtectedRoute path="/search" component={SearchTabContainer} />
+                                    <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
+                                    <AuthRoute exact path="/login" component={LoginFormContainer} />
+                                    <AuthRoute exact path="/signup" component={SignupFormContainer} />
+                                    <AuthRoute exact path="/" component={SplashContainer} formType="signup" />
+                                </Switch>
+                        </div>
+                        <div id='sidebar-content'>
+                            <UserMenuContainer/>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
     );
     }
 
