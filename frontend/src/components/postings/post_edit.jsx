@@ -83,28 +83,28 @@ class PostEdit extends React.Component {
 
                     <div class="switch">
                         <input name="priority_switch" 
-                            id="low" 
+                            id="low_form" 
                             type="radio"
                             onChange={this.update("priority")}
                             defaultChecked={this.state.priority === 1}
                             value={1} />
-                            <label for="low">Low</label>
+                            <label for="low_form">Low</label>
 
                         <input name="priority_switch" 
-                            id="medium" t
+                            id="medium_form" t
                             type="radio"
                             onChange={this.update("priority")}
                             defaultChecked={this.state.priority === 2}
                             value={2} />
-                            <label for="medium">Medium</label>
+                            <label for="medium_form">Medium</label>
 
                         <input name="priority_switch" 
-                            id="high" 
+                            id="high_form" 
                             type="radio"
                             onChange={this.update("priority")}
                             defaultChecked={this.state.priority === 3}
                             value={3}  />
-                            <label for="high">High</label>
+                            <label for="high_form">High</label>
                     </div>
 
                 </div>

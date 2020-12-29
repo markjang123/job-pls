@@ -60,7 +60,8 @@
 
 
 .display-content{
-  width: 1750px;
+  /* width: 1750px; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   height: 100%;
