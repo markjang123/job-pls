@@ -94,7 +94,7 @@
     height: 10px;
     font-size: 12px;
 }
-#form-element {
+.form-element {
     border-radius: 3px;
     border: none;
     padding: 5px 5px 5px 5px;
