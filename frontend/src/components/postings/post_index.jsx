@@ -3,6 +3,7 @@ import PostIndexItem from './post_index_item';
 import UserIndexContainer from '../users/users_index_container';
 import PostPriorityItem from './posts_priority_item';
 import NavShowContainer from '../nav/nav_container';
+import { randomKeyGen } from '../../util/helper';
 import './post.css'
 
 class PostIndex extends React.Component{
@@ -67,7 +68,7 @@ class PostIndex extends React.Component{
                                 <PostIndexItem 
                                     className='job'
                                     post={post}
-                                    key={idx}
+                                    key={randomKeyGen()}
                                     currentUser={currentUser}
                                     modal={modal}
                                     openModal={openModal}
@@ -85,5 +86,6 @@ class PostIndex extends React.Component{
         }
     }
 }
+
 
 export default PostIndex;

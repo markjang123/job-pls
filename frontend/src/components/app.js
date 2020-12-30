@@ -64,6 +64,7 @@ class App extends React.Component{
                                     <AuthRoute exact path="/login" component={SplashContainer} formType="login" />
                                     <AuthRoute exact path="/signup" component={SplashContainer} formType="signup"/>
                                     <AuthRoute exact path="/" component={SplashContainer} formType="signup" />
+                                    <ProtectedRoute path='*' component={PostIndexContainer} />
                                 </Switch>
                         </div>
                         <div id='sidebar-content'>

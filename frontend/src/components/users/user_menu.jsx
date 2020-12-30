@@ -36,14 +36,14 @@ class UserMenu extends React.Component {
             case "followers":
                 return (
                     <UserFollowIndexContainer 
-                        users={this.props.currentUser.following_users.map( userId => 
+                        users={[...new Set(this.props.currentUser.following_users)].map( userId => 
                             this.props.user[userId])} 
                     />
                 )
             case "following":
                 return (
                     <UserFollowIndexContainer 
-                        users={this.props.currentUser.followed_users.map(userId => 
+                        users={[...new Set(this.props.currentUser.followed_users)].map(userId => 
                             this.props.user[userId])
                         } 
                     />

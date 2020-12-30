@@ -1,6 +1,7 @@
 import React from 'react';
 import PostPriorityItem from './posts_priority_item';
-import './post.css'
+import { randomKeyGen } from '../../util/helper';
+import './post.css';
 
 class PrioritizedPostsContainer extends React.Component {
     constructor(props) {
@@ -63,7 +64,7 @@ class PrioritizedPostsContainer extends React.Component {
                             <PostPriorityItem
                                 prority={post.priority}
                                 post={post}
-                                key={idx}
+                                key={randomKeyGen()}
                                 currentUser={this.props.currentUser}
                                 modal={this.props.modal}
                                 openModal={this.props.openModal}
@@ -81,7 +82,7 @@ class PrioritizedPostsContainer extends React.Component {
                                 <PostPriorityItem
                                     prority={post.priority}
                                     post={post}
-                                    key={post._id}
+                                    key={randomKeyGen()}
                                     currentUser={this.props.currentUser}
                                     modal={this.props.modal}
                                     openModal={this.props.openModal}
@@ -100,7 +101,7 @@ class PrioritizedPostsContainer extends React.Component {
                                 <PostPriorityItem
                                     prority={post.priority}
                                     post={post}
-                                    key={post._id}
+                                    key={randomKeyGen()}
                                     currentUser={this.props.currentUser}
                                     modal={this.props.modal}
                                     openModal={this.props.openModal}
@@ -118,7 +119,7 @@ class PrioritizedPostsContainer extends React.Component {
                                 <PostPriorityItem
                                     prority={post.priority}
                                     post={post}
-                                    key={post._id}
+                                    key={randomKeyGen()}
                                     currentUser={this.props.currentUser}
                                     modal={this.props.modal}
                                     openModal={this.props.openModal}

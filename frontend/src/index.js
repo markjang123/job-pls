@@ -24,16 +24,16 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         store = configureStore({});
     }
-    window.getState = store.getState
-    window.dispatch = store.dispatch
-    window.fetchAllUsers = fetchAllUsers
-    window.updateAPosting = updateAPosting
+
+    if(process.env.NODE_ENV !== "production"){
+        window.getState = store.getState
+        window.dispatch = store.dispatch
+        window.fetchAllUsers = fetchAllUsers
+        window.updateAPosting = updateAPosting        
+    }
+
     ReactDOM.render(
         <Root store={store} />,
         document.getElementById('root')
     )
 });
-
-
-
-

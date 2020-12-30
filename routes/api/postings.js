@@ -22,6 +22,8 @@ router.get('/user/:user_id', (req, res) => {
             )
         );
 
+    }).catch( errors => {
+        res.json(errors);
     })
 });
 
@@ -149,6 +151,7 @@ router.put("/:id", (req, res) => {
     .then(post => {
         res.json(post)
     })
+    .catch( errors => res.json(errors))
     // .catch(err => res.status(404))
 })
    
