@@ -63,14 +63,14 @@ class UserMenu extends React.Component {
 
     usersMenu(){
         return(
-            <div class="tabs">
+            <div className="tabs">
                 <input name="tab"
                     className='tab'
                     id="followers"
                     type="radio"
                     onClick={() => this.setState({ tab: 'followers'})}
                     />
-                <label for="followers">Followers
+                <label htmlFor="followers">Followers
                     ({[...new Set(this.props.currentUser.following_users)].length})</label>
 
                 <input name="tab"
@@ -79,7 +79,7 @@ class UserMenu extends React.Component {
                     type="radio"
                     onClick={() => this.setState({ tab: 'following' })}
                     />
-                <label for="following">Following
+                <label htmlFor="following">Following
                     ({[...new Set(this.props.currentUser.followed_users)].length})
                     </label>
 
@@ -89,7 +89,7 @@ class UserMenu extends React.Component {
                     type="radio"
                     onClick={() => this.setState({ tab: 'users' })} 
                     />
-                <label for="users">All Users 
+                <label htmlFor="users">All Users 
                     ({[...new Set(this.props.users)].length})
                     </label>
             </div>

@@ -9,7 +9,7 @@ import { logout } from '../../actions/session_actions';
 const mSTP = state => {
 
     let posts = state.entities.posts.user
-
+    debugger
     return{
         myPosts: Object.values(state.session.user.followed_posting),
         currentUser: state.session.user._id,

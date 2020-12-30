@@ -13,14 +13,14 @@ class PrioritizedPostsContainer extends React.Component {
 
     priorityMenu() {
         return (
-            <div class="tabs">
+            <div className="tabs">
                 <input name="tab"
                     className='tab'
                     id="high"
                     type="radio"
                     onClick={() => this.setState({ priority: 'high' })}
                 />
-                <label for="high">High
+                <label htmlFor="high">High
                     ({[...new Set(this.props.highPriority)].length})</label>
 
                 <input name="tab"
@@ -29,7 +29,7 @@ class PrioritizedPostsContainer extends React.Component {
                     type="radio"
                     onClick={() => this.setState({ priority: 'medium' })}
                 />
-                <label for="medium">Medium
+                <label htmlFor="medium">Medium
                     ({[...new Set(this.props.mediumPriority)].length})
                     </label>
 
@@ -39,7 +39,7 @@ class PrioritizedPostsContainer extends React.Component {
                     type="radio"
                     onClick={() => this.setState({ priority: 'low' })}
                 />
-                <label for="low">Low
+                <label htmlFor="low">Low
                     ({[...new Set(this.props.lowPriority)].length})
                     </label>
             </div>
@@ -59,11 +59,11 @@ class PrioritizedPostsContainer extends React.Component {
                 return (
                     < div className = 'job-priority-container' >
                     {
-                        prioritizedPosts.map(post => (
+                        prioritizedPosts.map((post, idx) => (
                             <PostPriorityItem
                                 prority={post.priority}
                                 post={post}
-                                key={post._id}
+                                key={idx}
                                 currentUser={this.props.currentUser}
                                 modal={this.props.modal}
                                 openModal={this.props.openModal}
