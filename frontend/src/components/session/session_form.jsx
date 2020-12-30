@@ -70,7 +70,8 @@ class SessionForm extends React.Component {
                         <p className="session-errors">{this.props.errors.username}</p>
                         <input type="text"
                             placeholder='Username'
-                            id='form-element'
+                            className="form-element"
+                            // id='form-element'
                         />
                     </label>
                     <br />
@@ -87,7 +88,8 @@ class SessionForm extends React.Component {
                         <p className="session-errors">{this.props.errors.password2}</p>
                         <input type="password"
                             placeholder='Confirm Password'
-                            id='form-element'
+                            className="form-element"
+                            // id='form-element'
                         />
                     </label>
                     <br />
@@ -132,7 +134,7 @@ class SessionForm extends React.Component {
                     <div className='session-form-liner'>
                         <div className='banner'>
                             <div className='banner-header'>
-                                <img src={logo} width='25px'></img>
+                                <img alt="" src={logo} width='25px'></img>
                                 <p>
                                     Job Pls - search for:
                                 </p>
@@ -170,7 +172,7 @@ class SessionForm extends React.Component {
                                             <p className="session-errors">{this.props.errors.email}</p>
                                         <input type="text"
                                             placeholder='Email'
-                                            id='form-element'
+                                            className="form-element"
                                         />
                                     </label>
                                     <br />
@@ -179,7 +181,8 @@ class SessionForm extends React.Component {
                                             <p className="session-errors">{this.props.errors.password}</p>
                                         <input type="password"
                                             placeholder='Password'
-                                            id='form-element'
+                                            className="form-element"
+                                            // id='form-element'
                                         />
                                     </label>
                                     {this.renderPassword2()}

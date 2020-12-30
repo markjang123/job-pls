@@ -63,7 +63,7 @@ class NavSearch extends React.Component{
                         <div className='selects'>
                                 <div className='nav-select'>
                                     <select 
-                                        id='border'
+                                        className='border'
                                         type="dropdown" 
                                         required>
                                         <option 
@@ -88,7 +88,7 @@ class NavSearch extends React.Component{
                                 
                             <div className='nav-select'>
                                 <select 
-                                    id='border'
+                                    className='border'
                                     type="dropdown">
                                     <option 
                                         value="25" 
@@ -112,7 +112,7 @@ class NavSearch extends React.Component{
 
                             <div className='nav-select'>
                                 <select 
-                                    id='border'
+                                    className='border'
                                     type="dropdown" 
                                     placeholder='salary'>
                                     <option 
