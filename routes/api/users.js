@@ -163,7 +163,7 @@ router.put(`/:id/posting`, (req, res) => {
         .then(user => {
             user.followed_posting.push(posting._id);
             user.save({new: true}).then((newUser) => {
-                
+                console.log('/api/users/:id/posting', user)
                 const payload = { 
                     _id: newUser._id, 
                     username: newUser.username ,

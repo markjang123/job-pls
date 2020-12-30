@@ -9,7 +9,7 @@ class NavSearch extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.props)
+        console.log("Nav search props",this.props)
         if(!this.props.hasUsers){
             this.props.fetchAllUsers()
             .then(this.props.fetchCurrentUserPostings(this.props.currentUser))

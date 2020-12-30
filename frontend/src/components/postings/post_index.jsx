@@ -15,7 +15,7 @@ class PostIndex extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.props);
+        console.log("post index props",this.props);
         if (this.props.currentUser){
             this.props.setLoading()
             this.props.fetchAllUsers()
