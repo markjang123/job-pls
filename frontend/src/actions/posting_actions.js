@@ -85,14 +85,14 @@ export const fetchPostings = () => dispatch => (
 );
 
 export const fetchPosting = id => dispatch => {
-    debugger
+    console.log(id)
     return postingAPIUtil.getPosting(id)
         .then(posting => dispatch(receivePosting(posting)))
         .catch(err => console.log(err))
 };
 
 export const fetchUserPostings = id => dispatch => {
-    debugger
+    console.log(id)
     return postingAPIUtil.getUserPostings(id)
         .then(postings => {
             dispatch(receiveUserPostings(id ,postings))

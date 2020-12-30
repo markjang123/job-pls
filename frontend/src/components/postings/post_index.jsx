@@ -15,7 +15,7 @@ class PostIndex extends React.Component{
     }
 
     componentDidMount(){
-        debugger
+        console.log(this.props);
         if (this.props.currentUser){
             this.props.setLoading()
             this.props.fetchAllUsers()
@@ -37,7 +37,6 @@ class PostIndex extends React.Component{
         this.setState({sorted: true})
     }
     render(){
-        debugger
         let { 
             posts, 
             openModal, 
