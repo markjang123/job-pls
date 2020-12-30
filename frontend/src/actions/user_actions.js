@@ -59,6 +59,7 @@ export const savePostingToUser = (userId, posting) => dispatch => {
 };
 
 export const fetchAllUsers = () => {
+    debugger
     return dispatch => {
         return APIUserUtil.fetchAllUsers()
             .then(response => {
@@ -69,11 +70,13 @@ export const fetchAllUsers = () => {
 
 
 export const fetchUser = userId => dispatch => {
+    debugger
     return APIUserUtil.fetchUser(userId)
         .then(user => dispatch(receiveUser(user.data)))
 };
 
 export const updateAUser = (userId, userData) => {
+    debugger
     return dispatch => {
         return APIUserUtil.updateUser(userId, userData)
             .then((res) => {const { token } = res.data;
@@ -89,6 +92,7 @@ export const updateAUser = (userId, userData) => {
 };
 
 export const updateTheCurrentUser = (userId, userData) => {
+    debugger
     return dispatch => {
         return APIUserUtil.updateUser(userId, userData)
             .then((res) => {const { token } = res.data;
