@@ -68,7 +68,7 @@ router.post("/register", (req, res) => {
                         following_users: user.following_users,
                         followed_posting: user.followed_posting
                     };
-                    console.log(payload);
+                    // console.log(payload);
                     jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                     res.json({
                     success: true,
