@@ -68,7 +68,7 @@ router.post("/register", (req, res) => {
                         following_users: user.following_users,
                         followed_posting: user.followed_posting
                     };
-                    console.log(payload);
+                    // console.log(payload);
                     jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                     res.json({
                     success: true,
@@ -163,7 +163,7 @@ router.put(`/:id/posting`, (req, res) => {
         .then(user => {
             user.followed_posting.push(posting._id);
             user.save({new: true}).then((newUser) => {
-                
+                console.log('/api/users/:id/posting', user)
                 const payload = { 
                     _id: newUser._id, 
                     username: newUser.username ,

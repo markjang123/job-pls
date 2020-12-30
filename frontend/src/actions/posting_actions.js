@@ -84,21 +84,23 @@ export const fetchPostings = () => dispatch => (
         .catch(err => console.log(err))
 );
 
-export const fetchPosting = id => dispatch => (
-    postingAPIUtil.getPosting(id)
+export const fetchPosting = id => dispatch => {
+    // console.log("fetchPosting action, id",id)
+    return postingAPIUtil.getPosting(id)
         .then(posting => dispatch(receivePosting(posting)))
         .catch(err => console.log(err))
-);
+};
 
-export const fetchUserPostings = id => dispatch => (
-    postingAPIUtil.getUserPostings(id)
+export const fetchUserPostings = id => dispatch => {
+    // console.log("fetchUserPostings action, id",id)
+    return postingAPIUtil.getUserPostings(id)
         .then(postings => {
             dispatch(receiveUserPostings(id ,postings))
         })
         .catch(err => {
             console.log(err)
         })
-);
+};
 
 export const fetchCurrentUserPostings = id => dispatch => {
 return (
