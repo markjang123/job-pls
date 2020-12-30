@@ -63,7 +63,7 @@ class UserMenu extends React.Component {
 
     usersMenu(){
         return(
-            <div name="tabs">
+            <div className="tabs">
                 <input name="tab"
                     className='tab'
                     id="followers"

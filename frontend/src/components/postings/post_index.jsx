@@ -15,10 +15,11 @@ class PostIndex extends React.Component{
     }
 
     componentDidMount(){
-        this.props.setLoading();
-        this.props.fetchAllUsers().then( () => {
-            this.props.fetchCurrentUserPostings(this.props.currentUser);
-        })
+        if (this.props.currentUser){
+            this.props.setLoading()
+            this.props.fetchAllUsers()
+                .then(() => this.props.fetchCurrentUserPostings(this.props.currentUser))
+        }
     }
 
     openUsersIndex(openUsers){
@@ -35,7 +36,7 @@ class PostIndex extends React.Component{
         this.setState({sorted: true})
     }
     render(){
-        
+        debugger
         let { 
             posts, 
             openModal, 
@@ -63,7 +64,7 @@ class PostIndex extends React.Component{
 
                 <div className='index-container'>
                     <div className='jobs-grid'>
-                        {posts.map(post => (
+                        {posts.map((post, idx) => (
                                 <PostIndexItem 
                                     className='job'
                                     post={post}

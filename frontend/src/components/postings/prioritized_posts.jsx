@@ -60,7 +60,7 @@ class PrioritizedPostsContainer extends React.Component {
                 return (
                     < div className = 'job-priority-container' >
                     {
-                        prioritizedPosts.map(post => (
+                        prioritizedPosts.map((post, idx) => (
                             <PostPriorityItem
                                 prority={post.priority}
                                 post={post}
