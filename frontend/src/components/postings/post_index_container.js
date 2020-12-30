@@ -13,7 +13,8 @@ const mSTP = state => {
     return{
         myPosts: Object.values(state.session.user.followed_posting),
         currentUser: state.session.user._id,
-        posts: state.entities.posts.user,
+        posts: state.session.user.followed_posting,
+        // posts: state.entities.posts.user,
         modal: state.ui.modal,
         openUsers: false,
         hasUsers: !!Object.keys(state.entities.users).length,

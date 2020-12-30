@@ -15,9 +15,9 @@ class PostIndex extends React.Component{
 
     componentDidMount(){
         this.props.setLoading();
-        if(!this.props.hasUsers){
+        // if(!this.props.hasUsers){
             this.props.fetchAllUsers();
-        }
+        // }
         this.props.fetchCurrentUserPostings(this.props.currentUser);
     }
 
