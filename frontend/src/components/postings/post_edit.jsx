@@ -47,7 +47,7 @@ class PostEdit extends React.Component {
             <form onSubmit={this.submitHandler}>
                 <p id='notes'>Notes</p>
 
-                    <div class="radio-toolbar">
+                    <div className="radio-toolbar">
 
                         <div className='label-header'>
                             <h1 id='job-label'>Privacy settings:</h1>
@@ -81,7 +81,7 @@ class PostEdit extends React.Component {
                         <h1 id='job-label'>Priority:</h1>
                     </div>
 
-                    <div class="switch">
+                    <div className="switch">
                         <input name="priority_switch" 
                             id="low_form" 
                             type="radio"
@@ -122,7 +122,7 @@ class PostEdit extends React.Component {
                                     <option defaultValue={this.state.status === "Offer Received"} value="Offer Received">Offer Received</option>
                                     <option defaultValue={this.state.status === "Offer Accepted"} value="Offer Accepted">Offer Accepted</option>
                                 </select>
-                                <div class="select_arrow"/>
+                                <div className="select_arrow"/>
                         </div> 
                     </div>
 

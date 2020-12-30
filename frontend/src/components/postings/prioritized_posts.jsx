@@ -1,6 +1,7 @@
 import React from 'react';
 import PostPriorityItem from './posts_priority_item';
-import './post.css'
+import { randomKeyGen } from '../../util/helper';
+import './post.css';
 
 class PrioritizedPostsContainer extends React.Component {
     constructor(props) {
@@ -13,14 +14,14 @@ class PrioritizedPostsContainer extends React.Component {
 
     priorityMenu() {
         return (
-            <div class="tabs">
+            <div className="tabs">
                 <input name="tab"
                     className='tab'
                     id="high"
                     type="radio"
                     onClick={() => this.setState({ priority: 'high' })}
                 />
-                <label for="high">High
+                <label htmlFor="high">High
                     ({[...new Set(this.props.highPriority)].length})</label>
 
                 <input name="tab"
@@ -29,7 +30,7 @@ class PrioritizedPostsContainer extends React.Component {
                     type="radio"
                     onClick={() => this.setState({ priority: 'medium' })}
                 />
-                <label for="medium">Medium
+                <label htmlFor="medium">Medium
                     ({[...new Set(this.props.mediumPriority)].length})
                     </label>
 
@@ -39,7 +40,7 @@ class PrioritizedPostsContainer extends React.Component {
                     type="radio"
                     onClick={() => this.setState({ priority: 'low' })}
                 />
-                <label for="low">Low
+                <label htmlFor="low">Low
                     ({[...new Set(this.props.lowPriority)].length})
                     </label>
             </div>
@@ -63,7 +64,7 @@ class PrioritizedPostsContainer extends React.Component {
                             <PostPriorityItem
                                 prority={post.priority}
                                 post={post}
-                                key={post._id}
+                                key={randomKeyGen()}
                                 currentUser={this.props.currentUser}
                                 modal={this.props.modal}
                                 openModal={this.props.openModal}
@@ -81,7 +82,7 @@ class PrioritizedPostsContainer extends React.Component {
                                 <PostPriorityItem
                                     prority={post.priority}
                                     post={post}
-                                    key={post._id}
+                                    key={randomKeyGen()}
                                     currentUser={this.props.currentUser}
                                     modal={this.props.modal}
                                     openModal={this.props.openModal}
@@ -100,7 +101,7 @@ class PrioritizedPostsContainer extends React.Component {
                                 <PostPriorityItem
                                     prority={post.priority}
                                     post={post}
-                                    key={post._id}
+                                    key={randomKeyGen()}
                                     currentUser={this.props.currentUser}
                                     modal={this.props.modal}
                                     openModal={this.props.openModal}
@@ -118,7 +119,7 @@ class PrioritizedPostsContainer extends React.Component {
                                 <PostPriorityItem
                                     prority={post.priority}
                                     post={post}
-                                    key={post._id}
+                                    key={randomKeyGen()}
                                     currentUser={this.props.currentUser}
                                     modal={this.props.modal}
                                     openModal={this.props.openModal}

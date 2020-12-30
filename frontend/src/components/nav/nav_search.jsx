@@ -54,7 +54,7 @@ class NavSearch extends React.Component{
                                     <button 
                                         id='search-button' 
                                         onClick={() => this.handleSubmit}>
-                                            <i class="material-icons">search</i>
+                                            <i className="material-icons">search</i>
                                     </button>
                                 </div>
                             </div>

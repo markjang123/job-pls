@@ -1,5 +1,6 @@
 import React from 'react';
 import PostShowContainer from './post_show_container';
+import { randomKeyGen } from '../../util/helper';
 import './post.css';
 
 
@@ -33,13 +34,13 @@ class PostIndexItem extends React.Component{
         return(
             <div className='job' onClick={() => this.modeFunc(this.props)}>
                 <ul>
-                    <li id='job-title'>
+                    <li key={randomKeyGen()} id='job-title'>
                         {post.job_title}
                     </li> 
-                    <li id='company'>
+                    <li key={randomKeyGen()} id='company'>
                         {post.company}
                     </li>
-                    <li>
+                    <li key={randomKeyGen()}>
                         {post.status}
                     </li>
                 </ul>
@@ -50,5 +51,6 @@ class PostIndexItem extends React.Component{
         )
     }
 }
+
 
 export default PostIndexItem;
