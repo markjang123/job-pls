@@ -35,11 +35,13 @@ const SessionReducer = (state = initialState, action) => {
             }
         case UPDATE_CURRENT_USER:
             if(state.user._id === action.user._id){
-                let updatedUserPostings = state.user;
-                updatedUserPostings.followed_posting = updatedUserPostings.followed_posting.filter(posting => action.user.followed_posting.includes(posting._id))
+                let completelyNewUser = Object.assign( {} , action.user);
+                let updatedUserPostings = state.user.followed_posting;
+                completelyNewUser.followed_posting = updatedUserPostings;
+                debugger;
                 return {
                     isAuthenticated: state.isAuthenticated,
-                    user: updatedUserPostings
+                    user: completelyNewUser
                 }
             } else {
                 return state;

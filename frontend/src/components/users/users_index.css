@@ -106,6 +106,8 @@
 
 .username-link {
     text-decoration: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .username-container{

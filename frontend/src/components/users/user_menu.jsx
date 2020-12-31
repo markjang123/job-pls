@@ -14,6 +14,7 @@ class UserMenu extends React.Component {
         this.resize = this.resize.bind(this);
         this.usersMenu = this.usersMenu.bind(this);
         this.update = this.update.bind(this);
+        this.setTab = this.setTab.bind(this);
     }
 
     update(field) {
@@ -61,6 +62,11 @@ class UserMenu extends React.Component {
         this.setState({ grow: !this.state.grow });
     }
 
+    setTab(e, tabName) {
+        e.preventDefault();
+        this.setState({tab: tabName});
+    }
+
     usersMenu(){
         return(
             <div className="tabs">
@@ -68,7 +74,8 @@ class UserMenu extends React.Component {
                     className='tab'
                     id="followers"
                     type="radio"
-                    onClick={() => this.setState({ tab: 'followers'})}
+                    onClick={(e) => this.setTab( e, 'followers')}
+                    // onClick={() => this.setState({ tab: 'followers'})}
                     />
                 <label htmlFor="followers">Followers
                     ({[...new Set(this.props.currentUser.following_users)].length})</label>
@@ -77,7 +84,8 @@ class UserMenu extends React.Component {
                     className='tab'
                     id="following"
                     type="radio"
-                    onClick={() => this.setState({ tab: 'following' })}
+                    onClick={(e) => this.setTab( e, 'following')}
+                    // onClick={() => this.setState({ tab: 'following' })}
                     />
                 <label htmlFor="following">Following
                     ({[...new Set(this.props.currentUser.followed_users)].length})
@@ -87,7 +95,8 @@ class UserMenu extends React.Component {
                     className='tab'
                     id="users"
                     type="radio"
-                    onClick={() => this.setState({ tab: 'users' })} 
+                    onClick={(e) => this.setTab( e, 'users')}
+                    // onClick={() => this.setState({ tab: 'users' })} 
                     />
                 <label htmlFor="users">All Users 
                     ({[...new Set(this.props.users)].length})

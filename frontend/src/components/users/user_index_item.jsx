@@ -38,7 +38,7 @@ class UsersIndexItem extends React.Component {
 
         return (
             <div className={this.styling(style)} id='username-card'>
-                <div className="username-container">
+                <div className="username-container" onClick={e => e.stopPropagation()}>
                     <div className="username-data" >
                         <Link
                             className="username-link"

@@ -27,6 +27,7 @@ const usersReducer = (state = {}, action) => {
             return nextState;
         case UPDATE_CURRENT_USER:
             nextState[action.user._id] = action.user;
+            nextState[action.user._id].followed_posting = state[action.user._id].followed_posting
             return nextState;
         default:
             return state;
