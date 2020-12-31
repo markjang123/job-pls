@@ -215,9 +215,6 @@
 
 }
 
-.search-dropdown-div select{
-}
-
 .search-dropdown-div select:hover{
     background-color: #9fe5ff;
 }
@@ -239,13 +236,14 @@
     margin-right: auto;
     box-sizing: border-box;
     box-shadow: inset 0 1px 10px 0 rgba(0, 0, 0, .1); 
-
+    scroll-behavior: smooth;
 }
 
 .search-result-list{
     height: 100%;
     width: 40%;
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 .posting-list{
@@ -422,6 +420,13 @@
     box-shadow: inset 0 1px 10px 0 rgba(0, 0, 0, .1); 
     color: rgb(27, 31, 29);
     text-align: center;
+}
+
+.job-title{
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 
