@@ -1,5 +1,6 @@
 import { CITY_STATE_LIST } from '../search/search_terms';
 import NavShowContainer from '../nav/nav_buttons_container';
+import { randomKeyGen } from '../../util/helper';
 const React = require('react');
 
 class NavSearch extends React.Component{
@@ -77,7 +78,7 @@ class NavSearch extends React.Component{
                                         {CITY_STATE_LIST.map((loc, idx) => {
                                             return (
                                                 <option
-                                                    key={idx}
+                                                    key={randomKeyGen()}
                                                     value={loc}>
                                                     {`${loc}`}
                                                 </option>
@@ -101,7 +102,7 @@ class NavSearch extends React.Component{
                                     {['5', '10', '25', '50', '75', '100'].map((radi, idx) => {
                                         return (
                                             <option
-                                                key={idx}
+                                                key={randomKeyGen()}
                                                 value={radi}>
                                                 {`${radi} miles`}
                                             </option>
@@ -131,7 +132,7 @@ class NavSearch extends React.Component{
                                     , '120000'].map((salaryNum, idx) => {
                                         return (
                                             <option 
-                                                key={idx} 
+                                                key={randomKeyGen()} 
                                                 value={salaryNum}>
                                                     {`${salaryNum}`}
                                             </option>

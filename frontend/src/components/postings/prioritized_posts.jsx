@@ -62,7 +62,7 @@ class PrioritizedPostsContainer extends React.Component {
                     {
                         prioritizedPosts.map((post, idx) => (
                             <PostPriorityItem
-                                prority={post.priority}
+                                priority={post.priority}
                                 post={post}
                                 key={randomKeyGen()}
                                 currentUser={this.props.currentUser}
@@ -80,7 +80,7 @@ class PrioritizedPostsContainer extends React.Component {
                         {
                             highPriority.map(post => (
                                 <PostPriorityItem
-                                    prority={post.priority}
+                                    priority={post.priority}
                                     post={post}
                                     key={randomKeyGen()}
                                     currentUser={this.props.currentUser}
@@ -99,7 +99,7 @@ class PrioritizedPostsContainer extends React.Component {
                         {
                             mediumPriority.map(post => (
                                 <PostPriorityItem
-                                    prority={post.priority}
+                                    priority={post.priority}
                                     post={post}
                                     key={randomKeyGen()}
                                     currentUser={this.props.currentUser}
@@ -117,7 +117,7 @@ class PrioritizedPostsContainer extends React.Component {
                         {
                             lowPriority.map(post => (
                                 <PostPriorityItem
-                                    prority={post.priority}
+                                    priority={post.priority}
                                     post={post}
                                     key={randomKeyGen()}
                                     currentUser={this.props.currentUser}

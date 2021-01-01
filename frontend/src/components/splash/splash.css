@@ -17,8 +17,9 @@
 
 .splash-slider{
 	overflow-y: scroll;
+    scroll-behavior: smooth;
 	height: 100%;
-	width: 100%;
+    width: 100%;
 }
 .splash-greeting {
 	color: white;

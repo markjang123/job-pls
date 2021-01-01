@@ -1,6 +1,7 @@
 
 import React from 'react';
 import UsersIndexItemContainer from './user_index_item_container';
+import { randomKeyGen } from '../../util/helper';
 import './users_index.css';
 
 class UsersIndex extends React.Component {
@@ -27,9 +28,9 @@ class UsersIndex extends React.Component {
         } else {         
             return (
                 <div className='users-index'>
-                    <div className='users-index-item-container'>
+                    <div className='users-index-item-container' onClick={e => e.stopPropagation()}>
                         {this.props.users.map(user => {
-                            return <UsersIndexItemContainer key={user._id} user={user} style='user-show' />
+                            return <UsersIndexItemContainer key={randomKeyGen()} user={user} style={'user-show'} />
                         })}
                     </div>
                 </div>

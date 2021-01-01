@@ -33,6 +33,7 @@
     height: calc(100% - 86px);
     width: 100%;
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 .users-index-item, .users-show-index-item{
@@ -105,6 +106,8 @@
 
 .username-link {
     text-decoration: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .username-container{
@@ -131,21 +134,16 @@
     top: 5px;
 }
 
-.users-show-follow-button{
-}
-
-
-
 .follow-button:focus {
     outline-style: none;
 }
 
-#following {
+#followings {
     color:  rgb(255, 255, 255);
     background: #9b9b9b;
 }
 
-#follow {
+#follows {
     background: #e6e6e6;
     color: #9b9b9b;
 }

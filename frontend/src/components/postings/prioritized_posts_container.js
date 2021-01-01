@@ -7,7 +7,6 @@ import { prioritizer, lowPrioritizer, mediumPrioritizer, highPrioritizer } from 
 
 
 const mSTP = state => {
-
     let posts = state.session.user.followed_posting
 
     return {

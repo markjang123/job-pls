@@ -76,7 +76,6 @@ export const fetchUser = userId => dispatch => {
 };
 
 export const updateAUser = (userId, userData) => {
-    debugger
     return dispatch => {
         return APIUserUtil.updateUser(userId, userData)
             .then((res) => {const { token } = res.data;
@@ -92,7 +91,6 @@ export const updateAUser = (userId, userData) => {
 };
 
 export const updateTheCurrentUser = (userId, userData) => {
-    debugger
     return dispatch => {
         return APIUserUtil.updateUser(userId, userData)
             .then((res) => {const { token } = res.data;
