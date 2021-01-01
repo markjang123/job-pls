@@ -64,6 +64,7 @@ class UserMenu extends React.Component {
 
     setTab(e, tabName) {
         e.preventDefault();
+        e.stopPropagation();
         this.setState({tab: tabName});
     }
 
@@ -72,33 +73,33 @@ class UserMenu extends React.Component {
             <div className="tabs">
                 <input name="tab"
                     className='tab'
-                    id="followers"
+                    id="followersTab"
                     type="radio"
                     onClick={(e) => this.setTab( e, 'followers')}
                     // onClick={() => this.setState({ tab: 'followers'})}
                     />
-                <label htmlFor="followers">Followers
+                <label htmlFor="followersTab">Followers
                     ({[...new Set(this.props.currentUser.following_users)].length})</label>
 
                 <input name="tab"
                     className='tab'
-                    id="following"
+                    id="followingTab"
                     type="radio"
                     onClick={(e) => this.setTab( e, 'following')}
                     // onClick={() => this.setState({ tab: 'following' })}
                     />
-                <label htmlFor="following">Following
+                <label htmlFor="followingTab">Following
                     ({[...new Set(this.props.currentUser.followed_users)].length})
                     </label>
 
                 <input name="tab"
                     className='tab'
-                    id="users"
+                    id="usersTab"
                     type="radio"
                     onClick={(e) => this.setTab( e, 'users')}
                     // onClick={() => this.setState({ tab: 'users' })} 
                     />
-                <label htmlFor="users">All Users 
+                <label htmlFor="usersTab">All Users 
                     ({[...new Set(this.props.users)].length})
                     </label>
             </div>
@@ -108,12 +109,12 @@ class UserMenu extends React.Component {
     render() {
         if (this.props.currentUser._id === undefined) return null
         return (
-            <div className='user-menu'>
-                <div className='menu-header'>
+            <div className='user-menu' onClick={e => e.stopPropagation()}>
+                <div className='menu-header' onClick={e => e.stopPropagation()}>
                     Contacts
                 </div>
 
-                <div className='user-tabs-container'>
+                <div className='user-tabs-container' onClick={e => e.stopPropagation()}>
                     {this.usersMenu()}
                     {this.renderTab()}
                 </div> 

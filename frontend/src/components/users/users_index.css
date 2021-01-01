@@ -134,21 +134,16 @@
     top: 5px;
 }
 
-.users-show-follow-button{
-}
-
-
-
 .follow-button:focus {
     outline-style: none;
 }
 
-#following {
+#followings {
     color:  rgb(255, 255, 255);
     background: #9b9b9b;
 }
 
-#follow {
+#follows {
     background: #e6e6e6;
     color: #9b9b9b;
 }

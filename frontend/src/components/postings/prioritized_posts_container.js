@@ -7,7 +7,6 @@ import { prioritizer, lowPrioritizer, mediumPrioritizer, highPrioritizer } from 
 
 
 const mSTP = state => {
-    debugger
     let posts = state.session.user.followed_posting
 
     return {

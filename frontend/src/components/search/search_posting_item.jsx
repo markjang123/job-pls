@@ -83,7 +83,7 @@ class SearchPostingItem extends React.Component{
                         </div>
                         <div className="apply-to-job">
                             {posting_url 
-                            ? <a href={posting_url} target='_blank'>Click here to apply</a> 
+                            ? <a href={posting_url} target='_blank' rel='noopener'>Click here to apply</a> 
                             : "No application link available"}
                         </div>
                     </div>

@@ -63,8 +63,8 @@ class FollowButton extends React.Component {
                             : e => this.followUser(e)}
                     id={
                         this.props.is_following()
-                            ? "following"
-                            : "follow"}
+                            ? "followings"
+                            : "follows"}
                     className={this.styling(style)}>
                     {this.props.is_following()
                         ? "following"

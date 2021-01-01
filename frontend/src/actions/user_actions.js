@@ -94,8 +94,8 @@ export const updateTheCurrentUser = (userId, userData) => {
     return dispatch => {
         return APIUserUtil.updateUser(userId, userData)
             .then((res) => {const { token } = res.data;
-                    localStorage.setItem('jwtToken', token);
-                    APIUtil.setAuthToken(token);
+                    // localStorage.setItem('jwtToken', token);
+                    // APIUtil.setAuthToken(token);
                     const decoded = jwt_decode(token);
                     dispatch(updateCurrentUser(decoded));
                 }

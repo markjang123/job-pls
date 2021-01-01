@@ -16,6 +16,7 @@ class UserShow extends React.Component{
         this.props.setLoading();
         this.props.fetchAllUsers();
         this.props.fetchUser(this.props.match.params.userId)
+        .then(this.props.fetchCurrentUserPostings(this.props.currentUser._id))
         .then(this.props.fetchUserPostings(this.props.match.params.userId))
     }
 
@@ -47,6 +48,7 @@ class UserShow extends React.Component{
 
     setTab(e, tabName) {
         e.preventDefault();
+        e.stopPropagation();
         this.setState({tab: tabName});
     }
     
@@ -56,8 +58,8 @@ class UserShow extends React.Component{
         let { username } = this.props.user;
 
         return(
-            <div className="user-show-container">
-                <div className="profile-content">
+            <div className="user-show-container" onClick={e => e.stopPropagation()}>
+                <div className="profile-content" onClick={e => e.stopPropagation()}>
                     <div className='tabs-container' onClick={e => e.stopPropagation()}>
                         <div id="user-show-username">
                                 {username}

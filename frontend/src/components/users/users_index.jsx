@@ -30,7 +30,7 @@ class UsersIndex extends React.Component {
                 <div className='users-index'>
                     <div className='users-index-item-container' onClick={e => e.stopPropagation()}>
                         {this.props.users.map(user => {
-                            return <UsersIndexItemContainer key={randomKeyGen()} user={user} style='user-show' />
+                            return <UsersIndexItemContainer key={randomKeyGen()} user={user} style={'user-show'} />
                         })}
                     </div>
                 </div>

@@ -38,7 +38,6 @@ const SessionReducer = (state = initialState, action) => {
                 let completelyNewUser = Object.assign( {} , action.user);
                 let updatedUserPostings = state.user.followed_posting;
                 completelyNewUser.followed_posting = updatedUserPostings;
-                debugger;
                 return {
                     isAuthenticated: state.isAuthenticated,
                     user: completelyNewUser
