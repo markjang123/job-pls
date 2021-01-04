@@ -12,7 +12,7 @@ const mSTP = state => {
     return {
         currentUser: state.session.user._id,
         modal: state.ui.modal,
-        prioritizedPosts: prioritizer(posts),
+        // prioritizedPosts: prioritizer(posts),
         highPriority: highPrioritizer(posts),
         mediumPriority: mediumPrioritizer(posts),
         lowPriority: lowPrioritizer(posts)
