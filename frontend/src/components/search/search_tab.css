@@ -16,21 +16,34 @@
 
 #search-bar-container, 
 #company-search-container{
-    margin: 0px 8px 8px 8px;
     border-bottom: 2px solid rgb(184, 184, 184);
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    width: 50%;
 
 }
+
+#search-bar-container{
+    width: 40%;
+
+}
+
+#search{
+    width: 100%;
+}
+
+
 
 
 #search{
     height: 35px;
-    min-width: 265px;
-    background: none;
-
+    width: 90%;
 }
+
+
 #company-search{
     height: 35px;
-    min-width: 350px;
+    width: 90%;
 }
 
 #search-crit{
@@ -86,7 +99,7 @@
 .search-input-div input{
     border-bottom: 2px solid mintcream;
     color:  rgba(27, 31, 29, 0.7);
-    max-width: 100%;
+    width: 100%;
     font-size: 19px;
     padding-left: 9px;
     margin: 0px 0px;
