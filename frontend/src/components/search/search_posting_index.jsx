@@ -1,7 +1,7 @@
-
 import React from "react";
 import SearchPostingItem from './search_posting_item_container';
 import { createPosting } from './create_posting';
+import Logo from '../nav/logo192.png';
 
 class SearchPostingIndex extends React.Component{
 
@@ -27,7 +27,6 @@ class SearchPostingIndex extends React.Component{
         if(this.props.currentUser.followed_posting === undefined) return null;
         
         const { searchedPostings } = this.props;
-        
         return(
             <div className="search-result-container">
                 <div className="search-result-list">
@@ -39,10 +38,16 @@ class SearchPostingIndex extends React.Component{
                                     id={posting === this.props.currentPosting
                                     ? "selected-posting" 
                                     : null}>
-                                        <div className="job-title">{posting.job_title ? posting.job_title : ""}</div>
-                                        <div className="company">{posting.company ? posting.company : ""}</div>
-                                        <div className="location">{posting.location ? posting.location : ""}</div>
-
+                                        <div className='card-info-container'>
+                                            <p className="job-title">{posting.job_title ? posting.job_title : ""}</p>
+                                            <p className="company">{posting.company ? posting.company : ""}</p>
+                                            <p className="location">{posting.location ? posting.location : ""}</p>
+                                        </div>
+                                        {
+                                        posting.company_logo 
+                                        ?<img className='search-card-company-logo' src={posting.company_logo} width='50' height='50'/>
+                                        :<img className='search-card-company-logo' src={Logo} width='50' height='50'/>
+                                        }
                                 </div>
                             )
                         })}

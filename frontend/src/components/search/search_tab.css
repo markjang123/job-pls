@@ -65,6 +65,8 @@
 
 
 .search-result-card{
+    display: flex;
+    justify-content: space-between;
     position: relative;
     width: 100%;
     height: 85px;
@@ -128,3 +130,11 @@
     background-color: #9fe5ff;
 }
 
+.card-info-container > .job-title,
+.card-info-container > .company,
+.card-info-container > .location{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}

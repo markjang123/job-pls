@@ -1,7 +1,6 @@
 export const createPosting = posting => {
 
     // const { title, job_title, location, snippet, salary, source, type, link, company, id, updated, url, description, created_at, how_to_apply} = posting
-
     let returnedPosting = {
         _id: "",
         posting_id: "",
@@ -17,6 +16,7 @@ export const createPosting = posting => {
         type: "",
         created_at: "",
         public: true,
+        company_logo: "",
         date: ""
     }
     if(posting._id){
@@ -69,6 +69,9 @@ export const createPosting = posting => {
     } else {
         returnedPosting.public = true;
     }
+    if(posting.company_logo){
+        returnedPosting.company_logo = posting.company_logo;
+    }
     if(posting.date){
         returnedPosting.date = posting.date;
     }
@@ -91,6 +94,7 @@ export const saveReadyPost = posting => {
         type: "",
         created_at: Date.now(),
         public: true,
+        company_logo: "",
         date: ""
     }
     if(posting._id){
@@ -141,6 +145,9 @@ export const saveReadyPost = posting => {
         returnedPosting.public = posting.public;
     } else {
         returnedPosting.public = true;
+    }
+    if(posting.company_logo){
+        returnedPosting = posting.company_logo;
     }
     if(posting.date){
         returnedPosting.date = posting.date;
