@@ -52,6 +52,9 @@ const PostingSchema = new Schema({
     misc: {
         type: String
     },
+    company_logo: {
+        type: String
+    },
     date: {
         type: Date,
         default: Date.now
