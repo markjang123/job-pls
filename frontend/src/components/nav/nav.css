@@ -33,6 +33,7 @@
     background-repeat: no-repeat;
     display: flex;
     flex-direction: row;
+    margin-left: 10px;
 }
 
 
@@ -132,18 +133,18 @@
 
 #search{
     height: 35px;
-    min-width: 265px;
-    background: none;
+    width: 100%;
 }
 
-#search input{
-    background: none;
-}
-#company-search{
+
+/* #company-search{
     height: 35px;
-    min-width: 315px;
-
+    /* min-width: 315px;
+    width: 90%;
+    background: blue;
 }
+     */
+
 
 #search-crit{
 
@@ -175,8 +176,10 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
+
+
 
 .search-input-div input{
     border-bottom: 2px solid rgb(27, 31, 29);
@@ -200,6 +203,11 @@
     text-align: center;
 }
 
+.search-input-div div{
+    margin: 5px;
+    box-sizing: border-box;
+}
+
 .nav-select{
     font-family: 'Roboto';
     width: 30%;
@@ -213,6 +221,13 @@
 .search-button-div{
     width: 50px;
 
+}
+
+@media only screen and (max-width: 1429px) {
+    .search-button-div{
+        width: 35px;
+    }
+    
 }
 
 
