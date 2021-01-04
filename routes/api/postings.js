@@ -244,6 +244,7 @@ router.post('/',
             type: req.body.type,
             link: req.body.link,
             created_at: req.body.created_at,
+            company_logo: req.body.company_logo,
             public:  true,
         });
   
