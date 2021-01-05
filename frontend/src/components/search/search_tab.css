@@ -79,24 +79,28 @@
 
 .search-result-card{
     display: flex;
-    justify-content: space-between;
-    position: relative;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
     height: 85px;
     padding-top: 10px;
-    border-bottom: 1px solid rgb(184, 184, 184);
     overflow-wrap: break-word;
     box-sizing: border-box;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    /* box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);  */
 }
 
 
-.search-result-card:hover {
+.search-result-card:hover .card-info-container{
     background: #9fe5ff;
-    -webkit-box-shadow: 0px 0px 3px 2px rgba(27, 31, 29, 0.15);
+    /* -webkit-box-shadow: 0px 0px 3px 2px rgba(27, 31, 29, 0.15);
     -moz-box-shadow: 0px 0px 3px 2px rgb(27, 31, 29, 0.15);
-    box-shadow: 0px 0px 3px 2px rgb(27, 31, 29, 0.15);
+    box-shadow: 0px 0px 3px 2px rgb(27, 31, 29, 0.15); */
 }
+
+.card-info-container{
+    width: 100%;
+}
+
 
 .search-input-div input{
     border-bottom: 2px solid mintcream;
@@ -141,6 +145,30 @@
 
 .search-dropdown-div select:hover{
     background-color: #9fe5ff;
+}
+
+
+
+.logo-div{
+    display: flex;
+    height: 85%;
+    padding-right: 5px;
+    /* background: red; */
+    /* height: 85px; */
+    align-items: center;
+    border-right: 1px solid rgb(184, 184, 184);
+}
+
+
+
+.search-card-company-logo{
+    width: 45px;
+    object-fit: contain;
+
+}
+
+.card-info-container{
+    padding-left: 5px;
 }
 
 .card-info-container > .job-title,

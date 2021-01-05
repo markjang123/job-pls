@@ -4,7 +4,7 @@ import UsersIndexItemContainer from './user_index_item_container';
 import { randomKeyGen } from '../../util/helper';
 import './users_index.css';
 
-class UsersIndex extends React.Component {
+class UsersIndex extends React.PureComponent {
     constructor(props) {
         super(props);
         this.resize = this.resize.bind(this);

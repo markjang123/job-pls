@@ -13,7 +13,8 @@ const PostingsReducer = (state = [], action) => {
             jooble = [];
         };
         const github = action.postings.data[1] || [];
-        const concattedPostings = github.concat(jooble.jobs);
+        // const concattedPostings = github.concat(jooble.jobs);
+        const concattedPostings = github;
         const uniquePostingList = [...new Set(concattedPostings)];
         const uniqueFormattedPostings = uniquePostingList.map((posting) => {
             return createPosting(posting);
