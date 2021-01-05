@@ -14,7 +14,8 @@ const CurrentPostingReducer = (state = {}, action) => {
             jooble = [];
         };
         const github = action.postings.data[1] || [];
-        const concattedPostings = jooble.jobs.concat(github);
+        const concattedPostings = github.concat(jooble.jobs);
+        // const concattedPostings = github;
         return concattedPostings[0] || {};
     case SET_CURRENT_POSTING:
         return action.posting;
