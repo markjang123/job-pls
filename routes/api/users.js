@@ -83,7 +83,7 @@ router.post("/register", (req, res) => {
     });
 });
 
-router.post("/login", (req, res) => {
+router.post("/signin", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
   if (!isValid) {
