@@ -3,8 +3,9 @@ import React from 'react';
 import UsersIndexItemContainer from './user_index_item_container';
 import { randomKeyGen } from '../../util/helper';
 import './users_index.css';
+import modalReducer from '../../reducers/modal_reducer';
 
-class UsersIndex extends React.Component {
+class UsersIndex extends React.PureComponent {
     constructor(props) {
         super(props);
         this.resize = this.resize.bind(this);
@@ -13,6 +14,8 @@ class UsersIndex extends React.Component {
     resize() {
         this.setState({ grow: !this.state.grow });
     }
+
+                                     
 
     render() {
         if (this.props.currentUser === undefined) return null;

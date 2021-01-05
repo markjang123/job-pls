@@ -9,7 +9,7 @@ class UsersIndexItem extends React.Component {
         super(props);
         this.forceUpdate = this.forceUpdate.bind(this)
         this.is_following = this.is_following.bind(this)
-        this.styling = this.styling.bind(this)
+        this.modeFunc = this.modeFunc.bind(this)
     }
 
     is_following(){
@@ -19,25 +19,25 @@ class UsersIndexItem extends React.Component {
         )
     }
 
-   
-
-    styling(style){
-        switch(style){
-            case ('user-show'):
-                return 'users-show-index-item';
-            default:
-                return 'users-index-item';
-        }
+       modeFunc(props) {
+        const modalObject = ({
+            type: 'user',
+            modal: 'post',
+            proc: props
+        })
+        this.props.openModal(modalObject);
+        document.body.style.position = 'fixed';
     }
+
+   
 
     render(){
         if (this.props.user === undefined) return null;
 
         let { _id, username } = this.props.user
-        let { style } = this.props
 
         return (
-            <div className={this.styling(style)} id='username-card'>
+            <div className='users-index-item' id='username-card'>
                 <div className="username-container" onClick={e => e.stopPropagation()}>
                     <div className="username-data" >
                         <Link

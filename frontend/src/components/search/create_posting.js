@@ -79,7 +79,7 @@ export const createPosting = posting => {
 };
 
 export const saveReadyPost = posting => {
-
+    debugger
     let returnedPosting = {
         posting_id: "",
         posting_url: "",
