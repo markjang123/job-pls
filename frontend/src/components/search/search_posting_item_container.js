@@ -5,7 +5,6 @@ import {updateTheCurrentUser, savePostingToUser} from '../../actions/user_action
 import { deletePosting, setCurrentPosting } from '../../actions/posting_actions';
 
 const mapStateToProps = state => {
-    debugger
     let currentPost = state.entities.currentPosting;
     if(currentPost === {} || currentPost === undefined){
         currentPost = state.entities.searchedPosts[0]

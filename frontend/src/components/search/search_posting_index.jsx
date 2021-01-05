@@ -2,6 +2,7 @@ import React from "react";
 import SearchPostingItem from './search_posting_item_container';
 import { createPosting } from './create_posting';
 import Logo from '../nav/logo192.png';
+import {randomKeyGen} from '../../util/helper';
 
 class SearchPostingIndex extends React.Component{
 
@@ -34,7 +35,7 @@ class SearchPostingIndex extends React.Component{
                             return(
                                 <div className='search-result-card'
                                     onClick={() => this.handleClick(createPosting(posting))}
-                                    key={posting.posting_id} 
+                                    key={randomKeyGen()} 
                                     id={posting === this.props.currentPosting
                                     ? "selected-posting" 
                                     : null}>
