@@ -147,7 +147,7 @@ export const saveReadyPost = posting => {
         returnedPosting.public = true;
     }
     if(posting.company_logo){
-        returnedPosting = posting.company_logo;
+        returnedPosting.company_logo = posting.company_logo;
     }
     if(posting.date){
         returnedPosting.date = posting.date;

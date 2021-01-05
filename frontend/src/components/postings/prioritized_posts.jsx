@@ -12,6 +12,15 @@ class PrioritizedPostsContainer extends React.Component {
         this.prioritySelector = this.prioritySelector.bind(this)
     }
 
+    componentDidMount(){
+        // console.log("post index props",this.props);
+        if (this.props.currentUser){
+            this.props.setLoading()
+            this.props.fetchAllUsers()
+                .then(() => this.props.fetchCurrentUserPostings(this.props.currentUser))
+        }
+    }
+
     priorityMenu() {
         return (
             <div className="tabs">
