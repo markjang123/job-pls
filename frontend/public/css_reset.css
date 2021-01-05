@@ -40,10 +40,13 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	background: white;
-	/* background: rgb(184, 184, 184, 0.4); */
 	-webkit-font-smoothing: antialiased;
-  	-moz-osx-font-smoothing: grayscale;
+	-moz-osx-font-smoothing: grayscale;
+
 }
+
+
+
 ol, ul {
 	list-style: none;
 }
@@ -227,6 +230,5 @@ select
 
 select[multiple] 
 {
-	/* Move the label to the top */
-	/* vertical-align:top; */
+
 }

@@ -71,7 +71,6 @@ class SessionForm extends React.Component {
                         <input type="text"
                             placeholder='Username'
                             className="form-element"
-                            // id='form-element'
                         />
                     </label>
                     <br />
@@ -89,7 +88,6 @@ class SessionForm extends React.Component {
                         <input type="password"
                             placeholder='Confirm Password'
                             className="form-element"
-                            // id='form-element'
                         />
                     </label>
                     <br />
@@ -142,7 +140,6 @@ class SessionForm extends React.Component {
                             <div className='banner-body'>
                                 <TypeWriterEffect
                                     textStyle={{
-                                    // fontFamily: 'Red Hat Display',
                                     color: '#3F3D56',
                                     fontWeight: 900,
                                     fontSize: '1.75em',
@@ -182,7 +179,6 @@ class SessionForm extends React.Component {
                                         <input type="password"
                                             placeholder='Password'
                                             className="form-element"
-                                            // id='form-element'
                                         />
                                     </label>
                                     {this.renderPassword2()}

@@ -37,8 +37,10 @@ class PostIndexItem extends React.Component{
                     <div className='upper-image-and-title'>
                         {
                             post.company_logo 
-                            ?<img className='search-card-company-logo' src={post.company_logo} width='50' height='50'/>
-                            :<img className='search-card-company-logo' src={Logo} width='50' height='50'/>
+                            // ?<img className='search-card-company-logo' src={post.company_logo} width='50' height='50'/>
+                            // :<img className='search-card-company-logo' src={Logo} width='50' height='50'/>
+                            ?<img className='search-card-company-logo' src={post.company_logo}/>
+                            :<img className='search-card-company-logo' src={Logo}/>
                         }
                         <div>{post.job_title}</div>
                     </div>

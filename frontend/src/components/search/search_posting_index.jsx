@@ -38,16 +38,23 @@ class SearchPostingIndex extends React.Component{
                                     id={posting === this.props.currentPosting
                                     ? "selected-posting" 
                                     : null}>
+
+                                        <div className='logo-div'>
+                                            {
+                                            posting.company_logo 
+                        
+                                            // ?<img className='search-card-company-logo' src={posting.company_logo} width='50' height='50'/>
+                                            // :<img className='search-card-company-logo' src={Logo} width='50' height='50'/>
+                                            ?<img className='search-card-company-logo' src={posting.company_logo}/>
+                                            :<img className='search-card-company-logo' src={Logo}/>
+                                            }
+                                        </div>
+
                                         <div className='card-info-container'>
                                             <p className="job-title">{posting.job_title ? posting.job_title : ""}</p>
                                             <p className="company">{posting.company ? posting.company : ""}</p>
                                             <p className="location">{posting.location ? posting.location : ""}</p>
                                         </div>
-                                        {
-                                        posting.company_logo 
-                                        ?<img className='search-card-company-logo' src={posting.company_logo} width='50' height='50'/>
-                                        :<img className='search-card-company-logo' src={Logo} width='50' height='50'/>
-                                        }
                                 </div>
                             )
                         })}

@@ -10,9 +10,8 @@ export const prioritizer = ( posts ) => {
 
 export const highPrioritizer = (posts) => {
     if (posts === undefined) return null
-    if (Object.values(posts).length === 0) return null;
-
     let highPriority = []
+
     
     Object.values(posts).forEach(post => {
         if (post.priority === 3){
