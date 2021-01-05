@@ -58,21 +58,6 @@
 }
 
 
-/* #tab{
-    flex: 0 0 auto;
-    color: rgb(212,212,212);
-    background: orange;
-    width: 120px;
-    height: 30px;
-    font-size: 22px;
-    text-align: center;
-    align-items: center;
-    /* padding-top: 10px; 
-    border-bottom: 2px solid rgb(27,31,29);
-}
-*/
-
-
 .logout-button {
     cursor: pointer;
     font-weight: bold;
@@ -96,23 +81,6 @@
     position: absolute;
     bottom: 0px;
 }
-/* 
-#tab button{
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    border: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    font-size: 22px;
-    width: 120px;
-    height: 45px;
-    padding: 0px;
-    margin: 0px;
-    color: #ffb997;
-    cursor: pointer;
-} */
 
 
 #flex-tabs {
@@ -134,20 +102,10 @@
 
 
 #search{
-    /* height: 35px; */
     height: 27px;
     width: 100%;
     font-size: 20px;
 }
-
-
-/* #company-search{
-    height: 35px;
-    /* min-width: 315px;
-    width: 90%;
-    background: blue;
-}
-     */
 
 
 #search-crit{
@@ -180,7 +138,6 @@
 .search-input-div{
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
     justify-content: space-evenly;
 
 }
@@ -188,7 +145,6 @@
 
 
 .search-input-div input{
-    /* border-bottom: 2px solid rgb(27, 31, 29); */
     border-bottom: 2px solid rgb(175,175,175);
     color: mintcream;
     max-width: 100%;
