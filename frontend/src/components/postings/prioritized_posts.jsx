@@ -13,7 +13,6 @@ class PrioritizedPostsContainer extends React.Component {
     }
 
 
-
     priorityMenu() {
         return (
             <div className="tabs">

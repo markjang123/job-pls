@@ -8,7 +8,6 @@ import { prioritizer, lowPrioritizer, mediumPrioritizer, highPrioritizer } from 
 
 const mSTP = state => {
     let posts = state.session.user.followed_posting
-
     return {
         currentUser: state.session.user._id,
         modal: state.ui.modal,
@@ -24,6 +23,9 @@ const mDTP = dispatch => {
     return {
         openModal: type => dispatch(openModal(type)),
         closeModal: () => dispatch(closeModal()),
+        setLoading: () => dispatch(setLoading()),
+        fetchAllUsers: () => dispatch(fetchAllUsers()),
+        fetchCurrentUserPostings: userId => dispatch(fetchCurrentUserPostings(userId))
     }
 }
 

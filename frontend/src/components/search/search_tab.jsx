@@ -9,6 +9,15 @@ class SearchTab extends React.Component{
         super(props);
     }
 
+    componentDidMount(){
+        // console.log("post index props",this.props);
+        if (this.props.currentUser){
+            this.props.setLoading()
+            this.props.fetchAllUsers()
+                .then(() => this.props.fetchCurrentUserPostings(this.props.currentUser))
+        }
+    }
+
     render(){
         if(this.props.loading){
             return(
