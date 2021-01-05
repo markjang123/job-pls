@@ -9,6 +9,7 @@ class UsersIndexItem extends React.Component {
         super(props);
         this.forceUpdate = this.forceUpdate.bind(this)
         this.is_following = this.is_following.bind(this)
+        this.modeFunc = this.modeFunc.bind(this)
     }
 
     is_following(){
@@ -16,6 +17,16 @@ class UsersIndexItem extends React.Component {
         return (
             user.following_users.includes(currentUser._id)
         )
+    }
+
+       modeFunc(props) {
+        const modalObject = ({
+            type: 'user',
+            modal: 'post',
+            proc: props
+        })
+        this.props.openModal(modalObject);
+        document.body.style.position = 'fixed';
     }
 
    

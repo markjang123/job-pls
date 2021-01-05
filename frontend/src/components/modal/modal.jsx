@@ -1,6 +1,7 @@
 import React from 'react';
 import PostShowContainer from '../postings/post_show_container';
 import './modal.css'
+import UserShowContainer from '../users/user_show_container';
 
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
@@ -21,8 +22,7 @@ class Modal extends React.Component{
     render(){
         let { modal } = this.props;
         if (modal === null ) return null;
-
-        
+     
 
         return(        
             <div className='modal-background' onClick={() => this.openScroll()}>
@@ -31,7 +31,6 @@ class Modal extends React.Component{
                         <div onClick={() => this.openScroll(closeModal)} id='close-modal'>x</div>
                     </div>
                     <PostShowContainer post={modal}/>
-              
                 </div>
             </div>
         )
@@ -43,7 +42,7 @@ class Modal extends React.Component{
 const mSTP = ({ ui }, modalObject) => {
     return {
         modal: ui.modal,
-        proc: modalObject.proc
+        proc: modalObject.proc,
         
     };
 };

@@ -58,17 +58,19 @@
 }
 
 
-#tab{
+/* #tab{
     flex: 0 0 auto;
     color: rgb(212,212,212);
+    background: orange;
     width: 120px;
     height: 30px;
     font-size: 22px;
     text-align: center;
     align-items: center;
-    padding-top: 10px;
+    /* padding-top: 10px; 
     border-bottom: 2px solid rgb(27,31,29);
 }
+*/
 
 
 .logout-button {
@@ -94,7 +96,7 @@
     position: absolute;
     bottom: 0px;
 }
-
+/* 
 #tab button{
     display: flex;
     align-items: flex-start;
@@ -110,7 +112,7 @@
     margin: 0px;
     color: #ffb997;
     cursor: pointer;
-}
+} */
 
 
 #flex-tabs {
@@ -132,8 +134,10 @@
 
 
 #search{
-    height: 35px;
+    /* height: 35px; */
+    height: 27px;
     width: 100%;
+    font-size: 20px;
 }
 
 
@@ -156,14 +160,15 @@
 }
 
 .material-icons{
-    height: 35px;
+    height: 25px;
+    object-fit: contain;
 }
 
 #search-button{
-    height: 35px;
-    width: 100%;
+    height: 25px;
+    width: 25px;
     background: #9fe5ff;
-    padding: 6px 0px 5px 0px;
+    padding: 0px 0px 5px 0px;
 }
 
 .search-inputs-divs{
@@ -175,17 +180,20 @@
 .search-input-div{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    justify-content: space-evenly;
+
 }
 
 
 
 .search-input-div input{
-    border-bottom: 2px solid rgb(27, 31, 29);
+    /* border-bottom: 2px solid rgb(27, 31, 29); */
+    border-bottom: 2px solid rgb(175,175,175);
     color: mintcream;
     max-width: 100%;
     font-size: 19px;
+
 }
 
 .search-input-div placeholder{
@@ -196,6 +204,7 @@
     border: 2px solid none;
 }
 
+
 .search-input-div button{
     font-size: 19px;
     padding-left: 9px;
@@ -204,7 +213,7 @@
 }
 
 .search-input-div div{
-    margin: 5px;
+    margin: 0px 25px 0px 0px;
     box-sizing: border-box;
 }
 
@@ -220,6 +229,7 @@
 }
 .search-button-div{
     width: 50px;
+    height: 25px;
 
 }
 
