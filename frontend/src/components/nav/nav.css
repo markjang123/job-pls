@@ -397,13 +397,21 @@
 .loading-wheel-container, .no-results{
     display: flex;
     flex-direction: column;
-    width: 100%;
     height: calc(100% - 130px);
     align-items: center;
     justify-content: center;
     box-shadow: inset 0 1px 10px 0 rgba(0, 0, 0, .1); 
     color: rgb(27, 31, 29);
     text-align: center;
+}
+
+.no-results{
+    width: 60%;
+}
+
+.loading-wheel-container{
+        width: 100%;
+
 }
 
 .job-title{

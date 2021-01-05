@@ -10,7 +10,6 @@
     background-color: rgba(34, 34, 34, 0.801);
     z-index: 99;
     align-items: center;
-    align-content: center;
     
 }
 
@@ -19,10 +18,11 @@ body.modal-opened{
 }
 
 .modal-child{
+    margin-top: -30px;
 }
 
 .modal-container{
-    height: 850px;
+    height: 825px;
 
 }
 

@@ -1,5 +1,5 @@
 .user-show-container {
-    height: calc(100% - 88px);
+    height: calc(100% - 125px);
     width: 100%;
     padding-top: 10px;
     color: rgb(27 ,31, 29);
@@ -11,19 +11,24 @@
     text-align: center;
     font-size: 25px;
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    display: block; 
     height: 1.25em;
+    text-overflow: ellipsis;
     width: 100%;
-    position: relative;
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
 
 .tabs-container {
     font-weight: bold;
     height: 100%;
     overflow-y: auto;
+    text-overflow: ellipsis;
     scroll-behavior: smooth;
-    width: 350px;
+    width: 45%;
     display: flex;
     flex-direction: column;
 }
@@ -201,6 +206,7 @@
 .profile-content{
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     height: calc(100%);
     overflow-y: none;
 }
@@ -221,7 +227,8 @@
 
 .user-posts-index {
     height: 98%;
-    width: 100%;
+    max-width: 60%;
+    min-width: 325px;
     overflow-wrap: break-word;
     display: flex;
     flex-direction: column;
@@ -233,7 +240,83 @@
     border-bottom: 1px solid rgb(190,189,186);
     padding: 5px 3px 10px;
     margin: 0px 5px 15px 5px;
+    min-width: 325px;
 }
+
+
+.prog-bar-container{
+    content: '';
+    position: relative;
+    max-width: 50%;
+    min-width: 250px;
+    height: 25px;
+    border: solid 2px rgb(27, 31, 29);
+    color: rgb(27, 31, 29);
+    border-radius: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background: white;
+    padding-right: 5px;
+}
+
+.prog-bar-container::after{
+    content: '';
+    position: absolute;
+    height: 18px;
+    width: 97%;
+    border-radius: 10px 10px 10px 10px;
+    background: rgb(0,185,255);
+    clip: rect(0, 42%, 42%, 0% );
+    background: linear-gradient(90deg, rgb(0, 185, 255) 0%, #ff0008 100%);
+
+}
+
+.prog{
+    content: '';
+    position: absolute;
+    height: 18px;
+    width: 0%;
+    background: white;
+    z-index: 2;
+
+}
+
+
+
+#two-prog{
+    width: 85%;
+}
+
+#three-prog{
+    width: 70%;
+}
+
+
+#four-prog{
+    width: 56%;
+}
+
+
+#five-prog{
+    width: 42%
+}
+
+
+#six-prog{
+    width: 28%;
+}
+
+#seven-prog{
+    width: 14%;
+    
+}
+#eight-prog{
+    width: 0%;
+    
+}
+
 
 #job-title{
     font-size: 18px;
