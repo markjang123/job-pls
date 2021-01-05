@@ -22,6 +22,7 @@ class SearchPostingItem extends React.Component{
 
     handleClick(){
         let savingPost = saveReadyPost(this.props.currentPosting);
+        debugger
         if(this.state.saved){
             let newUserArray = this.props.currentUser.followed_posting.filter(posting => posting._id !== this.props.currentPosting._id );
             
