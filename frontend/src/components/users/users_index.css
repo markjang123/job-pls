@@ -39,9 +39,9 @@
 .users-index-item, .users-show-index-item{
     display: flex;
     height: 100px;
-    width: 87%;
+    /* width: 87%; */
     position: relative;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     transition: all 0.2s ease-out;
     border-bottom: 1px solid rgba(184, 184, 184, 0.445);
     box-sizing: border-box;
@@ -73,23 +73,36 @@
 
 .username-data{
     height: 100%;
-    width: 70%;
     padding: 10px;
     text-overflow: ellipsis;
     background: white;
     box-sizing: border-box;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    /* border: 1px solid blue; */
 }
-
+.user-info {
+    height: 100%;
+    width: 65%;
+    padding: 10px;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.follower-count {
+    margin: 5px 0;
+    padding: 0;
+    text-align: left;
+    color: #9e9a9a
+}
 .username{
     color: rgb(27, 31, 29) ;
     padding-top: auto;
     padding-bottom: auto;
     text-align: left;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     position: absolute;
     height: 1.25em;
@@ -108,26 +121,32 @@
     text-decoration: none;
     text-overflow: ellipsis;
     overflow: hidden;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
 }
 
 .username-container{
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
     height: 100%;
     width: 100%;
     margin: 0;
-    padding: 0;
+    /* padding: 10px; */
     display: inline-block;
     position: relative;
     text-overflow: ellipsis;
+    /* border: 1px solid blue; */
 }
 
 .follow-button, .users-show-follow-button {
-    border: 1px dashed rgba(138, 138, 138, 0.274);
+    border: 2px solid rgb(113,181,249);
     font-weight: bold;
-    font-size: 12px;
-    position: absolute;
+    font-size: 14px;
+    /* position: absolute; */
     cursor: pointer;
-    height: 20%;
-    width: 30%;
+    border-radius: 20px;
+    height: 35px;
+    width: 80px;
 }
 
 .follow-button{
@@ -141,10 +160,10 @@
 
 #followings {
     color:  rgb(255, 255, 255);
-    background: #9b9b9b;
+    background: rgb(113,181,249);
 }
 
 #follows {
-    background: #e6e6e6;
-    color: #9b9b9b;
+    color: rgb(113,181,249);
+    background: white;
 }

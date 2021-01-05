@@ -21,7 +21,6 @@ class SearchPostingItem extends React.Component{
     
 
     handleClick(e){
-        e.preventDefault();
         let savingPost = saveReadyPost(this.props.currentPosting);
         debugger
         if(this.state.saved){
@@ -78,7 +77,7 @@ class SearchPostingItem extends React.Component{
                     <div className='posting-listing-buttons'>
                         {/* <button className="posting-listing-add-button"  */}
                         <div className="posting-listing-add-button" 
-                            onClick={() => this.handleClick}>
+                            onClick={this.handleClick}>
                                 { this.state.saved 
                                 ? "Delete job from My Jobs" 
                                 : "Save job to My Jobs"}

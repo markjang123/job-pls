@@ -65,6 +65,9 @@
 .upper-image-and-title{
     display: flex;
 }
+.upper-image-and-title img{
+    margin: 7px;
+}
 
 
 #edit-button {

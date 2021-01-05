@@ -32,27 +32,32 @@ class UsersIndexItem extends React.Component {
    
 
     render(){
+        debugger
         if (this.props.user === undefined) return null;
 
-        let { _id, username } = this.props.user
+        let { _id, username, following_users } = this.props.user
 
         return (
             <div className='users-index-item' id='username-card'>
                 <div className="username-container" onClick={e => e.stopPropagation()}>
                     <div className="username-data" >
-                        <Link
-                            className="username-link"
-                            to={`/users/${_id}`}>
-                            {username}
-                        </Link>
-                    <FollowButtonContainer
-                        updateAUser={this.props.updateAUser}
-                        is_following={this.is_following}
-                        forceUpdate={() => this.forceUpdate()}
-                        currentUser={this.props.currentUser}
-                        user={this.props.user}
-                        style={'user-show'}
-                    />
+                        <div className="user-info">
+                            <Link
+                                className="username-link"
+                                to={`/users/${_id}`}>
+                                {username}
+                            </Link>
+                            <p className="follower-count">{following_users.length === 1 ? "1 follower" : `${following_users.length} followers`} </p>
+                            
+                        </div>
+                        <FollowButtonContainer
+                            updateAUser={this.props.updateAUser}
+                            is_following={this.is_following}
+                            forceUpdate={() => this.forceUpdate()}
+                            currentUser={this.props.currentUser}
+                            user={this.props.user}
+                            style={'user-show'}
+                        />
                     </div>
                 </div>
 
