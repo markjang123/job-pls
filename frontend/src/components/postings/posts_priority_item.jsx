@@ -8,6 +8,8 @@ class PostPriorityItem extends React.Component {
         super(props);
         this.showPost = this.showPost.bind(this);
         this.modeFunc = this.modeFunc.bind(this);
+        this.statusBar = this.statusBar.bind(this)
+
     }
 
     showPost(post) {
@@ -39,6 +41,36 @@ class PostPriorityItem extends React.Component {
         }
     }
 
+    statusBar(){
+        let status = this.props.post.status
+        let id = 'two-prog'
+
+        if ( status === "Haven't applied" ){
+            id = 'two-prog'
+        } else if ( status === 'Call Back'){
+            id ='three-prog'
+        } else if ( status === 'Phone Interview'){
+            id ='four-prog'
+        } else if ( status === 'On-site Interview'){
+            id ='five-prog'
+        } else if ( status === 'On-site Interview'){
+            id ='six-prog'
+        } else if ( status === 'Offer Received'){
+            id ='seven-prog'
+        } else if ( status === 'Offer Accepted'){
+            id ='eight-prog'
+        }
+
+        return(
+            <div className='prog-bar-priority-container'>
+                <div className='prog-priority' id={id}>
+
+                </div>
+
+            </div>
+        )
+    }
+
     render() {
 
         const { post } = this.props;
@@ -53,7 +85,8 @@ class PostPriorityItem extends React.Component {
                                 {post.company}
                             </li>
                             <li>
-                                {post.status}
+                                {/* {post.status} */}
+                                {this.statusBar()}
                             </li>
                             <li id='salary'>
                                 {post.salary}

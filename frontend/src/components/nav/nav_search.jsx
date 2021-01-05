@@ -35,7 +35,7 @@ class NavSearch extends React.Component{
         
         return(            
             <div className='nav-container'>
-                <form className='search-form' onSubmit={this.handleSubmit}>
+                <form className='search-form' onSubmit={this.handleSubmit} autocomplete="off">
                     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
                     <div className='search-inputs-divs'>
