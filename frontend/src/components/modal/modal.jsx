@@ -1,7 +1,6 @@
 import React from 'react';
 import PostShowContainer from '../postings/post_show_container';
 import './modal.css'
-import UserShowContainer from '../users/user_show_container';
 
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
