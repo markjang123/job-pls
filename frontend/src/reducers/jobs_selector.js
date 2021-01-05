@@ -9,7 +9,6 @@ export const prioritizer = ( posts ) => {
 }
 
 export const highPrioritizer = (posts) => {
-    debugger
     if (posts === undefined) return null
     let highPriority = []
 

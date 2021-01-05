@@ -15,7 +15,6 @@ class PrioritizedPostsContainer extends React.Component {
 
 
     priorityMenu() {
-        debugger
         return (
             <div className="tabs">
                 <input name="tab"
@@ -154,7 +153,6 @@ class PrioritizedPostsContainer extends React.Component {
 
         
         if (currentUser === undefined) return null
-        debugger
 
         
         // if (prioritizedPosts === null) {

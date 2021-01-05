@@ -132,6 +132,7 @@
 
 .follow-button{
     top: 5px;
+    z-index: 3;
 }
 
 .follow-button:focus {

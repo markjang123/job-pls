@@ -31,7 +31,6 @@ class SearchPostingIndex extends React.Component{
             <div className="search-result-container">
                 <div className="search-result-list">
                         {searchedPostings.map((posting, idx) => {
-                            {debugger}
                             return(
                                 <div className='search-result-card'
                                     onClick={() => this.handleClick(createPosting(posting))}

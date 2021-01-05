@@ -20,7 +20,8 @@ class SearchPostingItem extends React.Component{
     }
     
 
-    handleClick(){
+    handleClick(e){
+        e.preventDefault();
         let savingPost = saveReadyPost(this.props.currentPosting);
         if(this.state.saved){
             let newUserArray = this.props.currentUser.followed_posting.filter(posting => posting._id !== this.props.currentPosting._id );
@@ -76,7 +77,7 @@ class SearchPostingItem extends React.Component{
                     <div className='posting-listing-buttons'>
                         {/* <button className="posting-listing-add-button"  */}
                         <div className="posting-listing-add-button" 
-                            onClick={this.handleClick}>
+                            onClick={() => this.handleClick}>
                                 { this.state.saved 
                                 ? "Delete job from My Jobs" 
                                 : "Save job to My Jobs"}
