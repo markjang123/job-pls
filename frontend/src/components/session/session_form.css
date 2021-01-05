@@ -8,11 +8,8 @@
     padding-top: 25px;
     height: 92%;
     width: 95%;
-    /* height: 515px; */
-    /* width: 340px; */
     border-radius: 20px;
     background: mintcream;
-    /* background: orange; */
     z-index: 3;
     padding-right: 5px;
 
@@ -158,7 +155,6 @@
 } 
 
 .greeting-background {
-	/* display: inline-block; */
 	height: 250px;
 	width: 500px;
 	position: relative;
