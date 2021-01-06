@@ -6,6 +6,7 @@ import NavSearch from './nav_search';
 
 const mapStateToProps = state => {
     return {
+        currentUser: state.session.currentUser._id,
         searchedPostings: state.entities.SearchedPosts,
         loading: state.ui.loading,
         hasUsers: !!Object.keys(state.entities.users).length
