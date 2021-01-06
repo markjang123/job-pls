@@ -9,13 +9,13 @@ class NavSearch extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount(){
-        // console.log("Nav search props",this.props)
-        if(!this.props.hasUsers){
-            this.props.fetchAllUsers()
-            .then(this.props.fetchCurrentUserPostings(this.props.currentUser))
-        }
-    }
+    // componentDidMount(){
+    //     // console.log("Nav search props",this.props)
+    //     if(!this.props.hasUsers){
+    //         this.props.fetchAllUsers()
+    //         .then(this.props.fetchCurrentUserPostings(this.props.currentUser))
+    //     }
+    // }
     
     handleSubmit(e){
         e.preventDefault();
