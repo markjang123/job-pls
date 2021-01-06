@@ -66,7 +66,10 @@
     display: flex;
 }
 .upper-image-and-title img{
-    margin: 7px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin: 0px 7px;
 }
 
 
