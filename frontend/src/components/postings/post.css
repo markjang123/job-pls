@@ -288,6 +288,7 @@ input[type='radio']{
     text-align: left;
     color: rgb(32, 32, 32);
     font-weight: bold;
+    line-height: 24px;
 }
 
 #company, #location{
