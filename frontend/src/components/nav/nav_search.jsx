@@ -9,13 +9,13 @@ class NavSearch extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // componentDidMount(){
-    //     // console.log("Nav search props",this.props)
-    //     if(!this.props.hasUsers){
-    //         this.props.fetchAllUsers()
-    //         .then(this.props.fetchCurrentUserPostings(this.props.currentUser))
-    //     }
-    // }
+    componentDidMount(){
+        // console.log("Nav search props",this.props)
+        if(!this.props.hasUsers){
+            this.props.fetchAllUsers()
+            .then(this.props.fetchCurrentUserPostings(this.props.currentUser))
+        }
+    }
     
     handleSubmit(e){
         e.preventDefault();
@@ -35,7 +35,7 @@ class NavSearch extends React.Component{
         
         return(            
             <div className='nav-container'>
-                <form className='search-form' onSubmit={this.handleSubmit} autocomplete="off">
+                <form className='search-form' onSubmit={this.handleSubmit} autoComplete="off">
                     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
                     <div className='search-inputs-divs'>

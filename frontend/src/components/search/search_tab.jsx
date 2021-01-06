@@ -10,8 +10,8 @@ class SearchTab extends React.Component{
     }
 
     componentDidMount(){
-        // console.log("post index props",this.props);
         if (this.props.currentUser){
+            console.log("search tab props",this.props);
             this.props.setLoading()
             this.props.fetchAllUsers()
                 .then(() => this.props.fetchCurrentUserPostings(this.props.currentUser))

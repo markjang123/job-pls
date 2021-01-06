@@ -13,7 +13,6 @@ class PrioritizedPostsContainer extends React.Component {
     }
 
     componentDidMount(){
-        // console.log("post index props",this.props);
         if (this.props.currentUser){
             this.props.setLoading()
             this.props.fetchAllUsers()
@@ -138,8 +137,26 @@ class PrioritizedPostsContainer extends React.Component {
                     </div>
 
                 );
-        }
-
+                default:
+                    return (
+                        <div className='job-priority-container'>
+                            {
+                                highPriority.map(post => (
+                                    <PostPriorityItem
+                                        priority={post.priority}
+                                        post={post}
+                                        key={randomKeyGen()}
+                                        currentUser={this.props.currentUser}
+                                        modal={this.props.modal}
+                                        openModal={this.props.openModal}
+                                        closeModal={this.props.closeModal}
+                                    />
+                                ))
+                            }
+                        </div>
+    
+                    );        
+                }
     }
 
     render() {
