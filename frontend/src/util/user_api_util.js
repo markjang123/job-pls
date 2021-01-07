@@ -5,7 +5,7 @@ export const fetchUser = id => {
 };
 
 export const fetchAllUsers = () => {
-    return axios.get(`/api/users`);
+    return axios.get(`/api/users/all`);
 };
 
 export const updateUser = (id, userData) => {
