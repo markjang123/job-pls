@@ -7,60 +7,13 @@
   overflow: hidden;
 }
 
-.app > figure {
-  animation: imageAnimation 15s linear infinite 0s;
-  backface-visibility: hidden;
-  background-size: cover;
-  background-position: center center;
-  color: transparent;
-  height: 100%;
-  left: 0px;
-  opacity: 0;
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  z-index: 0;
-}
-
-.app > figure:nth-child(1) {
-  background-image: url('../images/pexels-arina-krasnikova-5950095-min.jpg');
-}
-.app > figure:nth-child(2) {
-  animation-delay: 6s;
-  background-image: url('../images/pexels-cadeau-maestro-1170412-min.jpg');
-}
-.app > figure:nth-child(3) {
-  animation-delay: 12s;
-  background-image: url('../images/pexels-photo-3184302.jpeg');
-}
-
-
-@keyframes imageAnimation {
-  0% {
-    animation-timing-function: ease-in;
-    opacity: 0;
-  }
-  8% {
-    animation-timing-function: ease-out;
-    opacity: 1;
-  }
-  35% {
-    opacity: 1
-  }
-  50% {
-    opacity: 0
-  }
-  100% {
-    opacity: 0
-  }
-}
-
-
 
 .display-content{
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  max-width: 1850px;
   height: 100%;
   z-index: 1;
   overflow: hidden;
@@ -74,20 +27,32 @@
 .body-content{
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  height: 100vh;
+  justify-content: space-evenly;
+  height: calc( 100vh - 50px);
 }
 
 #job-content{
-  width:50%;
+  max-width:50%;
+  min-width: 700px;
   height: 100%;
+  height: calc( 100% - 1px);
 }
 
-#sidebar-content{
+.sidebar-content{
   width: 20%;
-  height: 100%;
+  height: calc( 100% - 1px);
+  width: 355px;
+  min-width: 215px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  padding: 0px 10px 0px 10px;
 }
 
+#right-bar{
+  min-width: 270px;
+
+}
 
 .logo{
   margin: 0px 0px 0px 25px;

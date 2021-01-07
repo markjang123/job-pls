@@ -9,12 +9,10 @@ import { logout } from '../../actions/session_actions';
 const mSTP = state => {
 
     let posts = state.entities.posts.user
-    // console.log("post index container state:",state)
     return{
         myPosts: Object.values(state.session.user.followed_posting),
         currentUser: state.session.user._id,
         posts: state.session.user.followed_posting,
-        // posts: state.entities.posts.user,
         modal: state.ui.modal,
         openUsers: false,
         hasUsers: !!Object.keys(state.entities.users).length,

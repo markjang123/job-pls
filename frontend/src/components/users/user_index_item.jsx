@@ -32,7 +32,7 @@ class UsersIndexItem extends React.Component {
    
 
     render(){
-        debugger
+        
         if (this.props.user === undefined) return null;
 
         let { _id, username, following_users } = this.props.user

@@ -44,7 +44,7 @@ class PostEdit extends React.Component {
         return(
 
         <div className="post-edit">
-            <form onSubmit={this.submitHandler} autocomplete="off">
+            <form onSubmit={this.submitHandler} autoComplete="off">
                 <p id='notes'>Notes</p>
 
                     <div className="radio-toolbar">

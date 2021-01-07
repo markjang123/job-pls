@@ -135,9 +135,6 @@ class PrioritizedPostsContainer extends React.Component {
 
     render() {
         let {
-            // openModal,
-            // closeModal,
-            // modal,
             currentUser,
             prioritizedPosts,
             highPriority, 
@@ -147,15 +144,9 @@ class PrioritizedPostsContainer extends React.Component {
         } = this.props
 
         let { priority } = this.state
-
-
-
         
         if (currentUser === undefined) return null
 
-        
-        // if (prioritizedPosts === null) {
-            // if (prioritizedPosts === null) {
         if (highPriority.length === 0 && mediumPriority.length === 0 & lowPriority.length === 0){
             return (
                 <div className='user-menu'>

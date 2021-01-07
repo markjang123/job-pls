@@ -40,22 +40,18 @@ class App extends React.Component{
 
         return(
             <div className='app'>
-                {/* <figure></figure>
-                <figure></figure>
-                <figure></figure> */}
                 <div className='display-content' >
                     <div className='header-content'>
                         <NavButtonsContainer/>
                     </div>
                     <div className='body-content'>
-                        <div id='sidebar-content'>
+                        <div className='sidebar-content'>
                             <PrioritizedPostsContainer/> 
                         </div>
                         <div id='job-content'>
                                 <NavShowContainer/>
                                     <Modal />
                                 <Switch>
-                                    {/* <AuthRoute exact path="/" component={SplashContainer} formType="signup"/> */}
                                     <ProtectedRoute path="/jobs/:jobId" component={PostShowContainer} />
                                     <ProtectedRoute path="/jobs" component={PostIndexContainer} />
                                     <ProtectedRoute exact path="/jobs/sorted" component={SortedPostIndexContainer} />
@@ -67,7 +63,7 @@ class App extends React.Component{
                                     <ProtectedRoute path='*' component={PostIndexContainer} />
                                 </Switch>
                         </div>
-                        <div id='sidebar-content'>
+                        <div className='sidebar-content' id='right-bar'>
                             <UserMenuContainer/>
                         </div>
                     </div>

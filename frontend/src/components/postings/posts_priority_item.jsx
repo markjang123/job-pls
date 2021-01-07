@@ -77,21 +77,19 @@ class PostPriorityItem extends React.Component {
         return (
             <div className={this.idSelector(post.priority)} id="card" onClick={() => this.modeFunc(this.props)}>
                     <div className='job-priority-data'>
-                        <ul>
-                            <li id='job-title'>
+                            <div id='job-title'>
                                 {post.job_title}
-                            </li>
-                            <li id='company'>
+                            </div>
+                            <div id='company'>
                                 {post.company}
-                            </li>
-                            <li>
+                            </div>
+                            <div>
                                 {/* {post.status} */}
                                 {this.statusBar()}
-                            </li>
-                            <li id='salary'>
+                            </div>
+                            <div id='salary'>
                                 {post.salary}
-                            </li>
-                        </ul>
+                            </div>
                     </div>
                 </div>
         )

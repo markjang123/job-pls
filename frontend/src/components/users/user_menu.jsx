@@ -15,6 +15,7 @@ class UserMenu extends React.Component {
         this.usersMenu = this.usersMenu.bind(this);
         this.update = this.update.bind(this);
         this.setTab = this.setTab.bind(this);
+        this.selectedTab = this.selectedTab.bind(this)
     }
 
     update(field) {
@@ -23,11 +24,15 @@ class UserMenu extends React.Component {
         };
     }
 
+    selectedTab(){
+        return('selected-tab')
+    }
+
     renderTab() {
         switch (this.state.tab) {
             case 'users':
                 return (
-                    <div className='users-index-item-container'>
+                    <div className='users-index-item-container' id={this.selectedTab()}>
                         {this.props.users.map(user => {
                             if (user._id === this.props.currentUser._id) return null
                             return <UserIndexItemContainer key={user._id} user={user} />
@@ -54,9 +59,7 @@ class UserMenu extends React.Component {
         }
     }
 
-    selectedTab(){
-        return('selected-tab')
-    }
+    
 
     resize() {
         this.setState({ grow: !this.state.grow });
@@ -71,33 +74,30 @@ class UserMenu extends React.Component {
     usersMenu(){
         return(
             <div className="tabs">
-                <input name="tab"
+                <input name="ftab"
                     className='tab'
                     id="followersTab"
                     type="radio"
                     onClick={(e) => this.setTab( e, 'followers')}
-                    // onClick={() => this.setState({ tab: 'followers'})}
                     />
                 <label htmlFor="followersTab">Followers
                     ({[...new Set(this.props.currentUser.following_users)].length})</label>
 
-                <input name="tab"
+                <input name="ftab"
                     className='tab'
                     id="followingTab"
                     type="radio"
                     onClick={(e) => this.setTab( e, 'following')}
-                    // onClick={() => this.setState({ tab: 'following' })}
                     />
                 <label htmlFor="followingTab">Following
                     ({[...new Set(this.props.currentUser.followed_users)].length})
                     </label>
 
-                <input name="tab"
+                <input name="ftab"
                     className='tab'
                     id="usersTab"
                     type="radio"
                     onClick={(e) => this.setTab( e, 'users')}
-                    // onClick={() => this.setState({ tab: 'users' })} 
                     />
                 <label htmlFor="usersTab">All Users 
                     ({[...new Set(this.props.users)].length})

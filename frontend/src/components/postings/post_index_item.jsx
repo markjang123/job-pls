@@ -35,26 +35,28 @@ class PostIndexItem extends React.Component{
             <div className='job' onClick={() => this.modeFunc(this.props)}>
                 <div className='post-upper-info-container'>
                     <div className='upper-image-and-title'>
-                        {
-                            post.company_logo 
-                            // ?<img className='search-card-company-logo' src={post.company_logo} width='50' height='50'/>
-                            // :<img className='search-card-company-logo' src={Logo} width='50' height='50'/>
-                            ?<img className='search-card-company-logo' src={post.company_logo}/>
-                            :<img className='search-card-company-logo' src={Logo}/>
-                        }
-                        <div>{post.job_title}</div>
+
+                        <div className='card-header'>
+                            <div className='card-logo'>
+                            {
+                                post.company_logo 
+                                ?<img className='search-card-company-logo' src={post.company_logo}/>
+                                :<img className='search-card-company-logo' src={Logo}/>
+                            }
+                            </div>
+                            <div className='card-job-title'>
+                                {post.job_title}
+                            </div>
+                        </div>
+                        <div className='card-job-details'>
+                            <div key={randomKeyGen()} id='company'>
+                                {post.company}
+                            </div>
+                            <div key={randomKeyGen()}>
+                                {post.status}
+                            </div>
+                        </div>                    
                     </div>
-                    <ul>
-                        {/* <li key={randomKeyGen()} id='job-title'>
-                            {post.job_title}
-                        </li>  */}
-                        <li key={randomKeyGen()} id='company'>
-                            {post.company}
-                        </li>
-                        <li key={randomKeyGen()}>
-                            {post.status}
-                        </li>
-                    </ul>                    
                 </div>
 
                 <p id='salary'>

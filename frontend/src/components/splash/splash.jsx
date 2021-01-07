@@ -16,47 +16,6 @@ class Splash extends React.Component{
         return(
             <div className='splash-container'>
                 { this.props.formType === "signup" ? <SignupFormContainer /> : <LoginFormContainer />}
-                <div className='splash-slider'>
-                    <div className="bg-image image-1">
-                        <div className="greeting-background">
-                            <div className="text-screen">
-                                <div className="splash-greeting">
-                                Streamline your job search 
-                                <p className="greeting-subtitle">
-                                    Track all your applications in one spot,                        
-                                    from initial apply to  <br /> offer received
-                                </p>              
-                            </div> 
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="other-image">
-                        <div className="greeting-background">
-                            <div className="splash-greeting">
-                                    Stay motivated 
-                                    <p className="greeting-subtitle">
-                                        Share you progress and see other's progress through the interview process <br/>
-                                    </p>              
-                                </div> 
-                                <div className="text-screen" />
-                            </div>
-                    </div>
-                    <div className="bg-image image-3">
-                        <div className="greeting-background">
-                            <div className="splash-greeting">
-                                    Change your life 
-                                    <p className="greeting-subtitle">
-                                        View other's offers to better negotiate yours and maximize <br/> your compensation
-                                        <br />
-                                        <br />
-                                        Sign up today
-                                    </p>              
-                                </div> 
-                                <div className="text-screen" />
-                            </div>
-                    </div>
-                </div>
              </div>
 
         );

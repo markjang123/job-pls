@@ -162,7 +162,7 @@ class SessionForm extends React.Component {
 
                             <h3 className="form-header">{this.state.sessionType}</h3>
 
-                            <form onSubmit={this.handleSubmit} className="form-session" autocomplete="off">
+                            <form onSubmit={this.handleSubmit} className="form-session" autoComplete="off">
                                 <br />
                                 <div>
                                     <label>
