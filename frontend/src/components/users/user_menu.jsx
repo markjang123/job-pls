@@ -15,7 +15,6 @@ class UserMenu extends React.Component {
         this.usersMenu = this.usersMenu.bind(this);
         this.update = this.update.bind(this);
         this.setTab = this.setTab.bind(this);
-        this.selectedTab = this.selectedTab.bind(this)
     }
 
     update(field) {
@@ -24,15 +23,11 @@ class UserMenu extends React.Component {
         };
     }
 
-    selectedTab(){
-        return('selected-tab')
-    }
-
     renderTab() {
         switch (this.state.tab) {
             case 'users':
                 return (
-                    <div className='users-index-item-container' id={this.selectedTab()}>
+                    <div className='users-index-item-container'>
                         {this.props.users.map(user => {
                             if (user._id === this.props.currentUser._id) return null
                             return <UserIndexItemContainer key={user._id} user={user} />

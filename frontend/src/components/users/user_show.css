@@ -208,6 +208,8 @@
     cursor: pointer;
 }
 
+
+
 #selected-tab{
     border-bottom: 2px solid #afafaf;
     transition: border 500ms ease-out;
