@@ -12,6 +12,14 @@ class PrioritizedPostsContainer extends React.Component {
         this.prioritySelector = this.prioritySelector.bind(this)
     }
 
+    componentDidMount(){
+        if (this.props.currentUser){
+            this.props.setLoading()
+            this.props.fetchAllUsers()
+                .then(() => this.props.fetchCurrentUserPostings(this.props.currentUser))
+        }
+    }
+
 
     priorityMenu() {
         return (
@@ -129,8 +137,26 @@ class PrioritizedPostsContainer extends React.Component {
                     </div>
 
                 );
-        }
-
+                default:
+                    return (
+                        <div className='job-priority-container'>
+                            {
+                                highPriority.map(post => (
+                                    <PostPriorityItem
+                                        priority={post.priority}
+                                        post={post}
+                                        key={randomKeyGen()}
+                                        currentUser={this.props.currentUser}
+                                        modal={this.props.modal}
+                                        openModal={this.props.openModal}
+                                        closeModal={this.props.closeModal}
+                                    />
+                                ))
+                            }
+                        </div>
+    
+                    );        
+                }
     }
 
     render() {

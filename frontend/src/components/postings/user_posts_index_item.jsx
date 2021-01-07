@@ -62,8 +62,8 @@ class UserPostsIndexItem extends React.Component {
             <h3 
                 id="job-status">
                     {this.props.job.status}
-            </h3> 
-            {this.statusBar()}
+            </h3>
+                    {this.statusBar()}
         </div>);
     }
 }

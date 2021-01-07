@@ -102,17 +102,16 @@ export const fetchUserPostings = id => dispatch => {
         })
 };
 
-export const fetchCurrentUserPostings = id => dispatch => {
-return (
+export const fetchCurrentUserPostings = id => dispatch => (
     postingAPIUtil.getUserPostings(id)
         .then(postings => {
-            dispatch(receiveUserPostings(id, postings));
+            // dispatch(receiveUserPostings(id, postings));
             dispatch(receiveCurrentUserPostings(id ,postings));
         })
         .catch(err => {
             console.log(err)
         })
-)};
+);
 
 export const composePosting = data => dispatch => (
     postingAPIUtil.writePosting(data)

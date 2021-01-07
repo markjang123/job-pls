@@ -207,7 +207,7 @@ router.get('/follows', (req, res) => {
 //         })
 // })
 
-router.get('/', (req, res) => {
+router.get('/all', (req, res) => {
 User.find()
     .then(users => res.json(users))
     .catch(err => res.status(404));
@@ -221,11 +221,11 @@ router.get('/:id', (req, res) => {
 }); 
 
 
-router.get('/', (req, res) => {
-    User.find()
-        .then(users => res.json(users))
-        .catch(err => res.status(404).json({ nousersfound: 'No users found' }));
-});
+// router.get('/', (req, res) => {
+//     User.find()
+//         .then(users => res.json(users))
+//         .catch(err => res.status(404).json({ nousersfound: 'No users found' }));
+// });
 
 
 

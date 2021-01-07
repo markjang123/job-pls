@@ -12,7 +12,7 @@ class UserShow extends React.Component{
     }
 
     componentDidMount(){
-        // console.log("User show props",this.props)
+        console.log("User show props",this.props)
         this.props.setLoading();
         this.props.fetchAllUsers();
         this.props.fetchUser(this.props.match.params.userId)

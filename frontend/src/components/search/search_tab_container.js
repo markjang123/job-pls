@@ -6,6 +6,7 @@ import { fetchAllUsers } from '../../actions/user_actions';
 
 const mapStateToProps = state => {
     return {
+        currentUser: state.session.user._id,
         searchedPostings: state.entities.searchedPosts,
         currentPosting: state.entities.currentPosting,
         loading: state.ui.loading

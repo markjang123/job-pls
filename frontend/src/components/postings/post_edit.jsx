@@ -12,7 +12,7 @@ class PostEdit extends React.Component {
         this.submitHandler = this.submitHandler.bind(this);
         this.handleDelete = this.handleDelete.bind(this)
     }
-
+    
     submitHandler(e){
         e.preventDefault();
         this.props.updateAPosting(this.props.post._id, this.state);
@@ -24,7 +24,7 @@ class PostEdit extends React.Component {
         this.props.deletePosting(this.props.post._id)
         this.props.closeEdit();
         this.props.closeModal();
-        this.props.fetchCurrentUserPostings(this.props.currentUser)
+        this.props.fetchCurrentUserPostings(this.props.currentUser);
     }
     update(field){
         return e => {
