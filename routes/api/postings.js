@@ -226,7 +226,7 @@ router.post('/search',
 );
 
 
-router.post('/',
+router.post('/new',
     (req, res) => {
         const { errors, isValid } = validatePostingInput(req.body);
   
@@ -260,7 +260,7 @@ router.get('/:id', (req, res) => {
         );
 });
 
-router.get('/', (req, res) => {
+router.get('/all', (req, res) => {
     Posting.find()
         .sort({ date: -1 })
         .then(postings => res.json(postings))

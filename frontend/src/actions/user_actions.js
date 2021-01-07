@@ -46,10 +46,8 @@ const updateCurrentUserPostings = (posting) => {
 };
 
 export const savePostingToUser = (userId, posting) => dispatch => {
-    debugger
     return APIUserUtil.savePostingToUser(userId, posting)
     .then(user => {
-        debugger
         return postingAPIUtil.getPosting(user.data.followed_posting[user.data.followed_posting.length -1])
         .then( currentPosting => {
             dispatch(updateCurrentUserPostings(currentPosting.data));

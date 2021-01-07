@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const getPostings = () => {
-    return axios.get('/api/postings')
+    return axios.get('/api/postings/all')
 };
 
 export const getPosting = id => {
@@ -13,7 +13,7 @@ export const getUserPostings = id => {
 };
 
 export const writePosting = data => {
-    return axios.post('/api/postings/', data)
+    return axios.post('/api/postings/new', data)
 };
 
 export const searchAPIPosting = data => {
