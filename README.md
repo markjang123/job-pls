@@ -33,3 +33,31 @@
 <img src="https://github.com/Sethbarrie/job-pls/blob/main/frontend/src/images/follower-jobs.jpg" align="left" width="1500" height="600" background='cover'></img>
 
 ***
+
+Added flair to the sign in page with a typewriter effect
+```
+ <div className='banner-body'>
+     <TypeWriterEffect
+         textStyle={{
+         color: '#3F3D56',
+         fontWeight: 900,
+         fontSize: '1.75em',
+         }}
+         startDelay={750}
+         cursorColor="#3F3D56"
+         multiText={[
+         'full stack jobs.',
+         'front-end dev.',
+         'MERN stack jobs.',
+         'Ruby on Rails jobs.',
+         'React JS jobs.',
+         'Find the best fit!!!',
+         ]}
+         loop={true}
+         nextTextDelay={2000}
+         typeSpeed={100}
+     />
+ </div>
+```
+
+<img src="https://github.com/Sethbarrie/job-pls/blob/main/frontend/src/images/job-pls-login.gif" align="center" background='cover'></img>
