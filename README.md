@@ -24,12 +24,12 @@
 
 <p padding="10px 0px">Use the search to find new jobs in many different fields. Integrated with several job-search APIs, the choices are abundant!</p>
 
-<img src="https://github.com/Sethbarrie/job-pls/blob/main/frontend/public/featured-image.jpg" align="left" width="1500" height="600" background='cover'></img>
+<img src="https://github.com/Sethbarrie/job-pls/blob/main/frontend/src/images/search-result.jpg" align="left" width="1500" height="600" background='cover'></img>
 
 ***
 
 <p padding="10px 0px">Find other job seekers and see how they are doing! Track progress with jobs you want public or private.</p>
 
-<img src="https://github.com/Sethbarrie/job-pls/blob/main/frontend/public/featured-image.jpg" align="left" width="1500" height="600" background='cover'></img>
+<img src="https://github.com/Sethbarrie/job-pls/blob/main/frontend/src/images/follower-jobs.jpg" align="left" width="1500" height="600" background='cover'></img>
 
 ***
