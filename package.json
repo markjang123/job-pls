@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/markjang123/job-pls.git"
+    "url": "git+https://github.com/Sethbarrie/job-pls.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/markjang123/job-pls/issues"
+    "url": "https://github.com/Sethbarrie/job-pls/issues"
   },
   "homepage": "https://github.com/markjang123/job-pls#readme",
   "dependencies": {
