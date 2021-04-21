@@ -1,26 +1,21 @@
 import React from 'react';
-import NavSearchContainer from './nav_search_container';
-import PostIndexContainer from '../postings/post_index_container';
+import { useSelector } from 'react-redux'
+import NavSearch from './NavSearch';
+import PostIndex from '../postings/post_index';
 import './nav.css'
 
-class Nav extends React.Component {
-    constructor(props) {
-        super(props);
-        this.openUsers = this.openUsers.bind(this);
+
+function Nav(){
+
+    const isCurrentUser = useSelector((state => state.session.user))
+    const currentUser = Object.values(isCurrentUser).length === 0 ? false : isCurrentUser
+
+    function openUsers(){
+        <PostIndex openUsers={true}/>
     }
 
-    openUsers(){
-        <PostIndexContainer openUsers={true}/>
-    }
-
-    render() {
-        const {currentUser} = this.props;
-        if (currentUser._id === undefined) return null;
-
-        return (
-            <NavSearchContainer currentUser={currentUser._id}/>
-        )
-    }
+    if (currentUser){return <NavSearch currentUserId={currentUser._id}/>}
+    return null
 }
 
 export default Nav;

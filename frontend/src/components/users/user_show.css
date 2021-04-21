@@ -1,7 +1,9 @@
 .user-show-container {
-    height: calc(100% - 125px);
+    /* height: calc(100% - 125px); */
+    height: calc(100% - 62px);
     width: 100%;
-    padding-top: 10px;
+    min-width: 675px;
+    /* padding-top: 10px; */
     color: rgb(27 ,31, 29);
     overflow: hidden;
     box-shadow: inset 0 1px 10px 0 rgba(0, 0, 0, .1); 
@@ -14,7 +16,7 @@
     overflow: hidden;
     text-overflow: ellipsis; 
     display: block; 
-    height: 1.25em;
+    height: auto;
     text-overflow: ellipsis;
     width: 100%;
     padding-top: 10px;
@@ -28,9 +30,10 @@
     overflow-y: auto;
     text-overflow: ellipsis;
     scroll-behavior: smooth;
-    width: 45%;
+    max-width: 45%;
     display: flex;
     flex-direction: column;
+    min-width: 300px ;
 }
 
 .jobs-priority{
@@ -49,21 +52,31 @@
 
 
 .job-priority-white, .job-priority-one, .job-priority-two, .job-priority-three{
+
     height: 100px;
-    width: 90%;
     position: relative;
-    margin-right: auto;
-    transition: all 0.2s ease-out;
     border-bottom: 1px solid rgba(184, 184, 184, 0.445);
     box-sizing: border-box;
     transition: all 0.2s ease-out;
     z-index: 3;
 }
 
+@media only screen and (max-width:1450px)  {
+#card, .job-priority-data, .job-priority-white, 
+.job-priority-one, .job-priority-two, 
+.job-priority-three, .job-priority-white::after,
+ .job-priority-one::after, .job-priority-two::after, 
+ .job-priority-three::after{
+    height: 135px;
+    background: white;
+  }
+
+
+
+}
+
 #card{
-    height: 100px;
     width: 90%;
-    border-radius: 10px;
     box-sizing: border-box;
     transition: all 0.2s ease-out;
 }
@@ -76,10 +89,11 @@
     content: '';
     position: absolute;
     top: 0;
-    height: calc(100%);
+    height: 100%;
     width: calc(100% + 5px);
     z-index: -1;
     padding-right: 5px;
+
 }
 
 .job-priority-data{
@@ -140,10 +154,7 @@
 }
 
 .job-priority-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: calc(100% - 76px);
+    height: calc(100vh - 130px );
     overflow-y: auto;
     scroll-behavior: smooth;
     padding-bottom: 15px;
@@ -151,7 +162,7 @@
 }
 
 .user-tabs-container{
-    height: 100%;
+    height: calc(100%);
     scroll-behavior: smooth;
 }
 
@@ -197,6 +208,8 @@
     cursor: pointer;
 }
 
+
+
 #selected-tab{
     border-bottom: 2px solid #afafaf;
     transition: border 500ms ease-out;
@@ -228,7 +241,7 @@
 .user-posts-index {
     height: 98%;
     max-width: 60%;
-    min-width: 325px;
+    min-width: 375px;
     overflow-wrap: break-word;
     display: flex;
     flex-direction: column;
@@ -287,33 +300,40 @@
 
 #two-prog{
     width: 85%;
+    transition: all 0.2s ease-out;
 }
 
 #three-prog{
     width: 70%;
+    transition: all 0.2s ease-out;
 }
 
 
 #four-prog{
     width: 56%;
+    transition: all 0.2s ease-out;
 }
 
 
 #five-prog{
-    width: 42%
+    width: 42%;
+    transition: all 0.2s ease-out;
 }
 
 
 #six-prog{
     width: 28%;
+    transition: all 0.2s ease-out;
 }
 
 #seven-prog{
     width: 14%;
+    transition: all 0.2s ease-out;
     
 }
 #eight-prog{
     width: 0%;
+    transition: all 0.2s ease-out;
     
 }
 

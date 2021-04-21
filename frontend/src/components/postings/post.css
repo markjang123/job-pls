@@ -1,7 +1,7 @@
 .index-container, .search-result-container{
     display: flex;
     flex-direction: row;
-    height: calc(100vh - 130px);
+    height: calc(100vh - 122px);
     width: 100%;
     align-content: center;
     box-shadow: inset 0 1px 10px 0 rgba(0, 0, 0, .1); 
@@ -64,7 +64,18 @@
 
 .upper-image-and-title{
     display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
 }
+.card-header{
+    display: flex;
+    flex-direction: row;
+}
+
+.card-job-title{
+    margin-left: 5px;
+}
+
 .upper-image-and-title img{
     width: 50px;
     height: 50px;
@@ -318,9 +329,6 @@ input[type='radio']{
     right:0;
 }
 
-#priority-salary{
-}
-
 .post-show{
     background: white;
     height: 100%;
@@ -387,7 +395,6 @@ input[type='radio']{
     position: relative;
     max-width: 50%;
     width: 75px;
-    /* min-width: 70px; */
     height: 7px;
     border: solid 2px rgb(27, 31, 29);
     color: rgb(27, 31, 29);
@@ -420,5 +427,4 @@ input[type='radio']{
     width: 0%;
     background: white;
     z-index: 2;
-
 }

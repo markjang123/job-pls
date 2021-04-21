@@ -1,7 +1,7 @@
 
 .user-menu{
     height: 100%;
-    padding: 0px 15px 15px 15px;
+    width: 100%;
 }
 
 .user-header{
@@ -10,18 +10,6 @@
     margin-left: auto;
     margin-right: auto;
     color:  #D4D4D4;
-}
-
-.menu-header{
-    color: rgb(27 ,31, 29);
-    height: 25px;
-    font-size: 20px;
-    text-align: center;
-    border-bottom: 2px solid #afafaf;
-}
-
-ul.user-menu-items li{
-    display: inline;
 }
 
 .menu-header{

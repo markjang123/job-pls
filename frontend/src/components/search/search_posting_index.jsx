@@ -1,105 +1,61 @@
-import React from "react";
-import SearchPostingItem from './search_posting_item_container';
-import { createPosting } from './create_posting';
+import React, { useEffect, useState } from "react";
+
+import SearchPostingItem from './search_posting_item';
 import Logo from '../nav/logo192.png';
 
-import {randomKeyGen} from '../../util/helper';
+
+function SearchPostingIndex({searchedPostings, currentUser}){
+    const [currentPosting, setCurrentPosting] = useState(searchedPostings[0])
+
+    useEffect(() => {
+        setCurrentPosting(searchedPostings[0])
+    }, [])
 
 
-class SearchPostingIndex extends React.Component{
-
-    constructor(props){
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-
+    function createCurrentPosting(posting){
+        setCurrentPosting(posting)
     }
 
-    componentDidMount(){
-        this.props.setCurrentPosting(this.props.searchedPostings[0]);
-    }
-
-    
-    handleClick(posting){
-        this.props.setCurrentPosting(posting);
+    function isCurrentPosting(posting, currentPosting){
+        return JSON.stringify(posting) === JSON.stringify(currentPosting)
     }
 
 
-    // render(){
-    //     if(this.props.searchedPostings.length === 0) return null;
+    if(searchedPostings.length === 0) return null;        
+    if(!!currentUser ){
+    return(
+        <div className="search-result-container">
+            <div className="search-result-list">
+                {searchedPostings.map((posting, idx) => {
+                    return(
+                        <div className='search-result-card'
+                            onClick={() => createCurrentPosting(posting)}
 
-    //     if(this.props.currentUser.followed_posting === undefined) return null;
-        
-    //     const { searchedPostings } = this.props;
-    //     return(
-    //         <div className="search-result-container">
-    //             <div className="search-result-list">
-    //                     {searchedPostings.map((posting, idx) => {
-    //                         return(
-    //                             <div className='search-result-card'
-    //                                 onClick={() => this.handleClick(createPosting(posting))}
-    //                                 key={posting.posting_id} 
-    //                                 id={posting === this.props.currentPosting
-    //                                 ? "selected-posting" 
-    //                                 : null}>
-    //                                     <div className='card-info-container'>
-    //                                         <p className="job-title">{posting.job_title ? posting.job_title : ""}</p>
-    //                                         <p className="company">{posting.company ? posting.company : ""}</p>
-    //                                         <p className="location">{posting.location ? posting.location : ""}</p>
-    //                                     </div>
-    //                                     {
-    //                                     posting.company_logo 
-    //                                     ?<img className='search-card-company-logo' src={posting.company_logo} width='50' height='50'/>
-    //                                     :<img className='search-card-company-logo' src={Logo} width='50' height='50'/>
-    //                                     }
-    //                             </div>
-    //                         )
-    //                     })}
-    //             </div>
-    //             <SearchPostingItem/>
-    //         </div>
-    //     )
-    // }
+                            id={isCurrentPosting(posting, currentPosting)
+                            ? "selected-posting" 
+                            : null}
+                            >
+                            <div className='logo-div'>
+                                {
+                                posting.company_logo 
+                                ?<img className='search-card-company-logo' src={posting.company_logo}/>
+                                :<img className='search-card-company-logo' src={Logo}/>
+                                }
+                            </div>
 
-    render(){
-        if(this.props.searchedPostings.length === 0) return null;        if(this.props.currentUser.followed_posting === undefined) return null;        const { searchedPostings } = this.props;
-        return(
-            <div className="search-result-container">
-                <div className="search-result-list">
-                        {searchedPostings.map((posting, idx) => {
-                            return(
-                                <div className='search-result-card'
-                                    onClick={() => this.handleClick(createPosting(posting))}
-                                    key={randomKeyGen()} 
-                                    id={posting === this.props.currentPosting
-                                    ? "selected-posting" 
-
-                                    : null}>
-
-                                        <div className='logo-div'>
-                                            {
-                                            posting.company_logo 
-                        
-                                            // ?<img className='search-card-company-logo' src={posting.company_logo} width='50' height='50'/>
-                                            // :<img className='search-card-company-logo' src={Logo} width='50' height='50'/>
-                                            ?<img className='search-card-company-logo' src={posting.company_logo}/>
-                                            :<img className='search-card-company-logo' src={Logo}/>
-                                            }
-                                        </div>
-
-                                        <div className='card-info-container'>
-                                            <p className="job-title">{posting.job_title ? posting.job_title : ""}</p>
-                                            <p className="company">{posting.company ? posting.company : ""}</p>
-                                            <p className="location">{posting.location ? posting.location : ""}</p>
-                                        </div>
-                                </div>
-                            )
-                        })}
-                </div>
-                <SearchPostingItem/>
+                            <div className='card-info-container'>
+                                <p className="job-title">{posting.job_title ? posting.job_title : ""}</p>
+                                <p className="company">{posting.company ? posting.company : ""}</p>
+                                <p className="location">{posting.location ? posting.location : ""}</p>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
-        )
-    }
-
-};
+            <SearchPostingItem currentUser={currentUser} currentPosting={currentPosting} />
+        </div>
+    )}
+    return null;
+}
 
 export default SearchPostingIndex;

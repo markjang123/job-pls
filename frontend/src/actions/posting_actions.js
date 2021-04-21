@@ -77,22 +77,20 @@ const setLoadingState = () => ({
 });
 
 
-export const fetchPostings = () => dispatch => (
-    postingAPIUtil.getPostings()
+export const fetchPostings = () => dispatch => {
+    return postingAPIUtil.getPostings()
         .then(postings => {
             dispatch(receivePostings(postings.data))})
         .catch(err => console.log(err))
-);
+};
 
 export const fetchPosting = id => dispatch => {
-    // console.log("fetchPosting action, id",id)
     return postingAPIUtil.getPosting(id)
         .then(posting => dispatch(receivePosting(posting)))
         .catch(err => console.log(err))
 };
 
 export const fetchUserPostings = id => dispatch => {
-    // console.log("fetchUserPostings action, id",id)
     return postingAPIUtil.getUserPostings(id)
         .then(postings => {
             dispatch(receiveUserPostings(id ,postings))
@@ -102,28 +100,28 @@ export const fetchUserPostings = id => dispatch => {
         })
 };
 
-export const fetchCurrentUserPostings = id => dispatch => (
-    postingAPIUtil.getUserPostings(id)
+export const fetchCurrentUserPostings = id => dispatch => {
+    return postingAPIUtil.getUserPostings(id)
         .then(postings => {
-            // dispatch(receiveUserPostings(id, postings));
+            dispatch(receiveUserPostings(id, postings));
             dispatch(receiveCurrentUserPostings(id ,postings));
         })
         .catch(err => {
             console.log(err)
         })
-);
+    };
 
-export const composePosting = data => dispatch => (
-    postingAPIUtil.writePosting(data)
+export const composePosting = data => dispatch => {
+    return postingAPIUtil.writePosting(data)
         .then(posting => dispatch(receiveNewPosting(posting)))
         .catch(err => console.log(err))
-);
+};
 
-export const searchPosting = data => dispatch => (
-    postingAPIUtil.searchAPIPosting(data)
+export const searchPosting = data => dispatch => {
+    return postingAPIUtil.searchAPIPosting(data)
         .then(postings => dispatch(receiveSearchedPosting(postings)))
         .catch(err => console.log(err))
-);
+};
 
 export const deletePosting = postingId => dispatch => {
     return postingAPIUtil.destroy1Posting(postingId)
@@ -131,8 +129,11 @@ export const deletePosting = postingId => dispatch => {
 
 export const updateAPosting = (postingId, postingData) => dispatch => {
     return postingAPIUtil.updatePosting(postingId, postingData)
-        .then(response => postingAPIUtil.getPosting(postingId))
-        .then(response => dispatch(receiveUpdatedPosting(response.data)))
+    .then(response => dispatch(receiveUpdatedPosting(response.data)))
+        .then(response => {
+            postingAPIUtil.getPosting(postingId)
+        })
+        .then(response => dispatch(receiveCurrentUserPostings))
         .catch(err => console.log(err));
 };
 
