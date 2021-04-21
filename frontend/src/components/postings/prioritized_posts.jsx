@@ -1,118 +1,98 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { useSelector, useDispatch} from 'react-redux'
+import { prioritizer, lowPrioritizer, mediumPrioritizer, highPrioritizer } from '../../reducers/jobs_selector'
 import PostPriorityItem from './posts_priority_item';
 import { randomKeyGen } from '../../util/helper';
+import { searchPosting, setLoading, fetchCurrentUserPostings } from '../../actions/posting_actions';
+import { fetchAllUsers } from '../../actions/user_actions';
+
+
 import './post.css';
 
-class PrioritizedPostsContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            priority: 'high'  }
-        this.priorityMenu = this.priorityMenu.bind(this)
-        this.prioritySelector = this.prioritySelector.bind(this)
-    }
+function PrioritizedPosts(){
+    const [priorities, setPriorities] = useState('high')
 
-    componentDidMount(){
-        if (this.props.currentUser){
-            this.props.setLoading()
-            this.props.fetchAllUsers()
-                .then(() => this.props.fetchCurrentUserPostings(this.props.currentUser))
+    const dispatch = useDispatch()
+    const isCurrentUser = useSelector((state => state.session.user))
+    const currentUser = Object.values(isCurrentUser).length === 0 ? false : isCurrentUser
+
+    const posts = useSelector((state => state.session.user.followed_posting ))
+
+    useEffect(() => {
+        if(currentUser){
+            dispatch(setLoading())
+            dispatch(fetchAllUsers())
+                .then(dispatch(fetchCurrentUserPostings(currentUser._id)))
         }
+    }, [])
+
+    let priorityObject = {
+        highPriority: highPrioritizer(posts),
+        mediumPriority: mediumPrioritizer(posts),
+        lowPriority: lowPrioritizer(posts)
     }
 
+    function prioritize(priority){
+        setPriorities(priority)
+    }
 
-    priorityMenu() {
+    function priorityMenu(){
         return (
             <div className="tabs">
                 <input name="tab"
                     className='tab'
                     id="high"
                     type="radio"
-                    onClick={() => this.setState({ priority: 'high' })}
+                    onClick={() => prioritize('high')}
                 />
                 <label htmlFor="high">High
-                    ({[...new Set(this.props.highPriority)].length})</label>
+                    ({[...new Set(priorityObject.highPriority)].length})</label>
 
                 <input name="tab"
                     className='tab'
                     id="medium"
                     type="radio"
-                    onClick={() => this.setState({ priority: 'medium' })}
+                    onClick={() => prioritize('medium')}
                 />
                 <label htmlFor="medium">Medium
-                  ({[...new Set(this.props.mediumPriority)].length})</label>
+                  ({[...new Set(priorityObject.mediumPriority)].length})</label>
 
                 <input name="tab"
                     className='tab'
                     id="low"
                     type="radio"
-                    onClick={() => this.setState({ priority: 'low' })}
+                    onClick={() => prioritize('low')}
                 />
                 <label htmlFor="low">Low
-                   ({[...new Set(this.props.lowPriority)].length})</label>
+                   ({[...new Set(priorityObject.lowPriority)].length})</label>
             </div>
         )
     }
 
-    prioritySelector(priority){
-
-        let { 
-            // prioritizedPosts, 
-            highPriority, 
-            mediumPriority, 
-            lowPriority } = this.props
+    function prioritySelector(priority){
 
         switch(priority){
-            // case ('all'):
-            //     return (
-            //         < div className = 'job-priority-container' >
-            //         {
-            //             prioritizedPosts.map((post, idx) => (
-            //                 <PostPriorityItem
-            //                     priority={post.priority}
-            //                     post={post}
-            //                     key={randomKeyGen()}
-            //                     currentUser={this.props.currentUser}
-            //                     modal={this.props.modal}
-            //                     openModal={this.props.openModal}
-            //                     closeModal={this.props.closeModal}
-            //                 />
-            //             ))
-            //         }
-            //         </div>
-            //     );
             case ('high'):
                 return (
                     <div className='job-priority-container'>
-                        {
-                            highPriority.map(post => (
+                        { 
+                            priorityObject.highPriority.map(post => (
                                 <PostPriorityItem
-                                    priority={post.priority}
                                     post={post}
                                     key={randomKeyGen()}
-                                    currentUser={this.props.currentUser}
-                                    modal={this.props.modal}
-                                    openModal={this.props.openModal}
-                                    closeModal={this.props.closeModal}
                                 />
                             ))
                         }
                     </div>
-
                 );
             case ('medium'):
                 return (
                     <div className='job-priority-container'>
                         {
-                            mediumPriority.map(post => (
+                            priorityObject.mediumPriority.map(post => (
                                 <PostPriorityItem
-                                    priority={post.priority}
                                     post={post}
                                     key={randomKeyGen()}
-                                    currentUser={this.props.currentUser}
-                                    modal={this.props.modal}
-                                    openModal={this.props.openModal}
-                                    closeModal={this.props.closeModal}
                                 />
                             ))
                         }
@@ -122,34 +102,23 @@ class PrioritizedPostsContainer extends React.Component {
                 return (
                     <div className='job-priority-container'>
                         {
-                            lowPriority.map(post => (
+                            priorityObject.lowPriority.map(post => (
                                 <PostPriorityItem
-                                    priority={post.priority}
                                     post={post}
                                     key={randomKeyGen()}
-                                    currentUser={this.props.currentUser}
-                                    modal={this.props.modal}
-                                    openModal={this.props.openModal}
-                                    closeModal={this.props.closeModal}
                                 />
                             ))
                         }
                     </div>
-
                 );
                 default:
                     return (
                         <div className='job-priority-container'>
                             {
-                                highPriority.map(post => (
+                                priorityObject.highPriority.map(post => (
                                     <PostPriorityItem
-                                        priority={post.priority}
                                         post={post}
                                         key={randomKeyGen()}
-                                        currentUser={this.props.currentUser}
-                                        modal={this.props.modal}
-                                        openModal={this.props.openModal}
-                                        closeModal={this.props.closeModal}
                                     />
                                 ))
                             }
@@ -159,25 +128,13 @@ class PrioritizedPostsContainer extends React.Component {
                 }
     }
 
-    render() {
-        let {
-            currentUser,
-            prioritizedPosts,
-            highPriority, 
-            mediumPriority, 
-            lowPriority 
 
-        } = this.props
-
-        let { priority } = this.state
-        
-        if (currentUser === undefined) return null
-
-        if (highPriority.length === 0 && mediumPriority.length === 0 & lowPriority.length === 0){
+    if (currentUser){
+        if (priorityObject.highPriority.length === 0 && priorityObject.mediumPriority.length === 0 & priorityObject.lowPriority.length === 0){
             return (
                 <div className='user-menu'>
                     <div className='menu-header'>My Jobs by priority</div>
-                    {this.priorityMenu()}
+                    {priorityMenu()}
                     <div className='no-results'>
                         You haven't saved and prioritized any jobs yet! hit the search! :&#41;
                     </div>
@@ -185,14 +142,15 @@ class PrioritizedPostsContainer extends React.Component {
             )
         } else {
             return (
-                    <div className='user-menu'>
-                        <div className='menu-header'>My Jobs by priority</div>
-                        {this.priorityMenu()}
-                        {this.prioritySelector(priority)}
-                    </div>   
+                <div className='user-menu'>
+                    <div className='menu-header'>My Jobs by priority</div>
+                    {priorityMenu()}
+                    {prioritySelector(priorities)}
+                </div>   
             )
         }
     }
+    return null
 }
 
-export default PrioritizedPostsContainer;
+export default PrioritizedPosts;

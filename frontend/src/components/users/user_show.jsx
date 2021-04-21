@@ -1,99 +1,79 @@
-import React from 'react';
-import UserPostsIndexContainer from '../postings/user_posts_index_container';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux'
+import UserPostsIndex from '../postings/user_posts_index';
 import UserFollowIndexContainer from './user_follow_index_container';
+import UserIndex from './users_index'
+import { useParams } from 'react-router-dom'
 import './user_show.css';
 import './users_index.css';
 
-class UserShow extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {tab: "followers"};
-        this.setTab = this.setTab.bind(this);
-    }
+function UserShow(){
+    const [ tab, setTab] = useState('followers')
 
-    componentDidMount(){
-        console.log("User show props",this.props)
-        this.props.setLoading();
-        this.props.fetchAllUsers();
-        this.props.fetchUser(this.props.match.params.userId)
-        .then(this.props.fetchCurrentUserPostings(this.props.currentUser._id))
-        .then(this.props.fetchUserPostings(this.props.match.params.userId))
-    }
+    const {userId} = useParams()    
+    const users = useSelector((state => state.entities.users))
+    const user = users[userId]
 
-
-    componentDidUpdate(prevProps, prevState, snapshot){     
-        if (prevProps.user) {
-            if(this.props.user._id !== prevProps.user._id){
-                this.props.fetchUserPostings(this.props.match.params.userId);
-            }
-        }
-    }
-    
-    renderTab(){
-        switch(this.state.tab){
+    function renderTab(){
+        switch(tab){
             case "followers":
                 return <UserFollowIndexContainer 
-                    users={[...new Set(this.props.user.following_users)].map(userId => 
-                        this.props.users[userId]
+                    users={[...new Set(user.following_users)].map(userId => 
+                        users[userId]
                     )} />;
             case "following":
                 return <UserFollowIndexContainer 
-                    users={[...new Set(this.props.user.followed_users)].map(userId => 
-                        this.props.users[userId]
+                    users={[...new Set(user.followed_users)].map(userId => 
+                        users[userId]
                     )} />;
             default:
                 return;
         };
     }
 
-    setTab(e, tabName) {
+    function setNewTab(e, tabName) {
         e.preventDefault();
         e.stopPropagation();
-        this.setState({tab: tabName});
+        setTab(tabName);
     }
     
-    render(){
-        if (this.props.user === undefined) return null;
 
-        let { username } = this.props.user;
-
+    if (!!user){
         return(
             <div className="user-show-container" onClick={e => e.stopPropagation()}>
                 <div className="profile-content" onClick={e => e.stopPropagation()}>
                     <div className='tabs-container' onClick={e => e.stopPropagation()}>
                         <div id="user-show-username">
-                                {username}
+                                {user.username}
                         </div>
                         <div className='tabs' onClick={e => e.stopPropagation()}>
                             <div
                                 className="tab"
-                                onClick={e => this.setTab( e, 'followers')}
-                                // onClick={() => this.setState({ tab: "followers" })}
+                                onClick={e => setNewTab( e, 'followers')}
                                 >
-                                Followers ({[...new Set(this.props.user.following_users)].length})
+                                Followers ({[...new Set(user.following_users)].length})
                             </div>
                             <div
                                 className="tab"
-                                onClick={e => this.setTab( e, 'following')}
-                                // onClick={() => this.setState({ tab: "following" })}
+                                onClick={e => setNewTab( e, 'following')}
                                 >
-                                Following ({[...new Set(this.props.user.followed_users)].length})
+                                Following ({[...new Set(user.followed_users)].length})
                             </div>
                         </div>
                     
                         <div className='tab' onClick={e => e.stopPropagation()}>
-                            {this.renderTab()}
+                            {renderTab()}
                         </div>
                     </div> 
-
-
-                    <UserPostsIndexContainer
-                    jobs={this.props.userPostings.filter(job => job.public)}
-                    />
+    
+                    <UserPostsIndex userId={userId}/>
                 </div>
             </div>
         )
     }
+
+    return null
+
 }
 
 export default UserShow

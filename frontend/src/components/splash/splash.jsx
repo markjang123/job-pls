@@ -1,26 +1,21 @@
-import React from 'react';
-import background from '../../images/pexels-cadeau-maestro-1170412-min.jpg'
+import React, {useState} from 'react';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
+import SessionForm from '../session/session_form'
 import "./splash.css"
 
 
-class Splash extends React.Component{
-    constructor(props){
-        super(props);
-    }
+
+function Splash(){
+    const [sessionType, setSessionType] = useState('Sign Up')
 
 
-    
-    render(){
-        return(
-            <div className='splash-container'>
-                { this.props.formType === "signup" ? <SignupFormContainer /> : <LoginFormContainer />}
-             </div>
+    return(
+        <div className='splash-container'>
+            <SessionForm sessionType={sessionType} setSessionType={setSessionType}/>
+        </div>
 
-        );
-    }
-
+    );
 }
 
 export default Splash;

@@ -99,7 +99,7 @@
 }
 
 
-#search{
+#search, #company-search{
     height: 27px;
     width: 100%;
     font-size: 20px;
@@ -142,8 +142,8 @@
 
 
 .search-input-div input{
-    border-bottom: 2px solid rgb(175,175,175);
-    color: mintcream;
+    border-bottom: 2px solid mintcream;
+    color:  rgba(27, 31, 29, 0.7);
     max-width: 100%;
     font-size: 19px;
 

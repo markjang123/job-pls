@@ -14,6 +14,7 @@ const initialState =  {
 };
   
 const PostingsReducer = (state = initialState, action) => {
+
   
     Object.freeze(state);
     let newState = Object.assign({}, state);
@@ -31,9 +32,10 @@ const PostingsReducer = (state = initialState, action) => {
         newState.user.push(action.posting.data);
         return newState;
     case UPDATE_POSTING:
-        let oldPosting = newState.user.find(posting => posting._id === action.posting._id);
+        let newPosting = action.posting
+        let oldPosting = newState.user.find(posting => posting._id === newPosting._id);
         let oldPostingIndex = newState.user.indexOf(oldPosting);
-        newState.user[oldPostingIndex] = action.posting;
+        newState.user[oldPostingIndex] = newPosting;
         return newState;     
     default:
         return state;

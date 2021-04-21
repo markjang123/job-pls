@@ -1,6 +1,5 @@
 export const createPosting = posting => {
 
-    // const { title, job_title, location, snippet, salary, source, type, link, company, id, updated, url, description, created_at, how_to_apply} = posting
     let returnedPosting = {
         _id: "",
         posting_id: "",
