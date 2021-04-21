@@ -1,145 +1,138 @@
-import React from 'react'
+import React, {useRef, useState} from 'react'
+import { closeModal } from '../../actions/modal_actions';
+import { useSelector, useDispatch } from 'react-redux'
+import { deletePosting, fetchCurrentUserPostings, updateAPosting } from '../../actions/posting_actions';
 
-class PostEdit extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            public: this.props.post.public,
-            priority: this.props.post.priority || null,
-            status: this.props.post.status,
-            notes: this.props.post.notes || 'Updates go here',
-        };
-        this.submitHandler = this.submitHandler.bind(this);
-        this.handleDelete = this.handleDelete.bind(this)
-    }
-    
-    submitHandler(e){
-        e.preventDefault();
-        this.props.updateAPosting(this.props.post._id, this.state);
-        this.props.closeEdit();
-        this.props.closeModal();
-    }
-    handleDelete(e) {
-        e.preventDefault();
-        this.props.deletePosting(this.props.post._id)
-        this.props.closeEdit();
-        this.props.closeModal();
-        this.props.fetchCurrentUserPostings(this.props.currentUser);
-    }
-    update(field){
-        return e => {
-            this.setState({[field]: e.target.value})
-        };
+
+function PostEdit({post}){
+
+    const editFormPublic = useRef(null)
+    const dispatch = useDispatch()
+    const currentUser = useSelector((state => state.session.user))
+
+    async function handleSubmit(e){
+        e.preventDefault()
+        let publicData = editFormPublic.current
+        let updatedPost = {
+            public: publicData['public'].value,
+            priority: parseInt(publicData['priority'].value),
+            status: publicData['status'].value,
+            notes: publicData['notes'].value,
+        }
+
+        await dispatch(updateAPosting(post._id, updatedPost))
+        await dispatch(fetchCurrentUserPostings(currentUser._id))
+
+        dispatch(closeModal())
     }
 
-    displayNotes(){
-        return(
-            <div>
-                <textarea defaultValue={this.state.notes} onChange={this.update("notes")}/>
-            </div>
-        )
+    function handleDelete(e){
+        e.preventDefault()
+        alert('The delete button has been disabled to prevent portfolio vandals from clearing all our demo data... again. Rest assured, this button does delete!')
     }
 
-    render() {
-        return(
+    function displayNotes(){
+        let notes = post.notes
+        return  <div>
+                    <textarea name={'notes'} label={'notes'} defaultValue={notes} name={'notes'}/>
+                </div>
+    }
+    return  <div className="newPost-edit">
+                <form ref={editFormPublic} onSubmit={e => handleSubmit(e)} autocomplete="off">
+                    <p id='notes'>Notes</p>
+                        <div className="radio-toolbar">
+                            <div className='label-header'>
+                                <h1 id='job-label'>Privacy settings:</h1>
+                            </div>
+                            <div className='privacy'>
+                                <div className='radio-container'>
+                                    <input type='radio'
+                                        id='public'
+                                        name='public'
+                                        label='public'
+                                        defaultChecked={post.public}
+                                        value={true}/>
+                                        <label for='public'>Public</label>
 
-        <div className="post-edit">
-            <form onSubmit={this.submitHandler} autocomplete="off">
-                <p id='notes'>Notes</p>
-
-                    <div className="radio-toolbar">
-
-                        <div className='label-header'>
-                            <h1 id='job-label'>Privacy settings:</h1>
-                        </div>
-
-                        <div className='privacy'>
-                            <div className='radio-container'>
-                                <input type='radio'
-                                    id='public'
-                                    name='privacy'
-                                    onChange={this.update("public")}
-                                    defaultChecked={this.state.public}
-                                    value={true}/>
-                                    <label for='public'>Public</label>
-
-                                <input type='radio' 
-                                    id='private' 
-                                    name='privacy'
-                                    onChange={this.update("public")}
-                                    defaultChecked={!this.state.public}
-                                    value={false} />
-                                    <label for='private'>Private</label>
+                                    <input type='radio' 
+                                        id='private' 
+                                        name='public'
+                                        label='public'
+                                        defaultChecked={!post.public}
+                                        value={false} 
+                                        />
+                                        <label for='private'>Private</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
 
-                <div className='radio-toolbar'>
-
-                    <div>
-                        <h1 id='job-label'>Priority:</h1>
-                    </div>
-
-                    <div className="switch">
-                        <input name="priority_switch" 
-                            id="low_form" 
-                            type="radio"
-                            onChange={this.update("priority")}
-                            defaultChecked={this.state.priority === 1}
-                            value={1} />
-                            <label for="low_form">Low</label>
-
-                        <input name="priority_switch" 
-                            id="medium_form" t
-                            type="radio"
-                            onChange={this.update("priority")}
-                            defaultChecked={this.state.priority === 2}
-                            value={2} />
-                            <label for="medium_form">Medium</label>
-
-                        <input name="priority_switch" 
-                            id="high_form" 
-                            type="radio"
-                            onChange={this.update("priority")}
-                            defaultChecked={this.state.priority === 3}
-                            value={3}  />
-                            <label for="high_form">High</label>
-                    </div>
-
-                </div>
                     <div className='radio-toolbar'>
                         <div>
-                            <h1 id='job-label'>Application Status:</h1>
+                            <h1 id='job-label'>Priority:</h1>
                         </div>
-                        <div className='select'>
-                                <select id='drop-down' onChange={this.update("status")} value={this.state.status}>
-                                    <option defaultValue={this.state.status === "Haven't applied"} value="Haven't applied">Haven't applied</option>
-                                    <option defaultValue={this.state.status === "Applied"} value="Applied">Applied</option>
-                                    <option defaultValue={this.state.status === "Call Back"} value="Call Back">Call Back</option>
-                                    <option defaultValue={this.state.status === "Phone Interview"} value="Phone Interview">Phone Interview</option>
-                                    <option defaultValue={this.state.status === "On-site Interview"} value="On-site Interview">On-site Interview</option>
-                                    <option defaultValue={this.state.status === "Offer Received"} value="Offer Received">Offer Received</option>
-                                    <option defaultValue={this.state.status === "Offer Accepted"} value="Offer Accepted">Offer Accepted</option>
-                                </select>
-                                <div className="select_arrow"/>
-                        </div> 
-                    </div>
 
+                        <div className="switch">
+                            <input name="priority_switch" 
+                                id="low_form" 
+                                type="radio"
+                                defaultChecked={post.priority === 1}
+                                name={'priority'}
+                                label={'priority'}
+                                value={1} />
+                                <label for="low_form">Low</label>
 
-                    <div className='radio-toolbar'>
-                        <div className='notes'>
-                            <h1 id='job-label'>Updates:</h1>
-                            {this.displayNotes()}
+                            <input name="priority_switch" 
+                                id="medium_form"
+                                type="radio"
+                                defaultChecked={post.priority === 2}
+                                name={'priority'}
+                                label={'priority'}
+                                value={2} />
+                                <label for="medium_form">Medium</label>
+
+                            <input name="priority_switch" 
+                                id="high_form" 
+                                type="radio"
+                                defaultChecked={post.priority === 3}
+                                name={'priority'}
+                                label={'priority'}
+                                value={3}  />
+                                <label for="high_form">High</label>
                         </div>
-                    </div>
 
-                <button type="submit" id='save-change-button' value="Save Changes">Save Changes</button>
-                <button onClick = {this.handleDelete} id='delete-job-button' value="Delete Job">Delete Job</button>
-            </form>
-        </div>
-        ) 
-    }
+                    </div>
+                        <div className='radio-toolbar'>
+                            <div>
+                                <h1 id='job-label'>Application Status:</h1>
+                            </div>
+                            <div className='select'>
+                                    <select id='drop-down' name={'status'} 
+                                    defaultValue={post.status}>
+                                        <option defaultValue={post.status === "Haven't applied"} value="Haven't applied">Haven't applied</option>
+                                        <option defaultValue={post.status === "Applied"} value="Applied">Applied</option>
+                                        <option defaultValue={post.status === "Call Back"} value="Call Back">Call Back</option>
+                                        <option defaultValue={post.status === "Phone Interview"} value="Phone Interview">Phone Interview</option>
+                                        <option defaultValue={post.status === "On-site Interview"} value="On-site Interview">On-site Interview</option>
+                                        <option defaultValue={post.status === "Offer Received"} value="Offer Received">Offer Received</option>
+                                        <option defaultValue={post.status === "Offer Accepted"} value="Offer Accepted">Offer Accepted</option>
+                                    </select>
+                                    <div className="select_arrow"/>
+                            </div> 
+                        </div>
+
+
+                        <div className='radio-toolbar'>
+                            <div className='notes'>
+                                <h1 id='job-label'>Updates:</h1>
+                                {displayNotes()}
+                            </div>
+                        </div>
+
+                    <button type="submit" id='save-change-button' value="Save Changes">Save Changes</button>
+                    <button onClick={handleDelete} id='delete-job-button' value="Delete Job">Delete Job</button>
+                </form>
+            </div>
 }
 
 export default PostEdit

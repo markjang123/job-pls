@@ -1,34 +1,30 @@
 import React from 'react';
-import PostShowContainer from './post_show_container';
+import { useDispatch } from 'react-redux'
+
+import PostShow from './post_show';
+import { openModal } from '../../actions/modal_actions'
 import './post.css';
 
+function PostPriorityItem({post}){
+    const dispatch = useDispatch()
 
-class PostPriorityItem extends React.Component {
-    constructor(props) {
-        super(props);
-        this.showPost = this.showPost.bind(this);
-        this.modeFunc = this.modeFunc.bind(this);
-        this.statusBar = this.statusBar.bind(this)
-
-    }
-
-    showPost(post) {
+    function showPost(post){
         return (
-            <PostShowContainer post={post} />
+            <PostShow post={post} />
         )
     }
 
-    modeFunc(props) {
+    function modeFunc(post){
         const modalObject = ({
             type: 'post',
             modal: 'post',
-            proc: props
+            post: post
         })
-        this.props.openModal(modalObject);
+        dispatch(openModal(modalObject))
         document.body.style.position = 'fixed';
     }
 
-    idSelector(priority){
+    function idSelector(priority){
         switch(priority){
             case (3):
                 return 'job-priority-three';
@@ -41,8 +37,8 @@ class PostPriorityItem extends React.Component {
         }
     }
 
-    statusBar(){
-        let status = this.props.post.status
+    function statusBar(){
+        let status = post.status
         let id = 'two-prog'
 
         if ( status === "Haven't applied" ){
@@ -71,11 +67,9 @@ class PostPriorityItem extends React.Component {
         )
     }
 
-    render() {
 
-        const { post } = this.props;
         return (
-            <div className={this.idSelector(post.priority)} id="card" onClick={() => this.modeFunc(this.props)}>
+            <div className={idSelector(post.priority)} id="card" onClick={() => modeFunc(post)}>
                     <div className='job-priority-data'>
                         <ul>
                             <li id='job-title'>
@@ -85,8 +79,7 @@ class PostPriorityItem extends React.Component {
                                 {post.company}
                             </li>
                             <li>
-                                {/* {post.status} */}
-                                {this.statusBar()}
+                                {statusBar()}
                             </li>
                             <li id='salary'>
                                 {post.salary}
@@ -95,7 +88,6 @@ class PostPriorityItem extends React.Component {
                     </div>
                 </div>
         )
-    }
 }
 
 export default PostPriorityItem;

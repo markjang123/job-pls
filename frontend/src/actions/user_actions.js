@@ -62,7 +62,6 @@ export const fetchAllUsers = () => {
     return dispatch => {
         return APIUserUtil.fetchAllUsers()
             .then(response => {
-                // console.log("fetchAllUsers action response",response)
                 dispatch(receiveUsers(response.data));
             })
     }
@@ -70,7 +69,6 @@ export const fetchAllUsers = () => {
 
 
 export const fetchUser = userId => dispatch => {
-    // console.log("fetchUser action userId",userId)
     return APIUserUtil.fetchUser(userId)
         .then(user => dispatch(receiveUser(user.data)))
 };

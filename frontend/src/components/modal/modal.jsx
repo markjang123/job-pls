@@ -1,55 +1,36 @@
 import React from 'react';
-import PostShowContainer from '../postings/post_show_container';
+import { useSelector, useDispatch } from 'react-redux'
+
+import PostShow from '../postings/post_show';
+import { closeModal } from '../../actions/modal_actions'
+
 import './modal.css'
 
-import { connect } from 'react-redux';
-import { closeModal } from '../../actions/modal_actions';
+
+function Modal({post}){
+
+    const dispatch = useDispatch()
+    const modal = useSelector((state => state.ui.modal))
 
 
-
-class Modal extends React.Component{
-    constructor(props){
-        super(props);
-        this.openScroll = this.openScroll.bind(this);
-    }
-
-    openScroll(){
-        this.props.closeModal();
+    function openScroll(){
+        dispatch(closeModal());
         document.body.style.position = '';
     }
 
-    render(){
-        let { modal } = this.props;
-        if (modal === null ) return null;
-     
-
+    if (modal){
         return(        
-            <div className='modal-background' onClick={() => this.openScroll()}>
+            <div className='modal-background' onClick={openScroll}>
                 <div className='modal-container' onClick={e => e.stopPropagation()}>
                     <div className='modal-child' onClick={e => e.stopPropagation()}>
-                        <div onClick={() => this.openScroll(closeModal)} id='close-modal'>x</div>
+                        <div onClick={openScroll} id='close-modal'>x</div>
                     </div>
-                    <PostShowContainer post={modal}/>
+                    <PostShow post={modal}/>
                 </div>
             </div>
         )
     }
+    return null
 }
 
-
-
-const mSTP = ({ ui }, modalObject) => {
-    return {
-        modal: ui.modal,
-        proc: modalObject.proc,
-        
-    };
-};
-
-const mDTP = dispatch => {
-    return {
-        closeModal: () => dispatch(closeModal()),
-    };
-};
-
-export default connect(mSTP, mDTP)(Modal);
+export default Modal
