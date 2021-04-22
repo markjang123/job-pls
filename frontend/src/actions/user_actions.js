@@ -3,6 +3,7 @@ import * as APIUtil from '../util/session_api_util';
 import * as postingAPIUtil from '../util/posting_api_util';
 
 import jwt_decode from 'jwt-decode';
+import { RECEIVE_NEW_POSTING } from './posting_actions';
 
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 export const RECEIVE_USER = 'RECEIVE_USER';
@@ -40,17 +41,23 @@ const updateCurrentUser = user => {
 
 const updateCurrentUserPostings = (posting) => {
     return {
-        type: UPDATE_CURRENT_USER_POSTINGS,
+        // type: UPDATE_CURRENT_USER_POSTINGS, --- changing this type to RECEIVE_NEW_POSTING didn't seem to yield 
+        // the desired change, but I am leaving this in just incase the new type breaks anything. 
+        // We can revert to UPDATE_CURRENT_USER_POSTING if RECEIVE_NEW_POSTING breaks anything
+        type: RECEIVE_NEW_POSTING,
         posting
     }
 };
 
 export const savePostingToUser = (userId, posting) => dispatch => {
+
     return APIUserUtil.savePostingToUser(userId, posting)
     .then(user => {
-        return postingAPIUtil.getPosting(user.data.followed_posting[user.data.followed_posting.length -1])
+        postingAPIUtil.getPosting(user.data.followed_posting[user.data.followed_posting.length -1])
+        // return postingAPIUtil.getPosting(user.data.followed_posting[user.data.followed_posting.length -1])
         .then( currentPosting => {
-            dispatch(updateCurrentUserPostings(currentPosting.data));
+            dispatch(updateCurrentUserPostings(currentPosting));
+            // dispatch(updateCurrentUserPostings(currentPosting.data));
         });
     })
     .catch(err => {

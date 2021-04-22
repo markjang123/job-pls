@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback, useMemo} from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import { prioritizer, lowPrioritizer, mediumPrioritizer, highPrioritizer } from '../../reducers/jobs_selector'
 import PostPriorityItem from './posts_priority_item';
@@ -6,25 +6,15 @@ import { randomKeyGen } from '../../util/helper';
 import { searchPosting, setLoading, fetchCurrentUserPostings } from '../../actions/posting_actions';
 import { fetchAllUsers } from '../../actions/user_actions';
 
-
 import './post.css';
 
 function PrioritizedPosts(){
-    const [priorities, setPriorities] = useState('high')
+    const [priorities, setPriorities] = useState('low')
 
-    const dispatch = useDispatch()
     const isCurrentUser = useSelector((state => state.session.user))
     const currentUser = Object.values(isCurrentUser).length === 0 ? false : isCurrentUser
 
-    const posts = useSelector((state => state.session.user.followed_posting ))
-
-    useEffect(() => {
-        if(currentUser){
-            dispatch(setLoading())
-            dispatch(fetchAllUsers())
-                .then(dispatch(fetchCurrentUserPostings(currentUser._id)))
-        }
-    }, [])
+    const posts = useSelector((state => state.session.user.followed_posting))
 
     let priorityObject = {
         highPriority: highPrioritizer(posts),
@@ -44,6 +34,7 @@ function PrioritizedPosts(){
                     id="high"
                     type="radio"
                     onClick={() => prioritize('high')}
+                    defaultChecked={priorities === 'high'}
                 />
                 <label htmlFor="high">High
                     ({[...new Set(priorityObject.highPriority)].length})</label>
@@ -52,6 +43,7 @@ function PrioritizedPosts(){
                     className='tab'
                     id="medium"
                     type="radio"
+                    defaultChecked={priorities === 'medium'}
                     onClick={() => prioritize('medium')}
                 />
                 <label htmlFor="medium">Medium
@@ -62,6 +54,7 @@ function PrioritizedPosts(){
                     id="low"
                     type="radio"
                     onClick={() => prioritize('low')}
+                    defaultChecked={priorities === 'low'}
                 />
                 <label htmlFor="low">Low
                    ({[...new Set(priorityObject.lowPriority)].length})</label>
@@ -111,20 +104,20 @@ function PrioritizedPosts(){
                         }
                     </div>
                 );
-                default:
-                    return (
-                        <div className='job-priority-container'>
-                            {
-                                priorityObject.highPriority.map(post => (
-                                    <PostPriorityItem
-                                        post={post}
-                                        key={randomKeyGen()}
-                                    />
-                                ))
-                            }
-                        </div>
-    
-                    );        
+            default:
+                return (
+                    <div className='job-priority-container'>
+                        {
+                            priorityObject.highPriority.map(post => (
+                                <PostPriorityItem
+                                    post={post}
+                                    key={randomKeyGen()}
+                                />
+                            ))
+                        }
+                    </div>
+
+                );        
                 }
     }
 

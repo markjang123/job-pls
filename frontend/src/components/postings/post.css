@@ -18,6 +18,16 @@
     width: 100%;
 }
 
+.newPost-edit form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.radio-toolbar > div {
+    margin: 5px;
+}
+
+
 .job{
     position: relative;
     width: 200px;
@@ -32,6 +42,8 @@
     box-sizing: border-box;
     transition: all 0.2s ease-out;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    cursor: pointer;
+
 }
 
 
@@ -176,6 +188,8 @@ input[type='radio']{
 .radio-container input[type='radio']:checked + label::after{
     background: rgb(27, 31, 29);
     transition: all 0.4s;
+    border-bottom: 2px solid #afafaf;
+
 }
 
 
@@ -189,13 +203,14 @@ input[type='radio']{
     color: white;
 }
 
-.switch label:hover{
-    color: white;
-    transition: color 500ms ease-out;
-}
-
 .switch label{
     z-index: 3;
+    transition: color 500ms ease-out;
+    cursor: pointer;
+}
+
+.switch label:hover{
+    color: white;
     transition: color 500ms ease-out;
 }
 
@@ -259,9 +274,10 @@ input[type='radio']{
             opacity: 0.5;
             pointer-events: none;
         }
+
 .select_arrow {
     position: absolute;
-    top: 2%;
+    top: 25%;
     right: 15px;
     width: 0px;
     height: 0px;
@@ -374,7 +390,10 @@ input[type='radio']{
     padding: 15px auto 15px;
     height: 35px;
     width: 50%;
+    cursor: pointer;
 }
+
+
 
 #delete-job-button{
     color: white;
@@ -382,6 +401,7 @@ input[type='radio']{
     padding: 15px auto 15px;
     height: 35px;
     width: 50%;
+    cursor: pointer;
 }
 
 .privacy{
@@ -406,6 +426,8 @@ input[type='radio']{
     background: white;
     padding-right: 1px;
 }
+
+
 
 
 .prog-bar-priority-container::after{

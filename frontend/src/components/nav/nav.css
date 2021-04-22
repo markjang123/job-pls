@@ -118,6 +118,8 @@
 .material-icons{
     height: 25px;
     object-fit: contain;
+    cursor: pointer;
+
 }
 
 #search-button{
@@ -169,9 +171,13 @@
     box-sizing: border-box;
 }
 
-.nav-select{
+.nav-select{ 
     font-family: 'Roboto';
     width: 30%;
+}
+
+.nav-select select{
+    cursor: pointer;
 }
 
 .border{
@@ -267,6 +273,7 @@
     padding: 10px 25px;
     box-sizing: border-box;
     border-radius: 2px;
+    cursor:pointer;
 }
 
 .posting-listing-buttons{
@@ -276,6 +283,7 @@
 
 .apply-to-job{
     background-color: rgb(27, 31, 29);
+    cursor: pointer;
 }
 
 .posting-listing-buttons, .apply-to-job{

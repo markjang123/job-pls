@@ -31,6 +31,10 @@ function UserShow(){
         };
     }
 
+    function showTabIsSelected(tabName,tab){
+        return tabName === tab ? 'selectedShowTab' : null
+    }
+
     function setNewTab(e, tabName) {
         e.preventDefault();
         e.stopPropagation();
@@ -50,12 +54,14 @@ function UserShow(){
                             <div
                                 className="tab"
                                 onClick={e => setNewTab( e, 'followers')}
+                                id={showTabIsSelected('followers',tab )}
                                 >
                                 Followers ({[...new Set(user.following_users)].length})
                             </div>
                             <div
                                 className="tab"
                                 onClick={e => setNewTab( e, 'following')}
+                                id={showTabIsSelected('following',tab )}
                                 >
                                 Following ({[...new Set(user.followed_users)].length})
                             </div>

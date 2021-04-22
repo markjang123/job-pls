@@ -74,6 +74,7 @@
     height: 85px;
     overflow-wrap: break-word;
     box-sizing: border-box;
+    cursor:pointer;
 }
 
 .search-result-card:hover .card-info-container{

@@ -28,7 +28,7 @@ const PostingsReducer = (state = initialState, action) => {
         newState.user = action.postings.data;
         return newState;
     case RECEIVE_NEW_POSTING:
-        newState.new = action.posting.data;
+        newState.new.push(action.posting.data);
         newState.user.push(action.posting.data);
         return newState;
     case UPDATE_POSTING:

@@ -14,7 +14,6 @@ const validatePostingInput = require('../../validation/postings');
 router.get('/user/:user_id', (req, res) => {
     User.findById(req.params.user_id)
     .then(user => {
-        // console.log("/api/posting/user/:user_id", req.params.user_id)
         Posting.find({_id: {$in : user.followed_posting}})
             .then(postings => {
                 res.json(postings)})
