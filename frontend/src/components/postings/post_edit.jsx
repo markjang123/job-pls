@@ -5,6 +5,7 @@ import { deletePosting, fetchCurrentUserPostings, updateAPosting } from '../../a
 
 
 function PostEdit({post}){
+    console.log(post)
 
     const editFormPublic = useRef(null)
     const dispatch = useDispatch()
@@ -38,7 +39,7 @@ function PostEdit({post}){
                 </div>
     }
     return  <div className="newPost-edit">
-                <form ref={editFormPublic} onSubmit={e => handleSubmit(e)} autocomplete="off">
+                <form ref={editFormPublic} onSubmit={e => handleSubmit(e)} autoComplete="off">
                     <p id='notes'>Notes</p>
                         <div className="radio-toolbar">
                             <div className='label-header'>
@@ -129,8 +130,10 @@ function PostEdit({post}){
                             </div>
                         </div>
 
-                    <button type="submit" id='save-change-button' value="Save Changes">Save Changes</button>
-                    <button onClick={handleDelete} id='delete-job-button' value="Delete Job">Delete Job</button>
+                    <div>
+                        <button type="submit" id='save-change-button' value="Save Changes">Save Changes</button>
+                        <button onClick={handleDelete} id='delete-job-button' value="Delete Job">Delete Job</button>
+                    </div>
                 </form>
             </div>
 }

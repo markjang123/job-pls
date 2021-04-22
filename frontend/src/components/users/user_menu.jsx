@@ -54,9 +54,7 @@ function UserMenu(){
         }
     }
 
-    function setNewTab(e, tabName) {
-        e.preventDefault();
-        e.stopPropagation();
+    function setNewTab(tabName) {
         setTab(tabName);
     }
 
@@ -67,7 +65,8 @@ function UserMenu(){
                     className='tab'
                     id="followersTab"
                     type="radio"
-                    onClick={(e) => setNewTab( e, 'followers')}
+                    onClick={() => setNewTab('followers')}
+                    defaultChecked={tab === 'followers'}
                     />
                 <label htmlFor="followersTab">Followers
                     ({[...new Set(currentUser.following_users)].length})</label>
@@ -76,7 +75,8 @@ function UserMenu(){
                     className='tab'
                     id="followingTab"
                     type="radio"
-                    onClick={(e) => setNewTab( e, 'following')}
+                    onClick={() => setNewTab('following')}
+                    defaultChecked={tab === 'following'}
                     />
                 <label htmlFor="followingTab">Following
                     ({[...new Set(currentUser.followed_users)].length})
@@ -86,7 +86,8 @@ function UserMenu(){
                     className='tab'
                     id="usersTab"
                     type="radio"
-                    onClick={(e) => setNewTab( e, 'users')}
+                    onClick={() => setNewTab('users')}
+                    defaultChecked={tab === 'users'}
                     />
                 <label htmlFor="usersTab">All Users 
                     ({[...new Set(users)].length})

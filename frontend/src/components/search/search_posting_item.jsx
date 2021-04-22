@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 
-import { deletePosting, setCurrentPosting } from "../../actions/posting_actions";
+import { deletePosting, fetchCurrentUserPostings, setCurrentPosting } from "../../actions/posting_actions";
 import { savePostingToUser, updateTheCurrentUser } from "../../actions/user_actions";
 import { saveReadyPost } from './create_posting';
 
@@ -30,18 +30,20 @@ function SearchPostingItem({currentUser, currentPosting}){
     }
 
 
-    function handleClick(){
-        let savingPost = saveReadyPost(currentPosting);
+    async function handleClick(){
+        let savingPost = saveReadyPost(currentPosting)
+
         if(saved){
-            alert('The delete button has been disabled to prevent portfolio vandals from clearing all our demo data... again. Rest assured, this button does delete!')
+            alert('The delete button has been disabled to prevent portfolio vandals from clearing all our demo data... again. Rest assured, this button does delete! The functionality still exists but is commented out in search_posting_item.jsx')
             // let newUserArray = currentUser.followed_posting.filter(posting => posting._id !== currentPosting._id );
             // newUserArray = [...new Set(newUserArray)];
-            // dispatch(deletePosting(currentPosting.posting_id))
-            // .then(dispatch(updateTheCurrentUser(currentUser._id,{followed_posting: newUserArray})))
+            // dispatch(deletePosting(currentPosting.posting_id)) ---- This will delete the record in mongoDB
+            // .then(dispatch(updateTheCurrentUser(currentUser._id,{followed_posting: newUserArray}))) ---- This will delete the slice of state where
             // setSaved(oldState => !oldState);
         } else {
             setSaved(oldState => !oldState)
-            dispatch(savePostingToUser(currentUser._id, savingPost))
+            await dispatch(savePostingToUser(currentUser._id, savingPost))
+            await dispatch(fetchCurrentUserPostings(currentUser._id))
         }
     }
 
@@ -77,7 +79,6 @@ function SearchPostingItem({currentUser, currentPosting}){
                     : ""}
                 </div>
                 <div className='posting-listing-buttons'>
-                    {/* <button className="posting-listing-add-button"  */}
                     <div className="posting-listing-add-button" 
                         onClick={() => handleClick()}>
                             { saved 

@@ -13,7 +13,7 @@ const path = require('path');
 
 
 mongoose
-  .connect(db, { useNewUrlParser: true,  useFindAndModify: false   })
+  .connect(db, { useNewUrlParser: true,  useFindAndModify: false, useUnifiedTopology: true   })
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 

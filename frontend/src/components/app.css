@@ -39,9 +39,8 @@
 }
 
 .sidebar-content{
-  width: 20%;
   height: calc( 100% - 1px);
-  width: 355px;
+  width: 360px;
   min-width: 215px;
   box-sizing: border-box;
   display: flex;

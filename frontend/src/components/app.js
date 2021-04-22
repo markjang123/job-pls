@@ -3,10 +3,10 @@ import { Switch } from 'react-router-dom';
 import PostIndex from './postings/post_index';
 import PrioritizedPosts from './postings/prioritized_posts';
 import PostShow from './postings/post_show';
-import Modal from './modal/Modal.jsx';
+import Modal from './modal/modal.jsx';
 import SearchTab from './search/search_tab';
 import { AuthRoute, ProtectedRoute} from '../util/route_util';
-import Nav from '../components/nav/Nav'
+import Nav from '../components/nav/nav'
 import NavButtons from './nav/NavButtons';
 import Splash from './splash/splash';
 
